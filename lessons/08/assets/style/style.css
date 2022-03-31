@@ -1,0 +1,107 @@
+.wrap {
+    padding: 50px;
+    text-align: center;
+}
+
+.card {
+    display: inline-block;
+    width: 160px;
+    height: 350px;
+    padding: 60px 20px 20px;
+    border-radius: 10px;
+    background-color: lightyellow;
+    margin: 0 10px;
+    transition: all .2 ease;
+}
+
+.wrap:hover .card:not(:hover) {
+    filter: blur(10px);
+    opacity: .8;
+}
+
+.card:hover {
+    transform: scale(1.2);
+    box-shadow: 0 0 10px #333;
+}
+
+.card p::first-line {
+    font-weight: 700;
+}
+
+
+/* .card p::first-letter{
+    color: red;
+    font-size: 34px;
+} */
+
+
+/* variant #1
+  .card h3+p::first-letter{
+    color: red;
+    font-size: 34px;
+} */
+
+
+/*  variant #2 
+.card p:nth-child(2)::first-letter{
+    color: red;
+    font-size: 34px;
+/* } 
+
+/* variant #3 */
+
+.card p:first-of-type::first-letter {
+    color: var(--color-text);
+    font-size: 34px;
+}
+
+table {
+    width: 600px;
+    border-top: 1px solid #000;
+    border-right: 1px solid #000;
+    border-collapse: collapse;
+}
+
+table td,
+table th {
+    border-bottom: 1px solid #000;
+    border-left: 1px solid #000;
+    padding: 3px 10px;
+}
+
+table tbody tr {
+    background-color: #FF9F1C;
+}
+
+table tbody tr:nth-child(2n+1) {
+    background-color: #FFBF69;
+}
+
+:root {
+    --color-text: #FF8984;
+}
+
+table tbody tr:first-child {
+    color: var(--color-text);
+    font-size: 24px;
+}
+
+table tbody tr:last-child {
+    background-color: #CBF3F0;
+}
+
+.menu {
+    width: 600px;
+    border: 1px solid #000;
+    list-style: none;
+}
+
+
+/* .menu li:last-child {
+    margin-bottom: 0;
+} */
+
+.menu li+li {
+    margin-top: 20px;
+    border: 1px solid #000;
+}

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form method="GET" action="https://www.google.com/search" target="_blanck">
+        <input type="text" name="q" placeholder="Enter search query">
+        <!-- <input type="submit" value="Search"> -->
+        <button type="submit">Search</button>
+        <button type="button" disabled>Simple button</button>
+        <button type="reset">Clear</button>
+        <br><br>
+    </form>
+    <form method="POST" action="#">
+        <fieldset>
+            <legend>Personal info</legend>
+            <label for="fname">First name</label>
+            <br><input id="fname" type="text" name="fname" placeholder="Enter name">
+            <br><label for="Email">Email</label>
+            <br><input id="Email" placeholder="Enter email" type="email" name="Email">
+        </fieldset>
+
+        <fieldset>
+            <legend>Checkboxes</legend>
+            <label><input type="checkbox" name="skill[]" value="HTML5" checked>HTML5</label>
+            <br><input id="skill_css" type="checkbox" name="skill[]" value="CSS3"><label for="skill_css">CSS3</label>
+            <br><label><input type="checkbox" name="skill[]" value="JS">JavaScript</label>
+        </fieldset>
+
+        <fieldset>
+            <legend>RadioButtons</legend>
+            <label><input type="radio" name="gender" value="man">Man</label>
+            <br><input id="gender" type="radio" name="gender" value="woman" checked><label for="gender">Woman</label>
+            <br><label><input type="radio" name="gender" value="other">Other</label>
+        </fieldset>
+
+        <fieldset>
+            <legend>Selects</legend>
+
+            <select name="drink[]" multiple size="9">
+                <optgroup label="Non alcohol">
+                    <!-- <option value="000">Select drink</option> -->
+                    <option value="001">Tea</option>
+                    <option value="002">Coffe</option>
+                    <option value="003" selected>Cola</option>
+                    <option value="004">Juse</option>
+                </optgroup>
+                <optgroup label="Alcohol">
+                    <option value="005" disabled>Ale</option>
+                    <option value="006">Beer</option>
+                    <option value="007">Cidre</option>
+                </optgroup>
+
+            </select>
+        </fieldset>
+
+    </form>
+</body>
+
+</html>

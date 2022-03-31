@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>000</title>
+    <link rel="stylesheet" href="assets/style/style.css">
+</head>
+
+<body>
+    <div class="pageWrap">
+
+        <header>
+            <div class="container">
+                <div id="logo">
+                    <a href="/">Logo</a>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#">Main</a></li>
+                        <li> <a href="#">About</a></li>
+                        <li> <a href="#">Contacts</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <main>
+            <div class="container">
+                <!-- <div class="container">
+                    <form method="GET" action="https://www.google.com/search" target="_blanck">
+                        <input type="text" name="q" placeholder="Enter search query">
+                
+                        <button type="submit">Search</button>
+                        <br><br>
+                    </form>
+                </div>
+                <div class="container">
+                    <form method="post" enctype="multipart/form-data"  action="#" target="_blanck">
+                         <input type="file" name="avatar">
+                        АРХИ-ВАЖЛИВО для відправки файлів вказувати ->  enctype="multipart/form-data" 
+                        <input type="text" name="name" value="Username">
+                        АРХИ-ВАЖЛИВО вказувати унікальний нейм для отримання данних на сервер 
+                        <br>
+                        <input type="text" name="emaol" value="qwe@domain.com">
+                        <br>
+                        <input type="text" name="qqq" value="qqq">
+                        <br>
+                        <label> <input type="radio" name="gender" value="Man">Man</label>
+                        <label> <input type="radio" name="gender" value="Woman">Woman</label>
+                        <label> <input type="radio" name="gender" value="Other">Other</label>
+                        <br>
+                        <label> <input type="checkbox" name="tech[]" value="html">html</label>
+                        <label> <input type="checkbox" name="tech[]" value="CSS">CSS</label>
+                        <label> <input type="checkbox" name="tech[]" value="JS">JS</label>
+                        <br>
+                        <select name="drink[]" multiple size="9">
+                            <optgroup label="Non alcohol">
+                                <option value="001">Tea</option>
+                                <option value="002">Coffe</option>
+                                <option value="003" selected>Cola</option>
+                                <option value="004">Juse</option>
+                            </optgroup>
+                            <optgroup label="Alcohol">
+                                <option value="005" disabled>Ale</option>
+                                <option value="006">Beer</option>
+                                <option value="007">Cidre</option>
+                            </optgroup>
+                        </select>
+                        <button type="submit">Send</button>
+                    </form>
+                </div> -->
+
+
+                <div class="formWrap">
+
+                    <form action="#" method="post" enctype="multipart/form-data">
+                        <div class="formElem">
+                            <label for="name"> Enter your name</label>
+                            <input type="text" name="fullName" placeholder="Min name length: 2 characters">
+                        </div>
+
+                        <div class="formElem">
+                            <label for="email"> Enter your email</label>
+                            <input type="email" name="email" placeholder="email@domain.com">
+                        </div>
+                        <div class="formElem">
+                            <label for="cars" ig="cars"> Car</label>
+                            <select name="cars" id="cars">
+                                <option>Peugeo</option>
+                                <option>BMW</option>
+                                <option>Audi</option>
+                                <option>tesla</option>
+                                <option>ЗАЗ</option>
+                            </select>
+                        </div>
+                        <div class="formElem">
+                            <label for="msg">Message</label>
+                            <textarea name="msg" id="msg"> Lorem ipsum dolor sit amet. </textarea>
+                        </div>
+
+                        <div class="formElem">
+                            <div class="formRadio">
+                                <input type="radio" name="gender" value="Man" id="man" checked>
+                                <label for="man"> Man</label>
+                            </div>
+                            <div class="formRadio">
+
+                                <input type="radio" name="gender" value="Woman" id="woman">
+                                <label for="woman"> Woman</label>
+
+                            </div>
+                            <div class="formRadio">
+                                <input type="radio" name="gender" value="Other" id="other" disabled>
+                                <label for="other"> Other</label>
+                            </div>
+
+
+                        </div>
+                        <div class="formElem">
+                            <div class="formRadio">
+                                <input type="checkbox" name="tech[]" value="html" id="html">
+                                <label for="html"> html</label>
+                            </div>
+                            <div class="formRadio">
+                                <input type="checkbox" name="tech[]" value="CSS" id="CSS">
+                                <label for="CSS"> CSS</label>
+                            </div>
+                            <div class="formRadio">
+                                <input type="checkbox" name="tech[]" value="JS" id="JS">
+                                <label for="JS"> JS</label>
+                            </div>
+                        </div>
+
+                        <div class="formElem">
+                            <div class="fakeFileWrap">
+                                <div class="fakeFile"> Click or drag-n-drop file </div>
+
+                                <input type="file" name="avatar">
+                            </div>
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </main>
+        <footer>
+
+        </footer>
+    </div>
+
+</body>
+
+</html>

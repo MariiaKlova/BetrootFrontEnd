@@ -1,0 +1,74 @@
+:root {
+    --main: #1275b9;
+    --dark: #4C4B63 ; 
+    --light: #949396;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    background-color: var(--main);
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+    line-height: 25px;
+
+    color: #070707;
+    font-size: 16px;
+}
+
+.wrapper{
+    background-color: #fff;
+    padding: 50px;
+    margin: 50px;
+    text-align: center;
+}
+
+.icon{
+    display: inline-block;
+    margin: 0 20px;
+    width: 63px;
+    height: 63px;
+    border-radius: 50%;
+    border: 1px solid var(--main);
+    background-color: var(--main);
+
+    /* background: #000 url() left top no-repeat; */
+    background-image: url('../images/sprite.png');
+    background-repeat: no-repeat;
+    /* transition: all .5s ease; */
+}
+.icon:hover{
+    background-color: #fff;
+}
+
+
+.iconTablet{
+    background-position: 19px 15px;
+}
+.iconCog{
+    background-position: -81px 15px;
+}
+.iconDash{
+    background-position: -190px 15px;
+}
+
+
+.iconTablet:hover{
+    background-position: 19px -54px;
+}
+.iconCog:hover{
+    background-position: -81px -54px;
+}
+.iconDash:hover{
+    background-position: -190px -54px;
+}
+

@@ -1,0 +1,171 @@
+:root {
+    --hover-card: #18B5DC;
+    --card-name: #282528;
+    --title-subtitle-text: #3C3C3C;
+    --place: #646464;
+    --divider: #DDDBDB;
+}
+
+*, *::before, *::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    background-color: #fff;
+    font-family: 'Lato', sans-serif;
+    color: var(--title-subtitle-text);
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+a, button {
+    transition: all .2s ease;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+.pageWrap {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.sectionTop {
+    width: 570px;
+    margin: 100px auto 60px;
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+h1 {
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 34px;
+    line-height: 41px;
+    margin-bottom: 40px;
+    letter-spacing: 5px;
+}
+
+h1:after {
+    content: '';
+    width: 45px;
+    border-bottom: 4px solid var(--divider);
+    display: block;
+    margin: 0 auto;
+    margin-top: 10px;
+}
+
+.sectionTeam {
+    width: 1170px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.teamItem {
+    width: 270px;
+}
+
+.card {
+    background-color: transparent;
+    width: 270px;
+    height: 270px;
+    perspective: 1000px;
+    margin-bottom: 20px;
+}
+
+.inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.card:hover .inner {
+    transform: rotateX(-180deg);
+}
+
+.front, .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    /* Safari */
+    backface-visibility: hidden;
+}
+
+.back {
+    background-color: var(--hover-card);
+    transform: rotateX(-180deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.back ul {
+    display: flex;
+    justify-content: center;
+}
+
+.back ul li {
+    width: 42px;
+    height: 42px;
+    background-color: rgba(255, 255, 255, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 4px;
+    color: #fff;
+    transform: scale(1);
+}
+
+.back ul li:hover {
+    transform: scale(1.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon-tw:before {
+    content: "\e902";
+}
+
+.icon-fb:before {
+    content: "\e900";
+}
+
+.icon-in:before {
+    content: "\e901";
+}
+
+.name {
+    color: var(--card-name);
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.place{
+    color: var(--place);
+    font-size: 18px;
+}

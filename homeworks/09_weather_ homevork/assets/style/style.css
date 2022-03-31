@@ -1,0 +1,118 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    background-color: #3399CC;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    line-height: 19px;
+    border: 15px solid #2B81AC;
+}
+h1{
+    font-size: 18px;
+    line-height: 18px;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.container {
+    width: 90%;
+    max-width: 540px;
+    margin: 0 auto;
+    padding-top: 20px;
+}
+
+ .weather {
+    font-size: 0;
+    margin-bottom: 20px;
+    background-color: #fff;
+    padding: 3px 3px 0 0;
+
+    /* solution with flex */
+
+    /* display: flex;
+    flex-wrap: wrap; */
+} 
+
+.weather li {
+    padding: 0 0 3px 3px;
+    font-size: 16px;
+    list-style: none;
+    display: inline-block;
+    width: 25%;
+    text-align: center;
+}
+
+.city{
+    font-size: 16px;
+    font-weight: 700;
+    padding-top: 16px;
+    padding-bottom: 4px;
+}
+.temp{
+    font-size: 18px;
+    font-weight: 400;
+    padding-bottom: 19px;
+}
+.weather li div {
+    transition: all .1s ease-in;
+}
+
+.weather:hover li:not(:hover) {
+    filter: opacity(50%);
+}
+
+li.width50 {
+    width: 50%;
+    /* flex-basis: 50%; */
+}
+
+li.width100 {
+    width: 100%;
+    /* flex-basis: 100%; */
+}
+.wi{
+    font-weight: 700;
+}
+.blue{
+    background-color: #3399CC;
+}
+.lightblue{
+   background-color: #33CCCC; 
+}
+.purple{
+  background-color: #996699;  
+}
+.red{
+    background-color: #C24747;
+}
+.orange{
+    background-color: #E2674A;
+}
+.yellow{
+    background-color: #FFCC66;
+}
+.lightgreen{
+    background-color: #99CC99;
+}
+.mint{
+    background-color: #669999;
+}
+.pink{
+    background-color: #CC6699;
+}
+.green{
+    background-color: #339966;
+}
+.violet{
+    background-color: #666699;
+}

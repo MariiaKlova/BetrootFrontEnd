@@ -1,0 +1,137 @@
+:root {
+    --bright: #a60c3e;
+    --soft: #f8f8f8;
+    --dark: ;
+    --light: #d4ebe3;
+}
+
+*, *::before, *::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    background-color: #fff;
+    font-family: 'Arima Madurai', cursive;
+    color: #070707;
+    font-size: 1rem;
+    line-height: 1.5rem;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+
+.subtitle{
+    font-weight: 300;
+    padding: 20px 0 0 10%;
+}
+
+.container {
+    width: 80vw;
+    height: 85vh;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+
+}
+
+.imgWrap {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    top: 48%;
+    margin-top: -100px;
+    margin-left: 20px;
+    z-index: 2;
+    transition: all .8s ease;
+}
+
+
+.imgWrap img,
+.card,
+.card a{
+    width: 100%;
+    height: 100%;
+}
+
+.container:hover .card:not(:hover){
+    filter: opacity(50%);
+}
+
+.card{
+    overflow: hidden;
+}
+
+.card a{
+    position: relative;
+    display: block;
+}
+
+
+.left{
+    background-color: var(--light);
+}
+
+.right{
+    background-color: var(--soft);
+}
+
+.linkLable {
+    transform: rotate(270deg) scale(1);
+    display: block;
+    position: absolute;
+    font-weight: 900;
+    font-size: 40px;
+    text-transform: uppercase;
+}
+
+.lessons {
+    transform-origin: left top;
+    transition: all .4s ease;
+    left: 20px;
+    bottom: -20px;
+    color: #fff;
+    
+}
+
+.homeworks {
+    transform-origin: left bottom;
+    transition: all .4s ease;
+    right: -225px;
+    bottom: 5px;
+    color: #94ceb9;
+}
+.card:hover .lessons{
+    transform: rotate(270deg) scale(2.5);
+
+}
+
+.card:hover .homeworks{
+    transform: rotate(270deg) scale(2);
+}
+
+.right:hover + .imgWrap{
+    transform: rotate(-45deg);
+}
+
+.left:hover ~ .imgWrap{
+    transform: rotate(45deg);
+}

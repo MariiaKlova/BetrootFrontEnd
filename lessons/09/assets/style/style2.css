@@ -1,0 +1,79 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+section {
+    padding: 100px;
+    background-color: lightyellow;
+}
+
+.container {
+    width: 95%;
+    max-width: 1600px;
+    margin: 0 auto;
+    border: 2px solid #000;
+}
+
+.clrfix::after {
+    content: '';
+    display: block;
+    clear: both;
+    font-size: 0;
+    line-height: 0;
+}
+
+.card {
+    float: left;
+    padding: 20px;
+    border: 2px solid red;
+    width: 300px;
+    text-align: center;
+}
+
+.card_1 {
+    margin-right: 10px;
+}
+
+.card_3 {
+    float: right;
+}
+
+.pic {
+    display: inline-block;
+    width: 120px;
+    height: 120px;
+    background-color: silver;
+    margin-bottom: 20px;
+}
+
+h3 {
+    margin-bottom: 20px;
+}
+
+p {
+    margin-bottom: 20px;
+}
+
+.card *:last-child {
+    margin-bottom: 0;
+}
+
+.bigPic {
+    display: block;
+    width: 150px;
+    height: 150px;
+    background-color: silver;
+}
+
+.fleft {
+    float: left;
+    margin-right: 20px;
+    : 20px;
+}
+
+.fright {
+    float: right;
+    margin-left: 10px;
+}
