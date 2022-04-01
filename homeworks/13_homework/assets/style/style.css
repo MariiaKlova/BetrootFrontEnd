@@ -111,9 +111,6 @@ input+p {
 
 input[type=text],
 input[type=email],
-input[type=email2],
-input[type=zipCode],
-input[type=tel],
 select,
 .fakeFileWrap,
 .btn {
@@ -128,9 +125,6 @@ select,
 
 input[type=text]:focus,
 input[type=email]:focus,
-input[type=email2]:focus,
-input[type=zipCode]:focus,
-input[type=tel]:focus,
 .fakeFile:focus,
 select:focus {
     background: transparent;
