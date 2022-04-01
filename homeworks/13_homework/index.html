@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/style/icon.css">
+    <link rel="stylesheet" href="assets/style/style.css">
+    <title>Form</title>
+</head>
+
+<body>
+
+    <div class="pageWrap">
+        <div class="container">
+            <div class="formWrap">
+                <form action="#" method="post">
+                    <div class="formElement">
+                        <h1>Create an Account</h1>
+                    </div>
+
+                    <div class="formRow">
+                        <div class="formElement w50">
+                            <label for="FirstName">First Name </label>
+                            <input type="text" name="FirstName">
+                        </div>
+                        <div class="formElement w50">
+                            <label for="LastName">Last Name </label>
+                            <input type="text" name="LastName">
+                        </div>
+                    </div>
+
+                    <div class="formElement">
+                        <label for="email">E-mail</label>
+                        <input type="email" name="email">
+                        <p>We'll never share your email with anyone else. </p>
+                    </div>
+                    <div class="formElement">
+                        <input type="radio" name="gender" value="Man" id="man" checked>
+                        <label for="man"> Man</label>
+                        <input type="radio" name="gender" value="Man" id="female" checked>
+                        <label for="female">Female</label>
+                    </div>
+
+                    <div class="formRow">
+                        <div class="formElement w50">
+                            <label for="country">Country</label>
+                            <select name="country" id="country">
+                                <option>Select</option>
+                                <option>Ukraine</option>
+                                <option>USA</option>
+                                <option>Canada</option>
+                                <option>Poland</option>
+                            </select>
+                        </div>
+                        <div class="formElement w50">
+                            <label for="city">City</label>
+                            <input type="text" name="city">
+                        </div>
+                    </div>
+
+                    <button class="btn" type="submit">Sign Up</button>
+                </form>
+                <p class="pPolici">By clicking the 'Sign Up' button, you confirm that you accept our <a href="#">Terms
+                        of Use</a>
+                    and <a href="#">Privacy Policy. </a></p>
+                <p class="forLogIn">Have an account? <a href="#">Log In</a></p>
+            </div>
+
+            <div class="formWrap">
+                <form action="#" method="post">
+
+                    <div class="formElement">
+                        <h2>Profile</h2>
+                    </div>
+                    <div class="formRow profile">
+                        <div class="formElement">
+                            <img id="avPic" src="assets/images/📷 Image.png" alt="photo">
+                        </div>
+
+                        <div class="formElement feFlex">
+                            <div class="fakeFileWrap">
+                                <div class="fakeFile"> </div>
+                                <input type="file" name="avatar">
+                                <span class="icon-camera"></span>
+                            </div>
+                            <button class="btnDelete"> <span class="icon-bin2"></span> </button>
+                            <p>Up to 1 MB (300x300 px)</p>
+                        </div>
+                        
+                    </div>
+
+                    <div class="formRow">
+                        <div class="formElement w50">
+
+                            <label for="name">Name</label>
+                            <input type="text" name="name">
+                        </div>
+                        <div class="formElement w50">
+                            <label for="email2">E-mail</label>
+                            <input type="email2" name="email2">
+                        </div>
+                    </div>
+
+                    <div class="formRow">
+                        <div class="formElement w50">
+                            <label for="country2">Country</label>
+                            <select name="country2" id="country2">
+                                <option>Select</option>
+                                <option>Ukraine</option>
+                                <option>USA</option>
+                                <option>Canada</option>
+                                <option>Poland</option>
+                            </select>
+                        </div>
+                        <div class="formElement w50">
+                            <label for="city2">City</label>
+                            <input type="text" name="city2">
+                        </div>
+                    </div>
+                    <div class="formRow">
+                        <div class="formElement w50">
+                            <label for="zipCode">Zip Code</label>
+                            <input type="zipCode" name="zipCode">
+                        </div>
+                        <div class="formElement w50">
+                            <label for="tel">Phone Number</label>
+                            <input type="tel" name="tel">
+                        </div>
+                    </div>
+
+                    <button class="btn w30" type="submit">Sign Up</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
