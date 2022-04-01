@@ -180,15 +180,15 @@ input[type=radio]:checked+label::after {
     text-transform: uppercase;
     font-weight: 600;
     cursor: pointer;
-    background-color: #fff;
-    border: 1px solid var(--blue);
-    color: var(--blue);
+    background-color: var(--blue);
+    color: #fff;
     margin-bottom: 22px;
 }
 
 .btn:hover {
-    background-color: var(--blue);
-    color: #fff;
+    background-color: #fff;
+    border: 1px solid var(--blue);
+    color: var(--blue);
 
 }
 
