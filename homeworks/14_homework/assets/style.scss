@@ -1,4 +1,3 @@
-
 $colour_bright: #070707;
 $colour_dark: #070707;
 $colour_light: #070707;
@@ -13,7 +12,9 @@ $text_h2_colour: #070707;
     box-sizing: border-box;
 }
 
-html, body {
+html, 
+body, 
+.page_wrap {
     height: 100%;
     width: 100%;
 }
@@ -49,6 +50,6 @@ ol, ul{
 
 .container{
     width: 90%;
-    max-width: 1600px;
+    max-width: 1110px;
     margin: 0 auto;
 }

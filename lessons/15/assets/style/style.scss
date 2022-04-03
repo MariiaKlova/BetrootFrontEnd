@@ -1,55 +1,104 @@
-*, *::after, *::before{
+$colour_bright: #FFC042;
+$colour_dark: #FF6C48;
+$colour_light: #EBA973;
+
+*,
+*::after,
+*::before {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
-.container{
+.page__container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
 }
 
-.menu{
+.menu {
     font-size: 20px;
     margin-top: 10px;
-    &__list{
+
+    &__list {
         list-style: none;
         display: flex;
     }
-    .list{
-        &__item{
+
+    .list {
+        &__item {
             margin-right: 10px;
+
             &--last {
                 margin-right: 0;
             }
         }
-        &__link{
+
+        &__link {
             color: #000;
+
             &--active,
             &:hover {
-                color: tomato;
+                color: $colour_dark;
             }
         }
     }
 }
 
-.card_wrap{
+.container__cards {
     display: flex;
-
+    justify-content: space-between;
 }
 
 .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px;
     width: 200px;
-    height: 100px;
-    padding: 10px;
-    &_top{
-        display: flex;
-        justify-content: center;
+    height: 400px;
+    background-color: lighten($colour_dark, $amount: 30);
+    position: relative;
+
+    &__image {
+        margin-top: 20px;
+        width: 120px;
+        height: 120px;
+        background-color: $colour_light;
     }
-    &_body{
-        border: 1px solid #000;
+
+    &__content {
+        padding: 10px 10px;
+        flex-grow: 2;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    &__subtitle {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    &__text {
+        text-align: justify;
+    }
+
+}
+
+.btn {
+    display: block;
+    width: 90%;
+    margin: 8px;
+    color: #fff;
+    font-weight: 800;
+
+    &--active {
+        background-color: $colour_dark;
+    }
+    &--disabled{
+        background-color: gray;
     }
 }
