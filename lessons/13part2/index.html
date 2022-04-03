@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Селектор на</title>
+    <link rel="stylesheet" href="assets/plugins/jquery.formstyler.css">
+    <link rel="stylesheet" href="assets/plugins/jquery.formstyler.theme.css">
+
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <div class="page_wrapper">
+        <header>
+            <div class="container">
+                <div id="logo">
+                    <a href="/">Logo</a>
+                </div>
+                <nav id="main_menu">
+                    <ul>
+                        <li><a href="#">Main</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contacts</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <main>
+            <section id="first_screen">
+                <div class="container">
+                    <!-- <form method="post" enctype="multipart/form-data" action="http://127.0.0.1/form_test/?param1=foo&param2=bar&name=Bob&filter[]=from_12&filter[]=from_25" target="_blank">
+                        <input type="text" name="name" value="Username" disabled>
+                        <br>
+                        <input type="email" name="email" value="qwe@domain.com">
+                        <br>
+                        <input type="text" name="some" value="QQQQ">
+                        <br>
+                        <label><input type="radio" name="gender" value="man" checked> Man</label><br>
+                        <label><input type="radio" name="gender" value="woman"> Woman</label><br>
+                        <label><input type="radio" name="gender" value="other"> Other</label><br>
+                        <br>
+                        <label><input type="checkbox" name="tech[]" value="html" disabled> HTML</label><br>
+                        <label><input type="checkbox" name="tech[]" value="css"> CSS</label><br>
+                        <label><input type="checkbox" name="tech[]" value="js"> JS</label><br>
+                        <br>
+                        <select name="drink[]" multiple>
+                            <option value="beer">Beer</option>
+                            <option value="cola">Coca cola</option>
+                            <option value="milk">Milk</option>
+                            <option>Water</option>
+                        </select>
+                        <br>
+                        <input type="file" name="avatar">
+                        <button type="submit">Send</button>
+                    </form> -->
+                    <div class="form_wrap">
+                        <form method="post" action="#">
+                            <div class="form_elem">
+                                <label for="name">Enter your name</label>
+                                <input type="text" name="full_name" id="name"
+                                    placeholder="Min name length: 2 characters">
+                            </div>
+                            <div class="form_elem">
+                                <label for="email">Enter your email</label>
+                                <input type="email" id="email" name="email">
+                            </div>
+                            <div class="form_elem">
+                                <label for="cars"> Car</label>
+                                <select name="cars" id="cars" data-placeholder="Select car">
+                                    <option></option>
+                                    <option>Peugeot</option>
+                                    <option>BMW</option>
+                                    <option>Audi</option>
+                                    <option>Tesla</option>
+                                    <option>ЗАЗ</option>
+                                    <option>Пункт 1</option>
+                                    <option>Пункт 2</option>
+                                    <option>Пункт 3</option>
+                                    <option>Пункт 4</option>
+                                    <option>Пункт 5</option>
+                                    <option>Пункт 6</option>
+                                    <option>Пункт 7</option>
+                                    <option>Пункт 8</option>
+                                    <option>Пункт 9</option>
+                                    <option>Пункт 10</option>
+                                    <option>Пункт 11</option>
+                                    <option>Пункт 12</option>
+                                    <option>Пункт 13</option>
+                                    <option>Пункт 14</option>
+                                    <option>Пункт 15</option>
+                                    <option>Пункт 16</option>
+                                    <option>Пункт 17</option>
+                                    <option>Пункт 18</option>
+                                    <option>Пункт 19</option>
+                                    <option>Пункт 20</option>
+                                    <option>Пункт 21</option>
+                                    <option>Пункт 22</option>
+                                    <option>Пункт 23</option>
+                                    <option>Пункт 24</option>
+                                    <option>Пункт 25</option>
+                                    <option>Пункт 26</option>
+                                    <option>Пункт 27</option>
+                                    <option>Пункт 28</option>
+                                    <option>Пункт 29</option>
+                                    <option>Пункт 30</option>
+                                </select>
+                            </div>
+                            <div class="form_elem">
+                                <label for="msg">Message</label>
+                                <textarea name="msg" id="msg">Lorem ipsum dolor sit.</textarea>
+                            </div>
+                            <div class="form_elem">
+                                <div class="form_radio">
+                                    <input type="radio" name="gender" value="man" id="man">
+                                    <label for="man">Man</label>
+                                </div>
+                                <div class="form_radio">
+                                    <input type="radio" name="gender" value="woman" id="woman" checked>
+                                    <label for="woman">Woman</label>
+                                </div>
+                            </div>
+                            <div class="form_elem">
+                                <div class="form_checkbox">
+                                    <input type="checkbox" name="tech[]" value="html" id="html">
+                                    <label for="html">HTML</label>
+                                </div>
+                                <div class="form_checkbox">
+                                    <input type="checkbox" name="tech[]" value="css" id="css">
+                                    <label for="css">CSS</label>
+                                </div>
+                                <div class="form_checkbox">
+                                    <input type="checkbox" name="tech[]" value="js" id="js">
+                                    <label for="js">JavaScript</label>
+                                </div>
+                                <div class="form_elem">
+                                    <div class="fake_file_wrap">
+                                        <div class="fake_file">Click or drag-n-drow file</div>
+                                        <input type="file">
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+        <footer>
+
+        </footer>
+    </div>
+
+    <script src="assets/js/jquery-3.6.0.slim.min.js"></script>
+    <script src="assets/plugins/jquery.formstyler.min.js"></script>
+    <script>
+        (function ($) {
+            $(function () {
+
+                $('input[type="radio"], select').styler({
+                    selectSearch: true
+                });
+            });
+
+        })(jQuery);
+    </script>
+</body>
+
+</html>

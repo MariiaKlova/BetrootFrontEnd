@@ -1,0 +1,55 @@
+*, *::after, *::before{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.menu{
+    font-size: 20px;
+    margin-top: 10px;
+    &__list{
+        list-style: none;
+        display: flex;
+    }
+    .list{
+        &__item{
+            margin-right: 10px;
+            &--last {
+                margin-right: 0;
+            }
+        }
+        &__link{
+            color: #000;
+            &--active,
+            &:hover {
+                color: tomato;
+            }
+        }
+    }
+}
+
+.card_wrap{
+    display: flex;
+
+}
+
+.card {
+    width: 200px;
+    height: 100px;
+    padding: 10px;
+    &_top{
+        display: flex;
+        justify-content: center;
+    }
+    &_body{
+        border: 1px solid #000;
+    }
+}

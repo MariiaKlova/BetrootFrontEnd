@@ -1,0 +1,127 @@
+$text_color:#232323;
+$active_color: #800080;
+$linc_color: tomato;
+$font_size: 1.1rem;
+$base_margin: 1.7rem;
+$base_fz: 16;
+
+@mixin border-radius($rad) {
+    border-radius: $rad;
+    -moz-border-radius: $rad;
+    -webkit-border-radius: $rad;
+    -o-border-radius: $rad;
+    -ms-border-radius: $rad;
+}
+@mixin heading_text($color, $size, $mb) {
+    color: $color;
+    font-size: $size;
+    // border-bottom: 1px solid gray;
+    margin-bottom: $mb;
+}
+
+@mixin fz($size_in_px){
+    font-size:($size_in_px/$base_fz)+rem;
+  }
+
+@import '_form';
+
+*, *::after, *::before{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    color: $text_color;
+    font-size: $font_size;
+}
+
+h1{
+    @include heading_text(gray, 48px, 20px )
+}
+
+
+p{
+    color: $active_color;
+    @include border-radius(4px)
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+#mainMenu{
+    padding-top: 10px;
+    ul{
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        li{
+            margin: 0 10px;
+            a{
+                text-decoration: none;
+                color: $linc_color;
+                &:hover{
+                    color: darken($linc_color, 20);
+                }
+            }
+            &:last-child{
+                margin-right: 0;
+            }
+        }
+    }
+}
+.card_wrap{
+    display: flex;
+
+}
+
+.card{
+    width: 200px;
+    height: 100px;
+    padding: 10px;
+    margin-bottom: $base_margin;
+    &_top{
+        background-color: lighten($linc_color, 20);
+        display: flex;
+        justify-content: center;
+    }
+    &_body{
+        border: 1px solid #000;
+    }
+}
+
+.btn{
+    height: 30px;
+    cursor: pointer;
+    @include fz(20);
+    padding: 0 15px;
+    color: #000;
+    @include border-radius(5px)
+}
+
+.btn-red{
+    @extend .btn;
+    background-color: $linc_color;
+    color: #fff;
+}
+
+.btn-big{
+    @extend .btn;
+    @include fz(24);
+    height: 40px;
+}
+
+.btn-red-big{
+    @extend .btn-big;
+    @extend .btn-red;
+}
+
+.flex_radio{
+    display: flex;
+    justify-content: center;
+}

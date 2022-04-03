@@ -1,9 +1,4 @@
-:root {
-    --dark-green: #28666E ; 
-    --light-green:#7C9885;
-    --dark-yellow: #FEDC97 ; 
-    --light-yellow: #fff6e3 ;
-}
+
 
 *, *::before, *::after {
     padding: 0;
@@ -51,7 +46,7 @@ ol, ul{
 }
 
 header{
-    background-color: var(--light-green);
+    background-color: rgba(128, 0, 128, 0.644);
     height: 100px;
     position: fixed;
     width: 100%;
@@ -68,6 +63,7 @@ header .container{
 #logo{
  font-size: 2.6rem;
  font-weight: 600;
+ padding: 20px;
 }
 
 #logo a{
@@ -95,7 +91,7 @@ main {
 }
 
 footer{
- background-color: var(--dark-green);
+ background-color: gray;
  padding: 60px;
 }
 

@@ -8,6 +8,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/plugins/jquery.formstyler.css">
+    <link rel="stylesheet" href="assets/plugins/jquery.formstyler.theme.css">
     <link rel="stylesheet" href="assets/style/icon.css">
     <link rel="stylesheet" href="assets/style/style.css">
     <title>Form</title>
@@ -50,7 +52,7 @@
                         <div class="formElement w50">
                             <label for="country">Country</label>
                             <select name="country" id="country">
-                                <option>Select</option>
+                                <option></option>
                                 <option>Ukraine</option>
                                 <option>USA</option>
                                 <option>Canada</option>
@@ -79,7 +81,7 @@
                     </div>
                     <div class="formRow profile">
                         <div class="formElement">
-                            <img id="avPic" src="assets/images/ava.png" alt="photo"> 
+                            <img id="avPic" src="assets/images/ava.png" alt="photo">
                         </div>
 
                         <div class="formElement feFlex">
@@ -91,7 +93,7 @@
                             <button class="btnDelete"> <span class="icon-bin2"></span> </button>
                             <p>Up to 1 MB (300x300 px)</p>
                         </div>
-                        
+
                     </div>
 
                     <div class="formRow">
@@ -110,7 +112,7 @@
                         <div class="formElement w50">
                             <label for="country2">Country</label>
                             <select name="country2" id="country2">
-                                <option>Select</option>
+                                <option></option>
                                 <option>Ukraine</option>
                                 <option>USA</option>
                                 <option>Canada</option>
@@ -139,6 +141,23 @@
             </div>
         </div>
     </div>
+
+
+    <script src="assets/js/jquery-3.6.0.slim.min.js"></script>
+    <script src="assets/plugins/jquery.formstyler.min.js"></script>
+    <script>
+        (function ($) {
+            $(function () {
+
+                $('select').styler({
+                    selectSearch: true,
+
+                    selectPlaceholder:"Select",
+                });
+            });
+
+        })(jQuery);
+    </script>
 
 </body>
 
