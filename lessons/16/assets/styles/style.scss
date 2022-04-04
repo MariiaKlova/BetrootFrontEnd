@@ -1,0 +1,104 @@
+$colour_dark: #3909E3;
+$colour_light: #094DE3;
+
+*,
+*::before,
+*::after {
+    padding: 0;
+    margin: 0;
+    position: relative;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    background-color: #fff;
+    font-size: 1rem;
+    line-height: 1.5rem;
+}
+
+main {
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+a,
+button {
+    transition: all .2s ease;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+// var1 
+.page_background {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background-image: url('../images/megafon.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 1;
+    opacity: 0.2;
+}
+
+.container {
+    width: 800px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.card {
+    width: 100px;
+    height: 100px;
+    padding: 10px;
+    margin: 40px;
+    background-color: lighten($colour_light, 20);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    //  var3  
+    svg:hover {
+        path {
+            fill: red;
+        }
+    }
+}
+
+.card_big {
+    @extend .card;
+    width: 300px;
+
+    svg {
+        width: 50px;
+        height: 50px;
+        margin: 10px;
+        fill: #fff;
+
+        &:hover {
+            fill: $colour_dark;
+        }
+    }
+}
