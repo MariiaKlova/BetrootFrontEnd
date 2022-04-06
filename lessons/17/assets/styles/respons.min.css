@@ -1,0 +1,1 @@
+@media screen and (max-width:800px){.flex{flex-wrap:wrap}.flex>div{width:100%}}@media screen and (max-width:640px){.flex>div{margin-bottom:30px}}@media screen and (max-width:480px){.flex>div.pic{display:none}}
