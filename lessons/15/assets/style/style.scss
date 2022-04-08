@@ -1,6 +1,6 @@
 $colour_bright: #FFC042;
 $colour_dark: #FF6C48;
-$colour_light: #EBA973;
+$colour_light: #fac9a0;
 
 *,
 *::after,
@@ -8,6 +8,10 @@ $colour_light: #EBA973;
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+}
+
+body{
+    background-color: $colour_light;
 }
 
 .page__container {
@@ -59,10 +63,11 @@ $colour_light: #EBA973;
     margin: 20px;
     width: 200px;
     height: 400px;
-    background-color: lighten($colour_dark, $amount: 30);
+    background-color: #fff;
+    border: 2px solid $colour_dark;
     position: relative;
 
-    &__image {
+    img {
         margin-top: 20px;
         width: 120px;
         height: 120px;
@@ -89,6 +94,7 @@ $colour_light: #EBA973;
 }
 
 .btn {
+    cursor: pointer;
     display: block;
     width: 90%;
     margin: 8px;
