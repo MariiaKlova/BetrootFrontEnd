@@ -1,13 +1,17 @@
+@import 'hamburger';
+
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    
 }
 
 html,
 body {
     height: 100%;
     width: 100%;
+    position: relative;
 }
 
 body {
@@ -17,6 +21,9 @@ body {
     font-size: 18px;
     line-height: 21.83px;
     color: #070707;
+    &.lock{
+        overflow: hidden;
+    }
 }
 
 .container {
@@ -45,7 +52,67 @@ h2 {
     align-items: center;
 }
 
+/* ------------------- BURGER, SIDEBAR  ----------------------*/
+
+.burger_menu {
+    display: none;
+    position: absolute;
+    right: 10px;
+    top: 0;
+    z-index: 13;
+}
+#sidebar{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: #ffffff;
+    padding: 20px;
+    height: 100vh;
+    z-index: 12;
+    transform: translateX(105%);
+    transition: all .5s ease;
+    &.open{
+        transform: translateX(0);
+    }
+
+}
+
+#side_menu ul{
+    padding-top: 25px;
+    list-style: none;
+    li{
+        font-weight: bold;
+        font-size: 34px;
+        margin-bottom: 68px;
+        a {
+            text-decoration: none;
+            color: #828282;
+            &.active,
+            &:hover{
+                color: #090909;
+            }
+        }
+    }
+}
+
+#sidebar .lang{
+    position: absolute;
+    right: 30px;
+    bottom: 10px;
+    font-size: 34px;
+    font-weight: bold;
+    transform: rotate(90deg);
+    transform-origin: right top;
+    // margin: 0px 20px 100px 0px;
+}
+
+
+
+
 /* ------------------- HRADER ----------------------*/
+
 
 #main_menu ul {
     font-size: 18px;
@@ -111,7 +178,7 @@ h2 {
     margin: 0px 0 12px -6px;
 }
 
-.lang {
+#denis_novik .lang {
     font-size: 16px;
     line-height: 19.81px;
     font-weight: bold;
@@ -134,7 +201,7 @@ h2 {
     width: 100%;
     height: 400px;
     background-size: cover;
-    background-position: center;
+    background-position: center top 45%;
 }
 
 /* ------------------------ About me ------------------ */
@@ -254,7 +321,8 @@ button {
 
 }
 
-.social_icon_block {
+.social_icon_block ul {
+    list-style: none;
     width: 340px;
     display: flex;
     justify-content: space-between;
@@ -303,70 +371,4 @@ p.like_me {
 
 .icon-star:before {
     content: "\e900";
-}
-
-
-@media screen and (max-width: 768px) {
-    .programs_item {
-        flex-basis: 50%;
-        margin-bottom: 85px;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    #header .container {
-        display: none;
-    }
-
-    .content {
-        width: 320px;
-    }
-
-    /* ------------------------ Denis Novik ----------------- */
-    #denis_novik .container {
-        margin: 65px auto 105px;
-    }
-
-    #denis_novik .flexBox {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        margin-bottom: 37px;
-
-        .subTitle {
-            width: 155px;
-        }
-    }
-
-    #denis_novik h1 {
-        margin-bottom: 23px;
-    }
-
-    .lang {
-        display: none;
-    }
-
-    #denis_novik .image_block {
-        width: 100%;
-        height: 100vh;
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
-    }
-
-    /* ------------------------ Skills ------------------ */
-
-    .programs_item {
-        flex-basis: 100%;
-    }
-
-    /* -------------------   FOOTER  --------------  */
-
-    button {
-        width: 100%;
-    }
-
-    .social_icon_block {
-        width: 100%;
-    }
 }

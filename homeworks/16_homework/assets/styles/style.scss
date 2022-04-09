@@ -183,8 +183,6 @@ header {
     }
 }
 
-
-
 .card:hover .card_icon {
     
     svg {
@@ -207,9 +205,6 @@ header {
 }
 
 
-
-
-
 footer {
     background-color: #16133D;
 
@@ -221,7 +216,7 @@ footer {
         }
     }
 
-    .socials {
+    .socials ul{
         display: flex;
         gap: 8px;
         margin-bottom: 45px;
@@ -248,10 +243,7 @@ footer {
             color: $colour_icon_green1;
         }
     }
-
-
 }
-
 
 
 .icon-dr:before {

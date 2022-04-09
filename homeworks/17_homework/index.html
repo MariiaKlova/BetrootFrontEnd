@@ -7,29 +7,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Denis Novik</title>
 
-    <link rel="stylesheet" href="assets/style/burger.css">
     <link rel="stylesheet" href="assets/style/icon.css">
     <link rel="stylesheet" href="assets/style/gilroy.css">
     <link rel="stylesheet" href="assets/style/style.min.css">
+    <link rel="stylesheet" href="assets/style/_response.min.css">
 </head>
 
 <body>
+    <!-- _________________   BURGER, SIDEBAR    __________________  -->
+
+    <div class="burger_menu">
+        <div class="hamburger hamburger--spin ">
+            <div class="hamburger-box">
+                <div class="hamburger-inner"></div>
+            </div>
+        </div>
+    </div>
+    <div id="sidebar">
+        <nav id="side_menu">
+            <ul>
+                <li><a class="active" href="#">Home</a></li>
+                <li><a href="#about">About me</a> </li>
+                <li><a href="#skils">Skils</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contacts">Contacts</a></li>
+            </ul>
+        </nav>
+        <p class="lang"> <a href="#">RU</a> | <a class="active" href="#">ENG</a></p>
+    </div>
     <!-- ___________________________   HRADER   ___________________________  -->
     <header id="header">
         <div class="container">
             <nav id="main_menu">
                 <ul>
                     <li><a class="active" href="#">Home</a></li>
-                    <li><a href="#About">About me</a> </li>
-                    <li><a href="#Skils">Skils</a></li>
-                    <li><a href="#Portfolio">Portfolio</a></li>
-                    <li><a href="#Contacts">Contacts</a></li>
+                    <li><a href="#about">About me</a> </li>
+                    <li><a href="#skils">Skils</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#contacts">Contacts</a></li>
                 </ul>
             </nav>
         </div>
-
-
-
     </header>
 
     <!-- ___________________________ MAIN___________________________ -->
@@ -42,7 +60,7 @@
                     <h1>Denis Novik</h1>
                     <p class="subTitle">UX | UI designer <br>
                         24 years old, Minsk</p>
-                    <p class="lang"> <a href="/">RU</a> | <a class="active" href="/">ENG</a></p>
+                    <p class="lang"> <a href="#">RU</a> | <a class="active" href="#">ENG</a></p>
                 </div>
                 <div class="image_block" style="background-image:url(assets/images/DenisNovik.jpg);">
                 </div>
@@ -163,16 +181,44 @@
                 <p>Want to know more or just chat? <br> You are welcome!</p>
                 <button>Send message</button>
                 <div class="social_icon_block">
-                    <a href="#" rel="noopener noreferrer" target="_blank"><span class=" icon_soc icon-in"></span></a>
-                    <a href="#" rel="noopener noreferrer" target="_blank"><span class=" icon_soc icon-insta"></span></a>
-                    <a href="#" rel="noopener noreferrer" target="_blank"><span class=" icon_soc icon-be"></span></a>
-                    <a href="#" rel="noopener noreferrer" target="_blank"><span class=" icon_soc icon-dr"></span></a>
+                    <ul>
+                        <li><a href="#" rel="noopener noreferrer" target="_blank">
+                                <span class=" icon_soc icon-in"></span></a>
+                        </li>
+                        <li>
+                            <a href="#" rel="noopener noreferrer" target="_blank">
+                                <span class=" icon_soc icon-insta"></span></a>
+                        </li>
+                        <li>
+                            <a href="#" rel="noopener noreferrer" target="_blank">
+                                <span class=" icon_soc icon-be"></span></a>
+                        </li>
+                        <li>
+                            <a href="#" rel="noopener noreferrer" target="_blank">
+                                <span class=" icon_soc icon-dr"></span></a>
+                        </li>
+                    </ul>
+
                 </div>
                 <p class="like_me"> Like me on <br>
                     LinkedIn, Instagram, Behance, Dribble</p>
             </div>
         </div>
     </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <script>
+        $(function () {
+            $('.hamburger, #side_menu li a').on('click', function () {
+                $('.hamburger').toggleClass('is-active');
+                $('#sidebar').toggleClass('open');
+                $('body').toggleClass('lock');
+            });
+            
+        }) 
+    </script>
 </body>
 
 </html>

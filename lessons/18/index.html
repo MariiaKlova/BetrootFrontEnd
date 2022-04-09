@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="assets/styles/style.min.css">
+    <title>000</title>
+</head>
+
+<body>
+    <div id="side_block">
+        <div class="side_block_wrapper">
+            <div class="hamb_menu">
+                <button class="hamburger hamburger--arrow" type="button">
+                    <span class="hamburger-box">
+                        <span class="hamburger-inner"></span>
+                    </span>
+                </button>
+            </div>
+            <nav id="mobile_menu">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Contacts</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <div id="page_overlay"></div>
+
+    <div class="page_wrap">
+        <header>
+            <div class="container">
+                <div id="logo">
+                    <a href="#">Logo</a>
+                </div>
+                <nav id="main_menu">
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Contacts</a></li>
+                    </ul>
+                </nav>
+                <div class="hamb_menu">
+                    <button class="hamburger hamburger--arrow" type="button">
+                        <span class="hamburger-box">
+                            <span class="hamburger-inner"></span>
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <main>
+
+            <div class="container">
+                <div class="pic_wrap">
+                    <!-- :brfore -->
+                    <div class="pic_inner">
+                        <!-- :brfore -->
+                        <img src="assets/images/colour600x600.jpg" alt="pic">
+                        <!-- :after -->
+                    </div>
+                    <!-- :after -->
+                </div>
+            </div>
+        </main>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <script>
+        $(function () {
+            $('.hamburger').on('click', function () {
+                $('.hamburger').toggleClass('is-active');
+                $('#side_block, #page_overlay').toggleClass('open');
+                $('body').toggleClass('lock');
+
+            })
+        }) 
+    </script>
+
+</body>
+
+</html>
