@@ -210,7 +210,7 @@ header {
         margin-bottom: 30px;
     }
 
-    .socials ul{
+    .socials ul {
         display: flex;
         gap: 8px;
         margin-bottom: 60px;
@@ -266,9 +266,7 @@ header {
         &:nth-child(2) {
             width: 20px;
         }
-
     }
-
 }
 
 .btn {
@@ -282,7 +280,7 @@ header {
     border: 1px solid $colour_bright;
     padding: 5px 10px;
 
-    &:hover{
+    &:hover {
         background-color: $colour_bright;
         color: #fff;
     }
@@ -304,4 +302,57 @@ header {
 
 .icon-google:before {
     content: "\e900";
+}
+
+@media screen and (max-width: 960px) {
+    .page_wrap {
+        padding-top: 40px;
+    }
+
+    .content_wrap {
+        flex-direction: column;
+
+        .content {
+            width: 100%;
+            border-right: none;
+            padding: 0 0 50px 0;
+        }
+    }
+}
+
+@media screen and (max-width: 480px) {
+    header h1 {
+        color: #fc0;
+        font-size: 48px;
+        line-height: 48px;
+    }
+
+    header .separator {
+        margin: 15px 0 20px 0;
+        span {
+        width: 100px;
+    }
+    }
+    
+    
+
+    .photoblock_wrap {
+        width: 330px;
+        height: 330px;
+
+        .photoblock {
+            width: 300px;
+            height: 300px;
+        }
+
+    }
+
+    .content_text{
+        width: 320px;
+    }
+
+    .content_description .socials ul {
+        margin-bottom: 20px;
+    }
+
 }
