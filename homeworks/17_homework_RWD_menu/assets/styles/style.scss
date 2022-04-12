@@ -1,0 +1,142 @@
+@import 'hamburger';
+
+$colour_dark: #212121;
+$colour_light: #929292;
+$text_colour_extra: #f4f4f4;
+$font_primary: 'Roboto',
+sans-serif;
+
+*,
+*::before,
+*::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    position: relative;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    background-color: #fff;
+    font-family: $font_primary;
+    font-size: 20px;
+}
+
+img {
+    vertical-align: top;
+}
+
+a,
+button {
+    transition: all .2s ease;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.burger_menu {
+    position: absolute;
+    left: 8px;
+    top: 10px;
+    z-index: 11;
+}
+
+.sidebar {
+    position: fixed;
+    background-color: $colour_dark;
+    height: 100vh;
+    width: 85px;
+    top: 0px;
+    padding: 70px 20px;
+    overflow: hidden;
+    transition: width .5s;
+    z-index: 10;
+
+    svg {
+        flex-basis: 42px;
+        width: 42px;
+        height: 42px;
+        fill: $colour_light;
+    }
+
+    span {
+        color: $colour_light;
+        max-width: 0;
+        overflow: hidden;
+        transition: all .5s;
+    }
+
+    a {
+        display: flex;
+        align-items: center;
+    }
+
+    ul {
+        list-style: none;
+    }
+
+    li {
+        padding: 10px 0;
+        cursor: pointer;
+
+        &:last-child {
+            border-bottom: 0;
+        }
+
+        &:hover {
+            color: $text_colour_extra;
+
+            svg {
+                fill: $text_colour_extra;
+            }
+
+            span {
+                color: $text_colour_extra;
+            }
+        }
+    }
+
+    &.open {
+        width: 300px;
+
+        li {
+            border-bottom: 1px solid $colour_light;
+        }
+    }
+
+    &.open span {
+        display: block;
+        padding-left: 10px;
+        max-width: 200px;
+    }
+}
+
+@media (max-width: 800px) {
+
+    .sidebar {
+        display: flex;
+        justify-content: center;
+
+        &.open {
+            width: 100%;
+        }
+
+        ul {
+            width: 200px;
+
+        }
+
+        li {
+            display: flex;
+            justify-content: center;
+        }
+
+    }
+}

@@ -1,4 +1,3 @@
-
 @import 'hamburger';
 
 *,
@@ -20,18 +19,21 @@ body {
     font-family: Arial, sans-serif;
     font-size: calc(12px + (26 - 14) * ((100vw - 375px) / (1920 - 375)));
     line-height: calc(18px + (32 - 16) * ((100vw - 375px) / (1920 - 375)));
-    &.lock{
+
+    &.lock {
         overflow: hidden;
     }
 }
+
 a {
     transition: all .2s ease;
 }
+
 main {
+    width: 100%;
     height: calc(100vh - 90px);
     margin-top: 60px;
 }
-
 
 header {
     height: 60px;
@@ -60,9 +62,9 @@ header {
     }
 }
 
-#main_menu{
+#main_menu {
 
-    ul{
+    ul {
         list-style: none;
         display: flex;
         justify-content: flex-end;
@@ -82,14 +84,15 @@ header {
         //     }
         // }
 
-        a{
+        a {
             color: #000;
             display: inline-block;
             text-decoration: none;
             height: 36px;
             line-height: 36px;
             padding: 0 5px;
-            &:hover{
+
+            &:hover {
                 background-color: rgba(255, 255, 255, .5);
             }
         }
@@ -100,32 +103,66 @@ header {
 //     display: none;
 // }
 
-#side_block{
-    width: 300px;
+#side_block {
+
+    // width: 300px;
+    // height: 100vh;
+    // top: 0;
+    // transform: translateX(-300px);
+
+    width: 100%;
     position: fixed;
     left: 0;
-    top: 0;
+    top: 60;
     background-color: lightyellow;
     padding: 20px;
-    height: 100vh;
     z-index: 12;
-    transform: translateX(-300px);
+
+    transform: translateY(-100%);
     transition: all .5s ease;
-    &.open{
-        transform: translateX(0);
+
+    &.open {
+        // transform: translateX(0);
+        transform: translateY(60px);
+    }
+
+    .burger_side_block{
+        position: absolute;
+        right: 8%;
+        z-index: 13;
     }
 }
-#page_overlay{
+
+#page_overlay {
     position: fixed;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0,0,0, 0.7);
+    background-color: rgba(0, 0, 0, 0.7);
     display: none;
     z-index: 11;
-    &.open{
+
+    &.open {
         display: block;
+    }
+}
+
+#mobile_menu {
+
+    ul {
+        list-style: none;
+    }
+
+    li {
+        margin-bottom: 40px;
+    }
+
+    a {
+        font-size: 30px;
+        color: #000;
+        text-decoration: none;
+        font-weight: 700;
     }
 }
 
@@ -134,48 +171,82 @@ header {
 }
 
 .container {
-    width: 95%;
+    width: 80%;
     max-width: 1400px;
     margin: 0 auto;
 }
 
-.content {
-    width: 80%;
-    margin: 0 auto;
-    border: 2px solid tomato;
-}
-
-.flex {
+.flex_wrap {
     display: flex;
-    align-items: flex-start;
     justify-content: space-between;
-}
-
-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    flex-wrap: wrap;
 }
 
 .pic_wrap {
-    margin-top: 20px;
-    width: 400px;
-    height: 400px;
-    border: 2px solid red;
+    margin-top: 60px;
+    width: 30%;
+    // position: relative;
 
-    .pic_inner {
+    img {
+        display: block;
         width: 100%;
         height: 100%;
+        object-fit: cover;
+        border: 2px solid red;
+    }
 
-        img {
-            width: 100%;
-            height: 100%;
+    &:before,
+    &:after,
+    .pic_inner::before,
+    .pic_inner::after {
+        content: '';
+        width: 100px;
+        height: 100px;
+        display: inline-block;
+        position: absolute;
+    }
+
+    &:before {
+        border-top: 2px solid red;
+        border-left: 2px solid red;
+        top: 0;
+        left: 0;
+    }
+
+    &::after {
+        border-top: 2px solid red;
+        border-right: 2px solid red;
+        top: 0;
+        right: 0;
+    }
+
+    .pic_inner {
+        padding: 20px;
+
+        &:before {
+            border-bottom: 2px solid red;
+            border-left: 2px solid red;
+            bottom: 0;
+            left: 0;
+        }
+
+        &::after {
+            border-bottom: 2px solid red;
+            border-right: 2px solid red;
+            bottom: 0;
+            right: 0;
         }
     }
 }
 
+@media screen and (max-width: 1100px) {
+    .flex_wrap {
+        justify-content: center;
+    }
 
-footer {
-    height: 30px;
-    background-color: #444;
+    .pic_wrap {
+        width: 80%;
+    }
+
+
 }
