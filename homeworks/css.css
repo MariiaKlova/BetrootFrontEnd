@@ -79,7 +79,7 @@ body {
 
 .card{
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    width: 580px;
+    flex-basis: 31%;
     height: 340px;
     transition: .2s;
     display: flex;
@@ -127,3 +127,14 @@ body {
     background-color: var(--dark-green);
 }
 
+@media screen and (max-width: 1200px ) {
+    .card{
+        flex-basis: 49%;
+    }
+}
+
+@media screen and (max-width: 900px ) {
+    .card{
+        flex-basis: 100%;
+    }
+}
