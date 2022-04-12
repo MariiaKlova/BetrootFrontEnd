@@ -80,7 +80,7 @@ body {
 .card{
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     flex-basis: 31%;
-    height: 340px;
+    height: 30vh;
     transition: .2s;
     display: flex;
     flex-direction: column;
@@ -130,6 +130,7 @@ body {
 @media screen and (max-width: 1200px ) {
     .card{
         flex-basis: 49%;
+        height: 49vh;
     }
 }
 
