@@ -63,10 +63,6 @@ button {
 a {
     text-decoration: none;
     color: inherit;
-
-    &:hover {
-        color: $colour_icon_green1;
-    }
 }
 
 ol,
@@ -223,7 +219,7 @@ footer {
         gap: 8px;
         margin-bottom: 45px;
 
-        span {
+        a {
             display: flex;
             justify-content: center;
             align-items: center;
@@ -231,18 +227,12 @@ footer {
             height: 38px;
             background-color: #EFEEF3;
             border-radius: 5px;
+            font-size: 20px;
 
-            &::before {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                font-size: 20px;
+            &:hover {
+                color: $colour_icon_green1;
+
             }
-
-        }
-
-        a:hover {
-            color: $colour_icon_green1;
         }
     }
 }
@@ -281,7 +271,7 @@ footer {
         }
     }
 
-    footer .container{
+    footer .container {
         flex-direction: column;
         align-items: center;
     }
