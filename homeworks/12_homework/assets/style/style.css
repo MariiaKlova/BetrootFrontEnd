@@ -55,7 +55,7 @@ main{
     width: 100%;
     margin: 0 auto;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 
@@ -147,8 +147,8 @@ header nav ul li:not(:first-child)::before{
 /* _________________________ CONTAINER  _________________________________ */
 
 .container{
-    width: calc(1160px + 5vw );
-    padding-right: 5vw;
+    width: 90%;
+    padding-left: 5vw;
 }
 
 .container h2:before{

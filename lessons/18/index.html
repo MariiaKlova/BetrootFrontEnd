@@ -22,7 +22,7 @@
             </div>
             <nav id="mobile_menu">
                 <ul>
-                    <li><a href="#">Home</a></li>
+                    <li><a href="#home">Home</a></li>
                     <li><a href="#">About Us</a></li>
                     <li><a href="#">Services</a></li>
                     <li><a href="#">Contacts</a></li>
@@ -40,7 +40,7 @@
                 </div>
                 <nav id="main_menu">
                     <ul>
-                        <li><a href="#">Home</a></li>
+                        <li><a href="#home">Home</a></li>
                         <li><a href="#">About Us</a></li>
                         <li><a href="#">Services</a></li>
                         <li><a href="#">Contacts</a></li>
@@ -58,7 +58,7 @@
 
         <main>
 
-            <div class="container flex_wrap">
+            <div class="container flex_wrap" id="home">
 
                 <div class="pic_wrap">
                     <!-- :brfore -->
@@ -88,6 +88,75 @@
                     <!-- :after -->
                 </div>
 
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut obcaecati eveniet est necessitatibus
+                    nulla libero quam repellat non, iste alias id nemo, quasi excepturi nam minus asperiores dolores
+                    quia officia.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut obcaecati eveniet est necessitatibus
+                    nulla libero quam repellat non, iste alias id nemo, quasi excepturi nam minus asperiores dolores
+                    quia officia.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut obcaecati eveniet est necessitatibus
+                    nulla libero quam repellat non, iste alias id nemo, quasi excepturi nam minus asperiores dolores
+                    quia officia.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut obcaecati eveniet est necessitatibus
+                    nulla libero quam repellat non, iste alias id nemo, quasi excepturi nam minus asperiores dolores
+                    quia officia.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut obcaecati eveniet est necessitatibus
+                    nulla libero quam repellat non, iste alias id nemo, quasi excepturi nam minus asperiores dolores
+                    quia officia.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut obcaecati eveniet est necessitatibus
+                    nulla libero quam repellat non, iste alias id nemo, quasi excepturi nam minus asperiores dolores
+                    quia officia.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut obcaecati eveniet est necessitatibus
+                    nulla libero quam repellat non, iste alias id nemo, quasi excepturi nam minus asperiores dolores
+                    quia officia.</p>
+                <div class="pic_wrap">
+                    <!-- :brfore -->
+                    <div class="pic_inner">
+                        <!-- :brfore -->
+                        <img src="assets/images/colour600x600.jpg" alt="pic">
+                        <!-- :after -->
+                    </div>
+                    <!-- :after -->
+                </div>
+                <div class="pic_wrap">
+                    <!-- :brfore -->
+                    <div class="pic_inner">
+                        <!-- :brfore -->
+                        <img src="assets/images/colour600x600.jpg" alt="pic">
+                        <!-- :after -->
+                    </div>
+                    <!-- :after -->
+                </div>
+                <div class="pic_wrap">
+                    <!-- :brfore -->
+                    <div class="pic_inner">
+                        <!-- :brfore -->
+                        <img src="assets/images/colour600x600.jpg" alt="pic">
+                        <!-- :after -->
+                    </div>
+                    <!-- :after -->
+                </div>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut obcaecati eveniet est necessitatibus
+                    nulla libero quam repellat non, iste alias id nemo, quasi excepturi nam minus asperiores dolores
+                    quia officia.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut obcaecati eveniet est necessitatibus
+                    nulla libero quam repellat non, iste alias id nemo, quasi excepturi nam minus asperiores dolores
+                    quia officia.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut obcaecati eveniet est necessitatibus
+                    nulla libero quam repellat non, iste alias id nemo, quasi excepturi nam minus asperiores dolores
+                    quia officia.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut obcaecati eveniet est necessitatibus
+                    nulla libero quam repellat non, iste alias id nemo, quasi excepturi nam minus asperiores dolores
+                    quia officia.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut obcaecati eveniet est necessitatibus
+                    nulla libero quam repellat non, iste alias id nemo, quasi excepturi nam minus asperiores dolores
+                    quia officia.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut obcaecati eveniet est necessitatibus
+                    nulla libero quam repellat non, iste alias id nemo, quasi excepturi nam minus asperiores dolores
+                    quia officia.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut obcaecati eveniet est necessitatibus
+                    nulla libero quam repellat non, iste alias id nemo, quasi excepturi nam minus asperiores dolores
+                    quia officia.</p>
             </div>
         </main>
     </div>
@@ -97,13 +166,22 @@
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
     <script>
-        $(function () {
-            $('.hamburger').on('click', function () {
-                $('.hamburger').toggleClass('is-active');
-                $('#side_block, #page_overlay').toggleClass('open');
-                $('body').toggleClass('lock');
 
+        function toggleMenu() {
+            $('.hamburger').toggleClass('is-active');
+            $('#side_block, #page_overlay').toggleClass('open');
+            $('body').toggleClass('lock');
+        }
+        $(function () {
+            $('.hamburger, #page_overlay, #mobile_menu a').on('click', function () {
+                toggleMenu();
             })
+
+            $('#mobile_menu a, #main_menu a').on('click', function (e) {
+                e.preventDefault();
+                $('html, body').animate({ scrollTop: $($(this).attr('href')).offset().top - $('header').outerHeight() }, 500)
+            })
+
         }) 
     </script>
 

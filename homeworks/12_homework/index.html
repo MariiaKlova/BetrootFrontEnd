@@ -134,6 +134,20 @@
         </div>
     </main>
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous">
+    </script>
+
+    <script>
+        $(function () {
+            $('.sideBar a').on ('click', function(e){
+                e.preventDefault();
+               $('html, body').animate({scrollTop:$($(this).attr('href')).offset().top-89}, 500)
+            })
+        } )
+    </script>
+
+
 </body>
 
 </html>

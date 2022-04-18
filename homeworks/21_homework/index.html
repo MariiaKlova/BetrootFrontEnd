@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/styles/icons.css">
+    <link rel="stylesheet" href="assets/styles/style.min.css">
+    <title>Genesis</title>
+</head>
+
+<body>
+    <div class="page_wrap">
+        <header>
+            <div class="logo"> <a href="index.html"> <img src="assets/images/Logo.png" alt="logo"></a> </div>
+            <nav>
+                <ul>
+                    <li><a href="projects.html">Projects </a></li>
+                    <li><a href="#">Contact </a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <div class="heading_block">
+                <p class="subtitle">Shooting Stars</p>
+                <div class="heading_title">
+                    <p class="h2"> Hello, I’m Bakhtiyar Sattarov,
+                        <span>product designer</span> with experience in studios and startups
+                    </p>
+                    <p class="kredo">Design is about progress </p>
+                </div>
+            </div>
+
+            <!-- _________________________    GALLERY _________________________  -->
+            <div class="gallery masonry">
+                <div class="masonry-item"><img src="assets/images/01.jpg" class="masonry-content" alt=""></div>
+                <div class="masonry-item"><img src="assets/images/05.jpg" class="masonry-content" alt=""></div>
+                <div class="masonry-item"><img src="assets/images/09.jpg" class="masonry-content" alt=""></div>
+                <div class="masonry-item"><img src="assets/images/02.jpg" class="masonry-content" alt=""></div>
+                <div class="masonry-item"><img src="assets/images/06.jpg" class="masonry-content" alt=""></div>
+                <div class="masonry-item"><img src="assets/images/10.jpg" class="masonry-content" alt=""></div>
+                <div class="masonry-item"><img src="assets/images/03.jpg" class="masonry-content" alt=""></div>
+                <div class="masonry-item"><img src="assets/images/07.jpg" class="masonry-content" alt=""></div>
+                <div class="masonry-item"><img src="assets/images/11.jpg" class="masonry-content" alt=""></div>
+                <div class="masonry-item"><img src="assets/images/04.jpg" class="masonry-content" alt=""></div>
+                <div class="masonry-item"><img src="assets/images/08.jpg" class="masonry-content" alt=""></div>
+                <div class="masonry-item"><img src="assets/images/12.jpg" class="masonry-content" alt=""></div>
+            </div>
+
+            <div class="content">
+                <p class="h3">We love work hard and explore new things that’s why we cover lot of things. Check our
+                    service list
+                    and view details</p>
+
+                <ul class="service_list">
+                    <li>Multimedia </li>
+                    <li>Interactive Design</li>
+                    <li>Branding</li>
+                    <li>Creative design</li>
+                    <li>Packaging</li>
+                    <li>Coding</li>
+                </ul>
+            </div>
+
+            <div class="award_block">
+                <div class="award_list">
+                    <div class="award">Awwwards</div>
+                    <div class="award_item">
+                        <div class="award_title">Site of the day</div>
+                        <div class="award_desc">
+                            <div class="desc_title">Genesis UI Kit</div>
+                            <div class="desc_text">Application that helps to find nearest sport centres</div>
+                        </div>
+                        <div class="award_year">2018</div>
+                    </div>
+                    <div class="award_item">
+                        <div class="award_title">Best navigation</div>
+                        <div class="award_desc">
+                            <div class="desc_title">Genesis Template</div>
+                            <div class="desc_text">Application that helps to find nearest sport centres</div>
+                        </div>
+                        <div class="award_year">2018</div>
+                    </div>
+                </div>
+
+                <div class="award_list">
+                    <div class="award">CSSDesignAwards</div>
+                    <div class="award_item">
+                        <div class="award_title">Site of the day</div>
+                        <div class="award_desc">
+                            <div class="desc_title">Genesis UI Kit</div>
+                            <div class="desc_text">Application that helps to find nearest sport centres</div>
+                        </div>
+                        <div class="award_year">2017</div>
+                    </div>
+                    <div class="award_item">
+                        <div class="award_title">Best navigation</div>
+                        <div class="award_desc">
+                            <div class="desc_title">Genesis Template</div>
+                            <div class="desc_text">Application that helps to find nearest sport centres</div>
+                        </div>
+                        <div class="award_year">2016</div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <div class="logo"> <a href="index.html"> <img src="assets/images/Logo.png" alt="logo"></a> </div>
+            <nav>
+                <ul>
+                    <li><a href="projects.html">Projects </a></li>
+                    <li><a href="#">Contact </a></li>
+                </ul>
+            </nav>
+            <div class="socials">
+                <ul>
+                    <li><a href="#" target="_blank"><span class="icon-dr64"></span> </a></li>
+                    <li><a href="#" target="_blank"><span class="icon-in64"></span> </a></li>
+                    <li><a href="#" target="_blank"><span class="icon-tw64"></span> </a></li>
+
+                </ul>
+            </div>
+        </footer>
+
+    </div>
+    <script src="assets/js/imagesloaded.pkgd.min.js"></script>
+
+    <script>
+        /**
+ * Set appropriate spanning to any masonry item
+ *
+ * Get different properties we already set for the masonry, calculate 
+ * height or spanning for any cell of the masonry grid based on its 
+ * content-wrapper's height, the (row) gap of the grid, and the size 
+ * of the implicit row tracks.
+ *
+ * @param item Object A brick/tile/cell inside the masonry
+ */
+        function resizeMasonryItem(item) {
+            /* Get the grid object, its row-gap, and the size of its implicit rows */
+            var grid = document.getElementsByClassName('masonry')[0],
+                rowGap = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-row-gap')),
+                rowHeight = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-auto-rows'));
+
+            /*
+             * Spanning for any brick = S
+             * Grid's row-gap = G
+             * Size of grid's implicitly create row-track = R
+             * Height of item content = H
+             * Net height of the item = H1 = H + G
+             * Net height of the implicit row-track = T = G + R
+             * S = H1 / T
+             */
+            var rowSpan = Math.ceil((item.querySelector('.masonry-content').getBoundingClientRect().height + rowGap) / (rowHeight + rowGap));
+
+            /* Set the spanning as calculated above (S) */
+            item.style.gridRowEnd = 'span ' + rowSpan;
+
+            /* Make the images take all the available space in the cell/item */
+            item.querySelector('.masonry-content').style.height = rowSpan * 10 + "px";
+        }
+
+        /**
+         * Apply spanning to all the masonry items
+         *
+         * Loop through all the items and apply the spanning to them using 
+         * `resizeMasonryItem()` function.
+         *
+         * @uses resizeMasonryItem
+         */
+        function resizeAllMasonryItems() {
+            // Get all item class objects in one list
+            var allItems = document.getElementsByClassName('masonry-item');
+
+            /*
+             * Loop through the above list and execute the spanning function to
+             * each list-item (i.e. each masonry item)
+             */
+            for (var i = 0; i > allItems.length; i++) {
+                resizeMasonryItem(allItems[i]);
+            }
+        }
+
+        /**
+         * Resize the items when all the images inside the masonry grid 
+         * finish loading. This will ensure that all the content inside our
+         * masonry items is visible.
+         *
+         * @uses ImagesLoaded
+         * @uses resizeMasonryItem
+         */
+        function waitForImages() {
+            var allItems = document.getElementsByClassName('masonry-item');
+            for (var i = 0; i < allItems.length; i++) {
+                imagesLoaded(allItems[i], function (instance) {
+                    var item = instance.elements[0];
+                    resizeMasonryItem(item);
+                });
+            }
+        }
+
+        /* Resize all the grid items on the load and resize events */
+        var masonryEvents = ['load', 'resize'];
+        masonryEvents.forEach(function (event) {
+            window.addEventListener(event, resizeAllMasonryItems);
+        });
+
+        /* Do a resize once more when all the images finish loading */
+        waitForImages();
+    </script>
+
+</body>
+
+</html>

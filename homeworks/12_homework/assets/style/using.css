@@ -128,8 +128,8 @@ h1:before {
 }
 
 .row {
-    padding-left: 5vw;
     display: flex;
+    justify-content: center;
     border-bottom: 1px solid #BFBFBF;
 }
 
