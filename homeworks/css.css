@@ -1,7 +1,8 @@
 :root {
-    --dark-green: #94ceb9 ; 
-    --light-green:#94ceb966;
+    --dark-green: #94ceb9;
+    --light-green: #94ceb966;
 }
+
 * {
     box-sizing: border-box;
     position: relative;
@@ -29,11 +30,12 @@ body {
     font-family: sans-serif;
     font-size: 16px;
 }
-.pageWrap{
+
+.pageWrap {
     width: 100%;
 }
 
-.backLink{ 
+.backLink {
     width: 65px;
     height: 65px;
     position: absolute;
@@ -43,18 +45,37 @@ body {
     transition: all .4s ease;
 }
 
-.backLink:hover{
+.backLink:hover {
     transform: rotate(90deg);
 }
 
-.backLink *{ 
-   width: 100%;
-   height: 100%;
-   display: block;
+.backLink * {
+    width: 100%;
+    height: 100%;
+    display: block;
 
 }
 
-.titleContainer{
+.toBeetrootTop {
+    width: 65px;
+    height: 65px;
+    position: fixed;
+    bottom: 50px;
+    right: 20px;
+    z-index: 100;
+    transition: all .4s ease;
+}
+.toBeetrootTop:hover {
+    transform: rotate(180deg);
+}
+
+.toBeetrootTop *{ 
+    width: 100%;
+    height: 100%;
+    display: block;
+ }
+
+.titleContainer {
     height: 90px;
     font-family: 'Arima Madurai', cursive;
     font-weight: 900;
@@ -65,6 +86,7 @@ body {
     justify-content: center;
     align-items: center;
 }
+
 .container {
     width: 100%;
     margin: 0 auto;
@@ -74,10 +96,10 @@ body {
     flex-wrap: wrap;
     gap: 30px 12px;
     padding-bottom: 50px;
-    
+
 }
 
-.card{
+.card {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     flex-basis: 31%;
     height: 30vh;
@@ -86,26 +108,27 @@ body {
     flex-direction: column;
 }
 
-.card:hover{
+.card:hover {
     transform: scale(1.05);
 
 }
 
-.card a{
+.card a {
     display: block;
     flex-grow: 1;
     background-size: cover;
 
 }
 
-.row{
+.row {
     width: 100%;
     display: flex;
     align-items: center;
     background-color: var(--light-green);
 }
-.r1, 
-.disc{
+
+.r1,
+.disc {
     padding: 10px;
     display: flex;
     align-items: center;
@@ -113,29 +136,40 @@ body {
     transition: .5s;
 }
 
-.disc{
+.disc {
     flex-grow: 2;
 }
 
 
-.r1 a span{
+.r1 a span {
     display: block;
     text-align: center;
 }
 
-.r1:hover{
+.r1:hover {
     background-color: var(--dark-green);
 }
 
-@media screen and (max-width: 1200px ) {
-    .card{
-        flex-basis: 49%;
-        height: 49vh;
+@media screen and (max-width: 1200px) {
+    body {
+        font-size: 14px;
+    }
+    .card {
+        flex-basis: 31%;
+        height: 25vh;
     }
 }
 
-@media screen and (max-width: 900px ) {
-    .card{
+@media screen and (max-width: 800px) {
+    
+
+    .card {
+        flex-basis: 49%;
+    }
+}
+
+@media screen and (max-width: 720px) {
+    .card {
         flex-basis: 100%;
     }
 }
