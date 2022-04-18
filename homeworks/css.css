@@ -42,10 +42,12 @@ body {
     top: 10px;
     left: 10px;
     z-index: 1;
+    opacity: 50%;
     transition: all .4s ease;
 }
 
 .backLink:hover {
+    opacity: 100%;
     transform: rotate(90deg);
 }
 
@@ -179,5 +181,10 @@ body {
     }
     .card {
         flex-basis: 100%;
+    }
+    .backLink,
+    .toBeetrootTop {
+        width: 24px;
+        height: 24px;
     }
 }
