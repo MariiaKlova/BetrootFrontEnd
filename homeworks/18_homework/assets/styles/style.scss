@@ -11,7 +11,8 @@ sans-serif;
 *::after {
     padding: 0;
     margin: 0;
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
     position: relative;
 }
 
@@ -33,6 +34,8 @@ img {
 
 a,
 button {
+    -webkit-transition: all .2s ease;
+    -o-transition: all .2s ease;
     transition: all .2s ease;
 }
 
@@ -56,11 +59,14 @@ a {
     top: 0px;
     padding: 70px 20px;
     overflow: hidden;
+    -webkit-transition: width .5s;
+    -o-transition: width .5s;
     transition: width .5s;
     z-index: 10;
 
     svg {
-        flex-basis: 42px;
+        -ms-flex-preferred-size: 42px;
+            flex-basis: 42px;
         width: 42px;
         height: 42px;
         fill: $colour_light;
@@ -70,12 +76,18 @@ a {
         color: $colour_light;
         max-width: 0;
         overflow: hidden;
+        -webkit-transition: all .5s;
+        -o-transition: all .5s;
         transition: all .5s;
     }
 
     a {
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        align-items: center;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
     }
 
     ul {
@@ -121,8 +133,12 @@ a {
 @media (max-width: 800px) {
 
     .sidebar {
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        justify-content: center;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
 
         &.open {
             width: 100%;
@@ -134,8 +150,12 @@ a {
         }
 
         li {
+            display: -webkit-box;
+            display: -ms-flexbox;
             display: flex;
-            justify-content: center;
+            -webkit-box-pack: center;
+                -ms-flex-pack: center;
+                    justify-content: center;
         }
 
     }
