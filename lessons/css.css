@@ -147,15 +147,26 @@ body {
     justify-content: center;
 }
 
-@media screen and (max-width: 1200px ) {
-    .card{
-        flex-basis: 49%;
-        height: 49vh;
+@media screen and (max-width: 1200px) {
+    body {
+        font-size: 14px;
+    }
+    .card {
+        flex-basis: 31%;
+        height: 25vh;
     }
 }
 
-@media screen and (max-width: 900px ) {
-    .card{
+@media screen and (max-width: 800px) {
+    
+
+    .card {
+        flex-basis: 49%;
+    }
+}
+
+@media screen and (max-width: 720px) {
+    .card {
         flex-basis: 100%;
     }
 }
