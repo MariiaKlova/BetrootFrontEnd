@@ -17,14 +17,16 @@
 
 <body>
     <div class="page_wrap">
-        <header>
-            <div class="logo"> <a href="index.html"> <img src="assets/images/Logo.png" alt="logo"></a> </div>
-            <nav>
-                <ul>
-                    <li><a href="projects.html">Projects </a></li>
-                    <li><a href="#">Contact </a></li>
-                </ul>
-            </nav>
+        <header id="header">
+            <div class="grid_wrap">
+                <div class="logo"> <a href="index.html"> <img src="assets/images/Logo.png" alt="logo"></a> </div>
+                <nav>
+                    <ul>
+                        <li><a href="projects.html">Projects </a></li>
+                        <li><a href="#">Contact </a></li>
+                    </ul>
+                </nav>
+            </div>
         </header>
         <main>
             <div class="heading_block">
@@ -122,6 +124,21 @@
         </footer>
 
     </div>
+
+
+    <script>
+
+
+        // Додавання класу для # Header при скролі
+        window.addEventListener('scroll', function () {
+            if (window.scrollY > 80) {
+                document.getElementById('header').classList.add('scroll')
+            } else {
+                document.getElementById('header').classList.remove('scroll')
+            }
+        });
+
+    </script>
 
 </body>
 

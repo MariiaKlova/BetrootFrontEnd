@@ -31,6 +31,10 @@ body {
     line-height: 26px;
 }
 
+main{
+    margin-top: 140px;
+}
+
 img {
     vertical-align: top;
 }
@@ -58,7 +62,6 @@ ul {
     width: 90%;
     max-width: 1100px;
     margin: 0 auto;
-    padding-top: 60px;
 }
 
 nav {
@@ -82,11 +85,29 @@ nav {
 }
 
 // ______________    header  __________
-header {
-    display: grid;
-    grid-template-columns: 1fr 165px;
-    margin-bottom: 110px;
 
+#header {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    padding: 20px 0;
+    z-index: 100;
+    background: rgba(255, 255, 255, .6);
+    transition: all .2s ease;
+
+    .grid_wrap {
+        width: 90%;
+        max-width: 1100px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 165px;
+    }
+
+    &.scroll {
+        box-shadow: 0 0 5px #999;
+        backdrop-filter: blur(10px);
+    }
 }
 
 // ______________ 

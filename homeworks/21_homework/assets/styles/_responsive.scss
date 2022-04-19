@@ -1,15 +1,14 @@
 
 @media screen and(max-width: 900px) {
+    main{
+        margin-top: 80px;
+    }
     .page_wrap {
         width: 90%;
     }
 
-    header {
-        margin-bottom: 50px;
-    }
-
     .heading_block {
-        margin-bottom: 80px;
+        margin-bottom: 40px;
 
         .subtitle {
             margin-bottom: 20px;

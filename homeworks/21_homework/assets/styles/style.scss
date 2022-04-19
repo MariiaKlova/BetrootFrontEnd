@@ -31,6 +31,10 @@ body {
     line-height: 26px;
 }
 
+main{
+    margin-top: 140px;
+}
+
 img {
     vertical-align: top;
 }
@@ -58,7 +62,6 @@ ul {
     width: 90%;
     max-width: 1100px;
     margin: 0 auto;
-    padding-top: 60px;
 }
 
 nav {
@@ -67,10 +70,12 @@ nav {
     color: $text_colour_title;
 
     ul {
+        width: 165px;
         display: grid;
         grid-auto-flow: column;
         gap: 30px;
-        a{
+
+        a {
             &:hover {
                 // text-decoration: none;
                 display: inline-block;
@@ -81,12 +86,31 @@ nav {
 }
 
 // ______________    header  __________
-header {
-    display: grid;
-    grid-template-columns: 1fr 165px;
-    margin-bottom: 96px;
+#header {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    padding: 20px 0;
+    z-index: 100;
+    background: rgba(255, 255, 255, .6);
+    transition: all .2s ease;
+
+    .grid_wrap {
+        width: 90%;
+        max-width: 1100px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 165px;
+    }
+
+    &.scroll {
+        box-shadow: 0 0 5px #999;
+        backdrop-filter: blur(10px);
+    }
 
 }
+
 // ______________ 
 
 .heading_block {
@@ -118,7 +142,7 @@ header {
         }
     }
 
-    p{
+    p {
         margin-bottom: 50px;
     }
 
@@ -269,152 +293,4 @@ footer {
     content: "\e902";
 }
 
-
-
-
-@media screen and(max-width: 900px) {
-    .page_wrap {
-        width: 90%;
-    }
-
-    header {
-        margin-bottom: 50px;
-    }
-
-    .heading_block {
-        margin-bottom: 80px;
-
-        .subtitle {
-            margin-bottom: 20px;
-        }
-
-        .heading_title {
-            grid-template-columns: 100%;
-        }
-
-        .h2 {
-            font-size: 28px;
-            line-height: 38px;
-        }
-
-        .kredo {
-            position: absolute;
-            bottom: -50px;
-            right: 0px;
-        }
-    }
-
-    .content {
-        grid-template-columns: 100%;
-        margin-bottom: 60px;
-        gap: 30px;
-
-        .h3 {
-            font-size: 22px;
-            line-height: 32px;
-        }
-
-        ul {
-            columns: 3;
-        }
-
-    }
-
-    .award_block {
-        margin-bottom: 60px;
-
-        .award_list {
-            grid-template-columns: 30% 1fr;
-            padding-top: 30px;
-        }
-    }
-}
-
-@media screen and(max-width: 800px) {
-
-    .masonry {
-        grid-template-columns: repeat(auto-fit, minmax(49%, 1fr));
-    }
-
-    .award_block {
-        .award {
-            margin-bottom: 40px;
-            text-align: center;
-        }
-
-        .award_list {
-            grid-template-columns: 100%;
-        }
-    }
-}
-
-@media screen and(max-width: 580px) {
-
-    .heading_block {
-        .subtitle {
-            font-size: 18px;
-            line-height: 24px;
-        }
-
-        .h2 {
-            font-size: 22px;
-            line-height: 32px;
-        }
-    }
-
-    .masonry {
-        display: block;
-        width: 100%;
-        margin-bottom: 20px;
-
-        img {
-            width: 100%;
-            margin-bottom: 20px;
-        }
-    }
-
-    .content {
-        margin-bottom: 20px;
-
-        ul {
-            columns: 2;
-        }
-    }
-
-    .award_block {
-        margin-bottom: 30px;
-        .award {
-            margin-bottom: 40px;
-            text-align: center;
-        }
-
-        .award_list {
-            padding-top: 20px;
-            grid-template-columns: 100%;
-        }
-
-        .award_item {
-            grid-template-columns: 2fr 1fr;
-            gap: 10px;
-            margin-bottom: 30px;
-        }
-
-        .award_title {
-            grid-column-start: span 2;
-            margin-bottom: 20px;
-        } 
-    }
-
-    footer{
-        grid-template-columns: 1fr;
-        text-align: center;
-        gap: 20px;
-
-        nav, .socials{
-            width: 160px;
-            margin: 0 auto;
-        }
-        
-    
-    }
-}
+@import '_responsive';
