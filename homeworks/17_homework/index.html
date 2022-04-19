@@ -24,7 +24,7 @@
     <div id="sidebar">
         <nav id="side_menu">
             <ul>
-                <li><a class="active" href="#">Home</a></li>
+                <li><a class="active" href="#denis_novik">Home</a></li>
                 <li><a href="#about">About me</a> </li>
                 <li><a href="#skils">Skils</a></li>
                 <li><a href="#portfolio">Portfolio</a></li>
@@ -38,7 +38,7 @@
         <div class="container">
             <nav id="main_menu">
                 <ul>
-                    <li><a class="active" href="#">Home</a></li>
+                    <li><a class="active" href="#denis_novik">Home</a></li>
                     <li><a href="#about">About me</a> </li>
                     <li><a href="#skils">Skils</a></li>
                     <li><a href="#portfolio">Portfolio</a></li>
@@ -208,14 +208,33 @@
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
     <script>
-        $(function () {
-            $('.hamburger, #side_menu li a').on('click', function () {
-                $('.hamburger').toggleClass('is-active');
-                $('#sidebar').toggleClass('open');
-                $('body').toggleClass('lock');
-            });
-        }) 
+        //додавання/прибирання класів для Burger, Overlay, Sidebar
+        function toggleMenu() {
+            $('.hamburger').toggleClass('is-active');
+            $('#sidebar').toggleClass('open');
+        }
+
+        // застосування функціі на 'click' Burger, Overlay, Sidebar
+        $('.hamburger, #sidebar li a').on('click', function () {
+            toggleMenu();
+        });
+
+        //  мякий скролл на 'click' по посиланню з Menu, Sidebar
+        $('#main_menu li a, #sidebar li a').on('click', function (e) {
+            e.preventDefault();
+            $('html, body').animate({ scrollTop: $($(this).attr('href')).offset().top - $('header').outerHeight() }, 500)
+        });
+
+        // Додавання класу для # Header при скролі
+        window.addEventListener('scroll', function () {
+            if (window.scrollY > 80) {
+                document.getElementById('header').classList.add('scroll')
+            } else {
+                document.getElementById('header').classList.remove('scroll')
+            }
+        })
     </script>
+
 </body>
 
 </html>
