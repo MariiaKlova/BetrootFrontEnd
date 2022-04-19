@@ -62,14 +62,6 @@ p.subTitle {
     padding-bottom: 3px;
 }
 
-.container {
-    width: 1112px;
-    min-height: 100vh;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
 
 .btn {
     display: inline-block;
@@ -104,6 +96,15 @@ p.subTitle {
     background-color: #fff;
     color: var(--orange-color);
     border: 1px solid var(--orange-color);
+}
+
+.container {
+    width: 1112px;
+    min-height: 100vh;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 /* ---------------------------BURGER--------------------------------------------- */
@@ -168,13 +169,31 @@ p.subTitle {
 
 
 /* ----------------------------HEADER------------------------------------------ */
+
 header {
-    padding: 35px 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 15px;
+    width: 100%;
+    position: fixed;
+    background: rgba(255, 255, 255, .6);
+    top: 0;
+    left: 0;
+    transition: all .2s ease;
+    z-index: 100;
+
+    .header_container {
+        width: 1112px;
+        margin: 0 auto;
+        padding: 10px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &.scroll {
+        box-shadow: 0 0 5px #999;
+        backdrop-filter: blur(10px);
+    }
 }
+
 
 header .logo {
     margin-top: 8px;
@@ -222,6 +241,7 @@ header .btn {
 
 /* --------------------------SECTIONS--------------------------------------------------- */
 main {
+    margin-top: 80px;
     flex-grow: 1;
 }
 
@@ -246,7 +266,8 @@ section {
 
 .imageSection {
     width: 50%;
-    img{
+
+    img {
         width: 100%;
     }
 }

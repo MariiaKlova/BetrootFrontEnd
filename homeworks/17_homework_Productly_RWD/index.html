@@ -20,45 +20,41 @@
     <div class="container">
 
         <!-- __________________________________HEADER__________________________________ -->
-        <header>
-
-            <div class="logo">
-                <a href="#"> <img src="assets/images/logo.svg" alt="logo"> </a>
-            </div>
-            <nav class="mainMenu">
-                <ul>
-                    <li><a href="#">Product</a> </li>
-                    <li><a href="#">Customers </a></li>
-                    <li><a href="#">Pricng </a></li>
-                    <li><a href="#">Resources </a></li>
-                </ul>
-            </nav>
-            <div class="btnWrap">
-                <button class="btn white">Sign In</button>
-                <button class="btn orange">Sign Up</button>
-            </div>
-
-
-            <button class="hamburger hamburger--spin" type="button">
-                <span class="hamburger-box">
-                    <span class="hamburger-inner"></span>
-                </span>
-            </button>
-
-            <!--____________________SIDE BAR_______________________-->
-            <nav id="sidebar">
+        <header id="header">
+            <div class="header_container">
+                <div class="logo">
+                    <a href="#"> <img src="assets/images/logo.svg" alt="logo"> </a>
+                </div>
+                <nav class="mainMenu">
+                    <ul>
+                        <li><a href="#">Product</a> </li>
+                        <li><a href="#">Customers </a></li>
+                        <li><a href="#">Pricng </a></li>
+                        <li><a href="#">Resources </a></li>
+                    </ul>
+                </nav>
+                <div class="btnWrap">
                     <button class="btn white">Sign In</button>
                     <button class="btn orange">Sign Up</button>
-                <ul>
-                    <li><a href="#">Product</a> </li>
-                    <li><a href="#">Customers </a></li>
-                    <li><a href="#">Pricng </a></li>
-                    <li><a href="#">Resources </a></li>
-                </ul>
-            </nav>
-
+                </div>
+                <button class="hamburger hamburger--spin" type="button">
+                    <span class="hamburger-box">
+                        <span class="hamburger-inner"></span>
+                    </span>
+                </button>
+                <!--____________________SIDE BAR_______________________-->
+                <nav id="sidebar">
+                    <button class="btn white">Sign In</button>
+                    <button class="btn orange">Sign Up</button>
+                    <ul>
+                        <li><a href="#">Product</a> </li>
+                        <li><a href="#">Customers </a></li>
+                        <li><a href="#">Pricng </a></li>
+                        <li><a href="#">Resources </a></li>
+                    </ul>
+                </nav>
+            </div>
         </header>
-
 
         <!--__________________________MAIN_______________________-->
 
@@ -265,25 +261,41 @@
                     <button class="btn orange" type="submit">Sign up Now</button>
                 </form>
             </div>
-
-
         </footer>
-
     </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
-    <script>
-        $(function () {
-            $('.hamburger, #sidebar li a').on('click', function () {
-                $('.hamburger').toggleClass('is-active');
-                $('#sidebar, #page_overlay').toggleClass('open');
-                $('body').toggleClass('lock');
-            });
 
-        }) 
+    <script>
+
+        //додавання/прибирання класів для Burger, Overlay, Sidebar
+        function toggleMenu() {
+            $('.hamburger').toggleClass('is-active');
+            $('#sidebar, #page_overlay').toggleClass('open');
+            $('body').toggleClass('lock');
+        }
+
+        // застосування функціі на 'click' Burger, Overlay, Sidebar
+        $('.hamburger, #page_overlay, #sidebar li a').on('click', function () {
+            toggleMenu();
+        });
+
+        //  мякий скролл на 'click' по посиланню з Menu, Sidebar
+        $('.mainMenu li a, #sidebar li a').on('click', function (e) {
+            e.preventDefault();
+            $('html, body').animate({ scrollTop: $($(this).attr('href')).offset().top - $('header').outerHeight() }, 500)
+        });
+
+        // Додавання класу для # Header при скролі
+        window.addEventListener('scroll', function () {
+            if (window.scrollY > 80) {
+                document.getElementById('header').classList.add('scroll')
+            } else {
+                document.getElementById('header').classList.remove('scroll')
+            }
+        })
     </script>
 </body>
-
 </html>
