@@ -42,14 +42,23 @@
     .flexSection {
         .imageSection {
             width: 40%;
+            display: -webkit-box;
+            display: -ms-flexbox;
             display: flex;
-            justify-content: center;
-            align-items: center;
+            -webkit-box-pack: center;
+                -ms-flex-pack: center;
+                    justify-content: center;
+            -webkit-box-align: center;
+                -ms-flex-align: center;
+                    align-items: center;
         }
 
         .contentBlock {
             width: 55%;
-            flex-direction: column;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+                -ms-flex-direction: column;
+                    flex-direction: column;
 
             .pFirstSection {
                 padding: 0;
@@ -74,10 +83,14 @@
         margin: 0 auto 40px;
 
         .toolsList {
-            flex-wrap: wrap;
+            -ms-flex-wrap: wrap;
+                flex-wrap: wrap;
 
             li {
-                flex-basis: 48%;
+                -ms-flex-preferred-size: 48%;
+                    flex-basis: 48%;
+                display: -webkit-box;
+                display: -ms-flexbox;
                 display: flex;
                 margin-bottom: 20px;
 
@@ -99,7 +112,9 @@
 
     .footerBlok {
         padding-top: 0;
-        justify-content: end;
+        -webkit-box-pack: end;
+            -ms-flex-pack: end;
+                justify-content: end;
     }
 
     .NavFirst,
@@ -128,8 +143,13 @@
     }
 
     .flexSection {
-        flex-direction: column;
-        align-items: center;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
 
         .imageSection {
             width: 80%;
@@ -153,7 +173,9 @@
     }
 
     .toolsSection {
-        align-items: flex-start;
+        -webkit-box-align: start;
+            -ms-flex-align: start;
+                align-items: flex-start;
     }
 
     .toolSectoinH2 h2 {
@@ -168,7 +190,8 @@
 
 
     footer {
-        flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
 
         .logo {
             margin: 0 0 40px;
@@ -178,11 +201,13 @@
 
         .NavFirst,
         .NavSecond {
-            flex-basis: 50%;
+            -ms-flex-preferred-size: 50%;
+                flex-basis: 50%;
         }
 
         .form {
-            flex-basis: 70%;
+            -ms-flex-preferred-size: 70%;
+                flex-basis: 70%;
 
             #signUpNow {
                 margin-top: 40px;
@@ -209,9 +234,16 @@
 
     #sidebar{
         width: 100%;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        flex-direction: column;
-        align-items: center;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
         li{
             text-align: center;
         }
@@ -221,13 +253,15 @@
         margin-bottom: 0;
 
         li {
-            flex-basis: 100%;
+            -ms-flex-preferred-size: 100%;
+                flex-basis: 100%;
         }
     }
 
     footer {
         .footerBlok {
-            flex-basis: 100%;
+            -ms-flex-preferred-size: 100%;
+                flex-basis: 100%;
 
             li {
                 line-height: 40px;

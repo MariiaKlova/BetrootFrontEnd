@@ -33,9 +33,21 @@ $hamburger-active-hover-filter: $hamburger-hover-filter !default;
     display: inline-block;
     cursor: pointer;
 
+    -webkit-transition-property: opacity, -webkit-filter;
+
+    transition-property: opacity, -webkit-filter;
+
+    -o-transition-property: opacity, filter;
+
     transition-property: opacity, filter;
-    transition-duration: 0.15s;
-    transition-timing-function: linear;
+
+    transition-property: opacity, filter, -webkit-filter;
+    -webkit-transition-duration: 0.15s;
+         -o-transition-duration: 0.15s;
+            transition-duration: 0.15s;
+    -webkit-transition-timing-function: linear;
+         -o-transition-timing-function: linear;
+            transition-timing-function: linear;
 
     // Normalize (<button>)
     font: inherit;
@@ -48,7 +60,8 @@ $hamburger-active-hover-filter: $hamburger-hover-filter !default;
 
     &:hover {
         @if $hamburger-hover-use-filter==true {
-            filter: $hamburger-hover-filter;
+            -webkit-filter: $hamburger-hover-filter;
+                    filter: $hamburger-hover-filter;
         }
 
         @else {
@@ -59,7 +72,8 @@ $hamburger-active-hover-filter: $hamburger-hover-filter !default;
     &.is-active {
         &:hover {
             @if $hamburger-hover-use-filter==true {
-                filter: $hamburger-active-hover-filter;
+                -webkit-filter: $hamburger-active-hover-filter;
+                        filter: $hamburger-active-hover-filter;
             }
 
             @else {
@@ -95,9 +109,17 @@ $hamburger-active-hover-filter: $hamburger-hover-filter !default;
         background-color: $hamburger-layer-color;
         border-radius: $hamburger-layer-border-radius;
         position: absolute;
+        -webkit-transition-property: -webkit-transform;
+        transition-property: -webkit-transform;
+        -o-transition-property: transform;
         transition-property: transform;
-        transition-duration: 0.15s;
-        transition-timing-function: ease;
+        transition-property: transform, -webkit-transform;
+        -webkit-transition-duration: 0.15s;
+             -o-transition-duration: 0.15s;
+                transition-duration: 0.15s;
+        -webkit-transition-timing-function: ease;
+             -o-transition-timing-function: ease;
+                transition-timing-function: ease;
     }
 
     &::before,
@@ -124,38 +146,76 @@ $hamburger-active-hover-filter: $hamburger-hover-filter !default;
    */
 .hamburger--spin {
     .hamburger-inner {
-        transition-duration: 0.22s;
-        transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+        -webkit-transition-duration: 0.22s;
+             -o-transition-duration: 0.22s;
+                transition-duration: 0.22s;
+        -webkit-transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+             -o-transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+                transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
 
         &::before {
+            -webkit-transition: top 0.1s 0.25s ease-in,
+                opacity 0.1s ease-in;
+            -o-transition: top 0.1s 0.25s ease-in,
+                opacity 0.1s ease-in;
             transition: top 0.1s 0.25s ease-in,
                 opacity 0.1s ease-in;
         }
 
         &::after {
+            -webkit-transition: bottom 0.1s 0.25s ease-in,
+                -webkit-transform 0.22s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+            transition: bottom 0.1s 0.25s ease-in,
+                -webkit-transform 0.22s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+            -o-transition: bottom 0.1s 0.25s ease-in,
+                transform 0.22s cubic-bezier(0.55, 0.055, 0.675, 0.19);
             transition: bottom 0.1s 0.25s ease-in,
                 transform 0.22s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+            transition: bottom 0.1s 0.25s ease-in,
+                transform 0.22s cubic-bezier(0.55, 0.055, 0.675, 0.19),
+                -webkit-transform 0.22s cubic-bezier(0.55, 0.055, 0.675, 0.19);
         }
     }
 
     &.is-active {
         .hamburger-inner {
-            transform: rotate(225deg);
-            transition-delay: 0.12s;
-            transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+            -webkit-transform: rotate(225deg);
+                -ms-transform: rotate(225deg);
+                    transform: rotate(225deg);
+            -webkit-transition-delay: 0.12s;
+                 -o-transition-delay: 0.12s;
+                    transition-delay: 0.12s;
+            -webkit-transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+                 -o-transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+                    transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
 
             &::before {
                 top: 0;
                 opacity: 0;
+                -webkit-transition: top 0.1s ease-out,
+                    opacity 0.1s 0.12s ease-out;
+                -o-transition: top 0.1s ease-out,
+                    opacity 0.1s 0.12s ease-out;
                 transition: top 0.1s ease-out,
                     opacity 0.1s 0.12s ease-out;
             }
 
             &::after {
                 bottom: 0;
-                transform: rotate(-90deg);
+                -webkit-transform: rotate(-90deg);
+                    -ms-transform: rotate(-90deg);
+                        transform: rotate(-90deg);
+                -webkit-transition: bottom 0.1s ease-out,
+                    -webkit-transform 0.22s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1);
+                transition: bottom 0.1s ease-out,
+                    -webkit-transform 0.22s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1);
+                -o-transition: bottom 0.1s ease-out,
+                    transform 0.22s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1);
                 transition: bottom 0.1s ease-out,
                     transform 0.22s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1);
+                transition: bottom 0.1s ease-out,
+                    transform 0.22s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1),
+                    -webkit-transform 0.22s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1);
             }
         }
     }

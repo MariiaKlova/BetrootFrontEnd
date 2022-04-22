@@ -7,7 +7,8 @@
 * {
     padding: 0;
     margin: 0;
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
     position: relative;
 }
 
@@ -72,6 +73,8 @@ p.subTitle {
     line-height: 53px;
     font-weight: 700;
     border-radius: 4px;
+    -webkit-transition: all .2s ease;
+    -o-transition: all .2s ease;
     transition: all .2s ease;
 }
 
@@ -102,9 +105,16 @@ p.subTitle {
     width: 1112px;
     min-height: 100vh;
     margin: 0 auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
 }
 
 /* ---------------------------BURGER--------------------------------------------- */
@@ -122,11 +132,17 @@ p.subTitle {
     padding: 20px;
     height: 100vh;
     z-index: 12;
-    transform: translateX(-105%);
+    -webkit-transform: translateX(-105%);
+        -ms-transform: translateX(-105%);
+            transform: translateX(-105%);
+    -webkit-transition: all .5s ease;
+    -o-transition: all .5s ease;
     transition: all .5s ease;
 
     &.open {
-        transform: translateX(0);
+        -webkit-transform: translateX(0);
+            -ms-transform: translateX(0);
+                transform: translateX(0);
     }
 
     ul {
@@ -176,6 +192,8 @@ header {
     background: rgba(255, 255, 255, .6);
     top: 0;
     left: 0;
+    -webkit-transition: all .2s ease;
+    -o-transition: all .2s ease;
     transition: all .2s ease;
     z-index: 100;
 
@@ -183,21 +201,31 @@ header {
         width: 1112px;
         margin: 0 auto;
         padding: 10px 0;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        justify-content: space-between;
-        align-items: center;
+        -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+                justify-content: space-between;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
     }
 
     &.scroll {
-        box-shadow: 0 0 5px #999;
-        backdrop-filter: blur(10px);
+        -webkit-box-shadow: 0 0 5px #999;
+                box-shadow: 0 0 5px #999;
+        -webkit-backdrop-filter: blur(10px);
+                backdrop-filter: blur(10px);
     }
 }
 
 
 header .logo {
     margin-top: 8px;
-    flex-grow: 1;
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
 }
 
 nav.mainMenu {
@@ -242,7 +270,9 @@ header .btn {
 /* --------------------------SECTIONS--------------------------------------------------- */
 main {
     margin-top: 80px;
-    flex-grow: 1;
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
 }
 
 section {
@@ -251,13 +281,20 @@ section {
 
 .flexSection {
     width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: space-between;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
     /* flex-wrap: wrap; */
 }
 
 .flexReverse {
-    flex-direction: row-reverse;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse;
 }
 
 .contentBlock {
@@ -317,7 +354,8 @@ section {
     display: inline-block;
     border-radius: 2px;
     border-style: solid;
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
     border-width: 9px 0px 9px 16px;
     border-color: transparent transparent transparent var(--orange-color);
     margin-bottom: -3px;
@@ -328,9 +366,16 @@ section {
 
 .toolsSection {
     margin: 0 auto 236px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
 }
 
 .toolSectoinH2 {
@@ -346,8 +391,12 @@ section {
 
 .toolsList {
     width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: space-between;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
     list-style: none;
     margin-bottom: 33px;
 }
@@ -378,9 +427,15 @@ section {
     width: 50px;
     height: 50px;
     position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     border-radius: 20px;
     z-index: 2;
 }
@@ -473,12 +528,18 @@ section {
 }
 
 .sec4 li p {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     margin-bottom: 30px;
 }
 
 .iconCheck {
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
     display: inline-flex;
     width: 35px;
     height: 35px;
@@ -499,7 +560,9 @@ section {
     width: 16px;
     height: 6px;
     z-index: 1;
-    transform: rotate(0.86turn);
+    -webkit-transform: rotate(0.86turn);
+        -ms-transform: rotate(0.86turn);
+            transform: rotate(0.86turn);
     border-left: 2px solid #FFFFFF;
     border-bottom: 2px solid #FFFFFF;
     margin: 10px 10px 10px 10px;
@@ -546,10 +609,13 @@ section.sec5.flexSection {
 /* ---------------------------------FOOTER---------------------------------------------------- */
 
 footer {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     border-top: 1px solid rgba(188, 208, 229, 0.496913);
     padding: 102px 0 83px;
-    flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
 }
 
 footer .logo {
@@ -565,7 +631,9 @@ footer ul {
 .footerBlok {
     /* display: flex; */
     padding-top: 65px;
-    justify-content: end;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: end;
 }
 
 footer ul li a {
@@ -604,7 +672,8 @@ footer ul li a:active {
     margin-top: 26px;
     background: #FFFFFF;
     border: 1px solid #BCD0E5;
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
     border-radius: 4px;
     margin-bottom: 20px;
     outline: none;
