@@ -1,0 +1,243 @@
+
+@media screen and (max-width: 840px) {
+
+    // ________________  MAIN  ___________________
+
+    #sidebar,
+    .hamburger {
+        display: block;
+    }
+
+    .main_menu {
+        display: none;
+    }
+
+    .btn {
+        height: 40px;
+
+    }
+
+    .container {
+        max-width: 90%;
+    }
+
+    header {
+        .logo {
+            margin: 18px 0;
+        }
+    }
+
+    section {
+       min-height: calc(100vh - 64px);
+    }
+
+    // ________________  MAIN SLIDE  ___________________
+
+    .section_main_slide {
+        .container {
+            p {
+                margin-bottom: 24px;
+            }
+        }
+
+        form {
+            width: 60%;
+            height: 40px;
+            margin-bottom: 60px;
+
+            input {
+                width: 100%;
+            }
+
+            .btn {
+                width: 100%;
+                height: 40px;
+                right: 50%;
+                bottom: -50%;
+                -webkit-transform: translate(50%, 75%);
+                    -ms-transform: translate(50%, 75%);
+                        transform: translate(50%, 75%);
+                border: none;
+            }
+        }
+    }
+
+    // _____________  why_we_choose Section  ______________
+
+    .section_why_we_choose {
+        .container {
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+                -ms-flex-direction: column;
+                    flex-direction: column;
+        }
+
+        .img_block {
+            -webkit-box-orient: horizontal;
+            -webkit-box-direction: normal;
+                -ms-flex-direction: row;
+                    flex-direction: row;
+            padding-left: 0;
+            margin-bottom: 25px;
+        }
+
+        .h2 {
+            margin-bottom: 25px;
+        }
+
+    }
+
+    // _________  section_how_it_works Section  ________
+
+    .section_how_it_works {
+
+        margin: 50px auto;
+
+        .img_wrap {
+            display: none;
+        }
+
+        span {
+            font-size: 38px;
+        }
+
+        .h2 {
+            font-size: 20px;
+        }
+    }
+
+    // ________________  Section  ___________________
+
+    .media_section {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+
+        .img_block,
+        .desc_block {
+            -ms-flex-preferred-size: auto;
+                flex-basis: auto;
+        }
+    }
+
+    // ___________  Section  _responses  ____________
+
+    .section_responses {
+
+        .h2 {
+            margin-bottom: 40px;
+        }
+
+        .desc_block_response {
+            padding: 20px;
+        }
+
+        .icon-quote-left {
+            font-size: 24px;
+            bottom: 0;
+            padding-right: 0;
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .section_main_slide {
+        form {
+            input {
+                padding: 10px 0;
+                letter-spacing: 1.2px;
+            }
+        }
+    }
+
+    .section_why_we_choose {
+
+        .img_block {
+            width: 100%;
+            display: block;
+            margin-top: 20px;
+
+            .img_wrap {
+                margin-bottom: 20px;
+
+                img {
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    .media_section {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+
+        .img_block,
+        .desc_block {
+            -ms-flex-preferred-size: auto;
+                flex-basis: auto;
+        }
+    }
+
+    .section_responses {
+        .response_block {
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+                -ms-flex-direction: column;
+                    flex-direction: column;
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+
+    .h1 {
+        font-size: 36px;
+        letter-spacing: 1.4px;
+    }
+
+    .h2 {
+        font-size: 24px;
+    }
+
+    .h4 {
+        font-size: 18px;
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+    .section_main_slide {
+        .container p {
+            font-size: 18px;
+            letter-spacing: 1.8px;
+        }
+
+        form {
+            width: 100%;
+        }
+    }
+
+    .section_how_it_works {
+
+        .container {
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+                -ms-flex-direction: column;
+                    flex-direction: column;
+            gap: 40px;
+        }
+
+
+        span {
+            font-size: 38px;
+        }
+
+        .h2 {
+            font-size: 20px;
+        }
+    }
+}
