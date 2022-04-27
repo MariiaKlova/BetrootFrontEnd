@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
+Sitemap: https://mariiaklova.github.io/BetrootFrontEnd/exam1/sitemap.xml
 Host: mariiaklova.github.io
