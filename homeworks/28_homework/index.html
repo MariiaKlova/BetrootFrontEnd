@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="assets/styles/bootstrap.min.css">
+    <title>28 hom</title>
+
+    <style>
+        .row.display-flex {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .row.display-flex>[class*='col-'] {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card {
+            height: 100%;
+        }
+
+        .card-body {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card-body p:first-letter {
+            font-size: 130%;
+            font-weight: bold;
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container pt-4">
+        <h1 class="h4 text-center my-5">Типи даних та оператори Домашнє завдання з lms.beetroot</h1>
+
+        <div class="row display-flex">
+            <div class="col-md-6 col-xl-3">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <p>1 Виконай додавання 0,1 і 0,2 добийся математично правильної відповіді.</p>
+                        <button type="button" class="btn btn-success" onclick="adding01And02()">Спробувати (див.
+                            консоль)</button>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-6 col-xl-3">
+                <div class="card  mb-4">
+                    <div class="card-body">
+                        <p>2 Виконай додавання рядка "1" і цифри 2 (обидві операнди повинні бути в змінних), добийся
+                            математично правильної відповіді.</p>
+                        <button type="button" class="btn btn-success" onclick="addStringAndNumber()">Спробувати (див.
+                            консоль)</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-xl-3">
+                <div class="card  mb-4">
+                    <div class="card-body">
+                        <p>3 Користувач вказує обсяг флешки в Гб. Програма повинна порахувати скільки файлів розміром в
+                            820 Мб
+                            поміщається на флешку.</p>
+                        <button type="button" class="btn btn-success" onclick="flashDrive()">Обчислити</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-xl-3">
+                <div class="card  mb-4">
+                    <div class="card-body">
+                        <p>4 Користувач вводить суму грошей в гаманці і ціну однієї шоколадки. Програма виводить
+                            скільки
+                            шоколадок може купити користувач і скільки здачі у нього залишиться.</p>
+                        <button type="button" class="btn btn-success" onclick="calcChocolate()">Обчислити</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-xl-4">
+                <div class="card  mb-4">
+                    <div class="card-body">
+                        <p>5 Запитай у користувача тризначне число і виведи його задом наперед. Для вирішення завдання
+                            тобі
+                            знадобиться оператор% (залишок від ділення).</p>
+                        <button type="button" class="btn btn-success" onclick="backwardsNum()">Спробувати</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-xl-4">
+                <div class="card  mb-4">
+                    <div class="card-body">
+                        <p>6 Користувач вводить суму вкладу в банк на 2 місяці, з процентною ставкою депозиту 5%
+                            річних.
+                            Вивести суму нарахованих відсотків.</p>
+                        <button type="button" class="btn btn-success" onclick="deposit()">Обчислити</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-xl-4">
+                <div class="card  mb-4">
+                    <div class="card-body">
+                        <p>7 Що повернуть вираження:</p>
+                        <ul>
+                            <li>2 && 0 && 3</li>
+                            <li>2 || 0 || 3</li>
+                            <li>2 && 0 || 3</li>
+                        </ul>
+                        <button type="button" class="btn btn-success" onclick="task7()">Відповідь: 0, 2, 3</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container pt-4">
+        <h1 class="h4 text-center my-5">Завдання з використанням IF</h1>
+        <div class="row display-flex">
+            <div class="col-md-6 col-xl-4">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <p>1 Запитати у користувача число та визначити чи воно позитивне, негативне або нуль</p>
+                        <button type="button" class="btn btn-success" onclick="calc()">Спробувати</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-xl-4">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <p>2 Запитати у користувача його вік та перевірити вірність вказаних даних (0-120 років)</p>
+                        <button type="button" class="btn btn-success" onclick="calc()">Спробувати</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-xl-4">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <p>3 Запитати у користувача число та вивести його модуль (|7| = 7, |-7| = 7)</p>
+                        <button type="button" class="btn btn-success" onclick="calc()">Спробувати</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-xl-6">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <p>4 Запитати у користувача час (години, хвилини, секунди) та перевірити коректність вказаних даних</p>
+                        <button type="button" class="btn btn-success" onclick="isTimeValid()">Спробувати</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 col-xl-6">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <p>5 Запитати координати крапки (x, y) та визначити номер чверті, в яку потрапила крапка. Треба
+                            врахувати випадки, коли крапка втрапита на осі або в початок координат.</p>
+                        <button type="button" class="btn btn-success" onclick="calc()">Спробувати</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container pt-4">
+        <h1 class="h4 text-center my-5">Завдання з використанням SWITCH</h1>
+        <div class="row display-flex">
+            <div class="col-md-6 col-xl-6">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <p>1 Запитати у користувача номер місяця та вивести його назву</p>
+                        <button type="button" class="btn btn-success" onclick="calc()">Спробувати</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-xl-6">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <p>2 Реалізувати калькулятор. Користувач вказує 2 числа та знак (+ - * /).</p>
+                        <button type="button" class="btn btn-success" onclick="calc()">Спробувати</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container pt-4">
+        <h1 class="h4 text-center my-5">Завдання з використанням тернарного оператору</h1>
+        <div class="row display-flex">
+            <div class="col-md-6 col-xl-4">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <p>1 Запитати 2 числа та вивести більше з них</p>
+                        <button type="button" class="btn btn-success" onclick="calc()">Спробувати</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-xl-4">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <p>2 Запитати одне число та перевірити чи воно кратне 5 або ні</p>
+                        <button type="button" class="btn btn-success" onclick="calc()">Спробувати</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-xl-4">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <p>3 Запитати у користувача назву планети. Якщо користувач вказав "Земля" або "земля", вивести "Привіт, землянин!", в інших випадках вивести "Привіт, іншопланетянин!"</p>
+                        <button type="button" class="btn btn-success" onclick="calc()">Спробувати</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container pt-4">
+        <h1 class="h4 text-center my-5">Додаткове завдання</h1>
+        <div class="row display-flex">
+            <div class="col-md-6 col-xl-3">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <p>1 Запросить у пользователя его возраст и определить, кем он является: ребенком (0–2), подростком (12–18), взрослым (18_60) или пенсионером (60– ...).</p>
+                        <button type="button" class="btn btn-success" onclick="calc()">Спробувати</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-xl-3">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <p>2 Запросить у пользователя число от 0 до 9 и вывести ему спецсимвол, который расположен на этой клавише (1–!, 2–@, 3–# и т. д).</p>
+                        <button type="button" class="btn btn-success" onclick="calc()">Спробувати</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-xl-3">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <p>3 Запросить у пользователя трехзначное и число и проверить, есть ли в нем одинаковые цифры.</p>
+                        <button type="button" class="btn btn-success" onclick="calc()">Спробувати</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-xl-3">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <p>4 Запросить у пользователя год и проверить, високосный он или нет. Високосный год либо кратен 400, либо кратен 4 и при этом не кратен 100.</p>
+                        <button type="button" class="btn btn-success" onclick="calc()">Спробувати</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-xl-3">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <p>5 Запросить у пользователя пятиразрядное число и определить, является ли оно палиндромом.</p>
+                        <button type="button" class="btn btn-success" onclick="calc()">Спробувати</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-xl-3">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <p>6 Написать конвертор валют. Пользователь вводит количество USD, выбирает, в какую валюту хочет перевести: EUR, UAN или AZN, и получает в ответ соответствующую сумму.</p>
+                        <button type="button" class="btn btn-success" onclick="calc()">Спробувати</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-xl-3">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <p>7 Запросить у пользователя сумму покупки и вывести сумму к оплате со скидкой: от 200 до 300 – скидка будет 3%, от 300 до 500 – 5%, от 500 и выше – 7%.</p>
+                        <button type="button" class="btn btn-success" onclick="calc()">Спробувати</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-xl-3">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <p>8 Запросить у пользователя длину окружности и периметр квадрата. Определить, может ли такая окружность поместиться в указанный квадрат.</p>
+                        <button type="button" class="btn btn-success" onclick="calc()">Спробувати</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 col-xl-12">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <p>9 Задать пользователю 3 вопроса, в каждом вопросе по 3 варианта ответа. За каждый правильный ответ начисляется 2 балла. После вопросов выведите пользователю количество набранных баллов.
+                            Запросить дату (день, месяц, год) и вывести следующую за ней дату. Учтите возможность перехода на следующий месяц, год, а также високосный год.</p>
+                        <button type="button" class="btn btn-success" onclick="calc()">Спробувати</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script src="assets/js/main.js"></script>
+
+</html>
