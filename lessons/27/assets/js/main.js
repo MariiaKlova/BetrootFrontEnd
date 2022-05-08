@@ -127,28 +127,27 @@ function timeToDayEnd() {
     const hour = parseInt(prompt('Вкажіть котра година зараз'));
     const minutes = parseInt(prompt('Вкажіть котра хвилина'));
     const minutesTotalLeft = ((24 * 60) - (hour * 60 + minutes));
-    const hoursLeft = parseInt( minutesTotalLeft / 60);
+    const hoursLeft = parseInt(minutesTotalLeft / 60);
     const minutesLeft = minutesTotalLeft - hoursLeft * 60;
-    alert (`До кінця дня залишилося ${hoursLeft} годин, ${minutesLeft} хвилин`);
+    alert(`До кінця дня залишилося ${hoursLeft} годин, ${minutesLeft} хвилин`);
 }
 
-function digit2 () {
+function digit2() {
     const abc = +prompt('Введіть трьохзначне число');
-    const rez = parseInt((abc%100)/10);
-    alert (`Друга цифра: ${rez}`);
+    const rez = parseInt((abc % 100) / 10);
+    alert(`Друга цифра: ${rez}`);
 }
 
-function digit3 () {
+function digit3() {
     const abc = parseInt(prompt('Введіть пятизначне число'));
-    const x = abc%10;
-    const y = ((abc-x)/10);
-    const z = x*10000+y;
-    alert (`Результат: ${z}`);
+    const x = abc % 10;
+    const y = ((abc - x) / 10);
+    const z = x * 10000 + y;
+    alert(`Результат: ${z}`);
 }
 
-function myZp () {
+function myZp() {
     const sumProd = +prompt('Введіть загальну суму продажів за миулий місяць');
-    const rez = parseInt(sumProd/10+250);
-    alert (`Нарахувати зарплату: ${rez}$`);
+    const rez = parseInt(sumProd / 10 + 250);
+    alert(`Нарахувати зарплату: ${rez}$`);
 }
-

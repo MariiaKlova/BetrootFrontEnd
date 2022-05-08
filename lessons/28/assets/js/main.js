@@ -40,7 +40,7 @@ function emailCheck(email) {
 }
 
 // 5
-function someNum(num) {
+function someNum() {
     const num = 4;
     let y = 0;
     if (num <= 12) {
@@ -53,23 +53,15 @@ function someNum(num) {
     console.log(y);
 }
 
-
 // 6. Високосный год
 // год, номер которого кратен 400, — високосный;
 // остальные годы, номер которых кратен 100, — невисокосные (например, годы 1700, 1800, 1900, 2100, 2200, 2300);
 // остальные годы, номер которых кратен 4, — високосные.
 // Итого: Либо кратен 400, либо кратен 4 и при єтом не кратен 100
 
-function isLeapYear(year) {
-    if (year % 400 == 0 || (year % 4 == 0 && year % 100 != 0)) {
-        return true;
-    } else {
-        return false;
-    }
-}
 
 // 7 Скільки днів у місяці 30 чи 31
-function days(num) {
+function days() {
     let d;
     const num = prompt('Enter month numder');
     switch (num) {

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="assets/styles/bootstrap.min.css">
+    <title>less</title>
+</head>
+<style>
+    .row.display-flex {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .row.display-flex>[class*='col-'] {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .card {
+        height: 100%;
+    }
+
+    .card-body {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .card-body p:first-letter {
+        font-size: 130%;
+        font-weight: bold;
+        color: #dc3545;
+    }
+</style>
+
+<body>
+    <div class="container pt-4">
+        <div class="row display-flex">
+            <div class="col-md-12 col-xl-12">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12 col-xl-5">
+                                <p>3 Запитай у користувача 10 чисел і порахуй, скільки він ввів додатніх, від’ємних і нулів. При цьому також порахуй, скільки з них парних і непарних. Виведи статистику на екран. Враховуй, що достатньо однієї змінної (не 10) для введення чисел користувачем.
+                                </p>
+                            </div>
+                            <div class="col-md-4 col-xl-2">
+                                <!-- <input class="col-12 me-2 mb-2" type="number" id="task_1_number"> -->
+                            </div>
+                            <div class="col-md-4 col-xl-2">
+                                <button type="button" class="btn btn-danger col-12" onclick="checkTen()"> Спробувати
+                                </button>
+                            </div>
+                            <div class="col-md-4 col-xl-3">
+                                <p>Результат: </p>
+                                <div id="task_1_result"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 col-xl-12">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12 col-xl-5">
+                                <p>1 якщо ми тиснемо Ок, цикл працює.
+                                </p>
+                            </div>
+                            <div class="col-md-4 col-xl-2">
+                                <input class="col-12 me-2 mb-2" type="number" id="task_2_number">
+                            </div>
+                            <div class="col-md-4 col-xl-2">
+                                <button type="button" class="btn btn-danger col-12" onclick="ask()"> Спробувати
+                                </button>
+                            </div>
+                            <div class="col-md-4 col-xl-3">
+                                <p>Результат: </p>
+                                <div id="task_2_result"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 col-xl-12">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12 col-xl-12">
+                                <p>1 Запитати у користувача число та визначити чи воно позитивне, негативне або нуль
+                                </p>
+                            </div>
+                            <div class="col-md-4 col-xl-2">
+                                <input class="col-12 me-2 mb-2" type="number" id="task_1_number">
+                            </div>
+                            <div class="col-md-0 col-xl-2">
+                                <button type="button" class="btn btn-danger col-12" onclick="task1()"> Спробувати
+                                </button>
+                            </div>
+                            <div class="col-md-12 col-xl-12">
+                                <p>Результат: </p>
+                                <div id="task_3_result"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="col-md-12 col-xl-12">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12 col-xl-5">
+                                <p> Напиши функцію, яка перевіряє, чи є передане їй число “досконалим числом”. Досконале число - це число, яке дорівнює сумі всіх своїх дільників.
+                                </p>
+                            </div>
+                            <div class="col-md-4 col-xl-2">
+                                <input class="col-12 me-2 mb-2" type="number" id="task_10_number">
+                            </div>
+                            <div class="col-md-4 col-xl-2">
+                                <button type="button" class="btn btn-danger col-12" onclick="task_10()"> Спробувати
+                                </button>
+                            </div>
+                            <div class="col-md-4 col-xl-3">
+                                <p>Результат: </p>
+                                <div id="task_10_result"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+
+
+</body>
+
+<script src="assets/js/main.js"></script>
+
+</html>
