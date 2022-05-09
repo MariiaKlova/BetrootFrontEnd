@@ -68,6 +68,7 @@ function task1() {
     document.getElementById('task_1_result').innerText = rez;
 }
 
+// 2 Пользователь ввел число, а на экран вывелись все числа от введенного до 0
 function task2() {
     const num = parseInt(document.getElementById('task_2_number').value);
     let rez = '';
@@ -78,7 +79,7 @@ function task2() {
     }
     document.getElementById('task_2_result').innerText = rez;
 }
-
+// 3 Запросить число и степень. Возвести число в указанную степень и вывести результат.
 function task3() {
     const num1 = parseInt(document.getElementById('task_3_number1').value);
     const num2 = parseInt(document.getElementById('task_3_number2').value);
@@ -86,6 +87,7 @@ function task3() {
     document.getElementById('task_3_result').innerText = rez;
 }
 
+// 4 Запросить 2 числа и найти все общие делители.
 function task4() {
     const num1 = parseInt(document.getElementById('task_4_number1').value);
     const num2 = parseInt(document.getElementById('task_4_number2').value);

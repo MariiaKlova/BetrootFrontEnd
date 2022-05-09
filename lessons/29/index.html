@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="assets/styles/bootstrap.min.css">
-    <title>29 hom</title>
+    <title>29 less</title>
 </head>
 <style>
     .row.display-flex {
@@ -39,14 +39,79 @@
 
 <body>
     <div class="container pt-4">
-        <h1 class="h4 text-center my-5">Домашнє завдання з lms.beetroot</h1>
+        <h1 class="h4 text-center my-5">Lesson 29. Цикли</h1>
+
+        <div class="row display-flex">
+            <div class="col-md-6 col-xl-4">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <p>1 Цикл for (let i = 0; i &lt; 10; i++) <br> Збільшення числа на 1 від 0 до 9</p>
+                        <button type="button" class="btn btn-success" onclick="func1()">Спробувати (див.
+                            консоль)</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-xl-4">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <p>2 Цикл for (let i = 0; i &lt; 10; i +=2) <br>
+                            Збільшення числа на 2 від 0 до 9</p>
+                        <button type="button" class="btn btn-success" onclick="func2()">Спробувати (див.
+                            консоль)</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-xl-4">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <p>3 Вказання року від теперішнього, до 60 назад.
+                            // Для форми реєстрації</p>
+                        <button type="button" class="btn btn-success" onclick="func3()">Спробувати (див.
+                            консоль)</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-xl-4">
+                <div class="card  mb-4">
+                    <div class="card-body">
+                        <p>4 Цикл while (i &lt; 10); i++ <br>
+                            Інкременція числа від 0, доки воно не досягне 10</p>
+                        <button type="button" class="btn btn-success" onclick="func4()">Спробувати (див.
+                            консоль)</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-xl-4">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <p>5 Цикл, доки нажимаємо ОК, буде виконуватись цикл.</p>
+                        <button type="button" class="btn btn-success" onclick="func5()">Спробувати (див.
+                            консоль)</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-xl-4">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <p>6 5 Цикл, доки нажимаємо ОК, буде виконуватись цикл. <br>
+                            do {} while (), робиться спочатку перевірка, а потім запускається скрипт
+                        </p>
+                        <button type="button" class="btn btn-success" onclick="func6()">Спробувати (див.
+                            консоль)</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h1 class="h4 text-center my-5">Задания, в которых необходимо использовать WHILE.</h1>
+
         <div class="row display-flex">
             <div class="col-md-12 col-xl-12">
                 <div class="card mb-4">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-12 col-xl-5">
-                                <p>1 Запитай у користувача його вік і визначи, ким він є: дитиною (0-11), підлітком (12-17), дорослим (18_59) або пенсіонером (60 ...), передбач можливість введення невірних даних.</p>
+                                <p>1 Вывести # столько раз, сколько указал пользователь.</p>
                             </div>
                             <div class="col-md-4 col-xl-2">
                                 <input class="col-12 me-2 mb-2" type="number" id="task_1_number">
@@ -90,8 +155,7 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-12 col-xl-5">
-                                <p>3 Запросить число и степень. Возвести число в указанную степень и вывести результат.
-                                </p>
+                                <p>3 Запросить число и степень. Возвести число в указанную степень и вывести результат.</p>
                             </div>
                             <div class="col-md-4 col-xl-2">
                                 <input class="col-12 me-2 mb-2" type="number" id="task_3_number1">
