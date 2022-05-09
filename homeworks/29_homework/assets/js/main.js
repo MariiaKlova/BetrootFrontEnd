@@ -285,7 +285,7 @@ function task13() {
 
 // 14 Зациклить калькулятор. Запросить у пользователя 2 числа и знак, решить пример, вывести результат и спросить, хочет ли он решить еще один пример. И так до тех пор, пока пользователь не откажется.
 function task14() {
-debugger
+    debugger
     do {
         const num1 = parseInt(prompt('Вкжіть перше число'));
         const num2 = parseInt(prompt('Вкжіть друге число'));
@@ -310,10 +310,27 @@ debugger
                 break;
         }
         answer = confirm(`Результат: ${rez}. Бажаєте вирішити ще однин приклад?`)
-    } while ( answer == true) {}
+    } while (answer == true) {}
     alert('End')
 }
 
+//15 Запросить у пользователя число и на сколько цифр его сдвинуть. Сдвинуть цифры числа и вывести результат (если число 123456 сдвинуть на 2 цифры, то получится 345612).
+function task15() {
+    let number = document.getElementById('task_15_number1').value;
+    let numSlide = document.getElementById('task_15_number2').value;
+    let num = number;
+    for (i = 0; num > 1; i++) {
+        num /= 10;
+    }
+    if (i < numSlide) {
+        alert('Error')
+    }
+    let nuli = 10 ** (i - numSlide);
+    let x = number % nuli;
+    let y = Math.floor(number / nuli);
+    let rez = (x * (10 ** numSlide)) + y;
+    document.getElementById('task_15_result').innerText = rez;
+}
 
 //16 Вывести # столько раз, сколько указал пользователь.
 function task16() {

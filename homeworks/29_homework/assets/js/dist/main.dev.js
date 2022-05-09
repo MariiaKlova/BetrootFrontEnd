@@ -381,6 +381,27 @@ function task14() {
 
   {}
   alert('End');
+} //15 Запросить у пользователя число и на сколько цифр его сдвинуть. Сдвинуть цифры числа и вывести результат (если число 123456 сдвинуть на 2 цифры, то получится 345612).
+
+
+function task15() {
+  var number = document.getElementById('task_15_number1').value;
+  var numSlide = document.getElementById('task_15_number2').value;
+  var num = number;
+
+  for (i = 0; num > 1; i++) {
+    num /= 10;
+  }
+
+  if (i < numSlide) {
+    alert('Error');
+  }
+
+  var nuli = Math.pow(10, i - numSlide);
+  var x = number % nuli;
+  var y = Math.floor(number / nuli);
+  var rez = x * Math.pow(10, numSlide) + y;
+  document.getElementById('task_15_result').innerText = rez;
 } //16 Вывести # столько раз, сколько указал пользователь.
 
 
