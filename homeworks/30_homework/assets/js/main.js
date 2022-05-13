@@ -1,42 +1,94 @@
-// 1 Створи функцію, яка буде виводити кількість переданих їй аргументів.
-function task1() {
-
+function chekIntValue(value) {
+    if (value === '') {
+        return false;
+    }
+    value = parseInt(value);
+    if (isNaN(value)) {
+        return false;
+    }
+    return value;
 }
 
-// 2 Напиши функцію, яка приймає 2 числа і повертає :-1, якщо перше число менше, ніж друге; 1 - якщо перше число більше, ніж друге; 0 - якщо числа рівні.
-function task2(a, b) {
+function showResult(rez, resId) {
+    document.getElementById(resId).innerText = rez;
+}
+
+// 1 Напиши функцію, яка приймає 2 числа і повертає :-1, якщо перше число менше, ніж друге; 1 - якщо перше число більше, ніж друге; 0 - якщо числа рівні.
+function checkTwoNumbers(a = 0, b = 0) {
     let r = 0;
-    if (a < b) {
-        r = -1;
-    }
     if (a > b) {
-        r = 1;
+        r = true;
     }
-    document.getElementById('task2_result').innerText = r;
+    if (a < b) {
+        r = false;
+    }
+    return r
 }
 
-// 3 Напиши функцію, яка обчислює факторіал переданого їй числа
-function task3(num) {
-    let rez = 1;
-    let i = parseInt(num);
+function task1() {
+    const firstNumb = chekIntValue(document.getElementById('task1_number1').value);
+    const secondNumb = chekIntValue(document.getElementById('task1_number2').value);
+    let rez = 0;
+    if (firstNumb !== false && secondNumb !== false) {
+        if (checkTwoNumbers(firstNumb, secondNumb) === true) {
+            rez = 1;
+        }
+        if (checkTwoNumbers(firstNumb, secondNumb) === false) {
+            rez = -1;
+        }
+    } else {
+        rez = 'Введіть коректне число';
+    }
+
+    showResult(rez, 'task1_result');
+}
+
+// 2 Напиши функцію, яка обчислює факторіал переданого їй числа
+function factorialOfNumber(num = 1) {
+    let rez = 1,
+        i = num;
     while (i > 0) {
         rez = rez * i;
         i--;
     }
-    document.getElementById('task3_result').innerText = rez;
+    return rez
 }
 
-// 4 Напиши функцію, яка приймає три окремі цифри і перетворює їх в одне число. Наприклад: цифри 1, 4, 9 перетворяться в число 149.
-
-function task4(a, b, c) {
-    let x = `${a}${b}${c}`; //XP
-
-    document.getElementById('task4_result').innerText = x;
+function task2() {
+    const num = chekIntValue(document.getElementById('task2_number').value);
+    let rez;
+    if (num !== false) {
+        rez = factorialOfNumber(num);
+    } else {
+        rez = 'Введіть коректне число';
+    }
+    showResult(rez, 'task2_result');
 }
 
 
-// 5
-function task5(a, b) {
+// 3 Напиши функцію, яка приймає три окремі цифри і перетворює їх в одне число. Наприклад: цифри 1, 4, 9 перетворяться в число 149.
+function threeNumbersIntoOne(a = 1, b = 1, c = 1) {
+    const rez = (a * 100) + (b * 10) + c;
+    return rez;
+}
+
+
+function task3() {
+    const num1 = chekIntValue(document.getElementById('task3_number1').value);
+    const num2 = chekIntValue(document.getElementById('task3_number2').value);
+    const num3 = chekIntValue(document.getElementById('task3_number3').value);
+    let rez;
+    if (num1 !== false && num2 !== false && num3 !== false) {
+        rez = threeNumbersIntoOne(num1, num2, num3);
+    } else {
+        rez = 'Введіть коректні числа';
+    }
+    showResult(rez, 'task3_result');
+}
+
+
+// 4 Напиши функцію, яка приймає довжину і ширину прямокутника і обчислює його площу. Якщо в функцію передали 1 параметр, то вона обчислює площу квадрата.
+function rectangleArea(a, b) {
     if (b == '') {
         b = a;
     }
@@ -44,63 +96,86 @@ function task5(a, b) {
         a = b;
     }
     let x = a * b;
-
-    document.getElementById('task5_result').innerText = x;
+    return x;
 }
 
-//6 Напиши функцію, яка перевіряє, чи є передане їй число “досконалим числом”. Досконале число - це число, яке дорівнює сумі всіх своїх дільників.
+function task4() {
+    const num1 = document.getElementById('task4_number1').value;
+    const num2 = document.getElementById('task4_number2').value;
+    let rez;
+    if (num1 === '' && num2 === '') {
+        rez = 'Введіть хоча б одне число';
+    } else {
+        rez = rectangleArea(num1, num2);
+    }
+    showResult(rez, 'task4_result');
+}
 
-function task6(a) {
-    let rez = 'Не досконале число',
+//5 Напиши функцію, яка перевіряє, чи є передане їй число “досконалим числом”. Досконале число - це число, яке дорівнює сумі всіх своїх дільників.
+function isNumberPerfect(num = 0) {
+    let i,
+        rez = false,
         x = 0;
-    a = parseInt(a);
-
-    for (i = a - 1; i > 0; i--) {
-        if (a % i == 0) {
+    for (i = num - 1; i > 0; i--) {
+        if (num % i == 0) {
             x += i;
         }
     }
-    if (x == a) {
-        rez = 'Досконале число';
-    }
-    document.getElementById('task6_result').innerText = rez;
-}
-
-// 7 Напиши функцію, яка приймає мінімальне і максимальне значення для діапазону, і виводить тільки ті числа з діапазону, які є досконалими. Використовуй написану раніше функцію, щоб дізнатися, чи є це число досконалим.
-
-function isNumberPerfect(a) {
-    let rez = false,
-        x = 0;
-    a = parseInt(a);
-    for (i = a - 1; i > 0; i--) {
-        if (a % i == 0) {
-            x += i;
-        }
-    }
-    if (x == a) {
+    if (x == num) {
         rez = true;
     }
     return rez;
 }
 
-function task7(minNumb, maxNumb) {
-    let rez = '';
-    minNumb = parseInt(minNumb);
-    maxNumb = parseInt(maxNumb);
-    if (minNumb > maxNumb) {
-        alert('Числа введено невірно');
-    }
-    for (n = minNumb; n <= maxNumb; n++) {
-
-        if (n > 0 && isNumberPerfect(n)) {
-            rez += n + ', ';
+function task5() {
+    const num = chekIntValue(document.getElementById('task5_number').value);
+    let rez;
+    if (num !== false) {
+        if (isNumberPerfect(num) === true) {
+            rez = 'Число досконале';
+        } else {
+            rez = 'Число НЕ досконале';
         }
+    } else {
+        rez = 'Введіть коректне число';
     }
-    document.getElementById('task7_result').innerText = rez;
+    showResult(rez, 'task5_result');
 }
 
+// 6 Напиши функцію, яка приймає мінімальне і максимальне значення для діапазону, і виводить тільки ті числа з діапазону, які є досконалими. Використовуй написану раніше функцію, щоб дізнатися, чи є це число досконалим.
 
+function perfectNumbersInDiapazon(minNumb, maxNumb) {
+    let rez = '';
+    let i;
+    for (i = minNumb; i <= maxNumb; i++) {
+        if (i > 0 && isNumberPerfect(i)) {
+            rez += i + ', ';
+        }
+    }
+    return rez;
+}
 
+function task6() {
+    const num1 = chekIntValue(document.getElementById('task6_number1').value);
+    const num2 = chekIntValue(document.getElementById('task6_number2').value);
+    if (num1 === false || num2 === false) {
+        showResult('Введіть коректні числа', 'task6_result');
+        return;
+    }
+    if (num1 > num2) {
+        showResult('Числа введено невірно', 'task6_result');
+        return;
+    }
+    if (perfectNumbersInDiapazon(num1, num2) === '') {
+        showResult('В заданому діапазоні немає досконалих чисел', 'task6_result');
+        return;
+    } else {
+        const rez = perfectNumbersInDiapazon(num1, num2);
+        showResult(rez, 'task6_result');
+        return;
+    }
+
+}
 
 
 // 12 Запитай дату (день, місяць, рік) і виведи наступну за нею дату. Враховуй можливість переходу на наступний місяць, рік, а також високосний рік.
@@ -137,26 +212,20 @@ function task12(day, mounth, year) {
     year = parseInt(year); // рік
     if (day < 1 || day > 31 || mounth < 1 || mounth > 12 || year < 1) {
         alert(`Дата вказана невірно`)
-    } else {
-        if (mounth == 12 && day == 31) {
-            day = 1;
-            mounth = 1;
-            year += 1;
-        } else {
-            if (daysInMonth(mounth, year) == day) {
-                day = 1;
-                mounth += 1;
-            } else {
-                day += 1;
-            }
-        }
-        document.getElementById('task_12_result').innerText = ` наступний день: ${day}.${mounth}.${year} `;
+        return;
     }
+    if (mounth == 12 && day == 31) {
+        day = 1;
+        mounth = 1;
+        year += 1;
+    } else {
+        if (daysInMonth(mounth, year) == day) {
+            day = 1;
+            mounth += 1;
+        } else {
+            day += 1;
+        }
+    }
+    document.getElementById('task_12_result').innerText = ` наступний день: ${day}.${mounth}.${year} `;
+
 }
-
-
-
-
-
-
-

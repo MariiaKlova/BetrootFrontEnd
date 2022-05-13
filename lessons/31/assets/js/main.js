@@ -64,9 +64,6 @@ document.getElementById('task1_result').innerHTML = carUl;
 
 
 
-
-
-
 const a ={
     aa: 1,
     bb: {
