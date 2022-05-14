@@ -7,49 +7,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="assets/styles/bootstrap.min.css">
-    <title>31 0less</title>
+    <title>32 less</title>
 </head>
 
 <body>
     <div class="container pt-4">
-        <div class="col-md-12 col-xl-12">
-            <div class="card mb-4">
-                <div class="card-body">
-                        <div id="task1_result"></div>
-                </div>
-            </div>
-        </div>
-
-        <!-- <div class="col-md-12 col-xl-12">
-            <div class="card mb-4">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-md-12 col-xl-5">
-                            <p> </p>
-                        </div>
-                        <div class="col-md-4 col-xl-2">
-                            <input class="col-12 me-2 mb-2" type="number" id="task1_number">
-                        </div>
-                        <div class="col-md-4 col-xl-2">
-                            <button type="button" class="btn btn-primary col-12" onclick="task()"> Спробувати
-                            </button>
-                        </div>
-                        <div class="col-md-4 col-xl-3">
-                            <p>Результат: </p>
-                            <div id="task1_result"></div>
+        <div class="row display-flex">
+            <div class="col-md-12 col-xl-12">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12 col-xl-5">
+                                <p>Функція виводить парні / непарні числа з діапазону</p>
+                            </div>
+                            <div class="col-md-4 col-xl-2">
+                                <input class="col-12 me-2 mb-2" type="number" id="task1_number1" placeholder="From">
+                                <input class="col-12 me-2 mb-2" type="number" id="task1_number2" placeholder="To">
+                                <select name="numbers_type" id="numbers_type">
+                                    <option value="true">Even</option>
+                                    <option value="">Odd</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4 col-xl-2">
+                                <button type="button" class="btn btn-primary col-12" onclick="task1()"> Спробувати
+                                </button>
+                            </div>
+                            <div class="col-md-4 col-xl-3">
+                                <p>Результат: </p>
+                                <div id="task1_result"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div> -->
-
-
-
-
-
-
+        </div>
     </div>
-
 </body>
 
 <script src="assets/js/main.js"></script>

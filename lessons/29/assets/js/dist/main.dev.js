@@ -1,127 +1,222 @@
 "use strict";
 
-// Збільшення числа на 1 від 0 до 9
-function func1() {
-  for (var i = 0; i < 10; i++) {
-    console.log(i);
-  }
-}
-/*  Дуже погана практика
-let i = 1;
-for( ; i<=10 ; ){
-    console.log(i);
-    i++; //має значення де встановлено
-}
-*/
-// Збільшення числа на 2 від 0 до 9
+//1 Запитай у користувача 10 чисел і порахуй, скільки він ввів додатніх, від’ємних і нулів. При цьому також порахуй, скільки з них парних і непарних. Виведи статистику на екран. Враховуй, що достатньо однієї змінної (не 10) для введення чисел користувачем.
+function checkTen() {
+  var dodatni = 0,
+      videmni = 0,
+      nuli = 0,
+      parni = 0,
+      neparni = 0;
+  result = '', number = 0, allNumbers = '', i = 0;
+  var limit = 10;
 
+  while (i < limit) {
+    number = parseInt(prompt('Enter number'));
 
-function func2() {
-  for (var i = 0; i < 10; i += 2) {
-    console.log(i);
-  }
-} // Для вказання року від теперішнього, до 60 назад. 
-// Для форми реєстрації
+    if (!isNaN(number)) {
+      allNumbers += number + ', ';
 
+      if (number === 0) {
+        nuli++;
+      } else {
+        if (number > 0) {
+          dodatni++;
+        } else {
+          videmni++;
+        }
+      }
+    }
 
-function func3() {
-  var year = new Date().getFullYear();
+    if (number % 2 === 0) {
+      parni++;
+    } else {
+      neparni++;
+    }
 
-  for (var i = year; i > year - 60; i--) {
-    console.log(i);
-  }
-} // Інкременція числа від 0, доки воно не досягне 10
-
-
-function func4() {
-  var i = 0;
-
-  while (i < 10) {
-    console.log(i);
     i++;
   }
-} //Цикл, доки нажимаємо ОК, буде виконуватись цикл. 
+
+  result = "\u0414\u043E\u0434\u0430\u0442\u043D\u0456: ".concat(dodatni, ", \u0412\u0456\u0434'\u0454\u043C\u043D\u0456: ").concat(videmni, " , \u041D\u0443\u043B\u0456: ").concat(nuli, " , \u041F\u0430\u0440\u043D\u0456: ").concat(parni, " , \u041D\u0435\u043F\u0430\u0440\u043D\u0456: ").concat(neparni, " ");
+  document.getElementById('task_1_result').innerHTML = allNumbers + '<br>' + result;
+} //2 якщо ми тиснемо Ок, цикл працює.
 
 
-function func5() {
+function ask() {
   var answer = true;
 
-  while (answer === true) {
-    answer = confirm('Question');
-  }
-} // Цикл, доки нажимаємо ОК, буде виконуватись цикл. 
-// З  do {} while (), робиться спочатку перевірка, а потім запускається скрипт;
-
-
-function func6() {
-  var answer = false;
-
-  do {
-    answer = confirm('Question');
-  } while (answer === true);
-} //Вывести # столько раз, сколько указал пользователь.
-
-
-function task1() {
-  var num = parseInt(document.getElementById('task_1_number').value);
-  var rez = '';
-  var i = 0;
-
-  while (i < num) {
-    rez += '#';
-    i++;
+  while (answer) {
+    answer = confirm('Question?');
   }
 
-  document.getElementById('task_1_result').innerText = rez;
-} // 2 Пользователь ввел число, а на экран вывелись все числа от введенного до 0
+  alert('End');
+} //3 Виведи таблицю множення для всіх чисел від 2 до 9. Кожне число необхідно помножити на числа від 1 до 10.
 
 
-function task2() {
-  var num = parseInt(document.getElementById('task_2_number').value);
-  var rez = '';
-  var i = num;
+var r = '<div style="display:flex; flex-wrap:wrap; gap:30px;"> ';
 
-  while (i >= 0) {
-    rez += i + ' ';
-    i--;
+for (var _i = 2; _i <= 9; _i++) {
+  r += '<ul>';
+
+  for (var j = 1; j <= 10; j++) {
+    r += '<li>' + _i + ' * ' + j + ' = ' + _i * j + '</li>';
   }
 
-  document.getElementById('task_2_result').innerText = rez;
-} // 3 Запросить число и степень. Возвести число в указанную степень и вывести результат.
+  r += '</ul>';
+}
 
+r += '</div>';
+document.getElementById('task_3_result').innerHTML = r; // ФУНКЦІЇ
 
-function task3() {
-  var num1 = parseInt(document.getElementById('task_3_number1').value);
-  var num2 = parseInt(document.getElementById('task_3_number2').value);
-  var rez = Math.pow(num1, num2);
-  document.getElementById('task_3_result').innerText = rez;
-} // 4 Запросить 2 числа и найти все общие делители.
+function sum(a, b) {
+  var c = a + b;
+  return c;
+}
 
+var number1 = sum(5, 7);
+var number2 = sum(5, 7);
+var summa = sum(number1, number2); //
 
-function task4() {
-  var num1 = parseInt(document.getElementById('task_4_number1').value);
-  var num2 = parseInt(document.getElementById('task_4_number2').value);
-  var rez = '';
-  var minNum = num1 < num2 ? num1 : num2;
-  var i = 1;
+function sum2(a) {
+  var b = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 10;
+  var c = a + b;
+  return c;
+}
 
-  while (i <= minNum / 2) {
-    if (num1 % i == 0 && num2 % i == 0) {
-      rez += i + ', ';
-    }
+var summa2 = sum2(number1); //
 
-    i++;
+function sum3(a) {
+  var b = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 10;
+
+  function resultText(s) {
+    return 'Summ = ' + s; // погана практика
   }
 
-  if (minNum === num1) {
-    if (num2 % num1 == 0) {
-      rez += num1;
+  var c = a + b;
+  return resultText(c);
+} // resultText(123); - Буде вертати помилку, бо ми не можемо звертатися до елементів всередені функції
+// Калькулятор
+
+
+function calc() {
+  var a = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+  var b = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+  var action = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '+';
+
+  if (action === "+") {
+    return a + b;
+  } else if (action === '-') {
+    return a - b;
+  } else if (action === '*') {
+    return a * b;
+  } else if (action === '/') {
+    return a / b;
+  }
+} // Калькулятор №2
+
+
+function calc2() {
+  var a = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+  var b = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+  var action = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '+';
+  var r = 0;
+
+  if (action === "+") {
+    r = a + b;
+  } else if (action === '-') {
+    r = a - b;
+  } else if (action === '*') {
+    r = a * b;
+  } else if (action === '/') {
+    r = a / b;
+  }
+
+  return r;
+} // const sum3 = function(a,b){  
+//     return a  + b;
+// }
+// console.log(sum3(1,2));
+// Стрілочна (спрощена) функція пропускаються function {} return.
+
+
+var sum4 = function sum4(a, b) {
+  return a + b;
+};
+
+console.log(sum4(1, 2)); // Дві однакові функції, друга с спрощеним записом.
+//1 Додає до числа менше 9 попереду 0
+
+function addZero(n) {
+  var r = '';
+
+  if (n < 10) {
+    r = '0' + n;
+  } else {
+    r = '' + n;
+  } // return r;
+
+
+  document.getElementById('task_10_result').innerText = r;
+} //2
+
+
+var addZero2 = function addZero2() {
+  var n = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+  return n < 10 ? '0' + n : '' + n;
+};
+/** ЧИСТА ФУНКЦІЯ:
+ 1. Приймає аргументи
+ 2. При тих самих аргументах завжди однаковий результат
+ 3. Не повинна мати побічних ефектів.
+
+ ФНКЦІЇ ВИИЩОГО ПОРЯДКУ:
+ 1. Функція приймає а якості аргументу іншу функцію
+ 2. Функція повертає а якості виконання іншу функцію
+
+ */
+
+
+function foo(a, b, qwe) {
+  if (a === b) {
+    qwe(a + b);
+  } else {
+    return a * b;
+  }
+} // function fooCallback(x){
+//     alert('Lorem'+x)
+// }
+// foo(1, 2, fooCallback);
+
+
+foo(1, 2, function (x) {
+  alert('Lorem' + x);
+});
+
+function sumAny(number) {
+  return function (a) {
+    return number + a;
+  };
+}
+
+var sumTen = sumAny(10);
+var sum100 = sumAny(100);
+var sum20 = sumAny(20);
+console.log(sumTen(2)); // = 10 + 2 
+
+console.log(sum100(35)); // = 100 + 35
+
+console.log(sum20(20)); // = 20 +20
+
+function getAndCheck() {
+  var inputId = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+  var number = document.getElementById(inputId).ariaValueMax;
+
+  if (inputId != '') {
+    inputId = parseInt(number);
+
+    if (!isNaN(number)) {
+      return false;
     }
   } else {
-    if (num1 % num2 == 0) {
-      rez += num2;
-    }
+    return false;
   }
-
-  document.getElementById('task_4_result').innerText = rez;
 }

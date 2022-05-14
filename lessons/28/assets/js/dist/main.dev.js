@@ -1,112 +1,127 @@
 "use strict";
 
-// 1
-function hello1(name) {
-  if (name == '') {
-    return false;
+// Збільшення числа на 1 від 0 до 9
+function func1() {
+  for (var i = 0; i < 10; i++) {
+    console.log(i);
   }
-
-  alert('hello, ' + name);
-} // 2
-
-
-function hello2(name) {
-  if (name != '') {
-    alert('hello, ' + name);
-  } else {
-    alert('Enter your name');
-  }
-} // 3
-
-
-function numCheck(num) {
-  if (num < 0) {
-    alert('-');
-  } else if (num > 0) {
-    alert('+');
-  } else if (num == 0) {
-    alert('0');
-  } else {
-    alert('Enter number');
-  }
-} // 4
-
-
-function emailCheck(email) {
-  if (email != '') {
-    if (isValidEmail(email)) {
-      return true;
-    } else {
-      alert('Email is not valid');
-    }
-  } else {
-    alert('Enter your email');
-  }
-} // 5
-
-
-function someNum() {
-  var num = 4;
-  var y = 0;
-
-  if (num <= 12) {
-    y = 1;
-  } else if (num >= 12 && num < 18 && num != 16) {
-    y = 2;
-  } else if (num == 16 || num == 25 || num == 27) {
-    y = 3;
-  }
-
-  console.log(y);
-} // 6. Високосный год
-// год, номер которого кратен 400, — високосный;
-// остальные годы, номер которых кратен 100, — невисокосные (например, годы 1700, 1800, 1900, 2100, 2200, 2300);
-// остальные годы, номер которых кратен 4, — високосные.
-// Итого: Либо кратен 400, либо кратен 4 и при єтом не кратен 100
-// 7 Скільки днів у місяці 30 чи 31
-
-
-function days() {
-  var d;
-  var num = prompt('Enter month numder');
-
-  switch (num) {
-    case '1':
-    case '3':
-    case '5':
-    case '7':
-    case '8':
-    case '10':
-    case '12':
-      d = '31';
-      break;
-
-    case '4':
-    case '6':
-    case '9':
-    case '11':
-      d = '30';
-      break;
-
-    case '2':
-      d = '28'; //якщо ми знаємо ще і рік, можна додати попередню функцію високосного року
-
-      break;
-
-    default:
-      d = 'Invalid value';
-      break;
-  }
-} // 8 Тернарний оператор const acceptLang = (x) ? y : z;
-
-/*
-const acceptLang = '';
-if(currentLang = 'ua'){
-    acceptLang = 'uk_UA';
-} else {
-    acceptLang = 'en_GB';
+}
+/*  Дуже погана практика
+let i = 1;
+for( ; i<=10 ; ){
+    console.log(i);
+    i++; //має значення де встановлено
 }
 */
+// Збільшення числа на 2 від 0 до 9
 
 
-var acceptLang = currentLang === 'ua' ? 'uk_UA' : 'en_GB';
+function func2() {
+  for (var i = 0; i < 10; i += 2) {
+    console.log(i);
+  }
+} // Для вказання року від теперішнього, до 60 назад. 
+// Для форми реєстрації
+
+
+function func3() {
+  var year = new Date().getFullYear();
+
+  for (var i = year; i > year - 60; i--) {
+    console.log(i);
+  }
+} // Інкременція числа від 0, доки воно не досягне 10
+
+
+function func4() {
+  var i = 0;
+
+  while (i < 10) {
+    console.log(i);
+    i++;
+  }
+} //Цикл, доки нажимаємо ОК, буде виконуватись цикл. 
+
+
+function func5() {
+  var answer = true;
+
+  while (answer === true) {
+    answer = confirm('Question');
+  }
+} // Цикл, доки нажимаємо ОК, буде виконуватись цикл. 
+// З  do {} while (), робиться спочатку перевірка, а потім запускається скрипт;
+
+
+function func6() {
+  var answer = false;
+
+  do {
+    answer = confirm('Question');
+  } while (answer === true);
+} //Вывести # столько раз, сколько указал пользователь.
+
+
+function task1() {
+  var num = parseInt(document.getElementById('task_1_number').value);
+  var rez = '';
+  var i = 0;
+
+  while (i < num) {
+    rez += '#';
+    i++;
+  }
+
+  document.getElementById('task_1_result').innerText = rez;
+} // 2 Пользователь ввел число, а на экран вывелись все числа от введенного до 0
+
+
+function task2() {
+  var num = parseInt(document.getElementById('task_2_number').value);
+  var rez = '';
+  var i = num;
+
+  while (i >= 0) {
+    rez += i + ' ';
+    i--;
+  }
+
+  document.getElementById('task_2_result').innerText = rez;
+} // 3 Запросить число и степень. Возвести число в указанную степень и вывести результат.
+
+
+function task3() {
+  var num1 = parseInt(document.getElementById('task_3_number1').value);
+  var num2 = parseInt(document.getElementById('task_3_number2').value);
+  var rez = Math.pow(num1, num2);
+  document.getElementById('task_3_result').innerText = rez;
+} // 4 Запросить 2 числа и найти все общие делители.
+
+
+function task4() {
+  var num1 = parseInt(document.getElementById('task_4_number1').value);
+  var num2 = parseInt(document.getElementById('task_4_number2').value);
+  var rez = '';
+  var minNum = num1 < num2 ? num1 : num2;
+  var i = 1;
+
+  while (i <= minNum / 2) {
+    if (num1 % i == 0 && num2 % i == 0) {
+      rez += i + ', ';
+    }
+
+    i++;
+  }
+
+  if (minNum === num1) {
+    if (num2 % num1 == 0) {
+      rez += num1;
+    }
+  } else {
+    if (num1 % num2 == 0) {
+      rez += num2;
+    }
+  }
+
+  document.getElementById('task_4_result').innerText = rez;
+}

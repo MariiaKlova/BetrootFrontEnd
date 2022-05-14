@@ -54,19 +54,24 @@ function task1() {
 
   showResult(rez, 'task1_result');
 } // 2 Напиши функцію, яка обчислює факторіал переданого їй числа
+//старе:
+// function factorialOfNumber(num = 1) {
+//     let rez = 1,
+//         i = num;
+//     while (i > 0) {
+//         rez = rez * i;
+//         i--;
+//     }
+//     return rez
+// }
 
 
-function factorialOfNumber() {
-  var num = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
-  var rez = 1,
-      i = num;
-
-  while (i > 0) {
-    rez = rez * i;
-    i--;
+function factorialOfNumber(n) {
+  if (n == 0) {
+    return 1;
   }
 
-  return rez;
+  return n * factorialOfNumber(n - 1);
 }
 
 function task2() {

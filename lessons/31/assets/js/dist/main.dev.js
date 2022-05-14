@@ -1,72 +1,132 @@
 "use strict";
 
-// запис обекту
-var obj = new Object(); // скорочений запис обекту
-
-var obj2 = {}; // опис змінної {ключ: значення, } 
-
-var car = {
-  mark: 'Tesla',
-  model: 'S',
-  year: 2020,
-  'engine type': 'electro',
-  // ключ з двох слів
-  12: 123456,
-  // ключ з числа
-  capaciti: 100.3,
-  autoPilot: true,
-  color: 'black',
-  cassets: cassets,
-  viewMark: function viewMark() {
-    console.log(this);
-    console.log(this.mark);
-  },
-  // viewMark: () => {
-  //     console.log(this);
-  //     console.log(this.mark);
-  // },   ПРАЦЮВАТИ НЕ БУДЕ, БО В СТРІЛОЧНІЙ ФУНКЦІЇ НЕМАЄ this
-  size: {
-    lenghth: 4976,
-    width: 1963,
-    height: 1435
-  },
-  version: ['75', '75D', '100D', 'P100D']
-};
-car.maxSpeed = 250; // додавання ключа у обект
-
-car['max-Speed'] = 250; // додавання ключа з двох слів у обект
-
-var size = car.height;
-console.log(car);
-console.log(car.mark);
-console.log(car['engine type']); // ключ з двох слів
-
-console.log(car[12]); // ключ з числа
-
-console.log(car.size.height);
-console.log(size.height);
-car.viewMark();
-console.log('==================='); //вивести ключі обекту в html
-
-var carUl = '<ul>';
-
-for (var k in car) {
-  console.log(k + ': ' + car[k]);
-  carUl += '<li><b>' + k + ':</b>' + car[k] + '</li>';
+//---------------------------------------
+function sum() {
+  var a = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+  var b = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+  return a + b;
 }
 
-carUl += '</ul>';
-document.getElementById('task1_result').innerHTML = carUl;
-var a = {
-  aa: 1,
-  bb: {
-    cc: 3
+sum(10); // return 10 
+//---------------------------------------
+//Рекурсивна функція викликає сама себе.
+
+var count = 0;
+
+function myFunc() {
+  console.log('call');
+  console.log(count);
+  count++;
+  var text = prompt('Question');
+  alert(text);
+
+  if (text !== '') {
+    myFunc;
   }
-}; // const b  = Object.assign({}, a):   // копіювання обекту без вкладень
 
-var b = JSON.parse(JSON.stringify(a)); // глибоке копіювання обекту РЕКОМЕНДОВАНО
+  console.log(count); // також порахує count від всіх вкладеностей
 
-b.aa = 2;
-b.bb.cc = 4;
-console.log(a.aa, b.aa);
-console.log(a.bb.cc, b.bb.cc);
+  return 1, 2, 3; // поверне тільки останне значення 3
+  // return [1,2,3];  // поверне всі значення.
+} //---------------------------------------
+//IIFE  (Immediately Invoked Function Expression) 
+
+
+(function () {
+  console.log('Hello');
+})();
+
+function init() {} //---------------------------------------
+
+
+var obj = {
+  name: 'Вася',
+  age: 25
+};
+
+if (obj.hasOwnProperty('age')) {
+  console.log(obj).age;
+} else {
+  console.log('Object has no property');
+}
+
+Object.freeze(obj); // заморозити обєкт від змін
+
+obj.age = 35; // не перепише заморожений обєкт
+
+Object.isFrozen(obj); // Перевірити чи заморожений обєкт
+//---------------------------------------
+// Передивитися 20:50
+//---------------------------------------
+// Функція виводить четні / нечетні числа з діапазону
+// Загальні функції
+
+function chekIntValue(value) {
+  if (value === '') {
+    return false;
+  }
+
+  value = parseInt(value);
+
+  if (isNaN(value) || value < 0) {
+    return false;
+  }
+
+  return value;
+}
+
+function showResult(rez, resId) {
+  document.getElementById(resId).innerText = rez;
+} // Функція на задачу
+
+
+function filterRangeNumbers() {
+  var from = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+  var to = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 10;
+  var isEven = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
+  var result = '';
+
+  for (var i = from; i <= to; i++) {
+    if (isEven) {
+      if (i % 2 === 0) {
+        result += i + ' ';
+      }
+    } else {
+      if (i % 2 !== 0) {
+        result += i + ' ';
+      }
+    }
+  }
+
+  return result;
+} // console.log(filterRangeNumbers(10,20, false));
+// функція на інтерфейс і визов функції на задачу
+
+
+function task1() {
+  var fromValue = chekIntValue(document.getElementById('task1_number1').value),
+      toValue = chekIntValue(document.getElementById('task1_number2').value),
+      typeValue = document.getElementById('numbers_type').value;
+  var rez = '';
+
+  if (fromValue !== false && toValue !== false) {
+    if (fromValue < toValue) {
+      rez = filterRangeNumbers(fromValue, toValue, Boolean(typeValue));
+    } else {
+      rez = 'From must be smaller than To';
+    }
+  } else {
+    rez = 'Enter correct values';
+  }
+
+  showResult(rez, 'task1_result');
+} // factorial
+
+
+function factorial(n) {
+  if (n == 0) {
+    return 1;
+  }
+
+  return n * factorial(n - 1);
+}

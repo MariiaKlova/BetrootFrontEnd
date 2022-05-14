@@ -7,41 +7,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="assets/styles/bootstrap.min.css">
-    <title>32 less</title>
+    <link rel="stylesheet" href="assets/styles/topPanel.min.css">
+    <title>33 less Масиви</title>
 </head>
 
 <body>
-    <div class="container pt-4">
-        <div class="row display-flex">
-            <div class="col-md-12 col-xl-12">
-                <div class="card mb-4">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-12 col-xl-5">
-                                <p>Функція виводить четні / нечетні числа з діапазону</p>
-                            </div>
-                            <div class="col-md-4 col-xl-2">
-                                <input class="col-12 me-2 mb-2" type="number" id="task1_number1" placeholder="From">
-                                <input class="col-12 me-2 mb-2" type="number" id="task1_number2" placeholder="To">
-                                <select name="numbers_type" id="numbers_type">
-                                    <option value="true">Even</option>
-                                    <option value="">Odd</option>
-                                </select>
-                            </div>
-                            <div class="col-md-4 col-xl-2">
-                                <button type="button" class="btn btn-primary col-12" onclick="task1()"> Спробувати
-                                </button>
-                            </div>
-                            <div class="col-md-4 col-xl-3">
-                                <p>Результат: </p>
-                                <div id="task1_result"></div>
-                            </div>
-                        </div>
-                    </div>
+
+<div class="container col-12 pt-4">
+    <h1 class="h1 text-center my-3">33 Масиви </h1>
+    <h4 class="h4 text-center my-3">Теорія в console.log (закоменчено в JS) </h4>
+   
+    <div class="card mb-4">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-6">
+                    <input type="text" class="form-control" placeholder="Enter product name" id="product_name">
+                </div>
+                <div class="col-2">
+                    <input type="number" class="form-control" value="1" id="product_qty">
+                </div>
+                <div class="col-2">
+                    <input type="number" class="form-control" placeholder="Price per one" id="product_price">
+                </div>
+                <div class="col-2">
+                    <button type="button" class="btn btn-info" onclick="checkAndAddToCard()">Add</button>
                 </div>
             </div>
         </div>
     </div>
+
+    <div class="card">
+        <div class="card-header">
+            <h4>Products in card</h4>
+            <div class="card-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Qty</th>
+                            <th>Price</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cart-body"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 
 <script src="assets/js/main.js"></script>

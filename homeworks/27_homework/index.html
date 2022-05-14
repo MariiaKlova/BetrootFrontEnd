@@ -7,124 +7,660 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="assets/styles/bootstrap.min.css">
-    <title>Основи JavaScript 27 less</title>
+    <title>27 hom Типи даних та оператори</title>
+
+    <style>
+        .row.display-flex {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .row.display-flex>[class*='col-'] {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card {
+            height: 100%;
+        }
+
+        .card-body {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card-body p:first-letter {
+            font-size: 130%;
+            font-weight: bold;
+            color: #dc3545;
+        }
+    </style>
 </head>
 
 <body>
-    <div class="container col-8 pt-4">
-        <h1 class="h4 text-center my-5">27 Основи JavaScript. Домашнє завдання з lms.beetroot</h1>
+    <div class="container pt-4">
+        <h1 class="h4 text-center my-5">27 Типи даних та оператори Домашнє завдання з lms.beetroot</h1>
 
-        <div class="card mb-4">
-            <div class="card-body">
-                <p>1. Запитай ім’я користувача та виведи у відповідь “Привіт, *ім’я*”;</p>
-                <button type="button" class="btn btn-success" onclick="hello()">Ім’я</button>
-            </div>
-        </div>
-        <div class="card mb-4">
-            <div class="card-body">
-                <p>2. Запитай рік народження користувача, порахуй його/її вік і виведи результат. Поточний рік вкажи в
-                    коді як константу;</p>
-                <button type="button" class="btn btn-success" onclick="year()">Рік народження</button>
-            </div>
-        </div>
-        <div class="card mb-4">
-            <div class="card-body">
-                <p>3. Запитай у користувача довжину сторони квадрату і виведи периметр цього квадрата</p>
-                <button type="button" class="btn btn-success" onclick="perimeterSquare()">Обчислити периметр
-                    квадрата</button>
-            </div>
-        </div>
-        <div class="card mb-4">
-            <div class="card-body">
-                <p>4. Запитай у користувача радіус кола і виведи площу такої окружності.</p>
-                <button type="button" class="btn btn-success" onclick="circleArea()">Площа Кола</button>
-            </div>
-        </div>
-        <div class="card mb-4">
-            <div class="card-body">
-                <p>5. Запитай у користувача відстань в кілометрах між двома містами і за скільки годин він хоче
-                    дістатися.
-                    Порахуй швидкість, з якою необхідно рухатися, щоб встигнути вчасно.
-                </p>
-                <button type="button" class="btn btn-success" onclick="velocity()">Необхідна швидкість</button>
-            </div>
-        </div>
-        <div class="card mb-4">
-            <div class="card-body">
-                <p>6. Реалізуй конвертор валют. Користувач вводить долари, програма переводить їх в євро. Курс валют
-                    зберігається в константі.</p>
-                <button type="button" class="btn btn-success" onclick="exchangeRate()">Курс валют</button>
-            </div>
-        </div>
-<!-- ------------------------------------- -->
-<h1 class="h4 text-center my-5">Додаткові</h1>
+        <div class="row display-flex">
+            <div class="col-md-6 col-xl-3">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <p>1 Виконай додавання 0,1 і 0,2 добийся математично правильної відповіді.</p>
+                        <button type="button" class="btn btn-danger" onclick="adding01And02()">Спробувати (див.
+                            консоль)</button>
+                    </div>
 
-        <div class="card mb-4">
-            <div class="card-body">
-                <p>1) Запросите у пользователя первое число и второе число, возведите первое число в степень второго числа и выведите на экран.</p>
-                <button type="button" class="btn btn-success" onclick="myPow()">Ступінь</button>
+                </div>
+            </div>
+            <div class="col-md-6 col-xl-3">
+                <div class="card  mb-4">
+                    <div class="card-body">
+                        <p>2 Виконай додавання рядка "1" і цифри 2 (обидві операнди повинні бути в змінних), добийся
+                            математично правильної відповіді.</p>
+                        <button type="button" class="btn btn-danger" onclick="addStringAndNumber()">Спробувати (див.
+                            консоль)</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-xl-3">
+                <div class="card  mb-4">
+                    <div class="card-body">
+                        <p>3 Користувач вказує обсяг флешки в Гб. Програма повинна порахувати скільки файлів розміром в
+                            820 Мб поміщається на флешку.</p>
+                        <button type="button" class="btn btn-danger" onclick="flashDrive()">Обчислити</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-xl-3">
+                <div class="card  mb-4">
+                    <div class="card-body">
+                        <p>4 Користувач вводить суму грошей в гаманці і ціну однієї шоколадки. Програма виводить скільки
+                            шоколадок може купити користувач і скільки здачі у нього залишиться.</p>
+                        <button type="button" class="btn btn-danger" onclick="calcChocolate()">Обчислити</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-xl-4">
+                <div class="card  mb-4">
+                    <div class="card-body">
+                        <p>5 Запитай у користувача тризначне число і виведи його задом наперед. Для вирішення завдання
+                            тобі знадобиться оператор% (залишок від ділення).</p>
+                        <button type="button" class="btn btn-danger" onclick="backwardsNum()">Спробувати</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-xl-4">
+                <div class="card  mb-4">
+                    <div class="card-body">
+                        <p>6 Користувач вводить суму вкладу в банк на 2 місяці, з процентною ставкою депозиту 5% річних.
+                            Вивести суму нарахованих відсотків.</p>
+                        <button type="button" class="btn btn-danger" onclick="deposit()">Обчислити</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-xl-4">
+                <div class="card  mb-4">
+                    <div class="card-body">
+                        <p>7 Що повернуть вираження:</p>
+                        <ul>
+                            <li>2 && 0 && 3</li>
+                            <li>2 || 0 || 3</li>
+                            <li>2 && 0 || 3</li>
+                        </ul>
+                        <button type="button" class="btn btn-danger" onclick="returnExpression()">Відповідь: 0, 2,
+                            3</button>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="card mb-4">
-            <div class="card-body">
-                <p>2) Запросите у пользователя 2 числа и выведите среднее арифметическое этих чисел.</p>
-                <button type="button" class="btn btn-success" onclick="avgNum()">Середне арифметичне</button>
+    </div>
+    <div class="container pt-4">
+
+        <h1 class="h4 text-center my-5">Завдання з використанням IF</h1>
+
+        <div class="row display-flex">
+            <div class="col-md-12 col-xl-12">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12 col-xl-5">
+                                <p>1 Запитати у користувача число та визначити чи воно позитивне, негативне або нуль
+                                </p>
+                            </div>
+                            <div class="col-md-4 col-xl-2">
+                                <input class="col-12 me-2 mb-2" type="number" id="task_1_number">
+                            </div>
+                            <div class="col-md-4 col-xl-2">
+                                <button type="button" class="btn btn-danger col-12" onclick="task1()"> Спробувати
+                                </button>
+                            </div>
+                            <div class="col-md-4 col-xl-3">
+                                <p>Результат: </p>
+                                <div id="task_1_result"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="card mb-4">
-            <div class="card-body">
-                <p>3) Запросите у пользователя длину стороны квадрата и выведите площадь такого квадрата.</p>
-                <button type="button" class="btn btn-success" onclick="square()">Площа квадрата</button>
-            </div>
-        </div>
-        <div class="card mb-4">
-            <div class="card-body">
-                <p>4) Реализуйте конвертор из километров в мили (пользователь вводит километры, программа выводит мили). 1 км = 0,621371 миль. Это значение укажите в коде как константу.</p>
-                <button type="button" class="btn btn-success" onclick="km2oml()">Із километрів в милі</button>
-            </div>
-        </div>
-        <div class="card mb-4">
-            <div class="card-body">
-                <p>5) Реализуйте калькулятор. Пользователь вводит два числа, а программа выводит результаты действий + - * / между этими числами.</p>
-                <button type="button" class="btn btn-success" onclick="calc()">Калькуяція</button>
-            </div>
-        </div>
-        <div class="card mb-4">
-            <div class="card-body">
-                <p>6) Пользователь вводит значения a и b для формулы a * x + b = 0, а программа считает и выводит
-                    значение x.</p>
-                <!-- a * x = -b
-                x = -b / a  -->
-                <button type="button" class="btn btn-success" onclick="findX()">Значення Х</button>
-            </div>
-        </div>
-        <div class="card mb-4">
-            <div class="card-body">
-                <p>7) Запросите у пользователя текущее время (часы и минуты) и выведите, сколько часов и минут осталось
-                    до следующего дня.</p>
-                <button type="button" class="btn btn-success" onclick="timeToDayEnd()">До кінця дня залишилось</button>
-            </div>
-        </div>
-        <div class="card mb-4">
-            <div class="card-body">
-                <p>8) Запросите у пользователя трехзначное число и выведите вторую цифру этого числа. Для решения задачи используйте оператор % (остаток от деления).</p>
-                <button type="button" class="btn btn-success" onclick="digit2()">Друга цифра</button>
+
+        <div class="row display-flex">
+            <div class="col-md-12 col-xl-12">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12 col-xl-5">
+                                <p>2 Запитати у користувача його вік та перевірити вірність вказаних даних (0-120 років)
+                                </p>
+                            </div>
+                            <div class="col-md-4 col-xl-2">
+                                <input class="col-12 me-2 mb-2" type="number" id="task_2_number">
+                            </div>
+                            <div class="col-md-4 col-xl-2">
+                                <button type="button" class="btn btn-danger col-12" onclick="task2()"> Спробувати
+                                </button>
+                            </div>
+                            <div class="col-md-4 col-xl-3">
+                                <p>Результат: </p>
+                                <div id="task_2_result"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
 
-        <div class="card mb-4">
-            <div class="card-body">
-                <p>9) Запросите у пользователя пятизначное число и переместите последнюю цифру в начало (из числа 12345
-                    должно получиться число 51234).</p>
-                <button type="button" class="btn btn-success" onclick="digit3()">Спробувати</button>
+        <div class="row display-flex">
+            <div class="col-md-12 col-xl-12">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12 col-xl-5">
+                                <p>3 Запитати у користувача число та вивести його модуль (|7| = 7, |-7| = 7)</p>
+                            </div>
+                            <div class="col-md-4 col-xl-2">
+                                <input class="col-12 me-2 mb-2" type="number" id="task_3_number">
+                            </div>
+                            <div class="col-md-4 col-xl-2">
+                                <button type="button" class="btn btn-danger col-12" onclick="task3()"> Спробувати
+                                </button>
+                            </div>
+                            <div class="col-md-4 col-xl-3">
+                                <p>Результат: </p>
+                                <div id="task_3_result"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="card mb-4">
-            <div class="card-body">
-                <p>10) Зарплата работника составляет $250 + 10% от продаж. Запросите общую сумму продаж за месяц и
-                    посчитайте зарплату.</p>
-                <button type="button" class="btn btn-success" onclick="myZp()">Обчислити зарплату</button>
+
+        <div class="row display-flex">
+            <div class="col-md-12 col-xl-12">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12 col-xl-5">
+                                <p>4 Запитати у користувача час (години, хвилини, секунди) та перевірити коректність вказаних даних</p>
+                            </div>
+                            <div class="col-md-4 col-xl-2">
+                                <input class="col-12 me-2 mb-2" type="number" id="task_4_number1" placeholder="Введіть години">
+                                <input class="col-12 me-2 mb-2" type="number" id="task_4_number2" placeholder="Введіть хвилини">
+                                <input class="col-12 me-2 mb-2" type="number" id="task_4_number3" placeholder="Введіть секунди">
+                            </div>
+                            <div class="col-md-4 col-xl-2">
+                                <button type="button" class="btn btn-danger col-12" onclick="isTimeValid()"> Спробувати
+                                </button>
+                            </div>
+                            <div class="col-md-4 col-xl-3">
+                                <p>Результат: </p>
+                                <div id="task_4_result"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row display-flex">
+            <div class="col-md-12 col-xl-12">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12 col-xl-5">
+                                <p>5 Запитати координати крапки (x, y) та визначити номер чверті, в яку потрапила крапка. Треба врахувати випадки, коли крапка втрапита на осі або в початок координат.</p>
+                            </div>
+                            <div class="col-md-4 col-xl-2">
+                                <input class="col-12 me-2 mb-2" type="number" id="task_5_number1" placeholder="x">
+                                <input class="col-12 me-2 mb-2" type="number" id="task_5_number2" placeholder="y">
+                            </div>
+                            <div class="col-md-4 col-xl-2">
+                                <button type="button" class="btn btn-danger col-12" onclick="task5()"> Спробувати
+                                </button>
+                            </div>
+                            <div class="col-md-4 col-xl-3">
+                                <p>Результат: </p>
+                                <div id="task_5_result"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h1 class="h4 text-center my-5">Завдання з використанням SWITCH</h1>
+
+        <div class="row display-flex">
+            <div class="col-md-12 col-xl-12">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12 col-xl-5">
+                                <p>1 Запитати у користувача номер місяця та вивести його назву</p>
+                            </div>
+                            <div class="col-md-4 col-xl-2">
+                                <input class="col-12 me-2 mb-2" type="number" id="task_6_number" placeholder="Номер місяця">
+                            </div>
+                            <div class="col-md-4 col-xl-2">
+                                <button type="button" class="btn btn-danger col-12" onclick="task_6()"> Спробувати
+                                </button>
+                            </div>
+                            <div class="col-md-4 col-xl-3">
+                                <p>Результат: </p>
+                                <div id="task_6_result"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row display-flex">
+            <div class="col-md-12 col-xl-12">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12 col-xl-5">
+                                <p>2 Реалізувати калькулятор. Користувач вказує 2 числа та знак (+ - * /).</p>
+                            </div>
+                            <div class="col-md-4 col-xl-2">
+                                <input class="col-12 me-2 mb-2" type="number" id="task_7_number1" placeholder="х">
+                                <input class="col-12 me-2 mb-2" type="number" id="task_7_number2" placeholder="y">
+                                <input class="col-12 me-2 mb-2" type="text" id="task_7_number3" placeholder="+ - * /">
+                            </div>
+                            <div class="col-md-4 col-xl-2">
+                                <button type="button" class="btn btn-danger col-12" onclick="task_7()"> Спробувати
+                                </button>
+                            </div>
+                            <div class="col-md-4 col-xl-3">
+                                <p>Результат: </p>
+                                <div id="task_7_result"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h1 class="h4 text-center my-5">Завдання з використанням тернарного оператору</h1>
+
+        <div class="row display-flex">
+            <div class="col-md-12 col-xl-12">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12 col-xl-5">
+                                <p>1 Запитати 2 числа та вивести більше з них</p>
+                            </div>
+                            <div class="col-md-4 col-xl-2">
+                                <input class="col-12 me-2 mb-2" type="number" id="task_8_number1">
+                                <input class="col-12 me-2 mb-2" type="number" id="task_8_number2">
+                            </div>
+                            <div class="col-md-4 col-xl-2">
+                                <button type="button" class="btn btn-danger col-12" onclick="task_8()"> Спробувати
+                                </button>
+                            </div>
+                            <div class="col-md-4 col-xl-3">
+                                <p>Результат: </p>
+                                <div id="task_8_result"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row display-flex">
+            <div class="col-md-12 col-xl-12">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12 col-xl-5">
+                                <p>2 Запитати одне число та перевірити чи воно кратне 5 або ні</p>
+                            </div>
+                            <div class="col-md-4 col-xl-2">
+                                <input class="col-12 me-2 mb-2" type="number" id="task_9_number">
+                            </div>
+                            <div class="col-md-4 col-xl-2">
+                                <button type="button" class="btn btn-danger col-12" onclick="task_9()"> Спробувати
+                                </button>
+                            </div>
+                            <div class="col-md-4 col-xl-3">
+                                <p>Результат: </p>
+                                <div id="task_9_result"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row display-flex">
+            <div class="col-md-12 col-xl-12">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12 col-xl-5">
+                                <p>3 Запитати у користувача назву планети. Якщо користувач вказав "Земля" або
+                                    "земля", вивести "Привіт, землянин!", в інших випадках вивести "Привіт, іншопланетянин!"
+                                </p>
+                            </div>
+                            <div class="col-md-4 col-xl-2">
+                                <input class="col-12 me-2 mb-2" type="text" id="task_10" placeholder="Назва планети">
+                            </div>
+                            <div class="col-md-4 col-xl-2">
+                                <button type="button" class="btn btn-danger col-12" onclick="task_10()"> Спробувати
+                                </button>
+                            </div>
+                            <div class="col-md-4 col-xl-3">
+                                <p>Результат: </p>
+                                <div id="task_10_result"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container pt-4">
+        <h1 class="h4 text-center my-5">Додаткове завдання</h1>
+    <!-- ___________________________________________________ -->
+
+        <div class="row display-flex">
+            <div class="col-md-12 col-xl-12">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12 col-xl-5">
+                                <p>1 Запросить у пользователя его возраст и определить, кем он является: ребенком (0–2),
+                                    подростком (12–18), взрослым (18_60) или пенсионером (60– ...).</p>
+                            </div>
+                            <div class="col-md-4 col-xl-2">
+                                <input class="col-12 me-2 mb-2" type="number" id="func1_number">
+                            </div>
+                            <div class="col-md-4 col-xl-2">
+                                <button type="button" class="btn btn-danger col-12" onclick="func1()"> Спробувати
+                                </button>
+                            </div>
+                            <div class="col-md-4 col-xl-3">
+                                <p>Результат: </p>
+                                <div id="func1_result"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row display-flex">
+            <div class="col-md-12 col-xl-12">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12 col-xl-5">
+                                <p>2 Запросить у пользователя число от 0 до 9 и вывести ему спецсимвол, который
+                                    расположен
+                                    на этой клавише (1–!, 2–@, 3–# и т. д).</p>
+                            </div>
+                            <div class="col-md-4 col-xl-2">
+                                <input class="col-12 me-2 mb-2" type="number" id="func2_number">
+                            </div>
+                            <div class="col-md-4 col-xl-2">
+                                <button type="button" class="btn btn-danger col-12" onclick="func2()"> Спробувати
+                                </button>
+                            </div>
+                            <div class="col-md-4 col-xl-3">
+                                <p>Результат: </p>
+                                <div id="func2_result"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row display-flex">
+            <div class="col-md-12 col-xl-12">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12 col-xl-5">
+                                <p>3 Запросить у пользователя трехзначное и число и проверить, есть ли в нем одинаковые
+                                    цифры.</p>
+                            </div>
+                            <div class="col-md-4 col-xl-2">
+                                <input class="col-12 me-2 mb-2" type="number" id="func3_number">
+                            </div>
+                            <div class="col-md-4 col-xl-2">
+                                <button type="button" class="btn btn-danger col-12" onclick="func3()"> Спробувати
+                                </button>
+                            </div>
+                            <div class="col-md-4 col-xl-3">
+                                <p>Результат: </p>
+                                <div id="func3_result"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row display-flex">
+            <div class="col-md-12 col-xl-12">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12 col-xl-5">
+                                <p>4 Запросить у пользователя год и проверить, високосный он или нет. Високосный год
+                                    либо
+                                    кратен 400, либо кратен 4 и при этом не кратен 100.</p>
+                            </div>
+                            <div class="col-md-4 col-xl-2">
+                                <input class="col-12 me-2 mb-2" type="number" id="func4_number">
+                            </div>
+                            <div class="col-md-4 col-xl-2">
+                                <button type="button" class="btn btn-danger col-12" onclick="func4()"> Спробувати
+                                </button>
+                            </div>
+                            <div class="col-md-4 col-xl-3">
+                                <p>Результат: </p>
+                                <div id="func4_result"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row display-flex">
+            <div class="col-md-12 col-xl-12">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12 col-xl-5">
+                                <p>5 Запросить у пользователя пятиразрядное число и определить, является ли оно
+                                    палиндромом.
+                                </p>
+                            </div>
+                            <div class="col-md-4 col-xl-2">
+                                <input class="col-12 me-2 mb-2" type="number" id="func5_number">
+                            </div>
+                            <div class="col-md-4 col-xl-2">
+                                <button type="button" class="btn btn-danger col-12" onclick="func5()"> Спробувати
+                                </button>
+                            </div>
+                            <div class="col-md-4 col-xl-3">
+                                <p>Результат: </p>
+                                <div id="func5_result"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row display-flex">
+            <div class="col-md-12 col-xl-12">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12 col-xl-5">
+                                <p>6 Написать конвертор валют. Пользователь вводит количество USD, выбирает, в какую валюту
+                                    хочет перевести: EUR, UAN или AZN, и получает в ответ соответствующую сумму.</p>
+                            </div>
+                            <div class="col-md-4 col-xl-2">
+                                <input class="col-12 me-2 mb-2" type="number" id="func6_number1" placeholder="Сума в USD">
+                                <input class="col-12 me-2 mb-2" type="text" id="func6_number2" placeholder="Оберіть EUR, UAN или AZN">
+                            </div>
+                            <div class="col-md-4 col-xl-2">
+                                <button type="button" class="btn btn-danger col-12" onclick="func6()"> Спробувати
+                                </button>
+                            </div>
+                            <div class="col-md-4 col-xl-3">
+                                <p>Результат: </p>
+                                <div id="func6_result"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row display-flex">
+            <div class="col-md-12 col-xl-12">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12 col-xl-5">
+                                <p>7 Запросить у пользователя сумму покупки и вывести сумму к оплате со скидкой: от 200
+                                    до
+                                    300 – скидка будет 3%, от 300 до 500 – 5%, от 500 и выше – 7%.</p>
+                            </div>
+                            <div class="col-md-4 col-xl-2">
+                                <input class="col-12 me-2 mb-2" type="number" id="func7_number" placeholder="Сума покупки">
+                            </div>
+                            <div class="col-md-4 col-xl-2">
+                                <button type="button" class="btn btn-danger col-12" onclick="func7()"> Спробувати
+                                </button>
+                            </div>
+                            <div class="col-md-4 col-xl-3">
+                                <p>Результат: </p>
+                                <div id="func7_result"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row display-flex">
+            <div class="col-md-12 col-xl-12">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12 col-xl-5">
+                                <p>8 Запросить у пользователя длину окружности и периметр квадрата. Определить, может ли
+                                    такая окружность поместиться в указанный квадрат.</p>
+                            </div>
+                            <div class="col-md-4 col-xl-2">
+                                <input class="col-12 me-2 mb-2" type="number" id="func8_number1" placeholder="Довжина кола">
+                                <input class="col-12 me-2 mb-2" type="number" id="func8_number2" placeholder="Периметр квадрату">
+                            </div>
+                            <div class="col-md-4 col-xl-2">
+                                <button type="button" class="btn btn-danger col-12" onclick="func8()"> Спробувати
+                                </button>
+                            </div>
+                            <div class="col-md-4 col-xl-3">
+                                <p>Результат: </p>
+                                <div id="func8_result"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row display-flex">
+            <div class="col-md-12 col-xl-12">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12 col-xl-5">
+                                <p>9 Задать пользователю 3 вопроса, в каждом вопросе по 3 варианта ответа. За каждый
+                                    правильный ответ начисляется 2 балла. После вопросов выведите пользователю
+                                    количество
+                                    набранных баллов.</p>
+                            </div>
+                            <div class="col-md-4 col-xl-2">
+                                <button type="button" class="btn btn-danger col-12" onclick="func9()"> Спробувати
+                                </button>
+                            </div>
+                            <div class="col-md-4 col-xl-3">
+                                <p>Результат: </p>
+                                <div id="func9_result"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row display-flex">
+            <div class="col-md-12 col-xl-12">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12 col-xl-5">
+                                <p>0 Запросить дату (день, месяц, год) и вывести следующую за ней дату. Учтите
+                                    возможность
+                                    перехода на следующий месяц, год, а также високосный год.</p>
+                            </div>
+                            <div class="col-md-4 col-xl-2">
+                                <input class="col-12 me-2 mb-2" type="number" id="func10_number1" placeholder="День">
+                                <input class="col-12 me-2 mb-2" type="number" id="func10_number2" placeholder="Місяць">
+                                <input class="col-12 me-2 mb-2" type="number" id="func10_number3" placeholder="Рік" >
+                            </div>
+                            <div class="col-md-4 col-xl-2">
+                                <button type="button" class="btn btn-danger col-12" onclick="func10()"> Спробувати
+                                </button>
+                            </div>
+                            <div class="col-md-4 col-xl-3">
+                                <p>Результат: </p>
+                                <div id="func10_result"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

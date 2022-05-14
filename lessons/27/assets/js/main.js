@@ -1,153 +1,119 @@
-// // Застарілі функціі, не стилізуються:
+/* Що тут є:
+function hello1(name)
+function hello2(name)
+function numCheck(num) 
+function emailCheck(email)
+function someNum()
 
-// // alert ('Hello world');
-// // console.log('qwerttqw');
-// // alert ('Hello world 2');
+// 7 Скільки днів у місяці 30 чи 31
+function days()
 
-// // const answer = confirm('Delete Item?');
-// // console.log(answer);
-// // if(answer) {
-// //     alert('Select YES')
-// //  } else {
-// //      alert('Select No')
-// //  }
+// 8 Тернарний оператор const acceptLang = (x) ? y : z;
 
-// // const userName = prompt('What is your name?');
-// // console.log(userName);
-// // if(userName = null) {
-// //     if(userName = '') {
-// //         alert('Wrong name')
-// //     }
-// // }
+const acceptLang = (currentLang ==='ua') ? 'uk_UA' : 'en_GB';
+*/
 
-// const a = 1;
-// // a = 5;
-// console.log(a);
-
-// let b = 2;
-// b = 6;
-// console.log(b);
-
-// console.log(c);
-// var c = 3;
-// hoisting
-// console.log(c);
-
-
-
-// const integer = 12;
-// const float = 12.34;
-// const text = 'Lorem ipsum';
-// const text2 = "I'am";
-// const text3 = 'I\'am';
-// const company = 'OOO "Роги і копита"';
-// const company3 = "OOO \"Роги і копита\"";
-// const isTrue = false;
-// const undef = undefined;
-// const Null = null;
-// const NotANomber = NaN;
-// const arr = [1, 2, 3, 4];
-// const obj = {'a':1, 'b':2};
-// const func = function(){alert('1')}
-
-// console.log(integer, typeof(integer));
-
-// console.log(float, typeof float);
-// console.log(float, typeof float);
-// console.log(text, typeof text);
-// console.log(text2, typeof text2);
-// console.log(text3, typeof text3);
-// console.log(company, typeof company);
-// console.log(company3, typeof company3);
-// console.log(isTrue, typeof isTrue);
-// console.log(undef, typeof undef);
-// console.log(Null, typeof Null);
-// console.log(NotANomber, typeof NotANomber);
-// console.log(arr, typeof arr);
-// console.log(obj, typeof obj);
-// console.log(func, typeof func);
-
-function myPow() {
-    // debugger
-    const num = parseInt(prompt('Введіть перше число'));
-    const num2 = parseInt(prompt('Введіть друге число'));
-    const rez = num ** num2;
-    // або const rez = Math.pow(num, num2)
-    alert('Результат першого числа взведеного в ступінь другого числа = ' + rez)
-}
-
-function avgNum() {
-    const num = parseInt(prompt('Введіть перше число'));
-    const num2 = parseInt(prompt('Введіть друге число'));
-    const rez = (num + num2) / 2;
-    alert(`Середне арифметичне цих чисел = ${rez}`)
-}
-
-function square() {
-    const num = parseInt(prompt('Введіть сторону квадрату'));
-    const rez = num * 2;
-    alert('Площа квадрату = ' + rez)
-}
-
-function km2oml() {
-    const km = parseInt(prompt('Введіть відстань в км'));
-    const K = 0.621371;
-    const ml = km * K;
-    alert(`В милях це ${ml} ml`)
-}
-
-function calc() {
-    const num = parseInt(prompt('Вкажіть перше число'));
-    const num2 = parseInt(prompt('Вкажіть друге число'));
-    const action = prompt('Вкажіть дію');
-    let rez;
-    if (action === '+') {
-        rez = num + num2;
-    } else if (action === '-') {
-        rez = num - num2
-    } else if (action === '*') {
-        rez = num * num2;
-    } else if (action === '/') {
-        rez = num / num2;
-    } else {
-        alert('Недопустимий символ')
+function hello1(name) {
+    if (name == '') {
+        return false;
     }
-    if (rez != undefined)
-        alert(`Результат = ${rez}`)
+    alert('hello, ' + name);
+}
+// 2  
+function hello2(name) {
+    if (name != '') {
+        alert('hello, ' + name);
+    } else {
+        alert('Enter your name');
+    }
+}
+// 3
+function numCheck(num) {
+    if (num < 0) {
+        alert('-');
+    } else if (num > 0) {
+        alert('+');
+    } else if (num == 0) {
+        alert('0');
+    } else {
+        alert('Enter number');
+    }
 }
 
-function findX() {
-    const a = parseInt(prompt('Вкажіть число a'));
-    const b = parseInt(prompt('Вкажіть число b'));
-    const x = b * (-1) / a;
-    alert(` x = ${x}`);
+// 4
+function emailCheck(email) {
+    if (email != '') {
+        if (isValidEmail(email)) {
+            return true;
+        } else {
+            alert('Email is not valid');
+        }
+    } else {
+        alert('Enter your email');
+    }
 }
 
-function timeToDayEnd() {
-    const hour = parseInt(prompt('Вкажіть котра година зараз'));
-    const minutes = parseInt(prompt('Вкажіть котра хвилина'));
-    const minutesTotalLeft = ((24 * 60) - (hour * 60 + minutes));
-    const hoursLeft = parseInt(minutesTotalLeft / 60);
-    const minutesLeft = minutesTotalLeft - hoursLeft * 60;
-    alert(`До кінця дня залишилося ${hoursLeft} годин, ${minutesLeft} хвилин`);
+// 5
+function someNum() {
+    const num = 4;
+    let y = 0;
+    if (num <= 12) {
+        y = 1;
+    } else if (num >= 12 && num < 18 && num != 16) {
+        y = 2;
+    } else if (num == 16 || num == 25 || num == 27) {
+        y = 3;
+    }
+    console.log(y);
 }
 
-function digit2() {
-    const abc = +prompt('Введіть трьохзначне число');
-    const rez = parseInt((abc % 100) / 10);
-    alert(`Друга цифра: ${rez}`);
+// 6. Високосный год
+// год, номер которого кратен 400, — високосный;
+// остальные годы, номер которых кратен 100, — невисокосные (например, годы 1700, 1800, 1900, 2100, 2200, 2300);
+// остальные годы, номер которых кратен 4, — високосные.
+// Итого: Либо кратен 400, либо кратен 4 и при єтом не кратен 100
+
+
+
+// 7 Скільки днів у місяці 30 чи 31
+function days() {
+    let d;
+    const num = prompt('Enter month numder');
+    switch (num) {
+        case '1':
+        case '3':
+        case '5':
+        case '7':
+        case '8':
+        case '10':
+        case '12':
+            d = '31';
+            break;
+        case '4':
+        case '6':
+        case '9':
+        case '11':
+            d = '30';
+            break;
+        case '2':
+            d = '28';
+            //якщо ми знаємо ще і рік, можна додати попередню функцію високосного року
+            break;
+        default:
+            d = 'Invalid value';
+            break;
+    }
 }
 
-function digit3() {
-    const abc = parseInt(prompt('Введіть пятизначне число'));
-    const x = abc % 10;
-    const y = ((abc - x) / 10);
-    const z = x * 10000 + y;
-    alert(`Результат: ${z}`);
-}
+// 8 Тернарний оператор const acceptLang = (x) ? y : z;
 
-function myZp() {
-    const sumProd = +prompt('Введіть загальну суму продажів за миулий місяць');
-    const rez = parseInt(sumProd / 10 + 250);
-    alert(`Нарахувати зарплату: ${rez}$`);
+/*
+const acceptLang = '';
+if(currentLang = 'ua'){
+    acceptLang = 'uk_UA';
+} else {
+    acceptLang = 'en_GB';
 }
+*/
+
+const acceptLang = (currentLang ==='ua') ? 'uk_UA' : 'en_GB';

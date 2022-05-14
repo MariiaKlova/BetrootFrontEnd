@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="assets/styles/bootstrap.min.css">
+    <title>Основи JavaScript 26 less</title>
+</head>
+
+<body>
+    <div class="container col-8 pt-4">
+        <h1 class="h4 text-center my-5">26 Основи JavaScript. Домашнє завдання з lms.beetroot</h1>
+
+        <div class="card mb-4">
+            <div class="card-body">
+                <p>1. Запитай ім’я користувача та виведи у відповідь “Привіт, *ім’я*”;</p>
+                <button type="button" class="btn btn-success" onclick="hello()">Ім’я</button>
+            </div>
+        </div>
+        <div class="card mb-4">
+            <div class="card-body">
+                <p>2. Запитай рік народження користувача, порахуй його/її вік і виведи результат. Поточний рік вкажи в
+                    коді як константу;</p>
+                <button type="button" class="btn btn-success" onclick="year()">Рік народження</button>
+            </div>
+        </div>
+        <div class="card mb-4">
+            <div class="card-body">
+                <p>3. Запитай у користувача довжину сторони квадрату і виведи периметр цього квадрата</p>
+                <button type="button" class="btn btn-success" onclick="perimeterSquare()">Обчислити периметр
+                    квадрата</button>
+            </div>
+        </div>
+        <div class="card mb-4">
+            <div class="card-body">
+                <p>4. Запитай у користувача радіус кола і виведи площу такої окружності.</p>
+                <button type="button" class="btn btn-success" onclick="circleArea()">Площа Кола</button>
+            </div>
+        </div>
+        <div class="card mb-4">
+            <div class="card-body">
+                <p>5. Запитай у користувача відстань в кілометрах між двома містами і за скільки годин він хоче
+                    дістатися.
+                    Порахуй швидкість, з якою необхідно рухатися, щоб встигнути вчасно.
+                </p>
+                <button type="button" class="btn btn-success" onclick="velocity()">Необхідна швидкість</button>
+            </div>
+        </div>
+        <div class="card mb-4">
+            <div class="card-body">
+                <p>6. Реалізуй конвертор валют. Користувач вводить долари, програма переводить їх в євро. Курс валют
+                    зберігається в константі.</p>
+                <button type="button" class="btn btn-success" onclick="exchangeRate()">Курс валют</button>
+            </div>
+        </div>
+<!-- ------------------------------------- -->
+<h1 class="h4 text-center my-5">Додаткові</h1>
+
+        <div class="card mb-4">
+            <div class="card-body">
+                <p>1) Запросите у пользователя первое число и второе число, возведите первое число в степень второго числа и выведите на экран.</p>
+                <button type="button" class="btn btn-success" onclick="myPow()">Ступінь</button>
+            </div>
+        </div>
+        <div class="card mb-4">
+            <div class="card-body">
+                <p>2) Запросите у пользователя 2 числа и выведите среднее арифметическое этих чисел.</p>
+                <button type="button" class="btn btn-success" onclick="avgNum()">Середне арифметичне</button>
+            </div>
+        </div>
+        <div class="card mb-4">
+            <div class="card-body">
+                <p>3) Запросите у пользователя длину стороны квадрата и выведите площадь такого квадрата.</p>
+                <button type="button" class="btn btn-success" onclick="square()">Площа квадрата</button>
+            </div>
+        </div>
+        <div class="card mb-4">
+            <div class="card-body">
+                <p>4) Реализуйте конвертор из километров в мили (пользователь вводит километры, программа выводит мили). 1 км = 0,621371 миль. Это значение укажите в коде как константу.</p>
+                <button type="button" class="btn btn-success" onclick="km2oml()">Із километрів в милі</button>
+            </div>
+        </div>
+        <div class="card mb-4">
+            <div class="card-body">
+                <p>5) Реализуйте калькулятор. Пользователь вводит два числа, а программа выводит результаты действий + - * / между этими числами.</p>
+                <button type="button" class="btn btn-success" onclick="calc()">Калькуяція</button>
+            </div>
+        </div>
+        <div class="card mb-4">
+            <div class="card-body">
+                <p>6) Пользователь вводит значения a и b для формулы a * x + b = 0, а программа считает и выводит
+                    значение x.</p>
+                <!-- a * x = -b
+                x = -b / a  -->
+                <button type="button" class="btn btn-success" onclick="findX()">Значення Х</button>
+            </div>
+        </div>
+        <div class="card mb-4">
+            <div class="card-body">
+                <p>7) Запросите у пользователя текущее время (часы и минуты) и выведите, сколько часов и минут осталось
+                    до следующего дня.</p>
+                <button type="button" class="btn btn-success" onclick="timeToDayEnd()">До кінця дня залишилось</button>
+            </div>
+        </div>
+        <div class="card mb-4">
+            <div class="card-body">
+                <p>8) Запросите у пользователя трехзначное число и выведите вторую цифру этого числа. Для решения задачи используйте оператор % (остаток от деления).</p>
+                <button type="button" class="btn btn-success" onclick="digit2()">Друга цифра</button>
+            </div>
+        </div>
+
+
+        <div class="card mb-4">
+            <div class="card-body">
+                <p>9) Запросите у пользователя пятизначное число и переместите последнюю цифру в начало (из числа 12345
+                    должно получиться число 51234).</p>
+                <button type="button" class="btn btn-success" onclick="digit3()">Спробувати</button>
+            </div>
+        </div>
+        <div class="card mb-4">
+            <div class="card-body">
+                <p>10) Зарплата работника составляет $250 + 10% от продаж. Запросите общую сумму продаж за месяц и
+                    посчитайте зарплату.</p>
+                <button type="button" class="btn btn-success" onclick="myZp()">Обчислити зарплату</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script src="assets/js/main.js"></script>
+
+</html>

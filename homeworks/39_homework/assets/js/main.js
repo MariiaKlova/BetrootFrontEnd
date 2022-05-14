@@ -44,14 +44,22 @@ function task1() {
 }
 
 // 2 Напиши функцію, яка обчислює факторіал переданого їй числа
-function factorialOfNumber(num = 1) {
-    let rez = 1,
-        i = num;
-    while (i > 0) {
-        rez = rez * i;
-        i--;
+//старе:
+// function factorialOfNumber(num = 1) {
+//     let rez = 1,
+//         i = num;
+//     while (i > 0) {
+//         rez = rez * i;
+//         i--;
+//     }
+//     return rez
+// }
+
+function factorialOfNumber(n) {
+    if (n == 0) {
+        return 1;
     }
-    return rez
+    return n * factorialOfNumber(n - 1);
 }
 
 function task2() {
@@ -206,6 +214,7 @@ function daysInMonth(mounth, year) {
     return d;
 }
 
+
 function task12(day, mounth, year) {
     day = parseInt(day); // день
     mounth = parseInt(mounth); // місяць
@@ -226,6 +235,7 @@ function task12(day, mounth, year) {
             day += 1;
         }
     }
+
     document.getElementById('task_12_result').innerText = ` наступний день: ${day}.${mounth}.${year} `;
 
 }

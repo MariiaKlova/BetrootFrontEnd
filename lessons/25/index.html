@@ -6,88 +6,152 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="assets/styles/style.min.css">
-    <title>less 24 </title>
-    <meta name="description" content="Search Your Safe Travel Anywhere">
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <title>25 lesson BOOTSTRAP</title>
 </head>
 
 <body>
-    <section class="section_main_slide" style="background-image: url(assets/images/bg_image1-min.jpg);">
-        <div class="container">
-            <h1 class="h1">Bhromaon</h1>
-            <p>Safe Travel Anywhere</p>
-            <form method="POST" action="#">
-                <input id="search" type="search" name="search" placeholder="Search Your Travel Destination">
-                <button class="btn btn_hover" type="submit"> <span class="search">Search</span> <span
-                        class=" icon-search"></span></button>
-            </form>
 
-            <a href="#" class="btn btn_gradient"> <span>Book Now</span></a>
 
-            <div class="scroll_down_block">
-                <a href="#section_why_we_choose">Scroll Down</a>
-            </div>
-        </div>
-    </section>
-    <main>
-
-        <section class="section_how_it_works">
-            <div class="container">
-                <!-- <div class="img_wrap"><img src="assets/images/shape1.svg" alt=""> </div> -->
-                <div class="brackets"></div>
-                <div class="how_it_works_card">
-                    <span class="icon-search"></span>
-                    <h2 class="h2">Search Places</h2>
-                </div>
-                <div class="how_it_works_card ">
-                    <span class="icon-chek"></span>
-                    <h2 class="h2">Select Places</h2>
-                </div>
-                <div class="how_it_works_card">
-                    <span class="icon-like"></span>
-                    <h2 class="h2">Book & Enjoy</h2>
+    <div class="row m-5">
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Special title treatment</h5>
+                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
                 </div>
             </div>
-        </section>
-
-    </main>
-
-    <footer>
-        <div class="container">
-            <div class="logo"><a href="#">Bhromaon</a></div>
-            <p>Safe Travel Anywhere</p>
-            <nav class="social_menu">
-                <ul>
-                    <li><a href="#" target="_blank" title="Facebook"><span class="icon-fb"></span></a></li>
-                    <li><a href="#" target="_blank" title="Twitter"><span class="icon-tw"></span></a></li>
-                    <li><a href="#" target="_blank" title="LinkedIn"><span class="icon-in"></span></a></li>
-                    <li><a href="#" target="_blank" title="YouTube"><span class="icon-ut"></span></a></li>
-                    <li><a href="#" target="_blank" title="Pinterest"><span class="icon-pin"></span></a></li>
-                </ul>
-            </nav>
         </div>
-    </footer>
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Special title treatment</h5>
+                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    <a href="#" class="btn btn-outline-danger">Go somewhere</a>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <div class="container">
+        <form class="row g-3 needs-validation" novalidate>
+            <div class="col-md-4">
+              <label for="validationCustom01" class="form-label">First name</label>
+              <input type="text" class="form-control" id="validationCustom01" value="Mark" required>
+              <div class="valid-feedback">
+                Looks good!
+              </div>
+            </div>
+            <div class="col-md-4">
+              <label for="validationCustom02" class="form-label">Last name</label>
+              <input type="text" class="form-control" id="validationCustom02" value="Otto" required>
+              <div class="valid-feedback">
+                Looks good!
+              </div>
+            </div>
+            <div class="col-md-4">
+              <label for="validationCustomUsername" class="form-label">Username</label>
+              <div class="input-group has-validation">
+                <span class="input-group-text" id="inputGroupPrepend">@</span>
+                <input type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
+                <div class="invalid-feedback">
+                  Please choose a username.
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <label for="validationCustom03" class="form-label">City</label>
+              <input type="text" class="form-control" id="validationCustom03" required>
+              <div class="invalid-feedback">
+                Please provide a valid city.
+              </div>
+            </div>
+            <div class="col-md-3">
+              <label for="validationCustom04" class="form-label">State</label>
+              <select class="form-select" id="validationCustom04" required>
+                <option selected disabled value="">Choose...</option>
+                <option>...</option>
+              </select>
+              <div class="invalid-feedback">
+                Please select a valid state.
+              </div>
+            </div>
+            <div class="col-md-3">
+              <label for="validationCustom05" class="form-label">Zip</label>
+              <input type="text" class="form-control" id="validationCustom05" required>
+              <div class="invalid-feedback">
+                Please provide a valid zip.
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                <label class="form-check-label" for="invalidCheck">
+                  Agree to terms and conditions
+                </label>
+                <div class="invalid-feedback">
+                  You must agree before submitting.
+                </div>
+              </div>
+            </div>
+            <div class="col-12">
+              <button class="btn btn-primary" type="submit">Submit form</button>
+            </div>
+          </form>
 
-    <script>
+    </div>
 
-        function toggleMenu() {
-            $('.hamburger').toggleClass('is-active');
-            $('#sidebar').toggleClass('open');
-            $('body').toggleClass('lock');
-        }
+    <div class="container mt-5">
+        <form class="row g-3">
+            <div class="col-md-6">
+              <label for="inputEmail4" class="form-label">Email</label>
+              <input type="email" class="form-control" id="inputEmail4">
+            </div>
+            <div class="col-md-6">
+              <label for="inputPassword4" class="form-label">Password</label>
+              <input type="password" class="form-control" id="inputPassword4">
+            </div>
+            <div class="col-12">
+              <label for="inputAddress" class="form-label">Address</label>
+              <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+            </div>
+            <div class="col-12">
+              <label for="inputAddress2" class="form-label">Address 2</label>
+              <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+            </div>
+            <div class="col-md-6">
+              <label for="inputCity" class="form-label">City</label>
+              <input type="text" class="form-control" id="inputCity">
+            </div>
+            <div class="col-md-4">
+              <label for="inputState" class="form-label">State</label>
+              <select id="inputState" class="form-select">
+                <option selected>Choose...</option>
+                <option>...</option>
+              </select>
+            </div>
+            <div class="col-md-2">
+              <label for="inputZip" class="form-label">Zip</label>
+              <input type="text" class="form-control" id="inputZip">
+            </div>
+            <div class="col-12">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="gridCheck">
+                <label class="form-check-label" for="gridCheck">
+                  Check me out
+                </label>
+              </div>
+            </div>
+            <div class="col-12">
+              <button type="submit" class="btn btn-outline-secondary">Sign in</button>
+            </div>
+          </form>
 
-        $('.hamburger, #sidebar a').on('click', function () {
-            toggleMenu();
-        });
+    </div>
 
-        $('.scroll_down_block a').on('click', function (e) {
-            e.preventDefault();
-            $('html, body').animate({ scrollTop: $($(this).attr('href')).offset().top - $('header').outerHeight() }, 500)
-        })
-    </script>
+
+
 
 </body>
 

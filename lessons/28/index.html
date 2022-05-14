@@ -7,12 +7,198 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="assets/styles/bootstrap.min.css">
-    <title>28 less Типи даних та оператори</title>
+    <title>28 less Цикли</title>
 </head>
+<style>
+    .row.display-flex {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .row.display-flex>[class*='col-'] {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .card {
+        height: 100%;
+    }
+
+    .card-body {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .card-body p:first-letter {
+        font-size: 130%;
+        font-weight: bold;
+        color: green;
+    }
+</style>
 
 <body>
+    <div class="container pt-4">
+        <h1 class="h4 text-center my-5">Lesson 28. Цикли</h1>
 
-    </body>
+        <div class="row display-flex">
+            <div class="col-md-6 col-xl-4">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <p>1 Цикл for (let i = 0; i &lt; 10; i++) <br> Збільшення числа на 1 від 0 до 9</p>
+                        <button type="button" class="btn btn-success" onclick="func1()">Спробувати (див.
+                            консоль)</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-xl-4">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <p>2 Цикл for (let i = 0; i &lt; 10; i +=2) <br>
+                            Збільшення числа на 2 від 0 до 9</p>
+                        <button type="button" class="btn btn-success" onclick="func2()">Спробувати (див.
+                            консоль)</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-xl-4">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <p>3 Вказання року від теперішнього, до 60 назад.
+                            // Для форми реєстрації</p>
+                        <button type="button" class="btn btn-success" onclick="func3()">Спробувати (див.
+                            консоль)</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-xl-4">
+                <div class="card  mb-4">
+                    <div class="card-body">
+                        <p>4 Цикл while (i &lt; 10); i++ <br>
+                            Інкременція числа від 0, доки воно не досягне 10</p>
+                        <button type="button" class="btn btn-success" onclick="func4()">Спробувати (див.
+                            консоль)</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-xl-4">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <p>5 Цикл, доки нажимаємо ОК, буде виконуватись цикл.</p>
+                        <button type="button" class="btn btn-success" onclick="func5()">Спробувати (див.
+                            консоль)</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-xl-4">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <p>6 5 Цикл, доки нажимаємо ОК, буде виконуватись цикл. <br>
+                            do {} while (), робиться спочатку перевірка, а потім запускається скрипт
+                        </p>
+                        <button type="button" class="btn btn-success" onclick="func6()">Спробувати (див.
+                            консоль)</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h1 class="h4 text-center my-5">Задания, в которых необходимо использовать WHILE.</h1>
+
+        <div class="row display-flex">
+            <div class="col-md-12 col-xl-12">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12 col-xl-5">
+                                <p>1 Вывести # столько раз, сколько указал пользователь.</p>
+                            </div>
+                            <div class="col-md-4 col-xl-2">
+                                <input class="col-12 me-2 mb-2" type="number" id="task_1_number">
+                            </div>
+                            <div class="col-md-4 col-xl-2">
+                                <button type="button" class="btn btn-success col-12" onclick="task1()"> Спробувати
+                                </button>
+                            </div>
+                            <div class="col-md-4 col-xl-3">
+                                <p>Результат: </p>
+                                <div id="task_1_result"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 col-xl-12">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12 col-xl-5">
+                                <p>2 Пользователь ввел число, а на экран вывелись все числа от введенного до 0.</p>
+                            </div>
+                            <div class="col-md-4 col-xl-2">
+                                <input class="col-12 me-2 mb-2" type="number" id="task_2_number">
+                            </div>
+                            <div class="col-md-4 col-xl-2">
+                                <button type="button" class="btn btn-success col-12" onclick="task2()"> Спробувати
+                                </button>
+                            </div>
+                            <div class="col-md-4 col-xl-3">
+                                <p>Результат: </p>
+                                <div id="task_2_result"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 col-xl-12">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12 col-xl-5">
+                                <p>3 Запросить число и степень. Возвести число в указанную степень и вывести результат.</p>
+                            </div>
+                            <div class="col-md-4 col-xl-2">
+                                <input class="col-12 me-2 mb-2" type="number" id="task_3_number1">
+                                <input class="col-12 me-2 mb-2" type="number" id="task_3_number2">
+                            </div>
+                            <div class="col-md-4 col-xl-2">
+                                <button type="button" class="btn btn-success col-12" onclick="task3()"> Спробувати
+                                </button>
+                            </div>
+                            <div class="col-md-4 col-xl-3">
+                                <p>Результат: </p>
+                                <div id="task_3_result"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12 col-xl-5">
+                                <p>4 Запросить 2 числа и найти все общие делители.</p>
+                            </div>
+                            <div class="col-md-4 col-xl-2">
+                                <input class=" col-12 me-3 mb-2" type="number" id="task_4_number1">
+                                <input class=" col-12 me-3 mb-2" type="number" id="task_4_number2">
+                            </div>
+                            <div class="col-md-4 col-xl-2">
+                                <button type="button" class="btn btn-success col-12" onclick="task4()"> Спробувати
+                                </button>
+                            </div>
+                            <div class="col-md-4 col-xl-3">
+                                <p>Результат: </p>
+                                <div id="task_4_result"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
 
 <script src="assets/js/main.js"></script>
 
