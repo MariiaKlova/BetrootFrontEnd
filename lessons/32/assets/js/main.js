@@ -187,7 +187,9 @@ const topPanel = {
     },
     hide: function () {
         setTimeout(function () {
-            document.getElementById('top-panel').remove();
+            if (document.getElementById('top-panel') !== null) {
+                document.getElementById('top-panel').remove();
+            }
         }, 3000)
     },
     error: function (text) {
@@ -208,7 +210,7 @@ const CARD = [{
         // одразу додано до масиву 0
         name: 'Bread',
         qty: 1,
-        isBuy: false,
+        isBuy: true,
         price: 15,
         total: 15
     },
@@ -286,13 +288,118 @@ function checkAndAddToCard() {
 function viewCardTable() {
     let html = '';
     CARD.forEach(product => {
-        html += 
-        `<tr>
-             <td>${product.name}</td>
-             <td>${product.qty}</td>
-             <td>${product.price.toFixed(2)}</td>
-             <td>${product.total.toFixed(2)}</td>
+        html +=
+            `<tr>
+                <td>${product.name}</td>
+                <td>${product.isBuy ? '<span class="badge bg-success">Yes</span>' : '<span class="badge bg-danger">No</span>'} </td>
+                <td>${product.qty}</td>
+                <td>${product.price.toFixed(2)}</td>
+                <td>${product.total.toFixed(2)}</td>
+                <td>
+                <button type="button" class="btn btn-danger" onclick="askProdDel('${product.name}')">&times;</button>
+                </td>
         </tr>`;
     });
     document.getElementById('cart-body').innerHTML = html;
+    document.getElementById('cart-total').innerText = summTotal();
 }
+
+function summTotal() {
+    // let total = 0;
+    // for (let i = 0; i < CARD.length; i++) {
+    //     total += CARD[i].total;
+    // }
+    // return total;
+    return CARD.reduce((acc, curr) => {
+        return acc + curr.total;
+    }, 0);
+}
+
+function askProdDel(name) {
+    if (confirm('Delete ' + name + '?')) {
+        let index = CARD.findIndex((el) => el.name === name);
+        CARD.splice(index, 1);
+        viewCardTable();
+        topPanel.info('Product successfuly deleted!')
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/////////////////////////////////////////
+// Максимум 1. Створи об'єкт, що описує звичайний дріб. Створи об'єкт, який має методи роботи з дробом:
+
+const drobb = {
+    value1: {
+        ch: 0,
+        zn: 0
+    },
+    value2: {
+        ch: 0,
+        zn: 0
+    },
+    setValue: function (key, chisl, znam) {
+        this[key].ch = chisl;
+        this[key].zn = znam;
+        // this[key] = {
+        //     ch: chisl,
+        //     zn: znam
+        // }
+    },
+    multiply: function () {
+        const result = {
+            ch: this.value1.ch * this.value2.ch,
+            zn: this.value1.zn * this.value2.zn
+        }
+        return this.short(result);
+    },
+    divide: function () {
+        const result = {
+            ch: this.value1.ch * this.value2.zn,
+            zn: this.value1.zn * this.value2.ch
+        }
+        return this.short(result);
+    },
+    short: function (rez) {
+        let nzd = 0;
+        for (let i = Math.min(rez.ch, rez.zn); i > 0; i--) {
+            if (rez.ch % i === 0 && rez.zn % i === 0) {
+                nzd = i;
+                break;
+            }
+        }
+        if (nzd !== 0) {
+            return {
+                ch: rez.ch / nzd,
+                zn: rez.zn / nzd
+            }
+        } else {
+            return rez;
+        }
+    }
+}
+
+drobb.setValue('value1', 1, 2);
+drobb.setValue('value2', 3, 12);
+
+const multp = drobb.multiply();
+console.log(multp);
+
+const div = drobb.divide();
+console.log(div);

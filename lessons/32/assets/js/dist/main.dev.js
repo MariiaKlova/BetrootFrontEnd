@@ -180,7 +180,9 @@ var topPanel = {
   },
   hide: function hide() {
     setTimeout(function () {
-      document.getElementById('top-panel').remove();
+      if (document.getElementById('top-panel') !== null) {
+        document.getElementById('top-panel').remove();
+      }
     }, 3000);
   },
   error: function error(text) {
@@ -198,7 +200,7 @@ var CARD = [{
   // одразу додано до масиву 0
   name: 'Bread',
   qty: 1,
-  isBuy: false,
+  isBuy: true,
   price: 15,
   total: 15
 }, {
@@ -281,7 +283,89 @@ function checkAndAddToCard() {
 function viewCardTable() {
   var html = '';
   CARD.forEach(function (product) {
-    html += "<tr>\n             <td>".concat(product.name, "</td>\n             <td>").concat(product.qty, "</td>\n             <td>").concat(product.price.toFixed(2), "</td>\n             <td>").concat(product.total.toFixed(2), "</td>\n        </tr>");
+    html += "<tr>\n                <td>".concat(product.name, "</td>\n                <td>").concat(product.isBuy ? '<span class="badge bg-success">Yes</span>' : '<span class="badge bg-danger">No</span>', " </td>\n                <td>").concat(product.qty, "</td>\n                <td>").concat(product.price.toFixed(2), "</td>\n                <td>").concat(product.total.toFixed(2), "</td>\n                <td>\n                <button type=\"button\" class=\"btn btn-danger\" onclick=\"askProdDel('").concat(product.name, "')\">&times;</button>\n                </td>\n        </tr>");
   });
   document.getElementById('cart-body').innerHTML = html;
+  document.getElementById('cart-total').innerText = summTotal();
 }
+
+function summTotal() {
+  // let total = 0;
+  // for (let i = 0; i < CARD.length; i++) {
+  //     total += CARD[i].total;
+  // }
+  // return total;
+  return CARD.reduce(function (acc, curr) {
+    return acc + curr.total;
+  }, 0);
+}
+
+function askProdDel(name) {
+  if (confirm('Delete ' + name + '?')) {
+    var index = CARD.findIndex(function (el) {
+      return el.name === name;
+    });
+    CARD.splice(index, 1);
+    viewCardTable();
+    topPanel.info('Product successfuly deleted!');
+  }
+} /////////////////////////////////////////
+// Максимум 1. Створи об'єкт, що описує звичайний дріб. Створи об'єкт, який має методи роботи з дробом:
+
+
+var drobb = {
+  value1: {
+    ch: 0,
+    zn: 0
+  },
+  value2: {
+    ch: 0,
+    zn: 0
+  },
+  setValue: function setValue(key, chisl, znam) {
+    this[key].ch = chisl;
+    this[key].zn = znam; // this[key] = {
+    //     ch: chisl,
+    //     zn: znam
+    // }
+  },
+  multiply: function multiply() {
+    var result = {
+      ch: this.value1.ch * this.value2.ch,
+      zn: this.value1.zn * this.value2.zn
+    };
+    return this["short"](result);
+  },
+  divide: function divide() {
+    var result = {
+      ch: this.value1.ch * this.value2.zn,
+      zn: this.value1.zn * this.value2.ch
+    };
+    return this["short"](result);
+  },
+  "short": function short(rez) {
+    var nzd = 0;
+
+    for (var i = Math.min(rez.ch, rez.zn); i > 0; i--) {
+      if (rez.ch % i === 0 && rez.zn % i === 0) {
+        nzd = i;
+        break;
+      }
+    }
+
+    if (nzd !== 0) {
+      return {
+        ch: rez.ch / nzd,
+        zn: rez.zn / nzd
+      };
+    } else {
+      return rez;
+    }
+  }
+};
+drobb.setValue('value1', 1, 2);
+drobb.setValue('value2', 3, 12);
+var multp = drobb.multiply();
+console.log(multp);
+var div = drobb.divide();
+console.log(div);
