@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="assets/styles/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/styles/topPanel.min.css">
+    <title>31 homm Об’єкти</title>
+</head>
+<style>
+    ul {
+        list-style: none;
+    }
+</style>
+
+<body>
+    <div class="container pt-4">
+        <h1 class="h1 text-center my-3">31 Об’єкти </h1>
+
+
+        <div class="card col-12 p-4 mb-4">
+            <h4 class="h4 text-center">Мінімум</h4>
+            <p>Створи об'єкт, що описує автомобіль:
+            <ul>
+                <li>Виробник</li>
+                <li>Модель</li>
+                <li>Рік випуску</li>
+                <li>Середня швидкість</li>
+                <li>Обсяг паливного бака</li>
+                <li>Середня витрата палива на 100 км</li>
+                <li>Водії</li>
+            </ul>
+            <p>і наступні функції для
+                роботи з цим об'єктом:</p>
+            <ul>
+                <li>Висновок на екран з інформацією про автомобіль.</li>
+                <li> Додавання водія, який має право керувати автомобілем.</li>
+                <li> Заправка автомобіля.</li>
+                <li></li>
+            </ul>
+
+            Підрахунок необхідного часу для подолання переданої відстані з середньою швидкістю. Враховуй, що через
+            кожні 4 години дороги водієві необхідно робити перерву на 1 годину, а також потрібно перевіряти чи має
+            право водій керувати даним автомобілем (ім'я водія функція приймає другим аргументом). Також потрібно
+            перевірити чи вистачить палива, для здійснення цієї поїздки, якщо палива не вистачить потрібно вивести
+            повідомлення, про це і запропонувати заправити автомобіль.
+            </p>
+        </div>
+        <div class="row">
+            <div class="card col-4">
+                <h5 class="card-title text-center">Автомобіль</h5>
+                <table class="table col-6" id="table_car">
+                </table>
+            </div>
+
+            <div class="card col-8">
+                <h5 class="card-title text-center">Додати водіїв</h5>
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Введіть ім'я водія" id="driver_name">
+                    <select class="custom-select" id="driver_license">
+                        <option value="" selected disabled>Водійське посвідчення:</option>
+                        <option value="true">Наявне</option>
+                        <option value="false">Відсутне</option>
+                    </select>
+                    <button class="btn btn-outline-secondary" type="button" onclick="checkDrivers()">Додати</button>
+                </div>
+                <h5 class="card-title text-center">Наявні водії</h5>
+                <div class="row" id="table_driver">
+                </div>
+            </div>
+        </div>
+        <div class="card my-5">
+            <h5 class="card-title text-center">Деталі поїздки</h5>
+            <div class="input-group">
+                <input type="number" class="form-control" placeholder="Введіть відстань, яку необхідно проїхати"
+                    id="distance">
+                <select class="custom-select" id="driver_select">
+                    <!-- <option value=""selected disabled>Оберіть водія для данної поїздки:</option> -->
+                </select>
+                <button class="btn btn-outline-secondary" type="button" onclick="trip()">Обчислити
+                    час на подолання відстані</button>
+            </div>
+        </div>
+        <table class="table my-5">
+            <thead>
+                <tr>
+                    <th class="col-3">Ім'я водія</th>
+                    <th class="col-3">Час на дорогу</th>
+                    <th class="col-3">Кількість перерв</th>
+                    <th class="col-3">Необхідне дозаправлення</th>
+                </tr>
+                <tr id="trip">
+                </tr>
+            </thead>
+        </table>
+
+
+
+
+
+        <div class="card my-4">
+            <div class="card-body">
+                <h4 class="h4 text-center my-1">Максимум</h4>
+                <p class="text-center">Створи об'єкт, що описує звичайний дріб. Створи об'єкт, який має методи
+                    роботи з
+                    дробом: Складання 2-х об'єктів-дробів.
+                    Віднімання 2-х об'єктів-дробів.
+                    Множення 2-х об'єктів-дробів.
+                    Ділення 2-х об'єктів-дробів.
+                    Скорочення об'єкта-дробу.
+                </p>
+
+                <div class="row">
+
+                    <div class="col-2">
+                        <h5 class="card-title text-center">Перше число</h5>
+                        <input type="number" class="form-control text-center" placeholder="Чисельник" id="v1_ch">
+                        <input type="number" class="form-control text-center" placeholder="Знаменник" id="v1_zn">
+                    </div>
+
+                    <div class="col-3">
+                        <h5 class="card-title text-center">Дія</h5>
+                        <form class="row">
+                            <select class="custom-select form-control-lg text-center mt-3" id="inputAction">
+                                <option value="" selected>Оберіть дію</option>
+                                <option value="addition">Додати</option>
+                                <option value="subtract">Відняти</option>
+                                <option value="multiply">Помножити</option>
+                                <option value="divide">Поділити</option>
+                            </select>
+                        </form>
+
+                    </div>
+
+                    <div class="col-2">
+                        <h5 class="card-title text-center">Друге число</h5>
+                        <input type="number" class="form-control text-center" placeholder="Чисельник" id="v2_ch">
+                        <input type="number" class="form-control text-center" placeholder="Знаменник" id="v2_zn">
+                    </div>
+
+                    <div class="col-3">
+                        <h5 class="card-title text-center">Обчислення</h5>
+                        <button class="btn btn-outline-secondary btn-lg col-12 mt-3" type="button"
+                            onclick="task3()">Виконати</button>
+                    </div>
+
+                    <div class="col-2">
+                        <h5 class="card-title text-center">Результат</h5>
+                        <div class="card">
+                            <div class="card-body text-center" id="rez_ch"></div>
+                        </div>
+                        <div class="card">
+                            <div class="card-body text-center" id="rez_zn"></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script src="assets/js/main.js"></script>
+
+</html>

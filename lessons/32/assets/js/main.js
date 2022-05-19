@@ -214,13 +214,19 @@ const CARD = [{
         price: 15,
         total: 15
     },
-    {
-        // одразу додано до масиву 1
+    { // одразу додано до масиву 1
         name: 'Milk',
         qty: 2,
         isBuy: false,
         price: 23.45,
         total: 61.9
+    },
+    { // одразу додано до масиву 2
+        name: 'Honey',
+        qty: 1,
+        isBuy: false,
+        price: 65,
+        total: 65
     }
 ];
 
@@ -245,8 +251,6 @@ function addToCard(name, qty, price) {
     }
     viewCardTable();
 }
-
-// addToCard('Milk', 2, 23.45);
 
 function checkAndAddToCard() {
     let name = document.getElementById('product_name').value,
@@ -287,6 +291,7 @@ function checkAndAddToCard() {
 
 function viewCardTable() {
     let html = '';
+    CARD.sort((a, b) => Number(a.isBuy) - Number(b.isBuy));
     CARD.forEach(product => {
         html +=
             `<tr>
@@ -296,6 +301,8 @@ function viewCardTable() {
                 <td>${product.price.toFixed(2)}</td>
                 <td>${product.total.toFixed(2)}</td>
                 <td>
+                <button type="button" class="btn btn-primary" onclick="changeProdStatus('${product.name}')">Change Status</button></td>
+                <td>
                 <button type="button" class="btn btn-danger" onclick="askProdDel('${product.name}')">&times;</button>
                 </td>
         </tr>`;
@@ -303,6 +310,8 @@ function viewCardTable() {
     document.getElementById('cart-body').innerHTML = html;
     document.getElementById('cart-total').innerText = summTotal();
 }
+
+
 
 function summTotal() {
     // let total = 0;
@@ -322,6 +331,17 @@ function askProdDel(name) {
         viewCardTable();
         topPanel.info('Product successfuly deleted!')
     }
+}
+
+function changeProdStatus(name) {
+    let index = CARD.findIndex((el) => el.name === name);
+    CARD[index].isBuy = !CARD[index].isBuy;
+    // if (CARD[index].isBuy) {
+    //     CARD[index].isBuy = false;
+    // } else {
+    //     CARD[index].isBuy = true;
+    // }
+    viewCardTable();
 }
 
 
@@ -344,7 +364,7 @@ function askProdDel(name) {
 
 /////////////////////////////////////////
 // Максимум 1. Створи об'єкт, що описує звичайний дріб. Створи об'єкт, який має методи роботи з дробом:
-
+/*
 const drobb = {
     value1: {
         ch: 0,
@@ -403,3 +423,84 @@ console.log(multp);
 
 const div = drobb.divide();
 console.log(div);
+
+*/
+
+
+
+
+
+///////////////////////////  Деструктурізація
+
+
+/*
+const user = {
+    name: 'Bob',
+    gender: 'male',
+    level: 'user',
+    qwe: 'qwe',
+    asd: 'asd',
+    zxc: 'zxc'
+};
+
+// function checkUser(user){
+//     user.name
+// }
+
+function checkUser(user) {
+    const {
+        name,
+        gender,
+        level,
+        age = 0
+    } = user;
+    console.log(name);
+    console.log(gender);
+    console.log(level);
+    console.log(age);
+    console.log(qwe); // не виведеться без наявності в const
+}
+
+// function checkUser(name, gender, level) {
+// }
+// checkUser(user.name, user.gender, user.level);
+
+
+const arr = [1, 2, 3, 4, 5, 6];
+const [a, b, c, d] = arr;
+console.log(a);
+console.log(b);
+console.log(c);
+console.log(d);
+
+*/
+
+///////////////////////////////// Spred operator
+
+/*
+function summAll(...numbers) {
+    console.log(numbers);
+    let summ = 0;
+    for (let i = 0; i < numbers; i++) {
+        summ += numbers[i]
+    }
+    return summ;
+}
+
+console.log(summAll(1, 2, 3, 4));
+
+function summAll(text, action, ...numbers) {
+    console.log(action);
+    let summ = 0;
+    for (let i = 0; i < numbers; i++) {
+        summ += numbers[i]
+    }
+    return text + ' ' + summ;
+}
+console.log(summAll('Sum:', 1, 2, 3, 4))
+
+
+
+import{Lpopup, Lmap} from Leaflet;
+
+*/

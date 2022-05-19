@@ -210,6 +210,13 @@ var CARD = [{
   isBuy: false,
   price: 23.45,
   total: 61.9
+}, {
+  // одразу додано до масиву 2
+  name: 'Honey',
+  qty: 1,
+  isBuy: false,
+  price: 65,
+  total: 65
 }];
 viewCardTable();
 
@@ -236,8 +243,7 @@ function addToCard(name, qty, price) {
   }
 
   viewCardTable();
-} // addToCard('Milk', 2, 23.45);
-
+}
 
 function checkAndAddToCard() {
   var name = document.getElementById('product_name').value,
@@ -282,8 +288,11 @@ function checkAndAddToCard() {
 
 function viewCardTable() {
   var html = '';
+  CARD.sort(function (a, b) {
+    return Number(a.isBuy) - Number(b.isBuy);
+  });
   CARD.forEach(function (product) {
-    html += "<tr>\n                <td>".concat(product.name, "</td>\n                <td>").concat(product.isBuy ? '<span class="badge bg-success">Yes</span>' : '<span class="badge bg-danger">No</span>', " </td>\n                <td>").concat(product.qty, "</td>\n                <td>").concat(product.price.toFixed(2), "</td>\n                <td>").concat(product.total.toFixed(2), "</td>\n                <td>\n                <button type=\"button\" class=\"btn btn-danger\" onclick=\"askProdDel('").concat(product.name, "')\">&times;</button>\n                </td>\n        </tr>");
+    html += "<tr>\n                <td>".concat(product.name, "</td>\n                <td>").concat(product.isBuy ? '<span class="badge bg-success">Yes</span>' : '<span class="badge bg-danger">No</span>', " </td>\n                <td>").concat(product.qty, "</td>\n                <td>").concat(product.price.toFixed(2), "</td>\n                <td>").concat(product.total.toFixed(2), "</td>\n                <td>\n                <button type=\"button\" class=\"btn btn-primary\" onclick=\"changeProdStatus('").concat(product.name, "')\">Change Status</button></td>\n                <td>\n                <button type=\"button\" class=\"btn btn-danger\" onclick=\"askProdDel('").concat(product.name, "')\">&times;</button>\n                </td>\n        </tr>");
   });
   document.getElementById('cart-body').innerHTML = html;
   document.getElementById('cart-total').innerText = summTotal();
@@ -309,63 +318,152 @@ function askProdDel(name) {
     viewCardTable();
     topPanel.info('Product successfuly deleted!');
   }
+}
+
+function changeProdStatus(name) {
+  var index = CARD.findIndex(function (el) {
+    return el.name === name;
+  });
+  CARD[index].isBuy = !CARD[index].isBuy; // if (CARD[index].isBuy) {
+  //     CARD[index].isBuy = false;
+  // } else {
+  //     CARD[index].isBuy = true;
+  // }
+
+  viewCardTable();
 } /////////////////////////////////////////
 // Максимум 1. Створи об'єкт, що описує звичайний дріб. Створи об'єкт, який має методи роботи з дробом:
 
-
-var drobb = {
-  value1: {
-    ch: 0,
-    zn: 0
-  },
-  value2: {
-    ch: 0,
-    zn: 0
-  },
-  setValue: function setValue(key, chisl, znam) {
-    this[key].ch = chisl;
-    this[key].zn = znam; // this[key] = {
-    //     ch: chisl,
-    //     zn: znam
-    // }
-  },
-  multiply: function multiply() {
-    var result = {
-      ch: this.value1.ch * this.value2.ch,
-      zn: this.value1.zn * this.value2.zn
-    };
-    return this["short"](result);
-  },
-  divide: function divide() {
-    var result = {
-      ch: this.value1.ch * this.value2.zn,
-      zn: this.value1.zn * this.value2.ch
-    };
-    return this["short"](result);
-  },
-  "short": function short(rez) {
-    var nzd = 0;
-
-    for (var i = Math.min(rez.ch, rez.zn); i > 0; i--) {
-      if (rez.ch % i === 0 && rez.zn % i === 0) {
-        nzd = i;
-        break;
-      }
+/*
+const drobb = {
+    value1: {
+        ch: 0,
+        zn: 0
+    },
+    value2: {
+        ch: 0,
+        zn: 0
+    },
+    setValue: function (key, chisl, znam) {
+        this[key].ch = chisl;
+        this[key].zn = znam;
+        // this[key] = {
+        //     ch: chisl,
+        //     zn: znam
+        // }
+    },
+    multiply: function () {
+        const result = {
+            ch: this.value1.ch * this.value2.ch,
+            zn: this.value1.zn * this.value2.zn
+        }
+        return this.short(result);
+    },
+    divide: function () {
+        const result = {
+            ch: this.value1.ch * this.value2.zn,
+            zn: this.value1.zn * this.value2.ch
+        }
+        return this.short(result);
+    },
+    short: function (rez) {
+        let nzd = 0;
+        for (let i = Math.min(rez.ch, rez.zn); i > 0; i--) {
+            if (rez.ch % i === 0 && rez.zn % i === 0) {
+                nzd = i;
+                break;
+            }
+        }
+        if (nzd !== 0) {
+            return {
+                ch: rez.ch / nzd,
+                zn: rez.zn / nzd
+            }
+        } else {
+            return rez;
+        }
     }
+}
 
-    if (nzd !== 0) {
-      return {
-        ch: rez.ch / nzd,
-        zn: rez.zn / nzd
-      };
-    } else {
-      return rez;
-    }
-  }
-};
 drobb.setValue('value1', 1, 2);
 drobb.setValue('value2', 3, 12);
-var multp = drobb.multiply();
+
+const multp = drobb.multiply();
 console.log(multp);
-var div = drobb.divide();
+
+const div = drobb.divide();
 console.log(div);
+
+*/
+///////////////////////////  Деструктурізація
+
+/*
+const user = {
+    name: 'Bob',
+    gender: 'male',
+    level: 'user',
+    qwe: 'qwe',
+    asd: 'asd',
+    zxc: 'zxc'
+};
+
+// function checkUser(user){
+//     user.name
+// }
+
+function checkUser(user) {
+    const {
+        name,
+        gender,
+        level,
+        age = 0
+    } = user;
+    console.log(name);
+    console.log(gender);
+    console.log(level);
+    console.log(age);
+    console.log(qwe); // не виведеться без наявності в const
+}
+
+// function checkUser(name, gender, level) {
+// }
+// checkUser(user.name, user.gender, user.level);
+
+
+const arr = [1, 2, 3, 4, 5, 6];
+const [a, b, c, d] = arr;
+console.log(a);
+console.log(b);
+console.log(c);
+console.log(d);
+
+*/
+///////////////////////////////// Spred operator
+
+/*
+function summAll(...numbers) {
+    console.log(numbers);
+    let summ = 0;
+    for (let i = 0; i < numbers; i++) {
+        summ += numbers[i]
+    }
+    return summ;
+}
+
+console.log(summAll(1, 2, 3, 4));
+
+function summAll(text, action, ...numbers) {
+    console.log(action);
+    let summ = 0;
+    for (let i = 0; i < numbers; i++) {
+        summ += numbers[i]
+    }
+    return text + ' ' + summ;
+}
+console.log(summAll('Sum:', 1, 2, 3, 4))
+
+
+
+import{Lpopup, Lmap} from Leaflet;
+
+*/
