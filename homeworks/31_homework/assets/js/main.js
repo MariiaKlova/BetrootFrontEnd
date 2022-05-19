@@ -185,7 +185,6 @@ function checkDriver(driver, drivers) {
 }
 
 
-
 function checkDistanse(distance) {
     if (distance === '') {
         alert(`Введіть відстань`);
