@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="assets/styles/bootstrap.min.css">
+    <title>less</title>
+</head>
+
+<body>
+    <div class="container pt-4">
+        <div class="card">
+            <div class="card-body text-center" id="one">
+                <button type="button" class="btn btn-success" onclick="viewData()">Вивести час </button>
+            </div>
+            <div class="card-footer  text-center">
+                <div class="row justify-content-center">
+                    <div class="col-3">
+                        <div class="input-group mb-3">
+                            <input type="number" class="form-control" placeholder="Додати годин" id="addHours">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-success" type="button" onclick="addHours()">Додати</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="input-group mb-3">
+                            <input type="number" class="form-control" placeholder="Додати хвилин" id="addMinutes">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-success" type="button" onclick="addMinutes()">Додати</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="input-group mb-3">
+                            <input type="number" class="form-control" placeholder="Додати секунд" id="addSeconds">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-success" type="button" onclick="addSeconds()">Додати</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+<script src="assets/js/main.js"></script>
+
+</html>
