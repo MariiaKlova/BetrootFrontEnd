@@ -71,6 +71,7 @@ function askDriverDel(name) {
     });
     car.drivers.splice(index, 1);
     viewDriverInTable();
+    viewDriverInSelection();
   }
 }
 

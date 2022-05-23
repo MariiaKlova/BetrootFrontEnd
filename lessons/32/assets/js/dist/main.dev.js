@@ -236,9 +236,11 @@ function addToCard(name, qty, price) {
     var prodIndex = CARD.findIndex(function (el) {
       return el.name === name;
     });
-    var newQty = CARD[prodIndex].qty + qty;
-    CARD[prodIndex].qty = newQty;
-    CARD[prodIndex].total = parseFloat((newQty * CARD[prodIndex].price).toFixed(2));
+
+    var _newQty = CARD[prodIndex].qty + qty;
+
+    CARD[prodIndex].qty = _newQty;
+    CARD[prodIndex].total = parseFloat((_newQty * CARD[prodIndex].price).toFixed(2));
     topPanel.success('Product quantity changed');
   }
 
@@ -292,10 +294,32 @@ function viewCardTable() {
     return Number(a.isBuy) - Number(b.isBuy);
   });
   CARD.forEach(function (product) {
-    html += "<tr>\n                <td>".concat(product.name, "</td>\n                <td>").concat(product.isBuy ? '<span class="badge bg-success">Yes</span>' : '<span class="badge bg-danger">No</span>', " </td>\n                <td>").concat(product.qty, "</td>\n                <td>").concat(product.price.toFixed(2), "</td>\n                <td>").concat(product.total.toFixed(2), "</td>\n                <td>\n                <button type=\"button\" class=\"btn btn-primary\" onclick=\"changeProdStatus('").concat(product.name, "')\">Change Status</button></td>\n                <td>\n                <button type=\"button\" class=\"btn btn-danger\" onclick=\"askProdDel('").concat(product.name, "')\">&times;</button>\n                </td>\n        </tr>");
+    html += "<tr>\n        <td>".concat(product.name, "</td>\n        <td>").concat(product.isBuy ? '<span class="badge bg-success">Yes</span>' : '<span class="badge bg-danger">No</span>', " </td>\n        <td>\n            <button class=\"btn btn-info btn-sm\" onclick=\"changeProductQty('").concat(product.name, "', 'dec')\">-</button>\n            ").concat(product.qty, "\n            <button class=\"btn btn-info btn-sm\" onclick=\"changeProductQty('").concat(product.name, "', 'inc')\">+</button>\n        </td>\n        <td>").concat(product.price.toFixed(2), "</td>\n        <td>").concat(product.total.toFixed(2), "</td>\n        <td>\n        <button type=\"button\" class=\"btn btn-primary\" onclick=\"changeProdStatus('").concat(product.name, "')\">Change Status</button></td>\n        <td>\n        <button type=\"button\" class=\"btn btn-danger\" onclick=\"askProdDel('").concat(product.name, "')\">&times;</button>\n        </td>\n    </tr>");
   });
   document.getElementById('cart-body').innerHTML = html;
   document.getElementById('cart-total').innerText = summTotal();
+}
+
+function changeProductQty(name, action) {
+  var index = CARD.findIndex(function (el) {
+    return el.name === name;
+  });
+  newQty = 0;
+
+  if (action === 'inc') {
+    newQty = CARD[index].qty + 1;
+  } else {
+    if (CARD[index].qty >= 2) {
+      newQty = CARD[index].qty - 1;
+    } else {
+      askProdDel(name);
+      return false;
+    }
+  }
+
+  CARD[index].qty = newQty;
+  CARD[index].total = CARD[index].price * newQty;
+  viewCardTable();
 }
 
 function summTotal() {
@@ -331,71 +355,67 @@ function changeProdStatus(name) {
   // }
 
   viewCardTable();
-} /////////////////////////////////////////
-// Максимум 1. Створи об'єкт, що описує звичайний дріб. Створи об'єкт, який має методи роботи з дробом:
-
-/*
-const drobb = {
-    value1: {
-        ch: 0,
-        zn: 0
-    },
-    value2: {
-        ch: 0,
-        zn: 0
-    },
-    setValue: function (key, chisl, znam) {
-        this[key].ch = chisl;
-        this[key].zn = znam;
-        // this[key] = {
-        //     ch: chisl,
-        //     zn: znam
-        // }
-    },
-    multiply: function () {
-        const result = {
-            ch: this.value1.ch * this.value2.ch,
-            zn: this.value1.zn * this.value2.zn
-        }
-        return this.short(result);
-    },
-    divide: function () {
-        const result = {
-            ch: this.value1.ch * this.value2.zn,
-            zn: this.value1.zn * this.value2.ch
-        }
-        return this.short(result);
-    },
-    short: function (rez) {
-        let nzd = 0;
-        for (let i = Math.min(rez.ch, rez.zn); i > 0; i--) {
-            if (rez.ch % i === 0 && rez.zn % i === 0) {
-                nzd = i;
-                break;
-            }
-        }
-        if (nzd !== 0) {
-            return {
-                ch: rez.ch / nzd,
-                zn: rez.zn / nzd
-            }
-        } else {
-            return rez;
-        }
-    }
 }
 
-drobb.setValue('value1', 1, 2);
-drobb.setValue('value2', 3, 12);
+var DISCOUNT = [{
+  promo: 'qwerty',
+  type: 'fixed',
+  //  or 'persent'
+  value: 15,
+  isUsed: false
+}, {
+  promo: 'asdfg',
+  type: 'persent',
+  //  or 'fixed'
+  value: 5,
+  isUsed: false
+}];
 
-const multp = drobb.multiply();
-console.log(multp);
+function checkAndApplyDiscount() {
+  var discPromo = document.getElementById('discountField').value;
 
-const div = drobb.divide();
-console.log(div);
+  if (discPromo === '') {
+    topPanel.error('Enter promo code');
+    return false;
+  }
 
-*/
-///////////////////////////  Деструктурізація
+  var index = DISCOUNT.findIndex(function (el) {
+    return el.promo === discPromo;
+  });
+
+  if (index === -1) {
+    topPanel.error('Promo code not found');
+    return false;
+  }
+
+  var disc = DISCOUNT[index];
+
+  if (disc.isUsed) {
+    topPanel.error('Promo code already used');
+    return false;
+  }
+
+  var newTotal = calcDiscount(disc);
+  DISCOUNT[index].isUsed = true;
+  document.getElementById('discValue').innerText = disc.value + (disc.type === 'fixed' ? 'UAH' : '%');
+  document.getElementById('totalWithDisc').innerText = newTotal.toFixed(2);
+  document.getElementById('discountField').value = '';
+}
+
+function calcDiscount(disc) {
+  debugger;
+  var type = disc.type,
+      value = disc.value;
+  var sumTotalValue = summTotal();
+
+  switch (type) {
+    case 'fixed':
+      return sumTotalValue - value;
+
+    case 'persent':
+      return sumTotalValue - sumTotalValue / 100 * value;
+  }
+} ///////////////////////////  Деструктурізація
 
 /*
 const user = {
@@ -467,3 +487,67 @@ console.log(summAll('Sum:', 1, 2, 3, 4))
 import{Lpopup, Lmap} from Leaflet;
 
 */
+
+/* Given an array of integers.
+Return an array, where the first element is the count of positives numbers and the second element is sum of negative numbers. 0 is neither positive nor negative.
+If the input is an empty array or is null, return an empty array.
+Example
+For input [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14, -15], you should return [10, -65].
+*/
+
+
+function task1(input) {
+  if (input === null || input.lengh === 0) {
+    return [];
+  }
+
+  var count = 0;
+  var sum = 0;
+
+  for (var i = 0; i < input.length; i++) {
+    if (input[i] > 0) {
+      count++;
+    } else {
+      sum += input[i];
+    }
+  }
+
+  return [count, sum];
+}
+/*The following was a question that I received during a technical interview for an entry level software developer position. I thought I'd post it here so that everyone could give it a go:
+
+You are given an unsorted array containing all the integers from 0 to 100 inclusively. However, one number is missing. Write a function to find and return this number. What are the time and space complexities of your solution?
+*/
+
+
+function missingNo(nums) {
+  var r = nums.sort(function (a, b) {
+    return a - b;
+  });
+
+  for (var i = 0; i <= r.lengh; i++) {
+    if (i !== r[i]) {
+      return i;
+    }
+  }
+}
+/*
+Don't give me five!
+In this kata you get the start number and the end number of a region and should return the count of all numbers except numbers with a 5 in it. The start and the end number are both inclusive!
+Examples:
+1,9 -> 1,2,3,4,6,7,8,9 -> Result 8
+4,17 -> 4,6,7,8,9,10,11,12,13,14,16,17 -> Result 12
+*/
+
+
+function dontGiveMeFive(start, end) {
+  var count = 0;
+
+  for (var i = start; i <= end; i++) {
+    if (String(i).indexOf('5') === -1) {
+      count++;
+    }
+  }
+
+  return count;
+}

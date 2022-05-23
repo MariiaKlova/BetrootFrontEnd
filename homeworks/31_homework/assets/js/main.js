@@ -110,6 +110,7 @@ function askDriverDel(name) {
         let index = car.drivers.findIndex((el) => el.name === name);
         car.drivers.splice(index, 1);
         viewDriverInTable();
+        viewDriverInSelection();
     }
 }
 
@@ -183,7 +184,6 @@ function checkDriver(driver, drivers) {
     }
     return driver;
 }
-
 
 function checkDistanse(distance) {
     if (distance === '') {
