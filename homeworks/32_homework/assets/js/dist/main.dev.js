@@ -247,7 +247,7 @@ viewReceipt();
 function viewReceipt() {
   var html = '';
   var sum = 0;
-  CARD.forEach(function (el) {
+  CARD.map(function (el) {
     if (el.isBuy === true) {
       sum += el.total;
       html += "<div class=\"row\">\n            <div class=\"col-8\">".concat(el.name, "</div>\n            <div class=\"col-8 small\">").concat(el.qty, " x ").concat(el.price.toFixed(2), "</div>\n            <div class=\"col-4\">").concat(el.total.toFixed(2), "</div>\n            <hr>\n            </div> \n            ");
@@ -263,7 +263,7 @@ function viewReceipt() {
   // });
 
   document.getElementById('viewReceipt').innerHTML = html;
-  document.getElementById('viewReceiptTotal').innerHTML = "<div> </div> ".concat(sum);
+  document.getElementById('viewReceiptTotal').innerHTML = "<div>".concat(sum, " </div> ");
 }
 
 setSorting();

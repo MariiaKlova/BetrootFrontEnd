@@ -25,7 +25,6 @@ const topPanel = {
     }
 }
 
-
 const CARD = [{
         // одразу додано до масиву 
         name: 'Chocolate',
@@ -215,12 +214,11 @@ function checkAndApplyDiscount() {
     document.getElementById('discValue').innerText = disc.value + ((disc.type === 'fixed') ? 'UAH' : '%');
     document.getElementById('totalWithDisc').innerText = newTotal.toFixed(2);
     document.getElementById('discountField').value = '';
-    document.getElementById('viewReceiptTotalWithDisc').innerHTML = 
-    `
+    document.getElementById('viewReceiptTotalWithDisc').innerHTML =
+        `
     <div class="col-8">Total with discount</div>
     <div class="col-4">${newTotal.toFixed(2)}</div>
     `
-
 }
 
 function calcDiscount(disc) {
@@ -243,11 +241,11 @@ viewReceipt();
 function viewReceipt() {
     let html = '';
     let sum = 0;
-    CARD.forEach(function (el) {
+    CARD.map(function (el) {
         if (el.isBuy === true) {
             sum += el.total;
             html +=
-            `<div class="row">
+                `<div class="row">
             <div class="col-8">${el.name}</div>
             <div class="col-8 small">${el.qty} x ${el.price.toFixed(2)}</div>
             <div class="col-4">${el.total.toFixed(2)}</div>
@@ -266,11 +264,12 @@ function viewReceipt() {
     //         </div> `)
     // });
     document.getElementById('viewReceipt').innerHTML = html;
-    document.getElementById('viewReceiptTotal').innerHTML = 
-    `<div> </div> ${sum}`;
+    document.getElementById('viewReceiptTotal').innerHTML =
+        `<div>${sum} </div> `;
 }
 
 setSorting();
+
 function setSorting() {
     const sorting = document.getElementById('sorting').value;
     switch (sorting) {
