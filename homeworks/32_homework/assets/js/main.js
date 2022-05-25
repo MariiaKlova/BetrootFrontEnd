@@ -274,50 +274,19 @@ function setSorting() {
     const sorting = document.getElementById('sorting').value;
     switch (sorting) {
         default:
-            CARD.sort(function (a, b) {
-                if (a.name > b.name) {
-                    return 1;
-                }
-                if (a.name < b.name) {
-                    return -1;
-                }
-                // a должно быть равным b
-                return 0;
-            });
+            CARD.sort((a, b) => a.name.localeCompare(b.name));
+            break;
         case 'az':
-            CARD.sort(function (a, b) {
-                if (a.name > b.name) {
-                    return 1;
-                }
-                if (a.name < b.name) {
-                    return -1;
-                }
-                // a должно быть равным b
-                return 0;
-            });
+            CARD.sort((a, b) => a.name.localeCompare(b.name));
             break;
-
         case 'za':
-            CARD.sort(function (a, b) {
-                if (a.name > b.name) {
-                    return -1;
-                }
-                if (a.name < b.name) {
-                    return 1;
-                }
-                return 0;
-            })
+            CARD.sort((a, b) => b.name.localeCompare(a.name));
             break;
-
         case 'desc':
-            CARD.sort(function (a, b) {
-                return a.total - b.total
-            });
+            CARD.sort((a, b) => a.total - b.total);
             break;
         case 'asc':
-            CARD.sort(function (a, b) {
-                return b.total - a.total
-            });
+            CARD.sort((a, b) => b.total - a.total);
             break;
     }
     viewReceipt();

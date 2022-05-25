@@ -274,44 +274,19 @@ function setSorting() {
   switch (sorting) {
     default:
       CARD.sort(function (a, b) {
-        if (a.name > b.name) {
-          return 1;
-        }
-
-        if (a.name < b.name) {
-          return -1;
-        } // a должно быть равным b
-
-
-        return 0;
+        return a.name.localeCompare(b.name);
       });
+      break;
 
     case 'az':
       CARD.sort(function (a, b) {
-        if (a.name > b.name) {
-          return 1;
-        }
-
-        if (a.name < b.name) {
-          return -1;
-        } // a должно быть равным b
-
-
-        return 0;
+        return a.name.localeCompare(b.name);
       });
       break;
 
     case 'za':
       CARD.sort(function (a, b) {
-        if (a.name > b.name) {
-          return -1;
-        }
-
-        if (a.name < b.name) {
-          return 1;
-        }
-
-        return 0;
+        return b.name.localeCompare(a.name);
       });
       break;
 
