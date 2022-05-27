@@ -81,7 +81,7 @@ console.log('arrShort2:', arrShort2); // //// Замикання:
 console.log('///////////////////////////////////////////////////////////////////////////////////////');
 console.log('=== Новий масив обєктів ===');
 var personal = [{
-  name: 'Bob',
+  name: 'bob',
   lvl: 'user',
   age: 35
 }, {
@@ -131,8 +131,9 @@ var balSort = balArr2.filter(function (el) {
 }).map(function (el) {
   return el.balance += 500;
 }); // .sort((a, b) => a.age - b.age)  // не прицює врядок
+// balArr2.sort((a, b) => a.age - b.age)
 
 balArr2.sort(function (a, b) {
-  return a.age - b.age;
+  return a.name.localeCompare(b.name);
 });
 console.log('balArr2 - відсортований', balArr2);

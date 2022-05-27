@@ -95,7 +95,7 @@ console.log('///////////////////////////////////////////////////////////////////
 console.log('=== Новий масив обєктів ===');
 
 const personal = [{
-        name: 'Bob',
+        name: 'bob',
         lvl: 'user',
         age: 35
     },
@@ -155,6 +155,7 @@ const balSort = balArr2
     .filter(el => el.age >= 30)
     .map(el => el.balance += 500)
 // .sort((a, b) => a.age - b.age)  // не прицює врядок
-balArr2.sort((a, b) => a.age - b.age)
+// balArr2.sort((a, b) => a.age - b.age)
+balArr2.sort((a, b) => a.name.localeCompare(b.name))
 
 console.log('balArr2 - відсортований', balArr2);
