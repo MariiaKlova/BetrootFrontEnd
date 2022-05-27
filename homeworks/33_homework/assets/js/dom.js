@@ -1,3 +1,57 @@
+const style = {
+    body: {
+        backgroundColor: '#202124',
+        color: '#fafafa'
+    },
+    author: {
+        color: 'lightblue',
+    },
+    song: {
+        textTransform: 'lowercase',
+    },
+    button: {
+        borderRadius: '4px',
+        backgroundColor: 'blue',
+        color: 'lightblue',
+        padding: '10px 20px',
+        cursor: 'pointer',
+        fontSize: '20px',
+        display: 'flex',
+        margin: '20px'
+    },
+    modal: {
+        display: 'none',
+        position: 'absolute',
+        top: '20%',
+        left: '40%',
+        textAlighn: 'center',
+        margin: '0 auto',
+        border: '1px solid lightblue',
+        padding: '10px 20px',
+        color: 'lightblue',
+        fontSize: '24px',
+        fontWeight: '800'
+    },
+    div: {
+        height: '40px',
+        width: '40px',
+        border: '1px solid lightblue',
+        margin: '20px 40px'
+    },
+    light: {
+        height: '40px',
+        width: '40px',
+        backgroundColor: 'red',
+        display: 'block'
+    }
+}
+
+function applyStyle(styles, elem) {
+    for (let prop in styles) {
+        elem.style[prop] = styles[prop];
+    }
+}
+
 // Створити сторінку, що показує нумерований список пісень:
 
 const playList = [{
@@ -35,9 +89,22 @@ const playList = [{
 const wrap = document.querySelector('.music_wrap');
 const ol = document.createElement('ol');
 
+
 playList.forEach(el => {
-    const li = document.createElement('li');
-    li.innerText = el.author + ' --- ' + el.song;
+    let li = document.createElement('li');
+    const author = document.createElement('span');
+    const song = document.createElement('span');
+
+    author.innerText = el.author;
+    song.innerText = el.song;
+
+    author.classList.add('author');
+    song.classList.add('song');
+
+    applyStyle(style.author, author);
+    applyStyle(style.song, song);
+
+    li.append(author, ' --- ', song);
     ol.append(li);
 });
 
@@ -100,57 +167,8 @@ button.onclick = function () {
     }
 };
 
+//////////////////
 
-//Создать html-страницу, на которой будет кнопка и текст. При нажатии на кнопку, текст должен скрываться. При повторном нажатии – текст должен снова отображаться.
-
-const style = {
-    body: {
-        backgroundColor: '#202124',
-        color: '#fafafa'
-    },
-    button: {
-        borderRadius: '4px',
-        backgroundColor: 'blue',
-        color: 'lightblue',
-        padding: '10px 20px',
-        cursor: 'pointer',
-        fontSize: '20px',
-        display: 'flex',
-        margin: '20px'
-    },
-    modal: {
-        display: 'none',
-        position: 'absolute',
-        top: '20%',
-        left: '40%',
-        textAlighn: 'center',
-        margin: '0 auto',
-        border: '1px solid lightblue',
-        padding: '10px 20px',
-        color: 'lightblue',
-        fontSize: '24px',
-        fontWeight: '800'
-    },
-
-    div: {
-        height: '40px',
-        width: '40px',
-        border: '1px solid lightblue',
-        margin: '20px 40px'
-    },
-    light: {
-        height: '40px',
-        width: '40px',
-        backgroundColor: 'red',
-        display: 'block'
-    }
-}
-
-function applyStyle(styles, elem) {
-    for (let prop in styles) {
-        elem.style[prop] = styles[prop];
-    }
-}
 
 applyStyle(style.body, document.body);
 applyStyle(style.button, buttonForOpen);
