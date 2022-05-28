@@ -139,7 +139,6 @@ buttonForClose.onclick = function () {
 
 // Створити HTML-сторінку зі світлофором і кнопкою, яка перемикає світлофор на наступний колір.
 
-
 const div = document.createElement('div');
 const light = document.createElement('div');
 const button = document.createElement('button');
@@ -153,30 +152,14 @@ wrap3.append(div);
 div.append(light)
 
 const arr = ['red', 'yellow', 'green', 'yellow'];
-let i = 0;
+let i = 1;
 
 button.onclick = function () {
-    light.style.backgroundColor = arr[i];
+    light.style.backgroundColor = arr[i%arr.length];
     i++;
-    if (i === arr.length) {
-        i = 0;
-    }
-    // if (light.style.backgroundColor === 'red') {
-    //     light.style.backgroundColor = 'yellow';
-    //     return;
-    // };
-    // if (light.style.backgroundColor === 'yellow') {
-    //     light.style.backgroundColor = 'green';
-    //     return;
-    // };
-    // if (light.style.backgroundColor === 'green') {
-    //     light.style.backgroundColor = 'red';
-    //     return;
-    // }
 };
 
 //////////////////
-
 
 applyStyle(style.body, document.body);
 applyStyle(style.button, buttonForOpen);

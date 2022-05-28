@@ -129,27 +129,11 @@ wrap3.append(button);
 wrap3.append(div);
 div.append(light);
 var arr = ['red', 'yellow', 'green', 'yellow'];
-var i = 0;
+var i = 1;
 
 button.onclick = function () {
-  light.style.backgroundColor = arr[i];
+  light.style.backgroundColor = arr[i % arr.length];
   i++;
-
-  if (i === arr.length) {
-    i = 0;
-  } // if (light.style.backgroundColor === 'red') {
-  //     light.style.backgroundColor = 'yellow';
-  //     return;
-  // };
-  // if (light.style.backgroundColor === 'yellow') {
-  //     light.style.backgroundColor = 'green';
-  //     return;
-  // };
-  // if (light.style.backgroundColor === 'green') {
-  //     light.style.backgroundColor = 'red';
-  //     return;
-  // }
-
 }; //////////////////
 
 
