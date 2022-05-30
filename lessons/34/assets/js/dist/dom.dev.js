@@ -10,6 +10,7 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 
 var style = {
   body: {
+    height: '100%',
     backgroundColor: '#202124',
     color: 'white'
   },
@@ -146,15 +147,13 @@ document.body.addEventListener('contextmenu', function (e) {
   applyStyle(style.my_context, div);
 });
 window.addEventListener('mouseup', function (e) {
-  var my_context = document.getElementById('my_context');
+  var my_context = document.getElementById('my_context'); // try {
 
-  try {
-    if (e.target != my_context && e.target.parentNode != my_context) {
-      my_context.remove();
-    }
-  } catch (err) {}
-});
-2; //* *************KeybordEvent************************************** *//
+  if (e.target != my_context && e.target.parentNode != my_context) {
+    my_context && my_context.remove();
+  } // } catch (err) {}
+
+}); //* *************KeybordEvent************************************** *//
 
 document.body.addEventListener('keydown', function (e) {
   // console.log(e); // KeyboardEvent при нажатій кнопці
@@ -177,7 +176,6 @@ function blockCopy(e) {
 /*
 ! обхід функції блокування blockCopy в консолі браузера:
 blockCopy() = function(){ return false;}
-
 */
 
 applyStyle(style.body, document.body);

@@ -241,7 +241,7 @@ viewReceipt();
 function viewReceipt() {
     let html = '';
     let sum = 0;
-    CARD.map(function (el) {
+    CARD.forEach(function (el) {
         if (el.isBuy === true) {
             sum += el.total;
             html +=
@@ -273,9 +273,6 @@ setSorting();
 function setSorting() {
     const sorting = document.getElementById('sorting').value;
     switch (sorting) {
-        default:
-            CARD.sort((a, b) => a.name.localeCompare(b.name));
-            break;
         case 'az':
             CARD.sort((a, b) => a.name.localeCompare(b.name));
             break;
@@ -287,6 +284,9 @@ function setSorting() {
             break;
         case 'asc':
             CARD.sort((a, b) => b.total - a.total);
+            break;
+        default:
+            CARD.sort((a, b) => a.name.localeCompare(b.name));
             break;
     }
     viewReceipt();

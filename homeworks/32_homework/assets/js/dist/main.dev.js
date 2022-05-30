@@ -247,7 +247,7 @@ viewReceipt();
 function viewReceipt() {
   var html = '';
   var sum = 0;
-  CARD.map(function (el) {
+  CARD.forEach(function (el) {
     if (el.isBuy === true) {
       sum += el.total;
       html += "<div class=\"row\">\n            <div class=\"col-8\">".concat(el.name, "</div>\n            <div class=\"col-8 small\">").concat(el.qty, " x ").concat(el.price.toFixed(2), "</div>\n            <div class=\"col-4\">").concat(el.total.toFixed(2), "</div>\n            <hr>\n            </div> \n            ");
@@ -272,12 +272,6 @@ function setSorting() {
   var sorting = document.getElementById('sorting').value;
 
   switch (sorting) {
-    default:
-      CARD.sort(function (a, b) {
-        return a.name.localeCompare(b.name);
-      });
-      break;
-
     case 'az':
       CARD.sort(function (a, b) {
         return a.name.localeCompare(b.name);
@@ -299,6 +293,12 @@ function setSorting() {
     case 'asc':
       CARD.sort(function (a, b) {
         return b.total - a.total;
+      });
+      break;
+
+    default:
+      CARD.sort(function (a, b) {
+        return a.name.localeCompare(b.name);
       });
       break;
   }

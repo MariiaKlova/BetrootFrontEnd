@@ -1,5 +1,6 @@
 const style = {
     body: {
+        height: '100%',
         backgroundColor: '#202124',
         color: 'white'
     },
@@ -138,13 +139,12 @@ document.body.addEventListener('contextmenu', function (e) {
 
 window.addEventListener('mouseup', function (e) {
     var my_context = document.getElementById('my_context');
-    try {
+    // try {
         if (e.target != my_context && e.target.parentNode != my_context) {
-            my_context.remove();
+            my_context && my_context.remove();
         }
-    } catch (err) {}
+    // } catch (err) {}
 });
-2
 
 //* *************KeybordEvent************************************** *//
 
@@ -165,7 +165,6 @@ function blockCopy(e) {
 /*
 ! обхід функції блокування blockCopy в консолі браузера:
 blockCopy() = function(){ return false;}
-
 */
 
 
