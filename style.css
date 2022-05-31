@@ -1,6 +1,6 @@
 :root {
     --bright: #a60c3e;
-    --soft: #f8f8f8;
+    --soft: #f5dbe4;
     --light: #d4ebe3;
 }
 
@@ -116,7 +116,7 @@ ol, ul {
     transition: all .4s ease;
     right: -225px;
     bottom: 5px;
-    color: #94ceb9;
+    color: #fff;
 }
 .card:hover .lessons{
     transform: rotate(270deg) scale(2.5);
