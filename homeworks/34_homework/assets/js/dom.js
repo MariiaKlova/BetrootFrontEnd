@@ -21,8 +21,8 @@ const style_shit = {
         backgroundColor: '#202124',
         color: '#fafafa',
         position: 'relative',
-        overflow: 'hidden'
-
+        overflow: 'hidden',
+        wordWrap: 'break-word'
     },
     block_resize: {
         width: '12px',
@@ -153,8 +153,6 @@ const resizers = text_block.querySelectorAll('.resizer');
 При кліку на заголовок стовпця, необхідно відсортувати дані цього стовпця. 
 Врахуй, що числові значення повинні сортуватися як числа, а не як рядки.
 */
-
-
 
 
 

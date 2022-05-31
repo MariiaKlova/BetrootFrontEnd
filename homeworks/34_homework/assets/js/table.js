@@ -13,15 +13,10 @@ const style_shit = {
         display: 'flex',
         margin: '20px'
     },
-    text_block: {
-        width: '200px',
-        height: '100px',
-        padding: '10px 20px',
-        border: '1px solid pink',
-        backgroundColor: '#202124',
-        color: '#fafafa',
-        position: 'relative',
-        overflow: 'hidden'
+    thead: {
+        backgroundColor: 'lightcoral',
+        color: '#551a8b',
+        cursor: 'pointer',
     }
 };
 
@@ -32,60 +27,64 @@ function appleStyles(style, el) {
 };
 
 const btn = document.getElementById('btn');
+const thead = document.querySelector('thead');
 
 //*********************************** *//
 /* Створити HTML-сторінку з великою таблицею. 
 При кліку на заголовок стовпця, необхідно відсортувати дані цього стовпця. 
 Врахуй, що числові значення повинні сортуватися як числа, а не як рядки.
 */
+
 function sortTable(n) {
-    let table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+    var table, rows, switching, i, x, y, dir, shouldSwitch, switchCount = 0;
     table = document.getElementById("myTable2");
     switching = true;
-    // Set the sorting direction to ascending:
     dir = "asc";
-    /* Make a loop that will continue until
-    no switching has been done: */
+    //Цикл, який триватиме до тих пір, поки не буде зроблено перемикання: 
     while (switching) {
-        // Start by saying: no switching is done:
         switching = false;
-        rows = table.getElementsByTagName("TR");
-        /* Loop through all table rows (except the
-        first, which contains table headers): */
+        rows = table.rows;
+        // Перебрати всі рядки таблиці (крім першого, який містить заголовки таблиці): 
         for (i = 1; i < (rows.length - 1); i++) {
-            // Start by saying there should be no switching:
             shouldSwitch = false;
-            /* Get the two elements you want to compare,
-            one from current row and one from the next: */
+            // Два елементи, які потрібно порівняти, один із поточного рядка, а інший із наступного: 
             x = rows[i].getElementsByTagName("TD")[n];
             y = rows[i + 1].getElementsByTagName("TD")[n];
-            /* Check if the two rows should switch place,
-            based on the direction, asc or desc: */
-            if (dir == "asc") {
-                if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-                    // If so, mark as a switch and break the loop:
-                    shouldSwitch = true;
-                    break;
+            if (n === 4) {
+                // Перевірка за колонкою з датою + функція convertDate
+                if (dir === "asc") {
+                    if (convertDate(x.innerText) > convertDate(y.innerText)) {
+                        shouldSwitch = true;
+                        break;
+                    }
+                } else if (dir === "desc") {
+                    if (convertDate(x.innerHTML) < convertDate(y.innerHTML)) {
+                        shouldSwitch = true;
+                        break;
+                    }
                 }
-            } else if (dir == "desc") {
-                if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
-                    // If so, mark as a switch and break the loop:
-                    shouldSwitch = true;
-                    break;
+            } else {
+                if (dir === "asc") {
+                    if (x.innerText.toLowerCase() > y.innerText.toLowerCase()) {
+                        shouldSwitch = true;
+                        break;
+                    }
+                } else if (dir === "desc") {
+                    if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+                        shouldSwitch = true;
+                        break;
+                    }
                 }
             }
         }
         if (shouldSwitch) {
-            /* If a switch has been marked, make the switch
-            and mark that a switch has been done: */
+            //Зміна рядків місцямиб якщо shouldSwitch = true
             rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
             switching = true;
-            // Each time a switch is done, increase this count by 1:
-            switchcount++;
+            switchCount++;
         } else {
-            /* If no switching has been done AND the direction is "asc",
-            set the direction to "desc" and run the while loop again. */
-            if (switchcount == 0 && dir == "asc") {
+            // Якщо жодного перемикання не було зроблено І напрямок "asc", встановіть напрямок на «desc» і знову запустить цикл while.
+            if (switchCount === 0 && dir === "asc") {
                 dir = "desc";
                 switching = true;
             }
@@ -93,8 +92,20 @@ function sortTable(n) {
     }
 }
 
+function convertDate(d) {
+    var p = d.split(".");
+    return +(p[2] + p[1] + p[0]);
+}
+
+const arr = document.querySelectorAll('th');
+arr.forEach((el, index) => {
+    el.addEventListener('click', function () {
+        sortTable(index);
+    })
+});
+
 //*********************************** *//
 
 appleStyles(style_shit.body, document.body);
 appleStyles(style_shit.button, btn);
-
+appleStyles(style_shit.thead, thead );

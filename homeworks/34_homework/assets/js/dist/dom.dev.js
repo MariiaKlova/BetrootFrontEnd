@@ -23,7 +23,8 @@ var style_shit = {
     backgroundColor: '#202124',
     color: '#fafafa',
     position: 'relative',
-    overflow: 'hidden'
+    overflow: 'hidden',
+    wordWrap: 'break-word'
   },
   block_resize: {
     width: '12px',
