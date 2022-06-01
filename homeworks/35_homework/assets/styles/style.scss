@@ -1,0 +1,336 @@
+
+$colour_bright: #13E28D;
+$colour_light: #FFDD3F;
+$colour_deep: #212534;
+$colour_dark: #2B3040;
+$colour_inactive: #8D91A3;
+$colour_text: #B7BACD;
+$font_primary: 'Lato',
+sans-serif;
+
+*,
+*::before,
+*::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    position: relative;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    background-color: $colour_dark;
+    font-family: $font_primary;
+    color: $colour_text;
+    font-size: 14px;
+    line-height: 22px;
+}
+
+.h3 {
+    font-size: 32px;
+    line-height: 32px;
+    font-weight: normal;
+    color: #ffffff;
+    margin-bottom: 15px;
+}
+
+.h4 {
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: normal;
+    color: #ffffff;
+    margin-bottom: 40px;
+}
+
+img {
+    vertical-align: top;
+}
+
+a,
+button {
+    transition: all .2s ease;
+}
+
+.btn {
+    padding: 20px 30px;
+    text-transform: uppercase;
+    color: #ffffff;
+    font-size: 16px;
+    line-height: 20px;
+
+    &:hover {
+        background-color: darken($colour_bright, $amount: 8);
+    }
+}
+
+.btn-big {
+    width: 100%;
+    background-color: $colour_deep;
+    padding: 10px 30px;
+    font-size: 14px;
+    line-height: 16px;
+    margin-bottom: 10px;
+    transition: all .2s ease;
+}
+
+.bgc_bright {
+    background-color: $colour_bright;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+.container {
+    width: 1000px;
+    height: 860px;
+    margin: 40px auto;
+    padding-top: 150px;
+    background: $colour_dark url(../images/image_bg.jpg) no-repeat center;
+    background-blend-mode: overlay;
+}
+
+.card {
+    width: 600px;
+    height: 552px;
+    margin: 0 auto;
+    background-color: $colour_deep;
+}
+
+.card_tabs {
+    width: 100%;
+    height: 120px;
+    background-color: $colour_dark;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.tabs_wrapper .active {
+    color: #ffffff;
+
+    .icon {
+        color: #ffffff;
+    }
+}
+
+.tab {
+    text-transform: uppercase;
+
+    .icon {
+        color: $colour_inactive;
+        font-size: 22px;
+        display: block;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+
+    &:hover {
+        color: #ffffff;
+
+        .icon {
+            color: #ffffff;
+        }
+    }
+}
+
+.card_body {
+    padding: 60px 40px;
+    display: flex;
+}
+
+
+//************** raiting pies ***************/
+.pie-title-center {
+    display: inline-block;
+    text-align: center;
+    top: 0;
+    right: 0;
+}
+
+.pie-value {
+    display: block;
+    position: absolute;
+    font-size: 20px;
+    line-height: 22px;
+    top: 32%;
+    left: 0;
+    right: 0;
+}
+
+
+//************** .information ***************/
+
+.information {
+    display: block;
+    // display: none;
+
+    .pie-title-center {
+        position: absolute;
+    }
+
+    .card_body {
+        gap: 40px;
+    }
+}
+
+.img_block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.img_wrap {
+    width: 160px;
+    height: 230px;
+    margin-bottom: 25px;
+
+    img {
+        width: 100%;
+    }
+}
+
+.star_raiting {
+    display: flex;
+    justify-content: center;
+}
+
+.jq-star {
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.jq-star-svg {
+    width: 100%;
+    height: 100%;
+}
+
+.desc {
+    width: 90%;
+    margin-bottom: 50px;
+}
+
+
+.sale_block {
+    display: flex;
+    width: 100%;
+}
+
+.prise_block {
+    flex-basis: 50%;
+}
+
+.discount {
+    font-size: 12px;
+    line-height: 20px;
+    color: $colour_light;
+    margin-bottom: 4px;
+}
+
+.prise {
+    font-size: 32px;
+    line-height: 32px;
+    color: #ffffff;
+}
+
+
+//**********.ratings_info******************/
+
+.ratings_info {
+
+    // display: block;
+    display: none;
+
+    .card_body {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .star_raiting {
+        margin-bottom: 40px;
+    }
+
+
+    .pie-title-center {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+}
+
+
+.raitings_block {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 60px;
+}
+
+.raitng_title {
+    text-align: center;
+    font-size: 14px;
+    line-height: 18px;
+}
+
+.reviev_link {
+    font-size: 16px;
+    line-height: 20px;
+    text-align: right;
+
+    a {
+        &:hover {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        &:after {
+            content: ' →';
+            font-size: 20px;
+        }
+    }
+}
+
+
+
+//**********.where_to_buy ******************/
+
+.where_to_buy {
+    // display: block;
+    display: none;
+
+    .card_body {
+        gap: 40px;
+    }
+
+    .h4 {
+        margin-bottom: 10px;
+    }
+
+    .sale_block {
+        display: block;
+    }
+
+    .prise_block {
+        margin-bottom: 20px;
+    }
+
+    .btn_buy {
+        padding: 20px 30px;
+        font-size: 16px;
+        line-height: 20px;
+    }
+}
