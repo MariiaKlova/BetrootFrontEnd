@@ -21,13 +21,13 @@
         <div class="card">
             <div class="tabs_wrapper">
                 <div class="card_tabs">
-                    <div class="tab"><span class="icon icon-info-icon"></span>Information</div>
+                    <div class="tab active"><span class="icon icon-info-icon"></span>Information</div>
                     <div class="tab"><span class="icon icon-spades-icon"></span>Ratings Info</div>
                     <div class="tab"><span class="icon icon-bag-icon"></span>where to buy</div>
                 </div>
 
                 <div class="tabs-content">
-                    <div class=" tab_item information">
+                    <div class=" tab_item active information">
                         <div class="card_body">
                             <div class="img_block">
                                 <div class="img_wrap"><img src="assets/images/image_product.jpg" alt="FarCry6"></div>
@@ -122,13 +122,27 @@
     <script>
         $('#raiting, #raiting1, #raiting2, #raiting3').pieChart();
 
-        $('.tabs_wrapper').each(function () {
-            let ths = $(this);
-            ths.find('.tab_item').not(':first').hide();
-            ths.find('.tab').click(function () {
-                ths.find('.tab').removeClass('active').eq($(this).index()).addClass('active');
-                ths.find('.tab_item').hide().eq($(this).index()).fadeIn()
-            }).eq(0).addClass('active');
+        // const tabs = document.querySelectorAll('.tab');
+        // const tabs_contents = document.querySelectorAll('.tab_item');
+
+        // tabs.forEach((element, index) => {
+        //     element.addEventListener('click', function () {
+        //         tabs_contents.forEach(element => {
+        //             element.classList.remove('active');
+        //         });
+        //         tabs_contents[index].classList.add('active');
+
+        //         tabs.forEach(element => {
+        //             element.classList.remove('active');
+        //         });
+        //         tabs[index].classList.add('active');
+        //     });
+        // });
+
+        $('.tab').click(function () {
+            $('.tab, .tab_item').removeClass('active');
+            $('.tab').eq($(this).index()).addClass('active');
+            $('.tab_item').eq($(this).index()).addClass('active');
         });
 
         $(".star_raiting").starRating({

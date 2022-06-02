@@ -1,4 +1,3 @@
-
 $colour_bright: #13E28D;
 $colour_light: #FFDD3F;
 $colour_deep: #212534;
@@ -121,13 +120,6 @@ ul {
     align-items: center;
 }
 
-.tabs_wrapper .active {
-    color: #ffffff;
-
-    .icon {
-        color: #ffffff;
-    }
-}
 
 .tab {
     text-transform: uppercase;
@@ -140,12 +132,19 @@ ul {
         margin-bottom: 15px;
     }
 
-    &:hover {
+    &:hover,  &.active {
         color: #ffffff;
 
         .icon {
             color: #ffffff;
         }
+    }
+}
+
+.tab_item {
+    display: none;
+    &.active{
+        display: block;
     }
 }
 
@@ -156,6 +155,7 @@ ul {
 
 
 //************** raiting pies ***************/
+
 .pie-title-center {
     display: inline-block;
     text-align: center;
@@ -177,8 +177,6 @@ ul {
 //************** .information ***************/
 
 .information {
-    display: block;
-    // display: none;
 
     .pie-title-center {
         position: absolute;
@@ -253,9 +251,6 @@ ul {
 
 .ratings_info {
 
-    // display: block;
-    display: none;
-
     .card_body {
         flex-direction: column;
         text-align: center;
@@ -309,9 +304,6 @@ ul {
 //**********.where_to_buy ******************/
 
 .where_to_buy {
-    // display: block;
-    display: none;
-
     .card_body {
         gap: 40px;
     }
