@@ -14,21 +14,22 @@ $(document).ready(function () {
         slidesToShow: 5,
         slidesToScroll: 2,
         responsive: [{
-            breakpoint: 1100,
-            settings: {
-                slidesToShow: 3,
-                slidesToScroll: 1,
-            }
-        }],
-        responsive: [{
-            breakpoint: 650,
-            settings: {
-                slidesToShow: 1,
-                arrows: false,
-                dots: true,
+                breakpoint: 1100,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 1,
+                }
 
+            },
+            {
+                breakpoint: 650,
+                settings: {
+                    slidesToShow: 1,
+                    arrows: false,
+                    dots: true,
+                }
             }
-        }]
+        ],
     })
 
     $('.partners_slider').slick({
@@ -38,21 +39,22 @@ $(document).ready(function () {
         slidesToShow: 8,
         slidesToScroll: 3,
         responsive: [{
-            breakpoint: 1100,
-            settings: {
-                slidesToShow: 5,
-                slidesToScroll: 2,
-            }
-        }],
-        responsive: [{
-            breakpoint: 650,
-            settings: {
-                slidesToShow: 2,
-                arrows: false,
-                dots: true,
+                breakpoint: 1100,
+                settings: {
+                    slidesToShow: 5,
+                    slidesToScroll: 2,
+                }
+            },
+            {
+                breakpoint: 650,
+                settings: {
+                    slidesToShow: 2,
+                    arrows: false,
+                    dots: true,
 
+                }
             }
-        }]
+        ]
     })
 
     function toggleMenu() {
@@ -60,7 +62,7 @@ $(document).ready(function () {
         $('#sidebar').toggleClass('open');
         $('body').toggleClass('lock');
     }
-    
+
     $('.hamburger, #sidebar li a').on('click', function () {
         toggleMenu();
     });

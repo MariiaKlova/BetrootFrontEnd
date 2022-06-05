@@ -1,7 +1,5 @@
 "use strict";
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 $(document).ready(function () {
   $('.main_slider').slick({
     autoplay: true,
@@ -10,7 +8,7 @@ $(document).ready(function () {
     dots: true,
     arrows: false
   });
-  $('.products_slider').slick(_defineProperty({
+  $('.products_slider').slick({
     dots: false,
     arrows: true,
     infinite: true,
@@ -22,16 +20,16 @@ $(document).ready(function () {
         slidesToShow: 3,
         slidesToScroll: 1
       }
+    }, {
+      breakpoint: 650,
+      settings: {
+        slidesToShow: 1,
+        arrows: false,
+        dots: true
+      }
     }]
-  }, "responsive", [{
-    breakpoint: 650,
-    settings: {
-      slidesToShow: 1,
-      arrows: false,
-      dots: true
-    }
-  }]));
-  $('.partners_slider').slick(_defineProperty({
+  });
+  $('.partners_slider').slick({
     dots: false,
     arrows: true,
     infinite: true,
@@ -43,15 +41,15 @@ $(document).ready(function () {
         slidesToShow: 5,
         slidesToScroll: 2
       }
+    }, {
+      breakpoint: 650,
+      settings: {
+        slidesToShow: 2,
+        arrows: false,
+        dots: true
+      }
     }]
-  }, "responsive", [{
-    breakpoint: 650,
-    settings: {
-      slidesToShow: 2,
-      arrows: false,
-      dots: true
-    }
-  }]));
+  });
 
   function toggleMenu() {
     $('.hamburger').toggleClass('is-active');
