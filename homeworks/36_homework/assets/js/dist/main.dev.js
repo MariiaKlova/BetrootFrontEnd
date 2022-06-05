@@ -4,7 +4,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 $(document).ready(function () {
   $('.main_slider').slick({
-    // autoplay: true,
+    autoplay: true,
     autoplaySpeed: 3000,
     infinite: true,
     dots: true,
