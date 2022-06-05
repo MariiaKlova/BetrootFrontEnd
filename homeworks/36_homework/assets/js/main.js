@@ -19,12 +19,12 @@ $(document).ready(function () {
                     slidesToShow: 3,
                     slidesToScroll: 1,
                 }
-
             },
             {
                 breakpoint: 650,
                 settings: {
                     slidesToShow: 1,
+                    slidesToScroll: 1,
                     arrows: false,
                     dots: true,
                 }
@@ -41,6 +41,7 @@ $(document).ready(function () {
         responsive: [{
                 breakpoint: 1100,
                 settings: {
+                    infinite: true,
                     slidesToShow: 5,
                     slidesToScroll: 2,
                 }
@@ -48,7 +49,9 @@ $(document).ready(function () {
             {
                 breakpoint: 650,
                 settings: {
+                    infinite: true,
                     slidesToShow: 2,
+                    slidesToScroll: 1,
                     arrows: false,
                     dots: true,
 
