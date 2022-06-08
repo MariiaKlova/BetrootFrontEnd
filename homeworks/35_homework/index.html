@@ -21,13 +21,13 @@
         <div class="card">
             <div class="tabs_wrapper">
                 <div class="card_tabs">
-                    <div class="tab active"><span class="icon icon-info-icon"></span>Information</div>
-                    <div class="tab"><span class="icon icon-spades-icon"></span>Ratings Info</div>
-                    <div class="tab"><span class="icon icon-bag-icon"></span>where to buy</div>
+                    <div class="tab active" id="tab1"><span class="icon icon-info-icon"></span>Information</div>
+                    <div class="tab" id="tab2"><span class="icon icon-spades-icon"></span>Ratings Info</div>
+                    <div class="tab" id="tab3"><span class="icon icon-bag-icon"></span>where to buy</div>
                 </div>
 
                 <div class="tabs-content">
-                    <div class=" tab_item active information">
+                    <div class=" tab_item active information" data-id="tab1">
                         <div class="card_body">
                             <div class="img_block">
                                 <div class="img_wrap"><img src="assets/images/image_product.jpg" alt="FarCry6"></div>
@@ -58,7 +58,7 @@
                         </div>
                     </div>
 
-                    <div class="tab_item ratings_info">
+                    <div class="tab_item ratings_info" data-id="tab2">
                         <div class="card_body">
                             <div class="head_block">
                                 <h3 class="h3 title">FarCry 6</h3>
@@ -90,7 +90,7 @@
                         </div>
                     </div>
 
-                    <div class="tab_item where_to_buy">
+                    <div class="tab_item where_to_buy" data-id="tab3">
                         <div class="card_body">
                             <div class="img_block">
                                 <div class="img_wrap"><img src="assets/images/image_product.jpg" alt="FarCry6"></div>
@@ -122,6 +122,7 @@
     <script>
         $('#raiting, #raiting1, #raiting2, #raiting3').pieChart();
 
+        //* native JS 
         // const tabs = document.querySelectorAll('.tab');
         // const tabs_contents = document.querySelectorAll('.tab_item');
 
@@ -131,7 +132,7 @@
         //             element.classList.remove('active');
         //         });
         //         tabs_contents[index].classList.add('active');
-        
+
         //         tabs.forEach(element => {
         //             element.classList.remove('active');
         //         });
@@ -139,12 +140,21 @@
         //     });
         // });
 
+        // з допомогою data-id
+        // $('.tab').on('click', function () {
+        //     if (!$(this).hasClass('active')) {
+        //         $('.tab, .tab_item').removeClass('active');
+        //         $(this).addClass('active');
+        //         $(".tab_item[data-id='" + $(this).attr("id") + "']").addClass('active');
+        //     }
+        // })
+
         $('.tab').click(function () {
             $('.tab, .tab_item').removeClass('active');
             $('.tab').eq($(this).index()).addClass('active');
             $('.tab_item').eq($(this).index()).addClass('active');
         });
-    
+
         $(".star_raiting").starRating({
             readOnly: true,
             initialRating: 4,
