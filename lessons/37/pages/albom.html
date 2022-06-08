@@ -28,7 +28,7 @@
     //         const search = $('#search').val();
     //         if (search !== '') {
     //             $.ajax({
-    //                 url: `http://www.omdbapi.com/`,
+    //                 url: `https://www.omdbapi.com/`,
     //                 data: `apikey=${API_KEY}&s=Batman`,
     //                 type: 'get',
     //                 dataType: 'json',
@@ -44,7 +44,7 @@
     //************* ajax ******************* //
     // async function searchMovies() {
     //     await $.ajax({
-    //         url: `http://www.omdbapi.com/`,
+    //         url: `https://www.omdbapi.com/`,
     //         data: `apikey=${API_KEY}&s=Batman=${search}`,
     //         type: 'get',
     //         dataType: 'json'
@@ -82,7 +82,7 @@
     })
 
     async function getMovie(id) {
-        return fetch(`http://www.omdbapi.com/?apikey=${API_KEY}&i=${id}`)
+        return fetch(`https://www.omdbapi.com/?apikey=${API_KEY}&i=${id}`)
             .then(resp => {
                 return resp.json();
             })
@@ -94,7 +94,7 @@
     //************* fetch ******************* //
     async function searchMovies(objSearch) {
         const { search, year } = objSearch //деструкторизувати обєкт
-        let url = `http://www.omdbapi.com/?apikey=${API_KEY}&s=${search}`
+        let url = `https://www.omdbapi.com/?apikey=${API_KEY}&s=${search}`
         if (year !== '') {
             url += '&y=' + year;
         }
