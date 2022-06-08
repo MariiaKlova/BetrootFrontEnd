@@ -1,15 +1,12 @@
-// function viewCard(card) {
-//     let html = '<ul>';
-//     card.forEach(item => {
-//         html += `
-//         <li>
-//         <b>${item.name}</b> ${item.qty} - ${item.prise}
-//         </li>
-//         `
-//     });
-//     html += '</ul>'
-//     document.body.insertAdjacentHTML('afterbegin', html);
-// }
+//* Функція виводу данних в html 
+function viewCard(card) {
+    let html = '<ul>';
+    card.forEach(item => {
+        html += `<li><b>${item.name}</b> ${item.qty} - ${item.prise}</li>`
+    });
+    html += '</ul>'
+    document.body.insertAdjacentHTML('afterbegin', html);
+}
 
 //***************XMLHttpRequest******************* */
 // const xhr = new XMLHttpRequest();
@@ -53,12 +50,12 @@
 
 
 //*****************jQuery library************************* */
-
+// за допомогою options
 // $.ajax({
 //     url: 'assets/data/card.json',
 //     type: 'get',
 //     dataType: 'json',
-//     sucsses: function (resp) {
+//     success: function (resp) {
 //         console.log(resp);
 //         viewCard(resp);
 //     },
@@ -68,6 +65,7 @@
 //     }
 // })
 
+// за допомогою methods
 // $.ajax('assets/data/card.json')
 //     .done((resp) => {
 //         viewCard(resp);
@@ -76,6 +74,7 @@
 //         alert(err.statusText);
 //     });
 
+//*********************************** */
 
 function loadPage(page) {
     $.get('pages/' + page + '.html', (html) => {
@@ -89,7 +88,7 @@ $(function () {
     $('.nav-masthead a').on('click', function (e) {
         e.preventDefault();
         loadPage($(this).attr('href'));
-        $('.nav-linck.active').removeClass('active');
+        $('.nav-link.active').removeClass('active');
         $(this).addClass('active');
     })
 })

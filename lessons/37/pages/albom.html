@@ -1,18 +1,19 @@
-<section class="py-5 text-center container">
-    <div class="row py-lg-5">
-        <div class="col-lg-6 col-md-8 mx-auto">
-            <h1 class="fw-light">Album example</h1>
-            <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator,
-                etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
-            <p>
-                <a href="#" class="btn btn-primary my-2">Main call to action</a>
-                <a href="#" class="btn btn-secondary my-2">Secondary action</a>
-            </p>
+<section class="py-3 text-center container">
+    <p>"Search" Знайти фільм за назвою. <br> "Detail" масив з описом приходить в консоль по id фільму </p>
+    <div class="row py-3">
+        <div class="col-7">
+            <input type="search" id="search" class="form-control" value="Batman">
+        </div>
+        <div class="col-3">
+            <input type="year" id="year" class="form-control" value="">
+        </div>
+        <div class="col-2">
+            <button class="btn btn-info" id="search_btn">Search</button>
         </div>
     </div>
 </section>
 
-<div class="album py-5 bg-light ">
+<div class="album py-3 bg-light ">
     <div class="container movie_wrap"></div>
 
 </div>
@@ -21,30 +22,108 @@
 
     const API_KEY = '24b1cf11';
 
+    //************* ajax ******************* //
+    // $(function () {
+    //     $('#search_btn').on('click', function () {
+    //         const search = $('#search').val();
+    //         if (search !== '') {
+    //             $.ajax({
+    //                 url: `http://www.omdbapi.com/`,
+    //                 data: `apikey=${API_KEY}&s=Batman`,
+    //                 type: 'get',
+    //                 dataType: 'json',
+    //                 success: function (json) {
+    //                     console.log(json);
+    //                     showMovies(json.Search)
+    //                 }
+    //             })
+    //         }
+    //     })
+    // })
+
+    //************* ajax ******************* //
+    // async function searchMovies() {
+    //     await $.ajax({
+    //         url: `http://www.omdbapi.com/`,
+    //         data: `apikey=${API_KEY}&s=Batman=${search}`,
+    //         type: 'get',
+    //         dataType: 'json'
+    //     })
+    // }
+
     $(function () {
-        $.ajax({
-            url: `http://www.omdbapi.com/`,
-            data: `apikey=${API_KEY}&s=Batman`,
-            type: 'get',
-            dataType: 'json',
-            success: function (json) {
-                console.log(json);
-                showMovies(json.Search)
+        $('#search_btn').on('click', function () {
+            //* за допомогою змінних:
+            // const search = $('#search').val();
+            // const year = $('#year').val();
+
+            //* за допомогою обєкта для пошуку:
+            const objSearch = {
+                search: $('#search').val(),
+                year: $('#year').val()
+            }
+
+            if (search !== '') {
+                searchMovies(objSearch).then((response) => {
+                    showMovies(response.Search)
+                })
+                // або 
+                // filterMovies(search, year);
             }
         })
     })
 
+    $("body").on('click', ".btn-detail", function () {
+        //  або const id = $(this).attr('data-id'); // завжди строка
+        const id = $(this).data('id'); // за значенням
+        getMovie(id).then(resp => {
+            console.log(resp);
+        });
+    })
+
+    async function getMovie(id) {
+        return fetch(`http://www.omdbapi.com/?apikey=${API_KEY}&i=${id}`)
+            .then(resp => {
+                return resp.json();
+            })
+            .then(resp => {
+                return resp;
+            })
+    }
+
+    //************* fetch ******************* //
+    async function searchMovies(objSearch) {
+        const { search, year } = objSearch //деструкторизувати обєкт
+        let url = `http://www.omdbapi.com/?apikey=${API_KEY}&s=${search}`
+        if (year !== '') {
+            url += '&y=' + year;
+        }
+        return fetch(url)
+            .then(resp => {
+                return resp.json();
+            })
+            .then(resp => {
+                return resp;
+            })
+    }
+
+    async function filterMovies(search, year = '') {
+        const move_list = await searchMovies(search, year);
+        console.log(move_list);
+        showMovies(move_list.Search);
+    }
+    // filterMovies();
 
     function showMovies(movies) {
         let html = '';
         movies.forEach(item => {
             html += `
-            <div class="card" style="width: 18rem;">
+            <div class="card">
                 <img src="${item.Poster}" class="card-img-top" alt="${item.Title}">
                 <div class="card-body">
                     <h5 class="card-title">${item.Title}</h5>
                     <p class="card-text">${item.Year}</p>
-                    <a href="#" class="btn btn-primary" data-id="${item.imdbId}">Detail</a>
+                    <a href="#" class="btn btn-primary btn-detail" data-id="${item.imdbID}">Detail</a>
                 </div>
             </div>`;
         })

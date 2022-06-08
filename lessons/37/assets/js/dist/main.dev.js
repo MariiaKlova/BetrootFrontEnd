@@ -1,18 +1,14 @@
 "use strict";
 
-// function viewCard(card) {
-//     let html = '<ul>';
-//     card.forEach(item => {
-//         html += `
-//         <li>
-//         <b>${item.name}</b> ${item.qty} - ${item.prise}
-//         </li>
-//         `
-//     });
-//     html += '</ul>'
-//     document.body.insertAdjacentHTML('afterbegin', html);
-// }
-//***************XMLHttpRequest******************* */
+//* Функція виводу данних в html 
+function viewCard(card) {
+  var html = '<ul>';
+  card.forEach(function (item) {
+    html += "<li><b>".concat(item.name, "</b> ").concat(item.qty, " - ").concat(item.prise, "</li>");
+  });
+  html += '</ul>';
+  document.body.insertAdjacentHTML('afterbegin', html);
+} //***************XMLHttpRequest******************* */
 // const xhr = new XMLHttpRequest();
 // xhr.overrideMimeType('application/json')
 // xhr.open('get', 'assets/data/card.json');
@@ -48,11 +44,12 @@
 //     alert(err.message)
 // })
 //*****************jQuery library************************* */
+// за допомогою options
 // $.ajax({
 //     url: 'assets/data/card.json',
 //     type: 'get',
 //     dataType: 'json',
-//     sucsses: function (resp) {
+//     success: function (resp) {
 //         console.log(resp);
 //         viewCard(resp);
 //     },
@@ -61,6 +58,7 @@
 //         alert(err.statusText);
 //     }
 // })
+// за допомогою methods
 // $.ajax('assets/data/card.json')
 //     .done((resp) => {
 //         viewCard(resp);
@@ -68,6 +66,9 @@
 //     .fail((err) => {
 //         alert(err.statusText);
 //     });
+//*********************************** */
+
+
 function loadPage(page) {
   $.get('pages/' + page + '.html', function (html) {
     $('#page_content').html(html);
@@ -79,7 +80,7 @@ $(function () {
   $('.nav-masthead a').on('click', function (e) {
     e.preventDefault();
     loadPage($(this).attr('href'));
-    $('.nav-linck.active').removeClass('active');
+    $('.nav-link.active').removeClass('active');
     $(this).addClass('active');
   });
 });
