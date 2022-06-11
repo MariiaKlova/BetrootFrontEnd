@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <link rel="stylesheet" href="assets/leaflet/MarkerCluster.css">
+    <link rel="stylesheet" href="assets/leaflet/MarkerCluster.Default.css">
+    <link rel="stylesheet" href="assets/leaflet/leaflet.css">
+    <link rel="stylesheet" href="assets/styles/style.min.css">
+    <title>37 hom</title>
+</head>
+
+<body>
+    <div class="container">
+        <main>
+            <div id="map"></div>
+        </main>
+
+    </div>
+
+
+
+    <script src="assets/leaflet/leaflet.js"></script>
+    <script src="assets/leaflet/leaflet.markercluster-src.js"></script>
+
+    <script>
+        let map = L.map('map').setView([48.9201138, 24.7255174], 13);
+
+        // let greenIcon = L.icon({
+        //     iconUrl: 'assets/leaflet/images/leaf-green.png',
+        //     shadowUrl: 'assets/leaflet/images/leaf-shadow.png',
+
+        //     iconSize: [38, 95], // size of the icon
+        //     shadowSize: [50, 64], // size of the shadow
+        //     iconAnchor: [22, 94], // point of the icon which will correspond to marker's location
+        //     shadowAnchor: [4, 62],  // the same for the shadow
+        //     popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
+        // });
+
+        var LeafIcon = L.Icon.extend({
+            options: {
+                shadowUrl: 'assets/leaflet/images/leaf-shadow.png',
+                iconSize: [38, 95],
+                shadowSize: [50, 64],
+                iconAnchor: [22, 94],
+                shadowAnchor: [4, 62],
+                popupAnchor: [-3, -76]
+            }
+        });
+
+        var greenIcon = new LeafIcon({ iconUrl: 'assets/leaflet/images/leaf-green.png' }),
+            redIcon = new LeafIcon({ iconUrl: 'assets/leaflet/images/leaf-red.png' }),
+            orangeIcon = new LeafIcon({ iconUrl: 'assets/leaflet/images/leaf-orange.png' });
+
+
+        L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+
+        var markers = L.markerClusterGroup();
+        markers.addLayer(L.marker([48.9237773, 24.7153069]));
+
+        // L.marker([48.9243267, 24.7215312]).addTo(map)
+        //     .bindPopup('Палац Потоцьких')
+
+        // L.marker([48.9239001, 24.713872]).addTo(map)
+        //     .bindPopup('Музей мистецтв Прикарпаття')
+
+        // L.marker([48.9237773, 24.7153069]).addTo(map)
+        //     .bindPopup('Івано-Франківська Ратуша')
+
+        // L.marker([48.9199876, 24.7119205]).addTo(map)
+        //     .bindPopup('Бар Десятка')
+
+        // L.marker([48.9202179, 24.7110692]).addTo(map)
+        //     .bindPopup('Стометрівка')
+
+        // var markers = new L.markerClusterGroup();
+
+        // markers.addLayer(L.marker([48.9237773, 24.7153069]));
+        // L.marker([48.9243267, 24.7215312]).addTo(map)
+        //     .bindPopup('Палац Потоцьких')
+
+        // L.marker([48.9239001, 24.713872]).addTo(map)
+        //     .bindPopup('Музей мистецтв Прикарпаття')
+
+        // L.marker([48.9237773, 24.7153069]).addTo(map)
+        //     .bindPopup('Івано-Франківська Ратуша')
+
+        // L.marker([48.9199876, 24.7119205]).addTo(map)
+        //     .bindPopup('Бар Десятка')
+
+        // L.marker([48.9202179, 24.7110692]).addTo(map)
+        //     .bindPopup('Стометрівка')
+
+
+
+        L.marker([48.9243267, 24.7215312], { icon: orangeIcon }).addTo(map)
+            .bindPopup('Палац Потоцьких')
+
+        L.marker([48.9239001, 24.713872], { icon: orangeIcon }).addTo(map)
+            .bindPopup('Музей мистецтв Прикарпаття')
+
+        L.marker([48.9237773, 24.7153069], { icon: orangeIcon }).addTo(map)
+            .bindPopup('Івано-Франківська Ратуша')
+
+        L.marker([48.9199876, 24.7119205], { icon: redIcon }).addTo(map)
+            .bindPopup('Бар Десятка')
+
+        L.marker([48.9202179, 24.7110692], { icon: greenIcon }).addTo(map)
+            .bindPopup('Стометрівка')
+
+
+        map.addLayer(markers);
+
+    </script>
+</body>
+
+</html>
