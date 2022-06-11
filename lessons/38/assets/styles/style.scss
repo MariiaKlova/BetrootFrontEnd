@@ -1,0 +1,129 @@
+$colour_bright: #070707;
+$colour_dark: #333333;
+$colour_light: #070707;
+$color_socials: #cccccc;
+$text_colour_primary: #cccccc;
+$text_colour_title: #666666;
+$text_colour_title_extra: #898f8f;
+$font_primary: 'Raleway',
+sans-serif;
+$font_title: 'Roboto',
+sans-serif;
+$font_extras: 'Open Sans',
+sans-serif;
+
+*,
+*::before,
+*::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    position: relative;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    background-color: $colour_dark;
+    font-family: $font_primary;
+    color: $text_colour_primary;
+    font-size: 1rem;
+    line-height: 1.5rem;
+}
+
+img {
+    vertical-align: top;
+}
+
+a,
+button {
+    transition: all .2s ease;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+
+.container {
+    width: 90%;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+#map {
+    width: 100%;
+    height: 400px;
+    margin: 0 auto;
+
+    > a {
+        width: 100%;
+        height: 100%;
+        display: block;
+
+        &:after {
+            content: 'Click to interactive map';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            background-color: #000;
+            color: #fff;
+            transition: all .2s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+        }
+
+        &:hover:after {
+            opacity: .6;
+        }
+    }
+}
+
+.container_800 {
+    margin: 50px auto;
+    max-width: 800px;
+    width: 100%;
+}
+
+.video_wrap {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+
+    iframe,
+    video,
+    .load_video {
+        // width: 100%;
+        // aspect-ratio: 16/9;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        padding-bottom: 50px;
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
