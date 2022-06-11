@@ -75,7 +75,10 @@ function loadPage(page) {
   });
 }
 
-loadPage('main');
+var API_KEY = '24b1cf11'; // let myMap;
+// let greenIcon;
+
+loadPage('map');
 $(function () {
   $('.nav-masthead a').on('click', function (e) {
     e.preventDefault();

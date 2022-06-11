@@ -82,7 +82,11 @@ function loadPage(page) {
     });
 }
 
-loadPage('main');
+const API_KEY = '24b1cf11';
+// let myMap;
+// let greenIcon;
+
+loadPage('map');
 
 $(function () {
     $('.nav-masthead a').on('click', function (e) {

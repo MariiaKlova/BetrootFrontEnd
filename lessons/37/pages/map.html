@@ -1,0 +1,43 @@
+<link rel="stylesheet" href="assets/leaflet/leaflet.css">
+
+<h1>Cover your page.</h1>
+<p class="lead">Cover is a one-page template for building simple and beautiful home pages.</p>
+<p class="lead">
+    <!-- <a href="#" class="btn btn-lg btn-secondary fw-bold border-white bg-white">Learn more</a> -->
+</p>
+
+<div id="map"></div>
+
+<!-- 48.9201138, 24.7255174, 14.25 -->
+
+<!-- ****************  GOOGLE ***************-->
+<!-- key=AIzaSyCPp-STiHTPbm1TfDtvRVCPZCAIB7h0RmY -->
+<!-- 
+<script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCPp-STiHTPbm1TfDtvRVCPZCAIB7h0RmY&callback=initMap&v=weekly"
+    defer></script>
+
+<script>
+
+    function initMap() {
+        // The location of Uluru
+        const uluru = { lat: 48.9201138, lng: 24.7255174 };
+        // The map, centered at Uluru
+        const map = new google.maps.Map(document.getElementById("map"), {
+            zoom: 4,
+            center: uluru,
+        });
+        // The marker, positioned at Uluru
+        const marker = new google.maps.Marker({
+            position: uluru,
+            map: map,
+        });
+    }
+
+    window.initMap = initMap;
+</script> -->
+
+<!-- ****************  leafletjs ***************-->
+
+<script src="assets/leaflet/leaflet.js"></script>
+<script src="assets/js/map.js"></script>
