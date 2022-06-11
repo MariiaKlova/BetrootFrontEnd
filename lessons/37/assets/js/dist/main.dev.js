@@ -73,7 +73,8 @@ function loadPage(page) {
   $.get('pages/' + page + '.html', function (html) {
     $('#page_content').html(html);
   });
-}
+} //* всі змінні мають бути задекларовані в глобальному js, або має бути замикання на сторінках
+
 
 var API_KEY = '24b1cf11'; // let myMap;
 // let greenIcon;

@@ -82,6 +82,8 @@ function loadPage(page) {
     });
 }
 
+
+//* всі змінні мають бути задекларовані в глобальному js, або має бути замикання на сторінках
 const API_KEY = '24b1cf11';
 // let myMap;
 // let greenIcon;
