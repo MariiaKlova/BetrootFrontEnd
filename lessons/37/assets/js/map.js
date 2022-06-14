@@ -7,7 +7,6 @@ let greenIcon;
 if (typeof (window.myMap) === 'undefined') {
     myMap = L.map('map').setView([48.9201138, 24.7255174], 13);
 }
-
     greenIcon = L.icon({
     iconUrl: 'assets/leaflet/images/leaf-green.png',
     shadowUrl: 'assets/leaflet/images/leaf-shadow.png',
@@ -27,5 +26,4 @@ L.marker([48.9201138, 24.7255174], {
         icon: greenIcon
     }).addTo(myMap)
     .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
-
 }

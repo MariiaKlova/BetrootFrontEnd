@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Sitemap: https://mariiaklova.github.io/BetrootFrontEnd/homeworks/23_homework/sitemap.xml
+Host: mariiaklova.github.io
