@@ -3,11 +3,11 @@
 @import 'josefin-sans';
 @import 'aleo';
 
-$colour_bright: #5474FD;
-$colour_bright_dark: #496bfe;
+$color_bright: #5474FD;
+$color_bright_dark: #496bfe;
 $color_background: #232323;
-$text_colour_primary: #E8E8E8;
-$text_colour_title: #FFFFFF;
+$text_color_primary: #E8E8E8;
+$text_color_title: #FFFFFF;
 $font_primary: 'Josefin Sans', sans-serif;
 $font_title: 'Aleo', serif;
 
@@ -30,7 +30,7 @@ body {
 body {
     background-color: $color_background;
     font-family: $font_primary;
-    color: $text_colour_primary;
+    color: $text_color_primary;
     font-size: 16px;
     line-height: 26px;
     letter-spacing: 1.6px;
@@ -96,8 +96,8 @@ a {
     cursor: pointer;
     width: 228px;
     height: 63px;
-    background-color: $colour_bright;
-    color: $text_colour_title;
+    background-color: $color_bright;
+    color: $text_color_title;
     text-transform: uppercase;
     font-family: $font_title;
     font-size: 16px;
@@ -116,7 +116,7 @@ a {
 
 .btn_hover {
     &:hover {
-        background-color: $colour_bright_dark;
+        background-color: $color_bright_dark;
     }
 }
 
@@ -131,7 +131,7 @@ a {
         display: block;
         top: 0;
         left: 0;
-        background-color: $colour_bright_dark;
+        background-color: $color_bright_dark;
         width: 200%;
         height: 100%;
         -webkit-transform: skew(45deg) translateX(-85%);
@@ -155,7 +155,7 @@ a {
 // ________________  HEADER  ___________________
 
 header {
-    background-color: $colour_bright;
+    background-color: $color_bright;
     text-transform: uppercase;
     position: -webkit-sticky;
     position: sticky;
@@ -179,7 +179,7 @@ header {
             content: '';
             width: 1%;
             height: 1px;
-            background-color: $text_colour_primary;
+            background-color: $text_color_primary;
             position: absolute;
             bottom: 10px;
             left: 50%;
@@ -207,7 +207,7 @@ header {
     position: fixed;
     left: 0;
     top: 0px;
-    background-color: $colour_bright;
+    background-color: $color_bright;
     padding: 20px;
     z-index: 10;
     -webkit-transform: translateY(-200%);
@@ -252,7 +252,7 @@ header {
             width: 60%;
             text-align: center;
             padding-bottom: 20px;
-            border-bottom: 1px solid $text_colour_title;
+            border-bottom: 1px solid $text_color_title;
         }
     }
 
@@ -420,8 +420,8 @@ section {
             content: '';
             width: 15px;
             height: 15px;
-            border-left: 1px solid $text_colour_title;
-            border-bottom: 1px solid $text_colour_title;
+            border-left: 1px solid $text_color_title;
+            border-bottom: 1px solid $text_color_title;
             position: absolute;
             bottom: -20px;
             left: 40%;
@@ -525,7 +525,7 @@ section {
             -ms-flex-pack: center;
                 justify-content: center;
         margin-bottom: 40px;
-        color: $colour_bright;
+        color: $color_bright;
         background-color: $color_background;
         z-index: 3;
 
@@ -596,7 +596,7 @@ section {
 
     .icon-quote-left {
         font-size: 36px;
-        color: $colour_bright;
+        color: $color_bright;
         bottom: -4px;
         padding-right: 5px;
     }
@@ -636,7 +636,7 @@ footer {
             }
 
             &:hover {
-                color: $colour_bright;
+                color: $color_bright;
             }
         }
     }
