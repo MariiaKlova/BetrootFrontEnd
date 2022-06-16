@@ -33,6 +33,11 @@ $(document).ready(function () {
         $('body').toggleClass('lock');
     }
 
+    $('.main_menu ul li a').on('click', function () {
+        $('.main_menu ul li a').removeClass('active');
+        $(this).addClass("active")
+    });
+
     $('.hamburger, #sidebar li a').on('click', function () {
         toggleMenu();
     });
