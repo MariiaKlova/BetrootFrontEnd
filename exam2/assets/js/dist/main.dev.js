@@ -19,7 +19,7 @@ $(document).ready(function () {
     }, 600);
   });
   window.addEventListener('scroll', function () {
-    if (window.scrollY > window.outerHeight * 0.8) {
+    if (window.scrollY > document.getElementById('section_main_slider').outerHeight) {
       document.getElementById('header').classList.add('scroll');
     } else {
       document.getElementById('header').classList.remove('scroll');
