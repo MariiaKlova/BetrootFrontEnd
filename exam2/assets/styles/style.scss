@@ -371,6 +371,7 @@ section {
 //*************** main_slider *************/
 
 #section_main_slider {
+    height: 100vh;
     &:before {
         content: '';
         width: 100%;

@@ -13,7 +13,7 @@ new Splide('#splide_main', {
 $('.scroll_down, .main_menu li a, .logo a').on('click', function (e) {
     e.preventDefault();
     $('html, body').animate({
-        scrollTop: $($(this).attr('href')).offset().top - $('header').outerHeight()
+        scrollTop: $($(this).attr('href')).offset().top - $('header').outerHeight() - 40
     }, 600)
 })
 
