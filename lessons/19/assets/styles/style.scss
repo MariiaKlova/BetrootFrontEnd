@@ -1,9 +1,9 @@
-$colour_bright: #FCFB0D;
-$colour_dark: #D9870B;
-$colour_light: #F0AF00;
+$color_bright: #FCFB0D;
+$color_dark: #D9870B;
+$color_light: #F0AF00;
 $color_socials: #FA7A1B;
-$text_colour_primary: #333333;
-$text_colour_title: #666666;
+$text_color_primary: #333333;
+$text_color_title: #666666;
 $font_primary: 'Roboto',
 sans-serif;
 
@@ -24,7 +24,7 @@ body {
 body {
     background-color: #fff;
     font-family: $font_primary;
-    color: $text_colour_primary;
+    color: $text_color_primary;
     font-size: 1rem;
     line-height: 1.5rem;
 }

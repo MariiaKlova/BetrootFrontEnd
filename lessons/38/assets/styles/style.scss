@@ -1,10 +1,10 @@
-$colour_bright: #070707;
-$colour_dark: #333333;
-$colour_light: #070707;
+$color_bright: #070707;
+$color_dark: #333333;
+$color_light: #070707;
 $color_socials: #cccccc;
-$text_colour_primary: #cccccc;
-$text_colour_title: #666666;
-$text_colour_title_extra: #898f8f;
+$text_color_primary: #cccccc;
+$text_color_title: #666666;
+$text_color_title_extra: #898f8f;
 $font_primary: 'Raleway',
 sans-serif;
 $font_title: 'Roboto',
@@ -28,9 +28,9 @@ body {
 }
 
 body {
-    background-color: $colour_dark;
+    background-color: $color_dark;
     font-family: $font_primary;
-    color: $text_colour_primary;
+    color: $text_color_primary;
     font-size: 1rem;
     line-height: 1.5rem;
 }
