@@ -1,9 +1,9 @@
-$colour_bright: #13E28D;
-$colour_light: #FFDD3F;
-$colour_deep: #212534;
-$colour_dark: #2B3040;
-$colour_inactive: #8D91A3;
-$colour_text: #B7BACD;
+$color_bright: #13E28D;
+$color_light: #FFDD3F;
+$color_deep: #212534;
+$color_dark: #2B3040;
+$color_inactive: #8D91A3;
+$color_text: #B7BACD;
 $font_primary: 'Lato',
 sans-serif;
 
@@ -23,9 +23,9 @@ body {
 }
 
 body {
-    background-color: $colour_dark;
+    background-color: $color_dark;
     font-family: $font_primary;
-    color: $colour_text;
+    color: $color_text;
     font-size: 14px;
     line-height: 22px;
 }
@@ -63,13 +63,13 @@ button {
     line-height: 20px;
 
     &:hover {
-        background-color: darken($colour_bright, $amount: 8);
+        background-color: darken($color_bright, $amount: 8);
     }
 }
 
 .btn-big {
     width: 100%;
-    background-color: $colour_deep;
+    background-color: $color_deep;
     padding: 10px 30px;
     font-size: 14px;
     line-height: 16px;
@@ -78,7 +78,7 @@ button {
 }
 
 .bgc_bright {
-    background-color: $colour_bright;
+    background-color: $color_bright;
 }
 
 a {
@@ -100,7 +100,7 @@ ul {
     height: 860px;
     margin: 40px auto;
     padding-top: 150px;
-    background: $colour_dark url(../images/image_bg.jpg) no-repeat center;
+    background: $color_dark url(../images/image_bg.jpg) no-repeat center;
     background-blend-mode: overlay;
 }
 
@@ -108,13 +108,13 @@ ul {
     width: 600px;
     height: 552px;
     margin: 0 auto;
-    background-color: $colour_deep;
+    background-color: $color_deep;
 }
 
 .card_tabs {
     width: 100%;
     height: 120px;
-    background-color: $colour_dark;
+    background-color: $color_dark;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -125,7 +125,7 @@ ul {
     text-transform: uppercase;
 
     .icon {
-        color: $colour_inactive;
+        color: $color_inactive;
         font-size: 22px;
         display: block;
         text-align: center;
@@ -236,7 +236,7 @@ ul {
 .discount {
     font-size: 12px;
     line-height: 20px;
-    color: $colour_light;
+    color: $color_light;
     margin-bottom: 4px;
 }
 

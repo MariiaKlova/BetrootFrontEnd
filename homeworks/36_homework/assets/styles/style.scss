@@ -19,7 +19,7 @@ body {
 body {
     background-color: #ffffff;
     font-family: $font_primary;
-    color: $colour_black;
+    color: $color_black;
     font-size: 16px;
     font-weight: 600;
 
@@ -50,7 +50,7 @@ a {
     color: inherit;
 
     &:hover {
-        color: $colour_light;
+        color: $color_light;
     }
 }
 
@@ -64,28 +64,28 @@ a {
     border: 2px solid;
 
     &:hover {
-        background-color: $colour_light;
-        border-color: $colour_light;
-        color: $colour_brown-light;
+        background-color: $color_light;
+        border-color: $color_light;
+        color: $color_brown-light;
     }
 
     a:hover {
-        color: $colour_brown-light;
+        color: $color_brown-light;
         text-decoration: none;
     }
 }
 
 .button_white {
-    border: 2px solid $colour_brown-light;
-    color: $colour_brown-light;
+    border: 2px solid $color_brown-light;
+    color: $color_brown-light;
 }
 
 .button_black {
     cursor: url('../images/cursor_bl.svg'), auto;
     display: block;
     margin: 0 auto;
-    border: 2px solid $colour_black;
-    color: $colour_black;
+    border: 2px solid $color_black;
+    color: $color_black;
     margin-bottom: 70px;
 
     a {
@@ -98,7 +98,7 @@ a {
     cursor: pointer;
 
     &:hover {
-        color: $colour_light;
+        color: $color_light;
     }
 
 }
@@ -141,7 +141,7 @@ main {
     position: fixed;
     left: 0;
     top: 0;
-    background-color: $colour_brown-light;
+    background-color: $color_brown-light;
     padding: 20px;
     height: 100vh;
     z-index: 12;
@@ -164,11 +164,11 @@ main {
 
         a {
             text-decoration: none;
-            color: $colour_arrow-inactive;
+            color: $color_arrow-inactive;
 
             &.active,
             &:hover {
-                color: $colour_light;
+                color: $color_light;
             }
         }
     }
@@ -177,7 +177,7 @@ main {
 
 //**********header**********/
 header {
-    background-color: $colour_brown-light;
+    background-color: $color_brown-light;
 
     .container {
         height: 80px;
@@ -207,7 +207,7 @@ header {
         padding: 0 15px;
 
         &:hover {
-            background-color: $colour_light;
+            background-color: $color_light;
             color: #ffffff;
             a{
                 color: #ffffff; 
@@ -233,7 +233,7 @@ header {
 
 .main_slider {
     width: 100%;
-    color: $colour_brown-light;
+    color: $color_brown-light;
     font-weight: 700;
     font-size: 50px;
     text-transform: uppercase;
@@ -276,12 +276,12 @@ header {
         button:before {
             font-size: 20px;
             opacity: 1;
-            color: $colour_dot-inactive;
+            color: $color_dot-inactive;
         }
 
         .slick-active button:before {
             opacity: 1;
-            color: $colour_light;
+            color: $color_light;
         }
     }
 
@@ -305,11 +305,11 @@ header {
         background-position: 50% 20px;
         background-repeat: no-repeat;
         background-size: auto 70%;
-        border: 1px solid $colour_brown-light;
+        border: 1px solid $color_brown-light;
         margin: 0 10px;
 
         &:hover {
-            border: 1px solid $colour_light;
+            border: 1px solid $color_light;
         }
     }
 
@@ -372,7 +372,7 @@ header {
 
 .partners_block {
     padding: 70px 0;
-    background-color: $colour_brown-light;
+    background-color: $color_brown-light;
 }
 
 .partners_slider {
@@ -394,8 +394,8 @@ header {
 //***************footer************/
 
 footer {
-    background-color: $colour_brown-dark;
-    color: $colour_brown-light;
+    background-color: $color_brown-dark;
+    color: $color_brown-light;
     font-weight: 500;
 
     .container {

@@ -229,12 +229,12 @@
             button:before {
                 font-size: 20px;
                 opacity: 1;
-                color: $colour_dark-dot-inactive;
+                color: $color_dark-dot-inactive;
             }
 
             .slick-active button:before {
                 opacity: 1;
-                color: $colour_light;
+                color: $color_light;
             }
         }
     }

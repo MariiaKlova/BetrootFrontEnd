@@ -1,17 +1,17 @@
-$colour_icon_blue1: #007FFC;
-$colour_icon_blue2: #B9DCFF;
-$colour_icon_blue3: #D1E7FF;
-$colour_icon_blue4: #E8F3FF;
-$colour_icon_green1: #52C29D;
-$colour_icon_green2: #CAEFF2;
-$colour_icon_green3: #E1F4F5;
-$colour_icon_green4: #f0f9fa;
+$color_icon_blue1: #007FFC;
+$color_icon_blue2: #B9DCFF;
+$color_icon_blue3: #D1E7FF;
+$color_icon_blue4: #E8F3FF;
+$color_icon_green1: #52C29D;
+$color_icon_green2: #CAEFF2;
+$color_icon_green3: #E1F4F5;
+$color_icon_green4: #f0f9fa;
 
 
 $icon_fade2: #D1E7FF;
 
-$text_colour_primary: #16133D;
-$text_colour_extra: #7690A8;
+$text_color_primary: #16133D;
+$text_color_extra: #7690A8;
 
 $font_primary: 'Roboto',
 sans-serif;
@@ -36,7 +36,7 @@ body {
 body {
     background-color: #fff;
     font-family: $font_primary;
-    color: $text_colour_primary;
+    color: $text_color_primary;
     font-size: 16px;
     line-height: 28px;
 }
@@ -112,7 +112,7 @@ header {
 .subtitle {
     font-size: 16px;
     line-height: 21px;
-    color: $text_colour_extra;
+    color: $text_color_extra;
     text-transform: uppercase;
     margin-bottom: 17px;
 }
@@ -141,7 +141,7 @@ header {
     }
 
     &:hover {
-        border: 1px solid $colour_icon_green1;
+        border: 1px solid $color_icon_green1;
     }
 }
 
@@ -165,19 +165,19 @@ header {
     height: 35px;
 
     .icon_fade1 {
-        fill: $colour_icon_blue1;
+        fill: $color_icon_blue1;
     }
 
     .icon_fade2 {
-        fill: $colour_icon_blue2;
+        fill: $color_icon_blue2;
     }
 
     .icon_fade3 {
-        fill: $colour_icon_blue3;
+        fill: $color_icon_blue3;
     }
 
     .icon_fade4 {
-        fill: $colour_icon_blue4;
+        fill: $color_icon_blue4;
     }
 }
 
@@ -185,19 +185,19 @@ header {
 
     svg {
         .icon_fade1 {
-            fill: $colour_icon_green1;
+            fill: $color_icon_green1;
         }
 
         .icon_fade2 {
-            fill: $colour_icon_green2;
+            fill: $color_icon_green2;
         }
 
         .icon_fade3 {
-            fill: $colour_icon_green3;
+            fill: $color_icon_green3;
         }
 
         .icon_fade4 {
-            fill: $colour_icon_green4;
+            fill: $color_icon_green4;
         }
     }
 }
@@ -230,7 +230,7 @@ footer {
             font-size: 20px;
 
             &:hover {
-                color: $colour_icon_green1;
+                color: $color_icon_green1;
 
             }
         }

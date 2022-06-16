@@ -1,10 +1,10 @@
-$colour_bright: #59DE6A;
-$colour_dark: #911D3C;
-$colour_light: #DE597C;
-$colour_extra: #80FF91;
-$text_colour_primary: #333333;
-$text_colour_title: #666666;
-$text_colour_title_extra: #898f8f;
+$color_bright: #59DE6A;
+$color_dark: #911D3C;
+$color_light: #DE597C;
+$color_extra: #80FF91;
+$text_color_primary: #333333;
+$text_color_title: #666666;
+$text_color_title_extra: #898f8f;
 $font_primary: 'Roboto',
 sans-serif;
 $font_extras: 'Open Sans',
@@ -28,7 +28,7 @@ body {
 body {
     background-color: #fff;
     font-family: $font_primary;
-    color: $text_colour_primary;
+    color: $text_color_primary;
     font-size: 1rem;
     line-height: 1.5rem;
 }
@@ -56,7 +56,7 @@ ul {
     width: 95%;
     max-width: 1200px;
     margin: 0 auto;
-    border: 2px solid $colour_dark;
+    border: 2px solid $color_dark;
 }
 
 img {
@@ -80,7 +80,7 @@ header {
     left: 0;
     top: 0;
     z-index: 10;
-    background-color: $colour_light;
+    background-color: $color_light;
 }
 
 main{

@@ -1,5 +1,5 @@
-$text_colour_primary: #565656;
-$text_colour_title: #000000;
+$text_color_primary: #565656;
+$text_color_title: #000000;
 $font_primary: 'Lato',
 sans-serif;
 $font_title: 'Red Hat Display',
@@ -23,7 +23,7 @@ body {
 body {
     background-color: #fff;
     font-family: $font_primary;
-    color: $text_colour_primary;
+    color: $text_color_primary;
     font-size: 19px;
     line-height: 32px;
     letter-spacing: 0.05em;
@@ -32,7 +32,7 @@ body {
 h1,
 h3 {
     font-family: $font_title;
-    color: $text_colour_title;
+    color: $text_color_title;
 }
 
 h1 {
@@ -85,7 +85,7 @@ ul {
 
 .headline {
     font-family: $font_primary;
-    color: $text_colour_title;
+    color: $text_color_title;
     font-size: 16px;
     line-height: 24px;
     letter-spacing: 0.5rem;

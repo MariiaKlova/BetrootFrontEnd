@@ -1,8 +1,8 @@
-$colour_bright: #4A4FF2;
+$color_bright: #4A4FF2;
 $color_socials: #000000;
 $color_border: #D8D8D8;
-$text_colour_primary: rgb(17, 17, 17, .6);
-$text_colour_title: #111111;
+$text_color_primary: rgb(17, 17, 17, .6);
+$text_color_title: #111111;
 $font_primary: 'Mulish',
 sans-serif;
 $font_size_default: 16px;
@@ -25,7 +25,7 @@ body {
 body {
     background-color: #fff;
     font-family: $font_primary;
-    color: $text_colour_primary;
+    color: $text_color_primary;
     font-size: $font_size_default;
     font-size: 16px;
     line-height: 26px;
@@ -67,7 +67,7 @@ ul {
 nav {
     font-size: 18px;
     font-weight: 700;
-    color: $text_colour_title;
+    color: $text_color_title;
 
     ul {
         width: 165px;
@@ -117,7 +117,7 @@ nav {
     margin-bottom: 178px;
 
     .subtitle {
-        color: $colour_bright;
+        color: $color_bright;
         font-size: 22px;
         line-height: 28px;
         font-weight: 700;
@@ -135,10 +135,10 @@ nav {
     .h2 {
         font-size: 40px;
         line-height: 60px;
-        color: $text_colour_title;
+        color: $text_color_title;
 
         span {
-            color: $colour_bright;
+            color: $color_bright;
         }
     }
 
@@ -160,7 +160,7 @@ nav {
             top: -10px;
             width: 30px;
             height: 2px;
-            background-color: $text_colour_primary;
+            background-color: $text_color_primary;
         }
     }
 }
@@ -188,7 +188,7 @@ nav {
     margin-bottom: 100px;
 
     .h3 {
-        color: $text_colour_title;
+        color: $text_color_title;
         font-size: 28px;
         line-height: 38px;
     }
@@ -222,7 +222,7 @@ nav {
     font-size: 22px;
     line-height: 28px;
     font-weight: 700;
-    color: $text_colour_title;
+    color: $text_color_title;
 }
 
 .award_item {
@@ -235,17 +235,17 @@ nav {
     font-size: 18px;
     line-height: 23px;
     font-weight: 700;
-    color: $text_colour_title;
+    color: $text_color_title;
 }
 
 .desc_title {
     line-height: 20px;
-    color: $text_colour_title;
+    color: $text_color_title;
     margin-bottom: 12px;
 }
 
 .award_year {
-    color: $text_colour_title;
+    color: $text_color_title;
     text-align: right;
 }
 

@@ -1,5 +1,5 @@
-$colour_dark: #3909E3;
-$colour_light: #094DE3;
+$color_dark: #3909E3;
+$color_light: #094DE3;
 
 *,
 *::before,
@@ -74,7 +74,7 @@ ul {
     height: 100px;
     padding: 10px;
     margin: 40px;
-    background-color: lighten($colour_light, 20);
+    background-color: lighten($color_light, 20);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -98,7 +98,7 @@ ul {
         fill: #fff;
 
         &:hover {
-            fill: $colour_dark;
+            fill: $color_dark;
         }
     }
 }

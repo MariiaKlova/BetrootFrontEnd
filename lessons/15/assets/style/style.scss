@@ -1,6 +1,6 @@
-$colour_bright: #FFC042;
-$colour_dark: #FF6C48;
-$colour_light: #fac9a0;
+$color_bright: #FFC042;
+$color_dark: #FF6C48;
+$color_light: #fac9a0;
 
 *,
 *::after,
@@ -11,7 +11,7 @@ $colour_light: #fac9a0;
 }
 
 body{
-    background-color: $colour_light;
+    background-color: $color_light;
 }
 
 .page__container {
@@ -44,7 +44,7 @@ body{
 
             &--active,
             &:hover {
-                color: $colour_dark;
+                color: $color_dark;
             }
         }
     }
@@ -64,14 +64,14 @@ body{
     width: 200px;
     height: 400px;
     background-color: #fff;
-    border: 2px solid $colour_dark;
+    border: 2px solid $color_dark;
     position: relative;
 
     img {
         margin-top: 20px;
         width: 120px;
         height: 120px;
-        background-color: $colour_light;
+        background-color: $color_light;
     }
 
     &__content {
@@ -102,7 +102,7 @@ body{
     font-weight: 800;
 
     &--active {
-        background-color: $colour_dark;
+        background-color: $color_dark;
     }
     &--disabled{
         background-color: gray;

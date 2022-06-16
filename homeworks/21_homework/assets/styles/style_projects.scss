@@ -1,8 +1,8 @@
-$colour_bright: #4A4FF2;
+$color_bright: #4A4FF2;
 $color_socials: #000000;
 $color_border: #D8D8D8;
-$text_colour_primary: rgb(17, 17, 17, .6);
-$text_colour_title: #111111;
+$text_color_primary: rgb(17, 17, 17, .6);
+$text_color_title: #111111;
 $font_primary: 'Mulish',
 sans-serif;
 $font_size_default: 16px;
@@ -25,7 +25,7 @@ body {
 body {
     background-color: #fff;
     font-family: $font_primary;
-    color: $text_colour_primary;
+    color: $text_color_primary;
     font-size: $font_size_default;
     font-size: 16px;
     line-height: 26px;
@@ -67,7 +67,7 @@ ul {
 nav {
     font-size: 18px;
     font-weight: 700;
-    color: $text_colour_title;
+    color: $text_color_title;
 
     ul {
         display: grid;
@@ -126,7 +126,7 @@ nav {
     .h2 {
         font-size: 40px;
         line-height: 55px;
-        color: $text_colour_title;
+        color: $text_color_title;
     }
 
     p {
@@ -147,7 +147,7 @@ nav {
         font-weight: 700;
 
         .attribute_value {
-            color: $text_colour_title;
+            color: $text_color_title;
             white-space: nowrap;
         }
     }
