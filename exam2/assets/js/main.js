@@ -11,7 +11,7 @@ $(document).ready(function () {
         easing: 'cubic-bezier(.71,.3,.39,.94)',
         speed: 800,
         breakpoints: {
-            700: {
+            1000: {
                 drag: false
             }
         }
