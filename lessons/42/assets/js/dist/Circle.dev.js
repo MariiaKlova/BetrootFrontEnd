@@ -23,6 +23,7 @@ var Circle =
 function (_Square) {
   _inherits(Circle, _Square);
 
+  // static name = 'Nice circle'; // не налаштований VS code
   function Circle(width, color, left, top) {
     _classCallCheck(this, Circle);
 
@@ -32,7 +33,7 @@ function (_Square) {
   _createClass(Circle, [{
     key: "show",
     value: function show() {
-      document.body.insertAdjacentHTML('beforeend', "<div class=\"figure\" \n            style=\"width:".concat(this.width, "px;\n            height:").concat(this.height, "px;\n            color:").concat(this.color, ";\n            left:").concat(this.left, "px;\n            top:").concat(this.top, "px;\n            border-radius: 50%;\n            position: absolute\">\n        </div>\n        "));
+      document.body.insertAdjacentHTML('beforeend', "<div class=\"figure\" \n            style=\"width:".concat(this.width, "px;\n            height: ").concat(this.height, "px;\n            background-color: ").concat(this.color, ";\n            left: ").concat(this.left, "px;\n            top: ").concat(this.top, "px;\n            position: absolute; \n            border-radius: 50%\">\n        </div>\n        "));
     }
   }]);
 
