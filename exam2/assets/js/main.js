@@ -9,7 +9,12 @@ $(document).ready(function () {
         direction: 'ttb',
         pagination: true,
         easing: 'cubic-bezier(.71,.3,.39,.94)',
-        speed: 800
+        speed: 800,
+        breakpoints: {
+            700: {
+                drag: false
+            }
+        }
     }).mount();
 
     $('.scroll_down, .main_menu li a, .logo a').on('click', function (e) {
