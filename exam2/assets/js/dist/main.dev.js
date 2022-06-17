@@ -2,8 +2,8 @@
 
 $(document).ready(function () {
   new Splide('#splide_main', {
-    height: '100vh',
-    // autoplay: true,
+    height: '100%',
+    autoplay: true,
     type: 'loop',
     perPage: 1,
     arrows: false,

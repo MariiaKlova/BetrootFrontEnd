@@ -400,6 +400,9 @@ section {
 #section_main_slider {
     height: 100vh;
 
+    #splide_main{
+        height: 100%;
+    }
     &:before {
         content: '';
         width: 100%;
