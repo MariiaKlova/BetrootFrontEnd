@@ -41,7 +41,7 @@ $(document).ready(function () {
     $('.main_menu ul li a').removeClass('active');
     $(this).addClass("active");
   });
-  $('.hamburger, #sidebar li a').on('click', function () {
+  $('.hamburger, #sidebar li a, #sidebar .logo').on('click', function () {
     toggleMenu();
   });
 

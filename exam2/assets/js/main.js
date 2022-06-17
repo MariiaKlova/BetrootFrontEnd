@@ -43,7 +43,7 @@ $(document).ready(function () {
         $(this).addClass("active")
     });
 
-    $('.hamburger, #sidebar li a').on('click', function () {
+    $('.hamburger, #sidebar li a, #sidebar .logo').on('click', function () {
         toggleMenu();
     });
 
