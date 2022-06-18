@@ -47,8 +47,6 @@ $(document).ready(function () {
         toggleMenu();
     });
 
-
-
     async function newsData() {
         const news = await fetch('assets/data/news.json')
             .then(resp => {
@@ -80,6 +78,7 @@ $(document).ready(function () {
             </div>
         <a>`
         })
+
         document.getElementById('news_slider_list').innerHTML = newsHtml;
         new Splide('#news_slider', {
             type: 'loop',
@@ -159,5 +158,4 @@ $(document).ready(function () {
         document.getElementById('map').innerHTML = '';
         initMap();
     })
-
 });
