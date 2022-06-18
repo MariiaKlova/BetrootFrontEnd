@@ -187,28 +187,7 @@ ul {
     top: 10px;
     right: 5%;
     display: none;
-    z-index: 15;
-
-    .hamburger-inner,
-    .hamburger-inner::after,
-    .hamburger-inner::before {
-        -webkit-box-shadow: 0px 3px 2px rgb(85, 183, 255, .8);
-        box-shadow: 0px 3px 2px rgb(85, 183, 255, .8);
-        -webkit-transition: all .2s ease;
-        -o-transition: all .2s ease;
-        transition: all .2s ease;
-    }
-
-    &:hover {
-
-        .hamburger-inner,
-        .hamburger-inner::after,
-        .hamburger-inner::before {
-            -webkit-box-shadow: 0px 3px 2px rgb(126, 90, 255, .4);
-            box-shadow: 0px 3px 2px rgb(126, 90, 255, .4);
-
-        }
-    }
+    z-index: 12;
 }
 
 #sidebar {
