@@ -114,7 +114,11 @@
     }
 
     header {
-        display: none;
+        padding: 10px 0;
+        .main_menu, .socials{
+            display: none;
+        }
+        
     }
 
     h2,
