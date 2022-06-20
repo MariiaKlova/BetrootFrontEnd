@@ -53,12 +53,12 @@ ul {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 110px 0;
 }
 
 .container {
     width: 100%;
     max-width: 1110px;
+    margin: 110px 0;
 }
 
 header {
@@ -110,6 +110,7 @@ header {
 .content_wrap {
     width: 100%;
     display: flex;
+    margin-bottom: 100px;
 
     .content {
         width: 50%;
