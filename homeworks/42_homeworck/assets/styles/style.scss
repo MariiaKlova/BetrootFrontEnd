@@ -1,0 +1,33 @@
+// .container{}
+
+.row {
+    justify-content: space-between;
+}
+
+.kolo {
+    flex-basis: 39%;
+}
+
+.marker{
+    flex-basis: 60%;
+}
+
+.list-group {
+    li {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+#colorInput {
+    width: 100px;
+}
+
+#inkOutput {
+    font-style: 20px;
+    font-weight: 700;
+}
+
+#textOutput {
+    min-height: 100px;
+}

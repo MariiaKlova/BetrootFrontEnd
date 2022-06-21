@@ -6,13 +6,123 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link rel="stylesheet" href="assets/styles/bootstrap.min.css">
     <link rel="stylesheet" href="assets/styles/style.min.css">
     <title>42 hom Classes</title>
 </head>
 
 <body>
+    <div class="container my-5">
+        <div class="row">
+            <div class="card kolo">
+                <div class="card-body">
+                    <h5>Коло</h5>
+                    <p>Реалізуй клас, що описує коло. У класі повинні бути такі компоненти: </p>
+                    <ul>
+                        <li>поле, що зберігає радіус кола;</li>
+                        <li>get-властивість, яке повертає радіус кола;</li>
+                        <li>set-властивість, що встановлює радіус кола;</li>
+                        <li>get-властивість, яке повертає діаметр кола;</li>
+                        <li>метод, що обчислює площу кола;</li>
+                        <li>метод, що обчислює довжину кола.</li>
+                    </ul>
+                    <h5 class="card-title mb-3">Поточний радіус кола = <span id="new_kolo">4</span></h5>
+                    <form>
+                        <input class="form-control w-100 mb-3" id="createKolo" type="number"
+                            placeholder="Введіть новий радіус кола">
+                        <button class="btn btn-primary mb-3 col-12" id="createKoloBtn" type="submit">Ввести</button>
+                    </form>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <span>Радіус кола:</span>
+                            <span id="radius" class="output"></span>
+                        </li>
+                        <li class="list-group-item">
+                            <span>Діаметр кола:</span>
+                            <span id="diameter" class="output"></span>
+                        </li>
+                        <li class="list-group-item">
+                            <span>Площа кола: </span>
+                            <span id="area" class="output"></span>
+                        </li>
+                        <li class="list-group-item">
+                            <span>Довжина кола:</span>
+                            <span id="length" class="output"></span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card marker">
+                <div class="card-body">
+                    <h5 class="card-title mb-3"><span>Маркер</span></h5>
+                    <p>Реалізуй клас, що описує канцелярський маркер. У класі повинні бути такі компоненти:</p>
+                    <ul>
+                        <li>поле, яке зберігає колір маркера;</li>
+                        <li>поле, яке зберігає кількість чорнил у маркері (у відсотках);</li>
+                        <li>метод для вводу (приймає рядок і виводить текст відповідним кольором; текст виводиться до
+                            тих пір, поки в маркері є чорнило; один не пробільний символ — це 0,5% чорнил у маркері).
+                        </li>
+                    </ul>
+                    <form>
+                        <label for="markerColor" class="form-label">Оберіть колір</label>
+                        <div class="row">
+                            <div class="col-2">
+                                <input type="color" class="form-control form-control-color mb-3" id="markerColor"
+                                    value="#ff0000" title="Введіть колір">
+                            </div>
+                            <div class="col-10">
+                                <input class="form-control col-6 mb-3" id="markerInk" type="number"
+                                    placeholder="Введіть кількість чорнил від 1 до 100">
+                            </div>
+                        </div>
+                        <button class="btn btn-primary mb-3 col-12" id="markerInput" type="submit">Ввести параметри
+                            маркера</button>
+                    </form>
+                    <form>
+                        <textarea class="form-control mb-3" id="markerText" rows="3"
+                            placeholder="Введіть текст"></textarea>
+                        <button class="btn btn-primary mb-3 col-12" id="textInput" type="submit">Ввести текст</button>
+                    </form>
 
+                    <div class="my-3">
+                        <span>Кількість чорнил у маркері:</span>
+                        <span id="inkOutput"></span>
+                    </div>
+                    <div id="textOutput" class="form-control my-3"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card my-3 p-3">
+            <table class="table">
+                <h5>Таблиця</h5>
+                <p>Реалізуй клас Employee, що описує працівника, і створи масив працівників банку.</p>
+                <ul>
+                    <li>реалізуй клас EmpTable для генерації HTML-коду таблиці зі списком працівників банку.</li>
+                    <li>масив працівників необхідно передавати через конструктор</li>
+                    <li>отримувати HTML-код за допомогою методу getHtml ().</li>
+                </ul>
+                <thead>
+                    <tr>
+                        <th scope="col">Ім'я</th>
+                        <th scope="col">Призвище</th>
+                        <th scope="col">Посада</th>
+                        <th scope="col">Вік</th>
+                        <th scope="col">Стаж</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody">
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="assets/js/Circle.js"></script>
+    <script src="assets/js/Marker.js"></script>
+    <script src="assets/js/Employee.js"></script>
     <script src="assets/js/main.js"></script>
 
 </body>
+
 </html>
