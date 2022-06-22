@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="assets/styles/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/styles/style.min.css">
+    <title>45</title>
+</head>
+
+<body>
+    <div class="container">
+    
+        <a href="todo.html" class="nav">To part 2</a>
+        <div id="app">
+            <div class="card col-2 p-3">
+                <p>{{ text }}</p>
+                <p>Counter: <span v-bind:class="{'even': isEven}"> {{ counter }} </span></p>
+                <button type="button" v-on:click="decCounter">-</button>
+                <button type="button" v-on:click="incCounter()">+</button>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+        const App = {
+            data() {
+                return {
+                    text: 'Hello Vue!',
+                    a: 2,
+                    b: 3,
+                    // c: this.a + this.b //!Так не робити
+                    counter: 0,
+                    // isEven: true
+                }
+            },
+            // watch: {
+            //     counter(value) { // може приймати 2 значення value, old_value
+            //         // if (value % 2 === 0) {
+            //         //     this.isEven = true;
+            //         // } else {
+            //         //     this.isEven = false;
+            //         // }
+            //         this.isEven = value % 2 === 0
+            //     }
+            // },
+            //! замість isEven:true, і методу watch:, можна зробити:
+            computed: {
+                isEven() {
+                    return this.counter % 2 === 0
+                }
+            },
+            created() {
+                this.incCounter()
+            },
+            methods: {
+                incCounter() {
+                    this.counter++
+                },
+                decCounter() {
+                    if (this.checkDecCounter()) {
+                        this.counter--
+                    }
+
+                },
+                checkDecCounter() {
+                    return this.counter > 0
+                }
+            }
+        }
+
+        Vue.createApp(App).mount('#app');
+    </script>
+
+
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="assets/js/todo.js"></script>
+
+</body>
+
+</html>

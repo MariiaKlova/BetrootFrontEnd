@@ -1,0 +1,90 @@
+
+$black: #000000;
+$white: #FFFFFF;
+$gray1: #333333;
+$gray2: #434343;
+$gray3: #666666;
+$gray4: #B7B7B7;
+$gray5: #DFDFDF;
+
+$blue: #307FE2;
+$gold: #FAE03C;
+
+$colorText: $gray1;
+$colorMaim: $gold;
+$colorExtra: $blue;
+
+$colorBgMain: $gray3;
+
+$fontMain: 'Raleway', sans-serif;
+$fontExtra: 'Roboto', sans-serif;
+$fontSizeMain: 20px;
+$fontSizeExtra: 24px;
+
+*, *::before, *::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    position: relative;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    background-color: $colorBgMain;
+    font-family: $fontMain;
+    color: $colorText;
+    font-size: $fontSizeMain;
+    line-height: 1.5rem;
+}
+img{
+    vertical-align: top;
+}
+
+a, 
+button {
+    transition: all .2s ease;
+    padding: 5px;
+    margin: 5px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ol, ul{
+    list-style: none;
+}
+
+.page_wrap{
+    display: flex;
+}
+
+.container{
+    width: 90%;
+    max-width: 1600px;
+    margin: 20px auto;
+}
+
+.even{
+    color: red;
+}
+
+.nav{
+    width: 150px;
+    display: block;
+    color: $black;
+    text-align: center;
+    cursor: pointer;
+    background-color: pink;
+    border: 1px solid pink;
+    padding: 0.375rem 0.75rem;
+    margin: 0.375rem auto;
+    font-size: 1rem;
+    border-radius: 0.25rem;
+}
+

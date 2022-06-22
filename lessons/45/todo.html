@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="assets/styles/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/styles/style.min.css">
+    <title>45</title>
+</head>
+
+<body>
+    
+    <div id="app">
+        <div class="container">
+            <a href="index.html" class="nav">To part 1</a>
+            <div class="row">
+                <div class="col-3"></div>
+                <div class="col-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Todo list</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-8">
+                                    <input type="text" class="form-control" 
+                                    v-model.trim="taskText">
+                                </div>
+                                <div class="col-4">
+                                    <button type="button" @click="addTodo"
+                                        class="btn btn-success btn-sm w-100">Add</button>
+                                </div>
+                            </div>
+                            <ul class="list-group list-group-flush mt-4">
+                                <!-- <li class="list-group-item d-flex justify-content-between align-items-center"
+                                    v-for="(item, index) in todoList" :key="index">
+                                    {{item.text}}
+                                    <span class="badge bg-success" v-if="item.isDone">done</span>
+                                    <span class="badge bg-danger" v-else="item.isDone">NOT done</span>
+                                    <button class="btn btn-info btn-sm" @click="markDone"
+                                        :disabled="item.isDone">Done</button>
+                                </li> -->
+                            </ul>
+
+                            <ul class="list-group list-group-flush mt-4">
+                                <template v-for="(item, index) in todoList" :key="index">
+                                    <todo-item :item="item" :index="index" />
+                                </template>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3"></div>
+            </div>
+
+        </div>
+    </div>
+
+    <template id="todo_item">
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            {{ item.text }}
+            <span class="badge bg-success" v-if="item.isDone">done</span>
+            <span class="badge bg-danger" v-else="item.isDone">NOT done</span>
+            <button type="button" 
+            class="btn btn-info btn-sm" @click="markDone(index)" :disabled="item.isDone">Done
+            </button>
+        </li>
+    </template>
+
+    <script src="https://unpkg.com/vue@next"></script>
+
+    <script src="assets/js/todo.js"></script>
+
+</body>
+
+</html>
