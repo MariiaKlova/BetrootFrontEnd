@@ -1,3 +1,4 @@
+
 $black: #000000;
 $white: #FFFFFF;
 $gray1: #333333;
@@ -8,6 +9,7 @@ $gray5: #DFDFDF;
 
 $blue: #307FE2;
 $gold: #FAE03C;
+$orange: #f26739;
 
 $colorText: $gray5;
 $colorMaim: $gold;
@@ -19,7 +21,7 @@ $fontMain: 'Raleway',
 sans-serif;
 $fontExtra: 'Roboto',
 sans-serif;
-$fontSizeMain: 16px;
+$fontSizeMain: 14px;
 $fontSizeExtra: 24px;
 
 *,
@@ -46,6 +48,8 @@ body {
 }
 
 img {
+    width: 100%;
+    object-fit: cover;
     vertical-align: top;
 }
 
@@ -63,6 +67,15 @@ a {
     }
 }
 
+.btn {
+    background-color: $orange;
+    width: 50%;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
 ol,
 ul {
     list-style: none;
@@ -74,8 +87,158 @@ ul {
 
 .container {
     width: 90%;
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0px auto;
+}
+
+.content {
+    display: flex;
+    margin-left: 0;
+    margin-right: 0;
+
+}
+
+h6 {
+    text-align: center;
+    font-weight: 600;
+}
+
+.search {
+    background-color: $orange;
+
+    .btn {
+        background-color: $gray5;
+
+        &:hover {
+            background-color: $gray4;
+        }
+    }
+}
+
+.cheking {
+    display: flex;
+    justify-content: space-between;
+
+    .btn {
+        width: 100px;
+    }
+}
+
+// .none{
+//     display: none;
+// }
+
+.movie_list,
+.favorites_list {
+    .row {
+        justify-content: space-around;
+        --bs-gutter-x: 0;
+
+        .movie_item {
+            padding-right: 0;
+            padding-left: 0;
+        }
+
+        .card-body {
+            display: flex;
+            flex-direction: column;
+
+            .card-title {
+                flex-grow: 1;
+            }
+
+        }
+    }
+
+}
+
+.movie_list {
+    .card-header {
+        background-color: $orange;
+        text-align: center;
+
+        &:first-child {
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+        }
+    }
+
+    .card-body {
+        background-color: $gray5;
+    }
+
+    .movie_item {
+        flex-basis: 24%;
+        margin-bottom: 20px;
+        border: 1px solid $gray4;
+
+        img {
+            height: 350px;
+        }
+
+        .card-body {
+            background-color: #fff;
+            text-align: center;
+        }
+
+        .card-footer {
+            background-color: #fff;
+        }
+
+        .btn {
+            &:hover {
+                background-color: lighten($orange, $amount: 10);
+            }
+        }
+    }
+
+}
+
+
+.favorites_list {
+    margin-left: 10px;
+
+    .card-header {
+        background-color: $gray5;
+        text-align: center;
+
+        &:first-child {
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+        }
+    }
+
+    .card-body {
+        background-color: $orange;
+    }
+
+    .movie_item {
+        flex-basis: 49%;
+        margin-bottom: 20px;
+
+        img {
+            height: 200px;
+        }
+
+        .card-body {
+            background-color: $gray5;
+        }
+    }
+
+}
+
+.btns_block {
+    display: flex;
+    justify-content: space-between;
+}
+
+.like {
+    width: 38px;
+    height: 38px;
+    border: none;
+    border-radius: 5px;
+    background-color: $gray4;
+
 }
 
 .modal_overlay {
@@ -89,15 +252,58 @@ ul {
     justify-content: center;
     align-items: center;
     z-index: 100;
-    
+
     .my_modal {
-        background-color: $blue;
+        background-color: $gray5;
         padding: 20px;
         width: 90%;
-        max-width: 600px;
+        max-width: 800px;
         z-index: 101;
     }
+
+    .btn {
+        position: absolute;
+        top: -10px;
+        right: -10px;
+        background-color: $orange;
+        color: #FFFFFF;
+        width: auto;
+
+        &:hover {
+            background-color: lighten($orange, $amount: 10);
+            color: #000000;
+        }
+    }
+
+    .card {
+        flex-direction: row;
+    }
+
+    .card img {
+        width: 30%;
+    }
+
+    .short_desc {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .desc {
+        text-align: center;
+    }
+
+    .label {
+        font-weight: 600;
+        width: 100px;
+    }
+
+    .descriptions {
+        display: flex;
+        flex-direction: column;
+
+        .table {
+            flex-grow: 1;
+        }
+    }
+
 }
-
-
-
