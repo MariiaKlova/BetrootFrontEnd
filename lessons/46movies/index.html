@@ -18,14 +18,24 @@
             <div class="card-body">
                <form id="search_form" @submit.prevent="searchMovie">
                   <div class="row">
-                     <div class="col-8">
-                        <input type="search" class="form-control" placeholder="Enter movie title" v-model="search">
+                     <div class="col-7">
+                        <input type="search" class="form-control" placeholder="Enter movie title" v-model.trim="search">
                      </div>
-                     <div class="cheking col-2">
-                        <select class="form-select" v-for="select" in selected v-model="select">
+                     <div class="cheking col-3">
+                        <input type="radio" class="btn-check" name="options" value="" id="all_checked" autocomplete="off" checked v-model="select" >
+                        <label class="btn btn-outline-secondary" for="all_checked" >All</label>
+
+                        <input type="radio" class="btn-check" name="options" value="movie" id="movie" autocomplete="off" v-model="select">
+                        <label class="btn btn-outline-secondary" for="movie">Movie</label>
+
+                        <input type="radio" class="btn-check" name="options" value="series" id="series" autocomplete="off" v-model="select">
+                        <label class="btn btn-outline-secondary" for="series">Series</label>
+
+                        <!-- <select class="form-select" v-model="select">
+                           <option value="">All</option>
                            <option value="movie">Movie</option>
                            <option value="series">Serials</option>
-                        </select>
+                        </select> -->
                      </div>
                      <div class="col-2">
                         <button class="btn w-100" type="submit">Search</button>

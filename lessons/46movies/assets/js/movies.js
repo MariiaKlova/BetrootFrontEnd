@@ -20,8 +20,7 @@ const App = {
             movieList: [],
             movieInfo: {},
             showModal: false,
-            selected: ["movie", "series"],
-            select: "movie",
+            select: "",
             favorite: [],
             findFav: false,
             storage: {}
@@ -75,10 +74,13 @@ const App = {
             const index = this.movieList.findIndex((el) => el.imdbID === id)
             const index2 = this.favorite.findIndex((el) => el.imdbID === id)
             if (index2 === -1) {
-                this.favorite.push(this.movieList[index]);
+                let item = this.movieList[index]
+                item.inFav = true
+                this.favorite.push(item);
             } else {
                 this.favorite.splice(index2, 1)
             }
+
             localStorage.setItem("user_favorites", JSON.stringify(this.favorite));
         },
 
@@ -116,8 +118,6 @@ const App = {
         //         el.classList.add("none")
         //     }, 1000)
         // }
-
-
     }
 }
 Vue.createApp(App).mount('#app')
