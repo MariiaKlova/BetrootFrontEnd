@@ -2,181 +2,163 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="assets/styles/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/styles/style.min.css">
-    <title>Movies</title>
+   <link rel="stylesheet" href="assets/styles/bootstrap.min.css">
+   <link rel="stylesheet" href="assets/styles/style.min.css">
+   <title>Movies</title>
 </head>
 
 <body>
-    <div id="app">
-        <div class="container pt-4">
-            <div class="card search mb-4">
-                <div class="card-body">
-                    <form id="search_form" @submit.prevent="searchMovie">
-                        <div class="row">
-                            <div class="col-6">
-                                <input type="search" class="form-control" placeholder="Enter movie title"
-                                    v-model="search">
-                            </div>
-                            <div class="cheking col-4">
-                                <div class="form-check">
-                                    <input class="btn-check" type="checkbox" value="movie" id="movieCheck" checked>
-                                    <label class="btn btn-outline-danger" for="movieCheck">Movie</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="btn-check" type="checkbox" value="serials" id="serialsCheck" checked>
-                                    <label class="btn btn-outline-danger" for="serialsCheck">Serials</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="btn-check" type="checkbox" value="cartoon" id="cartoonCheck" checked>
-                                    <label class="btn btn-outline-danger" for="cartoonCheck">Cartoon</label>
-                                </div>
-                            </div>
-                            <div class="col-2">
-                                <button class="btn w-100" type="submit">Search</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+   <div id="app">
+      <div class="container pt-4">
+         <div class="card search mb-4">
+            <div class="card-body">
+               <form id="search_form" @submit.prevent="searchMovie">
+                  <div class="row">
+                     <div class="col-8">
+                        <input type="search" class="form-control" placeholder="Enter movie title" v-model="search">
+                     </div>
+                     <div class="cheking col-2">
+                        <select class="form-select" v-for="select" in selected v-model="select">
+                           <option value="movie">Movie</option>
+                           <option value="series">Serials</option>
+                        </select>
+                     </div>
+                     <div class="col-2">
+                        <button class="btn w-100" type="submit">Search</button>
+                     </div>
+                  </div>
+               </form>
             </div>
-            <div class="content">
-                <div class=" movie_list col-9">
-                    <div class="card-header">
-                        <h3>Movies list</h3>
-                    </div>
-                    <div class="card-body row">
-                        <template v-for="movie in movieListWithFavorites()" :key="movie.imdbID">
-                        <movie-item :movie="movie" @get-movie="getMovieInfo"  @add-to-favorite-list="addToFavoriteList"/>
-                    </template>
-                    </div>
-                    
-                    <!-- <div class="card-body row">  
-                        <div class="card movie_item" v-for="movie in movieListWithFavorites()" :key="movie.imdbID">
-                            <img :src="movie.Poster" class="card-img-top" :alt="movie.Title">
-                            <div class="card-body">
-                                <h6 class="card-title">{{movie.Title}}</h6>
-                                <div class="btns_block">
-                                    <button class="btn btn-primary" type="button"
-                                        @click="getMovieInfo(movie.imdbID)">Info</button>
-                                    <button class="btn like" @click="addToFavoriteList(movie.imdbID)">
-                                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
-                                            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 343.422 343.422">
-                                            <path :fill="movie.inFav ? '#f00' : '#fff' "
-                                                d="M254.791,33.251c-46.555,0-76.089,51.899-83.079,51.899c-6.111,0-34.438-51.899-83.082-51.899 c-47.314,0-85.947,39.021-88.476,86.27c-1.426,26.691,7.177,47.001,19.304,65.402c24.222,36.76,130.137,125.248,152.409,125.248 c22.753,0,127.713-88.17,152.095-125.247c12.154-18.483,20.731-38.711,19.304-65.402 C340.738,72.272,302.107,33.251,254.791,33.251" />
-                                        </svg>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
-                </div>
-                <div class=" favorites_list col-3">
-                    <div class="card-header">
-                        <h3>Favorites list</h3>
-                    </div>
-                    <div class="card-body row">
-                        <template v-for="movie in favorite" :key="movie.imdbID">
-                            <movie-item :movie="movie" @get-movie="getMovieInfo"  @add-to-favorite-list="addToFavoriteList"/>
-                    </template>
-                    </div>
-                    
-                    <!-- <div class="card-body row">
-                        <div class="card movie_item" v-for="movie in favorite" :key="movie.imdbID">
-                            <img :src="movie.Poster" class="card-img-top" :alt="movie.Title">
-                            <div class="card-body">
-                                <h6 class="card-title">{{movie.Title}}</h6>
-                                <div class="btns_block">
-                                    <button class="btn" type="button" @click="getMovieInfo(movie.imdbID)">Info</button>
-                                    <button class="btn like" @click="addToFavoriteList(movie.imdbID)">
-                                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
-                                            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                                            viewBox="0 0 343.422 343.422">
-                                            <path fill="#f00"
-                                                d="M254.791,33.251c-46.555,0-76.089,51.899-83.079,51.899c-6.111,0-34.438-51.899-83.082-51.899 c-47.314,0-85.947,39.021-88.476,86.27c-1.426,26.691,7.177,47.001,19.304,65.402c24.222,36.76,130.137,125.248,152.409,125.248 c22.753,0,127.713-88.17,152.095-125.247c12.154-18.483,20.731-38.711,19.304-65.402 C340.738,72.272,302.107,33.251,254.791,33.251" />
-                                        </svg>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
-                </div>
-            </div>
-        </div>
-        <div class="modal_overlay" v-if="showModal">
-            <div class="my_modal">
-                <div class="card">
-                    <img :src="movieInfo.Poster" class="card-img-top" :alt="movieInfo.Title">
-                    <div class="card-body">
-                        <div class="short_desc">
-                            <div class="title">
-                                <h5 class="card-title">{{movieInfo.Title}}</h5>
-                                <p>{{movieInfo.Rated}}</p>
-                            </div>
-                            <div class="desc">
-                                <h5>{{movieInfo.imdbRating}}</h5>
-                            </div>
-                        </div>
-                        <div class="descriptions">
-                            <table class="table">
-                                <tr>
-                                    <td class="label">Genre:</td>
-                                    <td>{{movieInfo.Genre}}</td>
-                                </tr>
-                                <tr>
-                                    <td class="label">Released:</td>
-                                    <td>{{movieInfo.Released}}</td>
-                                </tr>
-                                <tr>
-                                    <td class="label">Language:</td>
-                                    <td>{{movieInfo.Language}}</td>
-                                </tr>
-                                <tr>
-                                    <td class="label">Director:</td>
-                                    <td>{{movieInfo.Director}}</td>
-                                </tr>
-                                <tr>
-                                    <td class="label">Writer:</td>
-                                    <td>{{movieInfo.Writer}}</td>
-                                </tr>
-                                <tr>
-                                    <td class="label">Actors:</td>
-                                    <td>{{movieInfo.Actors}}</td>
-                                </tr>
-                            </table>
-                            <p class="card-text">{{movieInfo.Plot}}</p>
-                        </div>
-                    </div>
-                </div>
-                <button class="btn" type="button" @click="showModal = false">X</button>
-            </div>
-        </div>
-    </div>
-
-    <template id="movie_item">
-        
-            <div class="card movie_item">
-                <img :src="movie.Poster" class="card-img-top" :alt="movie.Title">
-                <div class="card-body">
-                    <h6 class="card-title">{{movie.Title}}</h6>
-                    <div class="btns_block">
+         </div>
+         <div class="content">
+            <div class=" movie_list col-9">
+               <div class="card-header">
+                  <h3>Movies list</h3>
+               </div>
+               <div class="card-body row">
+                  <!-- <div class="card movie_item" v-for="movie in movieListWithFavorites()" :key="movie.imdbID">
+                  <img :src="movie.Poster" class="card-img-top" :alt="movie.Title">
+                  <div class="card-body">
+                     <h6 class="card-title">{{movie.Title}}</h6>
+                     <div class="btns_block">
                         <button class="btn btn-primary" type="button" @click="getMovieInfo(movie.imdbID)">Info</button>
                         <button class="btn like" @click="addToFavoriteList(movie.imdbID)">
-                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
-                                xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                                viewBox="0 0 343.422 343.422">
-                                <path :fill="movie.inFav ? '#f00' : '#fff' "
-                                    d="M254.791,33.251c-46.555,0-76.089,51.899-83.079,51.899c-6.111,0-34.438-51.899-83.082-51.899 c-47.314,0-85.947,39.021-88.476,86.27c-1.426,26.691,7.177,47.001,19.304,65.402c24.222,36.76,130.137,125.248,152.409,125.248 c22.753,0,127.713-88.17,152.095-125.247c12.154-18.483,20.731-38.711,19.304-65.402 C340.738,72.272,302.107,33.251,254.791,33.251" />
-                            </svg>
+                           <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
+                              xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 343.422 343.422">
+                              <path :fill="movie.inFav ? '#f00' : '#fff' "
+                                 d="M254.791,33.251c-46.555,0-76.089,51.899-83.079,51.899c-6.111,0-34.438-51.899-83.082-51.899 c-47.314,0-85.947,39.021-88.476,86.27c-1.426,26.691,7.177,47.001,19.304,65.402c24.222,36.76,130.137,125.248,152.409,125.248 c22.753,0,127.713-88.17,152.095-125.247c12.154-18.483,20.731-38.711,19.304-65.402 C340.738,72.272,302.107,33.251,254.791,33.251" />
+                           </svg>
                         </button>
-                    </div>
-
-                </div>
+                     </div>
+                  </div>
+               </div> -->
+                  <template v-for="movie in movieListWithFavorites()" :key="movie.imdbID">
+                     <movie-item :movie="movie" @get-movie="getMovieInfo" @add-to-favorite-list="addToFavoriteList" />
+                  </template>
+               </div>
             </div>
-    </template>
+            <div class=" favorites_list col-3">
+               <div class="card-header">
+                  <h3>Favorites list</h3>
+               </div>
+               <div class="card-body row">
+                  <!-- <div class="card movie_item" v-for="movie in favorite" :key="movie.imdbID">
+							<img :src="movie.Poster" class="card-img-top" :alt="movie.Title">
+							<div class="card-body">
+								<h6 class="card-title">{{movie.Title}}</h6>
+								<div class="btns_block">
+									<button class="btn" type="button" @click="getMovieInfo(movie.imdbID)">Info</button>
+									<button class="btn like" @click="addToFavoriteList(movie.imdbID)">
+										<svg version="1.1" xmlns="http://www.w3.org/2000/svg"
+											xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+											viewBox="0 0 343.422 343.422">
+											<path fill="#f00"
+												d="M254.791,33.251c-46.555,0-76.089,51.899-83.079,51.899c-6.111,0-34.438-51.899-83.082-51.899 c-47.314,0-85.947,39.021-88.476,86.27c-1.426,26.691,7.177,47.001,19.304,65.402c24.222,36.76,130.137,125.248,152.409,125.248 c22.753,0,127.713-88.17,152.095-125.247c12.154-18.483,20.731-38.711,19.304-65.402 C340.738,72.272,302.107,33.251,254.791,33.251" />
+										</svg>
+									</button>
+								</div>
+							</div>
+						</div> -->
+                  <template v-for="movie in favorite" :key="movie.imdbID">
+                     <movie-item :movie="movie" @get-movie="getMovieInfo" @add-to-favorite-list="addToFavoriteList" />
+                  </template>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div id="modal_overlay" v-if="showModal">
+         <div class="my_modal">
+            <div class="card">
+               <img :src="movieInfo.Poster" class="card-img-top" :alt="movieInfo.Title">
+               <div class="card-body">
+                  <div class="short_desc">
+                     <div class="title">
+                        <h5 class="card-title">{{movieInfo.Title}}</h5>
+                        <p>{{movieInfo.Rated}}</p>
+                     </div>
+                     <div class="desc">
+                        <h5>{{movieInfo.imdbRating}}</h5>
+                     </div>
+                  </div>
+                  <div class="descriptions">
+                     <table class="table">
+                        <tr>
+                           <td class="label">Genre:</td>
+                           <td>{{movieInfo.Genre}}</td>
+                        </tr>
+                        <tr>
+                           <td class="label">Released:</td>
+                           <td>{{movieInfo.Released}}</td>
+                        </tr>
+                        <tr>
+                           <td class="label">Language:</td>
+                           <td>{{movieInfo.Language}}</td>
+                        </tr>
+                        <tr>
+                           <td class="label">Director:</td>
+                           <td>{{movieInfo.Director}}</td>
+                        </tr>
+                        <tr>
+                           <td class="label">Writer:</td>
+                           <td>{{movieInfo.Writer}}</td>
+                        </tr>
+                        <tr>
+                           <td class="label">Actors:</td>
+                           <td>{{movieInfo.Actors}}</td>
+                        </tr>
+                     </table>
+                     <p class="card-text">{{movieInfo.Plot}}</p>
+                  </div>
+               </div>
+            </div>
+            <button class="btn" type="button" @click="showModal = false">X</button>
+         </div>
+      </div>
+   </div>
+
+   <template id="movie_item">
+      <div class="card movie_item">
+         <img :src="movie.Poster" class="card-img-top" :alt="movie.Title">
+         <div class="card-body">
+            <h6 class="card-title">{{movie.Title}}</h6>
+            <div class="btns_block">
+               <button class="btn" type="button" @click="getMovieInfo(movie.imdbID)">Info</button>
+               <button class="btn like" @click="addToFavoriteList(movie.imdbID)">
+                  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                     x="0px" y="0px" viewBox="0 0 343.422 343.422">
+                     <path :fill="movie.inFav ? '#f00' : '#fff' "
+                        d="M254.791,33.251c-46.555,0-76.089,51.899-83.079,51.899c-6.111,0-34.438-51.899-83.082-51.899 c-47.314,0-85.947,39.021-88.476,86.27c-1.426,26.691,7.177,47.001,19.304,65.402c24.222,36.76,130.137,125.248,152.409,125.248 c22.753,0,127.713-88.17,152.095-125.247c12.154-18.483,20.731-38.711,19.304-65.402 C340.738,72.272,302.107,33.251,254.791,33.251" />
+                  </svg>
+               </button>
+            </div>
+
+         </div>
+      </div>
+   </template>
 
 </body>
 
