@@ -48,12 +48,19 @@ const App = {
                 axios
                     .get(`https://www.omdbapi.com/?apikey=${this.API_KEY}&s=${this.search}&type=${this.select}`)
                     .then(resp => {
-                        this.movieList = resp.data.Search;
-                        this.search = "";
+                        if (resp.data.Error) {
+                            this.showError(resp.data.Error);
+                        } else {
+                            this.movieList = resp.data.Search;
+                            this.search = "";
+                        }
                     })
                     .catch(error => {
-                        this.showError(error.code)
+                        this.showError(error.code);
+                        console.log(error.code);
                     })
+            } else {
+                this.showError('Enter movie title');
             }
         },
         showMovieInfo() {
@@ -96,28 +103,22 @@ const App = {
             return arr
         },
 
-        // showError(text) {
-        // let html = "";
-        // html += `
-        //     <div id="modal_overlay">
-        //         <div class="my_modal">
-        //             ${text}
-        //         </div>
-        //     </div>
-        //     `
-        // document.body.insertAdjacentHTML("afterbegin", html)
+        showError(text) {
+            let html = "";
+            html += `
+            <div id="err_modal" class="modal_overlay">
+                <div class="my_modal">
+                        <h3> ! ${text} !</h3>
+                </div>
+            </div>
+            `
+            document.body.insertAdjacentHTML("afterbegin", html)
 
-        // setTimeout(() {
-        //     if (document.getElementById('modal_overlay') !== null) {
-        //         document.getElementById('modal_overlay').remove();
-        //     }
-        // }, 1000)
-
-        //     setTimeout(() =>{
-        //         let el = document.querySelector("modal_overlay")
-        //         el.classList.add("none")
-        //     }, 1000)
-        // }
+            setTimeout(() => {
+                let el = document.querySelector("#err_modal")
+                el.remove()
+            }, 2000)
+        }
     }
 }
 Vue.createApp(App).mount('#app')
