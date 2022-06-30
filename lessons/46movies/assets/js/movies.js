@@ -108,7 +108,7 @@ const App = {
             html += `
             <div id="err_modal" class="modal_overlay">
                 <div class="my_modal">
-                        <h3> ! ${text} !</h3>
+                    <h3> ! ${text} !</h3>
                 </div>
             </div>
             `

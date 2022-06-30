@@ -103,7 +103,9 @@
       <div class="modal_overlay" v-if="showModal">
          <div class="my_modal">
             <div class="card">
-               <img :src="movieInfo.Poster" class="card-img-top" :alt="movieInfo.Title">
+               <!-- <img :src="movieInfo.Poster" class="card-img-top" :alt="movieInfo.Title"> -->
+               <img :src="movieInfo.Poster" class="card-img-top" :alt="movieInfo.Title" v-if="movieInfo.Poster !== 'N/A'">
+               <img src="assets/img/no-image.jpg" class="card-img-top" :alt="movieInfo.Title"  v-else>
                <div class="card-body">
                   <div class="short_desc">
                      <div class="title">
@@ -152,7 +154,8 @@
 
    <template id="movie_item">
       <div class="card movie_item">
-         <img :src="movie.Poster" class="card-img-top" :alt="movie.Title">
+         <img :src="movie.Poster" class="card-img-top" :alt="movie.Title" v-if="movie.Poster !== 'N/A'">
+         <img src="assets/img/no-image.jpg" class="card-img-top" :alt="movie.Title" v-else>
          <div class="card-body">
             <h6 class="card-title">{{movie.Title}}</h6>
             <div class="btns_block">
