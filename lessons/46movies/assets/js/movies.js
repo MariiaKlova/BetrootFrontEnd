@@ -12,6 +12,36 @@ const movieItem = {
     },
     template: "#movie_item"
 }
+
+const Pagination = {
+    props: {
+        page: {
+            type: Number,
+            default: 1,
+            required: true
+        },
+        total: {
+            type: Number,
+            default: 0,
+            required: true
+        }
+    },
+    methods: {
+        goToPage(new_page) {
+            this.$emit('goToPage', new_page)
+        }
+    },
+    // computed: {
+    //     from() {
+    //         return from
+    //     },
+    //     to() {
+    //         return to
+    //     }
+    // },
+    template: '#pagination'
+}
+
 const App = {
     data() {
         return {
@@ -19,11 +49,15 @@ const App = {
             search: 'Batman',
             movieList: [],
             movieInfo: {},
-            showModal: false,
-            select: "",
+            select: "", 
+            selectYear: "", 
             favorite: [],
             findFav: false,
-            storage: {}
+            page: 1,
+            totalPages: 0,
+            perPage: 10,
+            showModal: false,
+            toggleFavoriteList: false
         }
     },
     created() {
@@ -32,27 +66,33 @@ const App = {
             .then(resp => {
                 this.movieList = resp.data.Search;
             })
-        const local = localStorage.getItem("user_favorites")
-        this.storage = JSON.parse(local)
 
-        for (key in this.storage) {
-            this.favorite.push(this.storage[key])
-        }
+
+        // this.totalPages = Math.ceil(resp.data.totalResults / 10)
+        // document.getElementById('pagination').innerHTML = createPagination(totalPages, 1);
+        // createPagination(this.totalPages, this.page)
+
+
+        // const local = localStorage.getItem("user_favorites")
+        this.favorite = JSON.parse(localStorage.getItem("user_favorites")) || []
     },
     components: {
-        movieItem
+        movieItem,
+        Pagination
     },
     methods: {
         searchMovie() {
             if (this.search !== '') {
                 axios
-                    .get(`https://www.omdbapi.com/?apikey=${this.API_KEY}&s=${this.search}&type=${this.select}`)
+                    .get(`https://www.omdbapi.com/?apikey=${this.API_KEY}&s=${this.search}&y=${this.selectYear}&type=${this.select}&page=${this.page}`)
                     .then(resp => {
                         if (resp.data.Error) {
                             this.showError(resp.data.Error);
                         } else {
                             this.movieList = resp.data.Search;
-                            this.search = "";
+                            this.totalPages = Math.ceil(resp.data.totalResults / 10)
+
+                            // createPagination(this.totalPages, this.page)
                         }
                     })
                     .catch(error => {
@@ -62,6 +102,10 @@ const App = {
             } else {
                 this.showError('Enter movie title');
             }
+        },
+        goToPage(new_page) {
+            this.page = new_page;
+            this.searchMovie()
         },
         showMovieInfo() {
             this.showModal = true;
