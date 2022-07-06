@@ -16,7 +16,7 @@
       <div class="theme_wrapper" :class="{light_theme: lightTheme}">
          <div class="theme_switch">
             <button class="btn like" @click="toggleLightTheme()">
-               <img :src="lightTheme ? 'assets/img/moon.svg' : 'assets/img/sun.svg'">
+               <img :src="lightTheme ? 'assets/img/moon.svg' : 'assets/img/sun.svg'" alt="theme icon">
             </button>
          </div>
          <div class="container pt-4">
@@ -53,7 +53,7 @@
             <div class="content">
                <div class=" movie_list">
                   <div class="card-header">
-                     <h3>Movies list</h3>
+                     <h3 class="h3">Movies list</h3>
                   </div>
                   <div class="card-body row">
                      <template v-for="movie in movieListWithFavorites()" :key="movie.imdbID">
@@ -68,9 +68,9 @@
 
          <div class=" favorites_list" :class="{active: toggleFavoriteList}">
             <div class="card-header">
-               <button class="btn like" @click="toggleFavoriteList = !toggleFavoriteList"><img
-                     src="assets/img/like.svg"></button>
-               <h3>Favorites list</h3>
+               <button class="btn like" @click="toggleFavoriteList = !toggleFavoriteList" >
+                  <img src="assets/img/like.svg" alt="like icon"></button>
+               <div class="h3">Favorites list</div>
             </div>
             <div class="favorite_items">
                <div class="card-body row">
