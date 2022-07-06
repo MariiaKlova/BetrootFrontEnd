@@ -13,121 +13,129 @@
 
 <body>
    <div id="app">
-      <div class="container pt-4">
-         <h1 class="h1">Cringe site with movies</h1>
-         <div class="card search mb-4">
-            <div class="card-body">
-               <form id="search_form" @submit.prevent="searchMovie">
-                  <div class="row">
-                     <div class="col-5">
-                        <input type="search" class="form-control" placeholder="Enter movie title" v-model.trim="search">
+      <div class="theme_wrapper" :class="{light_theme: lightTheme}">
+         <div class="theme_switch">
+            <button class="btn like" @click="toggleLightTheme()">
+               <img :src="lightTheme ? 'assets/img/moon.svg' : 'assets/img/sun.svg'">
+            </button>
+         </div>
+         <div class="container pt-4">
+            <h1 class="h1">Cringe site with movies</h1>
+            <div class="card search mb-4">
+               <div class="card-body">
+                  <form id="search_form" @submit.prevent="searchMovie">
+                     <div class="row">
+                        <div class="col-5">
+                           <input type="search" class="form-control" placeholder="Enter movie title"
+                              v-model.trim="search">
+                        </div>
+                        <div class="col-2">
+                           <input type="number" class="form-control" placeholder="Enter year" v-model.trim="selectYear">
+                        </div>
+                        <div class="cheking col-3">
+                           <input type="radio" class="btn-check" name="options" value="" id="all_checked"
+                              autocomplete="off" checked v-model="select">
+                           <label class="btn btn-outline-secondary" for="all_checked">All</label>
+                           <input type="radio" class="btn-check" name="options" value="movie" id="movie"
+                              autocomplete="off" v-model="select">
+                           <label class="btn btn-outline-secondary" for="movie">Movie</label>
+                           <input type="radio" class="btn-check" name="options" value="series" id="series"
+                              autocomplete="off" v-model="select">
+                           <label class="btn btn-outline-secondary" for="series">Series</label>
+                        </div>
+                        <div class="col-2">
+                           <button class="btn w-100" type="submit">Search</button>
+                        </div>
                      </div>
-                     <div class="col-2">
-                        <input type="number" class="form-control" placeholder="Enter year" v-model.trim="selectYear">
-                     </div>
-                     <div class="cheking col-3">
-                        <input type="radio" class="btn-check" name="options" value="" id="all_checked"
-                           autocomplete="off" checked v-model="select">
-                        <label class="btn btn-outline-secondary" for="all_checked">All</label>
-                        <input type="radio" class="btn-check" name="options" value="movie" id="movie" autocomplete="off"
-                           v-model="select">
-                        <label class="btn btn-outline-secondary" for="movie">Movie</label>
-                        <input type="radio" class="btn-check" name="options" value="series" id="series"
-                           autocomplete="off" v-model="select">
-                        <label class="btn btn-outline-secondary" for="series">Series</label>
-                     </div>
-                     <div class="col-2">
-                        <button class="btn w-100" type="submit">Search</button>
-                     </div>
+                  </form>
+               </div>
+            </div>
+            <div class="content">
+               <div class=" movie_list">
+                  <div class="card-header">
+                     <h3>Movies list</h3>
                   </div>
-               </form>
+                  <div class="card-body row">
+                     <template v-for="movie in movieListWithFavorites()" :key="movie.imdbID">
+                        <movie-item :movie="movie" @get-movie="getMovieInfo"
+                           @add-to-favorite-list="addToFavoriteList" />
+                     </template>
+                  </div>
+                  <pagination :page="page" :total="totalPages" @go-to-page="goToPageMovies" />
+               </div>
             </div>
          </div>
-         <div class="content">
-            <div class=" movie_list">
-               <div class="card-header">
-                  <h3>Movies list</h3>
-               </div>
+
+         <div class=" favorites_list" :class="{active: toggleFavoriteList}">
+            <div class="card-header">
+               <button class="btn like" @click="toggleFavoriteList = !toggleFavoriteList"><img
+                     src="assets/img/like.svg"></button>
+               <h3>Favorites list</h3>
+            </div>
+            <div class="favorite_items">
                <div class="card-body row">
-                  <template v-for="movie in movieListWithFavorites()" :key="movie.imdbID">
+                  <template v-for="movie in favorite" :key="movie.imdbID">
                      <movie-item :movie="movie" @get-movie="getMovieInfo" @add-to-favorite-list="addToFavoriteList" />
                   </template>
                </div>
-               <pagination :page="page" :total="totalPages" @go-to-page="goToPage" />
             </div>
-         </div>
-      </div>
 
-      <div class=" favorites_list" :class="{active: toggleFavoriteList}">
-         <div class="card-header">
-            <button class="btn like" @click="toggleFavoriteList = !toggleFavoriteList"><img
-                  src="assets/img/like.svg"></button>
-            <h3>Favorites list</h3>
-         </div>
-         <div class="favorite_items">
-            <div class="card-body row">
-               <template v-for="movie in favorite" :key="movie.imdbID">
-                  <movie-item :movie="movie" @get-movie="getMovieInfo" @add-to-favorite-list="addToFavoriteList" />
-               </template>
-            </div>
          </div>
 
-      </div>
 
-
-      <div class="modal_overlay" v-if="showModal">
-         <div class="my_modal">
-            <div class="card">
-               <!-- <img :src="movieInfo.Poster" class="card-img-top" :alt="movieInfo.Title"> -->
-               <img :src="movieInfo.Poster" class="card-img-top" :alt="movieInfo.Title"
-                  v-if="movieInfo.Poster !== 'N/A'">
-               <img src="assets/img/no-image.jpg" class="card-img-top" :alt="movieInfo.Title" v-else>
-               <div class="card-body">
-                  <div class="short_desc">
-                     <div class="title">
-                        <h5 class="card-title">{{movieInfo.Title}}</h5>
-                        <p>{{movieInfo.Rated}}</p>
+         <div class="modal_overlay" v-if="showModal">
+            <div class="my_modal">
+               <div class="card">
+                  <!-- <img :src="movieInfo.Poster" class="card-img-top" :alt="movieInfo.Title"> -->
+                  <img :src="movieInfo.Poster" class="card-img-top" :alt="movieInfo.Title"
+                     v-if="movieInfo.Poster !== 'N/A'">
+                  <img src="assets/img/no-image.jpg" class="card-img-top" :alt="movieInfo.Title" v-else>
+                  <div class="card-body">
+                     <div class="short_desc">
+                        <div class="title">
+                           <h5 class="card-title">{{movieInfo.Title}}</h5>
+                           <p>{{movieInfo.Rated}}</p>
+                        </div>
+                        <div class="desc">
+                           <h5>{{movieInfo.imdbRating}}</h5>
+                        </div>
                      </div>
-                     <div class="desc">
-                        <h5>{{movieInfo.imdbRating}}</h5>
+                     <div class="descriptions">
+                        <table class="table">
+                           <tr>
+                              <td class="label">Genre:</td>
+                              <td>{{movieInfo.Genre}}</td>
+                           </tr>
+                           <tr>
+                              <td class="label">Released:</td>
+                              <td>{{movieInfo.Released}}</td>
+                           </tr>
+                           <tr>
+                              <td class="label">Language:</td>
+                              <td>{{movieInfo.Language}}</td>
+                           </tr>
+                           <tr>
+                              <td class="label">Director:</td>
+                              <td>{{movieInfo.Director}}</td>
+                           </tr>
+                           <tr>
+                              <td class="label">Writer:</td>
+                              <td>{{movieInfo.Writer}}</td>
+                           </tr>
+                           <tr>
+                              <td class="label">Actors:</td>
+                              <td>{{movieInfo.Actors}}</td>
+                           </tr>
+                        </table>
+                        <p class="card-text">{{movieInfo.Plot}}</p>
                      </div>
-                  </div>
-                  <div class="descriptions">
-                     <table class="table">
-                        <tr>
-                           <td class="label">Genre:</td>
-                           <td>{{movieInfo.Genre}}</td>
-                        </tr>
-                        <tr>
-                           <td class="label">Released:</td>
-                           <td>{{movieInfo.Released}}</td>
-                        </tr>
-                        <tr>
-                           <td class="label">Language:</td>
-                           <td>{{movieInfo.Language}}</td>
-                        </tr>
-                        <tr>
-                           <td class="label">Director:</td>
-                           <td>{{movieInfo.Director}}</td>
-                        </tr>
-                        <tr>
-                           <td class="label">Writer:</td>
-                           <td>{{movieInfo.Writer}}</td>
-                        </tr>
-                        <tr>
-                           <td class="label">Actors:</td>
-                           <td>{{movieInfo.Actors}}</td>
-                        </tr>
-                     </table>
-                     <p class="card-text">{{movieInfo.Plot}}</p>
                   </div>
                </div>
+               <button class="btn" type="button" @click="showModal = false">X</button>
             </div>
-            <button class="btn" type="button" @click="showModal = false">X</button>
          </div>
       </div>
    </div>
-
    <template id="movie_item">
       <div class="card movie_item">
          <img :src="movie.Poster" class="card-img-top" :alt="movie.Title" v-if="movie.Poster !== 'N/A'">
@@ -152,26 +160,60 @@
    <template id="pagination">
       <nav aria-label="Page navigation example" v-if="total !== 0">
          <ul class="pagination">
+
             <li class="page-item" :class="{disabled: page === 1}">
                <a class="page-link" href="#" @click.prevent="goToPage(page-1)">Previous</a>
             </li>
-
-            <template v-if="page-5">
-               <li class="page-item" :class="{active: p === page}">
-                  <a class="page-link" href="#" @click.prevent="goToPage(1)">1</a>
-               </li>
-               <li class="page-item" :class="{active: p === page}">
-                  <a class="page-link">...</a>
+            <!-- Якщо всього сторінок менше 5 -->
+            <template v-if="total <= 5">
+               <li class="page-item" :class="{active: p === page}" v-for="p in total" :key="p">
+                  <a class="page-link" href="#" @click.prevent="goToPage(p)">{{ p }}</a>
                </li>
             </template>
 
-            <li class="page-item" :class="{active: p === page}" v-for="p in 5" :key="p">
-               <a class="page-link" href="#" @click.prevent="goToPage(p)">{{ p }}</a>
-            </li>
+            <template v-else>
+               <!-- Якщо поточна сторінка до 5 -->
+               <template v-if="page >= 5">
+                  <li class="page-item" :class="{active: p === page}">
+                     <a class="page-link" href="#" @click.prevent="goToPage(1)">1</a>
+                  </li>
+                  <li class="page-item" :class="{active: p === page}">
+                     <a class="page-link">...</a>
+                  </li>
+               </template>
+               <!-- Якщо поточна сторінка далі 5 -->
+               <template v-if="page < 5">
+                  <li class="page-item" :class="{active: p === page}" v-for="p in 5" :key="p">
+                     <a class="page-link" href="#" @click.prevent="goToPage(p)">{{ p }}</a>
+                  </li>
+               </template>
+               <!-- Якщо поточна сторінка далі 5 і не останні 5 -->
+               <template v-if="page >= 5 && page < total-4">
+                  <li class="page-item" :class="{active: p === page}" v-for="p in arr" :key="p">
+                     <a class="page-link" href="#" @click.prevent="goToPage(p)">{{ p }}</a>
+                  </li>
+               </template>
+               <!-- Якщо поточна сторінка далі за останні 5 -->
+               <template v-if="page > total-4">
+                  <li class="page-item" :class="{active: p === page}" v-for="p in arrEnd" :key="p">
+                     <a class="page-link" href="#" @click.prevent="goToPage(p)">{{ p }}</a>
+                  </li>
+               </template>
+               <!-- Якщо поточна сторінка до останніх 5 -->
+               <template v-if="page <= total - 4">
+                  <li class="page-item" :class="{active: p === page}">
+                     <a class="page-link">...</a>
+                  </li>
+                  <li class="page-item" :class="{active: p === page}">
+                     <a class="page-link" href="#" @click.prevent="goToPage(total)">{{ total }}</a>
+                  </li>
+               </template>
+            </template>
 
             <li class="page-item" :class="{disabled: page === total}">
                <a class="page-link" href="#" @click.prevent="goToPage(page+1)">Next</a>
             </li>
+
          </ul>
       </nav>
    </template>

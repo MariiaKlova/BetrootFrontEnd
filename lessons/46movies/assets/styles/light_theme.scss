@@ -1,0 +1,95 @@
+$black: #000000;
+$white: #FFFFFF;
+$gray1: #333333;
+$gray2: #434343;
+$gray3: #666666;
+$gray4: #B7B7B7;
+$gray5: #DFDFDF;
+
+$blue: #307FE2;
+$gold: #FAE03C;
+$orange: #f26739;
+
+$colorText: $gray5;
+$colorMaim: $gold;
+$colorExtra: $blue;
+
+$fontMain: 'Raleway',
+sans-serif;
+$fontExtra: 'Roboto',
+sans-serif;
+$fontSizeMain: 14px;
+$fontSizeExtra: 24px;
+
+
+.theme_wrapper {
+    &.light_theme {
+        background-color: $gray5;
+        color: $gray1;
+
+        .theme_switch {
+            .like {
+                background-color: $gray1; 
+                &:hover{
+                    background-color: $orange;
+                }
+            }
+        }
+        .h1 {
+            color: $gray1;
+        }
+
+        .search {
+            background-color: $orange;
+        }
+
+
+        .movie_list {
+            .card-header {
+                background-color: $orange;
+            }
+
+            .card-body {
+                background-color: $white;
+            }
+
+            .movie_item {
+                .card-body {
+                    background-color: $gray5;
+                }
+            }
+        }
+
+        .favorites_list {
+            .card-header {
+                background-color: $gray1;
+                color: $gray5;
+
+                .like {
+                    background-color: $gray1;
+
+                    &:hover {
+                        background-color: $orange;
+                    }
+                }
+            }
+
+            .card-body {
+                background-color: $orange;
+            }
+
+            .movie_item {
+                .card-body {
+                    background-color: $white;
+                }
+            }
+        }
+    }
+
+    .pagination {
+        .page-item.disabled .page-link {
+            background-color: $gray4;
+            border-color: $gray4;
+        }
+    }
+}

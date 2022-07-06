@@ -31,14 +31,27 @@ const Pagination = {
             this.$emit('goToPage', new_page)
         }
     },
-    // computed: {
-    //     from() {
-    //         return from
-    //     },
-    //     to() {
-    //         return to
-    //     }
-    // },
+    computed: {
+        // from() {
+        //     return this.page > 2 ? this.page - 2 : 1;
+        // },
+        // to() {
+        //     return this.page < this.total - 2 ? this.page + 2 : this.total;
+        // },
+        // array() {
+        //     return Array.from(Array(this.to + 1).keys()).slice(this.from);
+        // },
+        arr() {
+            return Array.from({
+                length: 5
+            }, (_, index) => index + this.page - 2);
+        },
+        arrEnd() {
+            return Array.from({
+                length: 5
+            }, (_, index) => index + this.total - 4);
+        }
+    },
     template: '#pagination'
 }
 
@@ -46,35 +59,31 @@ const App = {
     data() {
         return {
             API_KEY: '24b1cf11',
-            search: 'Batman',
+            search: 'The Lord of the Rings',
             movieList: [],
             movieInfo: {},
-            select: "", 
-            selectYear: "", 
+            select: "",
+            selectYear: "",
             favorite: [],
             findFav: false,
             page: 1,
             totalPages: 0,
             perPage: 10,
             showModal: false,
-            toggleFavoriteList: false
+            toggleFavoriteList: false,
+            lightTheme: false,
         }
     },
     created() {
         axios
-            .get(`https://www.omdbapi.com/?apikey=${this.API_KEY}&s=2022`)
+            .get(`https://www.omdbapi.com/?apikey=${this.API_KEY}&s=The Lord of the Rings&page=${this.page}`)
             .then(resp => {
                 this.movieList = resp.data.Search;
+                this.totalPages = Math.ceil(resp.data.totalResults / 10)
             })
-
-
-        // this.totalPages = Math.ceil(resp.data.totalResults / 10)
-        // document.getElementById('pagination').innerHTML = createPagination(totalPages, 1);
-        // createPagination(this.totalPages, this.page)
-
-
-        // const local = localStorage.getItem("user_favorites")
-        this.favorite = JSON.parse(localStorage.getItem("user_favorites")) || []
+        this.favorite = JSON.parse(localStorage.getItem("user_favorites")) || [];
+        this.lightTheme = (this.getCookie('theme')==='true');
+        // console.log(this.lightTheme);
     },
     components: {
         movieItem,
@@ -91,8 +100,6 @@ const App = {
                         } else {
                             this.movieList = resp.data.Search;
                             this.totalPages = Math.ceil(resp.data.totalResults / 10)
-
-                            // createPagination(this.totalPages, this.page)
                         }
                     })
                     .catch(error => {
@@ -103,7 +110,7 @@ const App = {
                 this.showError('Enter movie title');
             }
         },
-        goToPage(new_page) {
+        goToPageMovies(new_page) {
             this.page = new_page;
             this.searchMovie()
         },
@@ -135,6 +142,13 @@ const App = {
             localStorage.setItem("user_favorites", JSON.stringify(this.favorite));
         },
 
+        toggleLightTheme() {
+            this.lightTheme = !this.lightTheme;
+            // document.cookie = encodeURIComponent('theme') + '=' + encodeURIComponent(lightTheme);
+            // document.cookie = "theme = " + lightTheme + ";";
+            this.createCookie('theme', this.lightTheme, 30)
+        },
+
         movieListWithFavorites() {
             let arr = []
             this.movieList.forEach(el => {
@@ -162,6 +176,33 @@ const App = {
                 let el = document.querySelector("#err_modal")
                 el.remove()
             }, 2000)
+        },
+
+        createCookie(name, value, days) {
+            let expires;
+            if (days) {
+                var date = new Date();
+                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                expires = "; expires=" + date.toGMTString();
+            } else {
+                expires = "";
+            }
+            document.cookie = name + "=" + value + expires + "; path=/";
+        },
+
+        getCookie(c_name) {
+            if (document.cookie.length > 0) {
+                c_start = document.cookie.indexOf(c_name + "=");
+                if (c_start != -1) {
+                    c_start = c_start + c_name.length + 1;
+                    c_end = document.cookie.indexOf(";", c_start);
+                    if (c_end == -1) {
+                        c_end = document.cookie.length;
+                    }
+                    return unescape(document.cookie.substring(c_start, c_end));
+                }
+            }
+            return "";
         }
     }
 }
