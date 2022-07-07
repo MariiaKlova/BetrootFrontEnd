@@ -1,26 +1,4 @@
-$black: #000000;
-$white: #FFFFFF;
-$gray1: #333333;
-$gray2: #434343;
-$gray3: #666666;
-$gray4: #B7B7B7;
-$gray5: #DFDFDF;
-
-$blue: #307FE2;
-$gold: #FAE03C;
-$orange: #f26739;
-
-$colorText: $gray5;
-$colorMaim: $gold;
-$colorExtra: $blue;
-
-$fontMain: 'Raleway',
-sans-serif;
-$fontExtra: 'Roboto',
-sans-serif;
-$fontSizeMain: 14px;
-$fontSizeExtra: 24px;
-
+@import 'variables';
 
 .theme_wrapper {
     &.light_theme {

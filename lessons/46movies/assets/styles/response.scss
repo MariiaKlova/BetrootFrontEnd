@@ -1,0 +1,154 @@
+@import 'variables';
+
+@media screen and (max-width: 1100px) {
+    .h1 {
+        font-size: 50px;
+    }
+
+    .movie_list {
+        .movie_item {
+            flex-basis: 45%;
+        }
+    }
+}
+
+@media screen and (max-width: 769px) {
+    .h1 {
+        font-size: 36px;
+    }
+
+    .container {
+        width: 100%;
+    }
+
+    #search_form {
+        .row {
+            flex-direction: column;
+
+            .search_item {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+        }
+    }
+
+    .theme_switch {
+        .like {
+            height: 40px;
+            width: 40px;
+            top: 0;
+        }
+    }
+
+    .movie_list {
+        .movie_item {
+            flex-basis: 49%;
+
+            img {
+                height: 380px;
+            }
+        }
+    }
+
+    .favorites_list {
+        max-width: 100%;
+        top: 45px;
+
+        .card-header {
+            max-height: 40px;
+
+            .like {
+                left: -56px;
+                height: 40px;
+                width: 40px;
+                left: -40px;
+            }
+        }
+
+        .movie_item {
+            flex-basis: 49%;
+
+            img {
+                height: 340px;
+            }
+        }
+
+        &.active {
+            top: 0;
+            transform: translateX(0);
+
+            .like {
+                left: 0px;
+            }
+        }
+    }
+
+
+    .modal_overlay {
+        .my_modal {
+            background-color: $gray5;
+            padding: 10px;
+            width: 100%;
+            max-height: 100%;
+            overflow: auto;
+            z-index: 101;
+        }
+
+        .card {
+            width: 100%;
+        }
+
+        .card-body {
+            width: 100%;
+        }
+
+        .btn {
+            right: 0px;
+            right: 0px;
+        }
+
+        .image_wrap {
+            display: none;
+        }
+
+        .image_wrap_for_mobile {
+            display: flex;
+            align-items: center;
+            width: 200px;
+            margin-right: 20px;
+            margin-bottom: 20px;
+        }
+    }
+
+    .rating_block {
+        li {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 0px;
+        }
+    }
+
+}
+
+@media screen and (max-width: 481px) {
+    .h1 {
+        font-size: 28px;
+    }
+
+    .movie_list {
+        .movie_item {
+            flex-basis: 100%;
+
+            img {
+                height: 380px;
+            }
+        }
+    }
+
+    .favorites_list {
+        .movie_item {
+            flex-basis: 100%;
+        }
+    }
+}
