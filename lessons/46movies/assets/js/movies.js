@@ -55,6 +55,33 @@ const Pagination = {
     template: '#pagination'
 }
 
+const Rating = {
+    props: {
+        source: {
+            type: String,
+            default: '',
+        },
+        value: {
+            type: String,
+            default: '',
+        },
+    },
+    computed: {
+        width() {
+            let per = parseFloat(this.value)
+            if (this.source === 'Internet Movie Database') {
+                per = parseFloat(this.value) * 10
+            }
+            return { width: `${100-per}%`};
+
+            //* var2 ↓
+            // const per = parseInt(eval(this.value.replace("%","/100"))*100);
+            // return parseFloat(per);
+        }
+    },
+    template: '#rating'
+}
+
 const App = {
     data() {
         return {
@@ -82,12 +109,13 @@ const App = {
                 this.totalPages = Math.ceil(resp.data.totalResults / 10)
             })
         this.favorite = JSON.parse(localStorage.getItem("user_favorites")) || [];
-        this.lightTheme = (this.getCookie('theme')==='true');
+        this.lightTheme = (this.getCookie('theme') === 'true');
         // console.log(this.lightTheme);
     },
     components: {
         movieItem,
-        Pagination
+        Pagination,
+        Rating
     },
     methods: {
         searchMovie() {

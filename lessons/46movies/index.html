@@ -20,19 +20,19 @@
             </button>
          </div>
          <div class="container pt-4">
-            <h1 class="h1">Cringe site with movies</h1>
+            <h1 class="h1">Cringe search engine</h1>
             <div class="card search mb-4">
                <div class="card-body">
                   <form id="search_form" @submit.prevent="searchMovie">
                      <div class="row">
-                        <div class="col-5">
+                        <div class="search_item col-4">
                            <input type="search" class="form-control" placeholder="Enter movie title"
                               v-model.trim="search">
                         </div>
-                        <div class="col-2">
+                        <div class="search_item col-2">
                            <input type="number" class="form-control" placeholder="Enter year" v-model.trim="selectYear">
                         </div>
-                        <div class="cheking col-3">
+                        <div class="search_item cheking col-4">
                            <input type="radio" class="btn-check" name="options" value="" id="all_checked"
                               autocomplete="off" checked v-model="select">
                            <label class="btn btn-outline-secondary" for="all_checked">All</label>
@@ -43,7 +43,7 @@
                               autocomplete="off" v-model="select">
                            <label class="btn btn-outline-secondary" for="series">Series</label>
                         </div>
-                        <div class="col-2">
+                        <div class="search_item col-2">
                            <button class="btn w-100" type="submit">Search</button>
                         </div>
                      </div>
@@ -68,7 +68,7 @@
 
          <div class=" favorites_list" :class="{active: toggleFavoriteList}">
             <div class="card-header">
-               <button class="btn like" @click="toggleFavoriteList = !toggleFavoriteList" >
+               <button class="btn like" @click="toggleFavoriteList = !toggleFavoriteList">
                   <img src="assets/img/like.svg" alt="like icon"></button>
                <div class="h3">Favorites list</div>
             </div>
@@ -82,22 +82,32 @@
 
          </div>
 
-
          <div class="modal_overlay" v-if="showModal">
             <div class="my_modal">
                <div class="card">
-                  <!-- <img :src="movieInfo.Poster" class="card-img-top" :alt="movieInfo.Title"> -->
-                  <img :src="movieInfo.Poster" class="card-img-top" :alt="movieInfo.Title"
-                     v-if="movieInfo.Poster !== 'N/A'">
-                  <img src="assets/img/no-image.jpg" class="card-img-top" :alt="movieInfo.Title" v-else>
+                  <div class="image_wrap">
+                     <!-- <img :src="movieInfo.Poster" class="card-img-top" :alt="movieInfo.Title"> -->
+                     <img :src="movieInfo.Poster" class="card-img-top" :alt="movieInfo.Title"
+                        v-if="movieInfo.Poster !== 'N/A'">
+                     <img src="assets/img/no-image.jpg" class="card-img-top" :alt="movieInfo.Title" v-else>
+                  </div>
+
                   <div class="card-body">
                      <div class="short_desc">
+                        <div class="image_wrap_for_mobile">
+                           <!-- <img :src="movieInfo.Poster" class="card-img-top" :alt="movieInfo.Title"> -->
+                           <img :src="movieInfo.Poster" class="card-img-top" :alt="movieInfo.Title"
+                              v-if="movieInfo.Poster !== 'N/A'">
+                           <img src="assets/img/no-image.jpg" class="card-img-top" :alt="movieInfo.Title" v-else>
+                        </div>
                         <div class="title">
                            <h5 class="card-title">{{movieInfo.Title}}</h5>
-                           <p>{{movieInfo.Rated}}</p>
-                        </div>
-                        <div class="desc">
-                           <h5>{{movieInfo.imdbRating}}</h5>
+                           <!-- <div>{{movieInfo.Ratings}}</div> -->
+                           <ul class="rating_block">
+                              <template v-for="rating in movieInfo.Ratings" :key="rating.Source">
+                                 <rating :source="rating.Source" :value="rating.Value" />
+                              </template>
+                           </ul>
                         </div>
                      </div>
                      <div class="descriptions">
@@ -157,12 +167,28 @@
       </div>
    </template>
 
+   <template id="rating">
+      <li>
+         <div class="rating_desh">
+            <span class="rating_line">
+               <span class="per_cover" :style="width"></span>
+            </span>
+         </div>
+         <div class="rating_desc">
+            <div class="rating_value">{{value}} </div>
+            <div class="rating_source"> {{source}}</div>
+         </div>
+
+
+      </li>
+   </template>
+
    <template id="pagination">
       <nav aria-label="Page navigation example" v-if="total !== 0">
          <ul class="pagination">
 
             <li class="page-item" :class="{disabled: page === 1}">
-               <a class="page-link" href="#" @click.prevent="goToPage(page-1)">Previous</a>
+               <a class="page-link" href="#" @click.prevent="goToPage(page-1)">&#8249;</a>
             </li>
             <!-- Якщо всього сторінок менше 5 -->
             <template v-if="total <= 5">
@@ -211,7 +237,7 @@
             </template>
 
             <li class="page-item" :class="{disabled: page === total}">
-               <a class="page-link" href="#" @click.prevent="goToPage(page+1)">Next</a>
+               <a class="page-link" href="#" @click.prevent="goToPage(page+1)">&#8250;</a>
             </li>
 
          </ul>
