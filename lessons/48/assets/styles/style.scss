@@ -1,0 +1,497 @@
+@import 'variables';
+
+*,
+*::before,
+*::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    position: relative;
+}
+
+html,
+body,
+.theme_wrapper {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    font-family: $fontMain;
+    font-size: $fontSizeMain;
+    line-height: 1.5rem;
+}
+
+.theme_wrapper {
+    background-color: $gray1;
+    color: $gray1;
+    width: 100%;
+    min-height: 100vh;
+}
+
+.theme_switch {
+    .like {
+        transition: all .2s ease;
+        position: fixed;
+        top: 5px;
+        right: 0px;
+        height: 60px;
+        width: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: $gray6;
+        box-shadow: none;
+        z-index: 10;
+
+        &:hover {
+            background-color: $orange;
+        }
+
+        img {
+            width: 20px;
+            height: 20px;
+        }
+    }
+}
+
+img {
+    width: 100%;
+    object-fit: cover;
+    vertical-align: top;
+}
+
+a,
+button {
+    transition: all .2s ease;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.btn {
+    background-color: $orange;
+    width: 50%;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+.container {
+    width: 90%;
+    max-width: 1600px;
+    margin: 0px auto;
+}
+
+.content {
+    display: flex;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.h1 {
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 74px;
+    text-align: center;
+    color: $gray4;
+    margin-bottom: 20px;
+}
+
+.h3 {
+    // line-height: 60px;
+    margin-bottom: 0;
+}
+
+h5 {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.search {
+    background-color: $orange;
+
+    .btn {
+        background-color: $gray5;
+
+        &:hover {
+            color: #fff;
+            background-color: #6c757d;
+            border-color: #6c757d;
+        }
+    }
+}
+
+.cheking {
+    display: flex;
+    justify-content: space-between;
+
+    .btn {
+        width: 100px;
+
+        &:active,
+        &:focus {
+            background-color: $gray2;
+        }
+    }
+}
+
+.movie_list,
+.favorites_list {
+    .row {
+        justify-content: space-around;
+        --bs-gutter-x: 0;
+
+        .movie_item {
+            padding-right: 0;
+            padding-left: 0;
+        }
+
+        .card-body {
+            display: flex;
+            flex-direction: column;
+
+            .card-title {
+                flex-grow: 1;
+            }
+
+        }
+    }
+
+}
+
+.movie_list {
+    width: 100%;
+
+    .card-header {
+        background-color: $orange;
+        text-align: center;
+    }
+
+    .card-body {
+        background-color: $gray5;
+    }
+
+    .movie_item {
+        flex-basis: 19%;
+        margin-bottom: 20px;
+        border: 1px solid $gray4;
+
+        img {
+            width: 100%;
+            height: 320px;
+        }
+
+        .card-body {
+            width: 100%;
+            background-color: #fff;
+            text-align: center;
+        }
+
+        .btn {
+            &:hover {
+                background-color: lighten($orange, $amount: 10);
+            }
+        }
+    }
+}
+
+.favorites_list {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    height: 90%;
+    max-width: 50%;
+    top: 70px;
+    right: 0;
+    transition: all .4s ease;
+    transform: translateX(100%);
+
+    .favorite_items {
+        overflow: auto;
+    }
+
+    .card-header {
+        background-color: $gray5;
+        text-align: center;
+        transition: all .2s ease;
+        padding: auto 0;
+        height: 100%;
+        max-height: 60px;
+        z-index: 9;
+
+        .like {
+            transition: all .2s ease;
+            position: absolute;
+            z-index: 10;
+            top: 0;
+            left: -60px;
+            height: 60px;
+            width: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: $gray6;
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+            box-shadow: none;
+
+            &:hover {
+                background-color: $orange;
+            }
+
+            img {
+                width: 20px;
+                height: 20px;
+            }
+        }
+    }
+
+    &.active {
+        transform: translateX(0);
+
+        .favorite_items {
+            box-shadow: -10px 10px 20px #000000;
+        }
+
+    }
+
+    .card-body {
+        background-color: $orange;
+    }
+
+    .movie_item {
+        width: 200px;
+        margin-bottom: 20px;
+
+        img {
+            height: 240px;
+        }
+
+        .card-body {
+            background-color: $white;
+        }
+    }
+
+}
+
+.btns_block {
+    display: flex;
+    justify-content: space-between;
+}
+
+.like {
+    width: 38px;
+    height: 38px;
+    border: none;
+    border-radius: 5px;
+    background-color: $gray6;
+
+}
+
+.modal_overlay {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($gray2, .7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+
+    .my_modal {
+        background-color: $gray5;
+        padding: 10px;
+        width: 90%;
+        max-width: 1000px;
+        z-index: 101;
+    }
+
+    .btn {
+        position: absolute;
+        top: -10px;
+        right: -10px;
+        background-color: $orange;
+        color: #FFFFFF;
+        width: auto;
+
+        &:hover {
+            background-color: lighten($orange, $amount: 10);
+            color: #000000;
+        }
+    }
+
+    .card {
+        flex-direction: row;
+    }
+
+    .image_wrap {
+        width: 40%;
+        display: flex;
+        align-items: center;
+        padding-left: 10px;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    .image_wrap_for_mobile {
+        display: none;
+    }
+
+    .short_desc {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .desc {
+        white-space: nowrap;
+        text-align: center;
+    }
+
+    .label {
+        font-weight: 600;
+        width: 100px;
+    }
+
+    .descriptions {
+        display: flex;
+        flex-direction: column;
+
+        .table {
+            flex-grow: 1;
+        }
+    }
+
+}
+
+.rating_block {
+    padding-left: 0;
+
+    li {
+        width: 100%;
+        display: flex;
+        gap: 10px;
+    }
+
+    .rating_value {
+        width: 50px;
+    }
+}
+
+.rating_desc{
+    display: flex;
+}
+
+.rating_line,
+.per_cover {
+    display: inline-block;
+    height: 10px;
+}
+
+.rating_line {
+    z-index: 1;
+    width: 150px;
+    border-radius: 5px;
+    background: linear-gradient(90deg, rgba(255, 0, 0, 1) 0%, rgba(189, 189, 0, 1) 50%, rgba(0, 255, 0, 1) 100%);
+}
+
+.per_cover {
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: $gray4;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+
+}
+
+#err_modal {
+
+    align-items: flex-start;
+
+    .my_modal {
+        width: 100%;
+        max-width: 100vw;
+        background-color: $orange;
+        color: $white;
+        animation: spin 2s ease;
+    }
+
+    .card {
+        padding: 10px;
+    }
+
+    h3 {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+.pagination {
+    margin-top: 10px;
+
+    .page-link {
+        color: $gray1;
+        text-decoration: none;
+        outline: none;
+
+        &:hover {
+            background-color: lighten($orange, $amount: 10);
+            border-color: lighten($orange, $amount: 10);
+        }
+
+        &:focus {
+            box-shadow: none;
+        }
+    }
+
+    .page-item.disabled .page-link {
+        background-color: $gray5;
+        border-color: $gray5;
+    }
+
+    .page-item.active .page-link {
+        background-color: $orange;
+        border-color: $orange;
+    }
+}
+
+@keyframes spin {
+    from {
+        top: -100px;
+    }
+
+    10% {
+        top: 0px;
+    }
+
+    90% {
+        top: 0px;
+    }
+
+    to {
+        top: -100px;
+    }
+}
+
+@import 'response';
+@import "light_theme";
