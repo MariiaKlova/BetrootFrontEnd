@@ -19,7 +19,7 @@ const routes = [{
     path: '/works',
     name: 'Works',
     component: () => import('../views/Works.vue')
-  }
+  },
   // {
   //   path: '/teams',
   //   name: 'Our Team',
@@ -34,7 +34,17 @@ const routes = [{
   //   path: '/download',
   //   name: 'Download',
   //   component: () => import('../views/Download.vue')
-  // }
+  // },
+  {
+    path: '/blog',
+    name: 'Blog',
+    component: () => import('../views/blog/List.vue'),
+    children: [{
+      path: ':id',
+      name: 'BlogOne',
+      component: () => import('../views/blog/One.vue')
+    }]
+  }
 ]
 
 const router = createRouter({
