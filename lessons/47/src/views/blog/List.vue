@@ -1,21 +1,20 @@
 <template>
     <div>
-        <h1>{{ title }}</h1>
+        <h1>Blog</h1>
     </div>
 </template>
 
 <script>
 
 export default {
-    name: "BlogOne",
-    // components: { BlogList }
+    name: "BlogList",
     data(){
         return {
-            title: 'One',
+            title: '',
         }
     },
     created(){
-        //TODO get one article
+        //TODO axios get
     }
 }
 </script>

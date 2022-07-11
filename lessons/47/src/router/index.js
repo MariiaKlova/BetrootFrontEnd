@@ -35,15 +35,24 @@ const routes = [{
   //   name: 'Download',
   //   component: () => import('../views/Download.vue')
   // },
+
+  // = Далі ↓ сторінка блогу в якому будуть окремі статті всередині
+  //* Blog - батьківський
   {
     path: '/blog',
     name: 'Blog',
     component: () => import('../views/blog/List.vue'),
-    children: [{
-      path: ':id',
-      name: 'BlogOne',
-      component: () => import('../views/blog/One.vue')
-    }]
+    // children: [{
+    //   path: ':id',
+    //   name: 'BlogOne',
+    //   component: () => import('../views/blog/One.vue')
+    // }]
+  }, 
+  //* BlogOne - дочірній єлемент в секредені Blog.
+  { 
+    path: '/blog/:id',  //* треба передавати id дочірньої сторінки
+    name: 'BlogOne',
+    component: () => import('../views/blog/One.vue')
   }
 ]
 

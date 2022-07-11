@@ -3,8 +3,8 @@
         <div class="container-fluid">
             <div class="row no-gutter">
                 <div v-for="(item, index) in worksComponentData" :key="index" class="col-lg-3 col-md-6 col-sm-6 work">
-                    <a :href="require(`@/assets/images/${item.img}`)" class="work-box" @click.prevent="showImage(item.img)">
-                        <img :src="require(`@/assets/images/${item.img}`)" :alt="item.title">
+                    <a :href="require('@/assets/images/'+item.img)" class="work-box" @click.prevent="showImage(item.img)">
+                        <img :src="require(`@/assets/images/`+item.img)" :alt="item.title">
                         <div class="overlay">
                             <div class="overlay-caption">
                                 <h5>{{ item.title }}</h5>

@@ -8,10 +8,9 @@
 
 export default {
     name: "BlogOne",
-    // components: { BlogList }
     data(){
         return {
-            title: 'One',
+            title: 'One article',
         }
     },
     created(){
