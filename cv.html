@@ -196,10 +196,31 @@
             margin-right: 6px
         }
 
-        .education {
-            color: #9bb006;
-            font-weight: 700;
-            font-size: 1.2rem
+        .exp-item-skills-sumarry a {
+            color: #839313;
+        }
+
+        .exp-item-skills-sumarry ul {
+            list-style: inside;
+            margin-left: 30px;
+            margin-bottom: 10px;
+        }
+
+        .summary .content{
+            padding: 25px 50px;
+        }
+
+        .summary p, ul{
+           font-size: 14px;
+           margin-bottom: 5px;
+        }
+
+      
+
+        .summary .exp-item-company {
+            margin-bottom: 10px;
+            color: #2E3330;
+
         }
 
         .education-item {
@@ -311,12 +332,92 @@
         .bar-10 {
             width: 100%
         }
+
+        @media screen and (max-width: 900px) {
+
+            .body-wrap,
+            .page-wrap {
+                width: 100%;
+            }
+
+            .main.page-wrap {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .side-bar {
+                width: 100%;
+                display: flex;
+
+            }
+
+            .photo .image-wrap {
+                width: 200px;
+            }
+
+            .side-bar .side-bar-wrap {
+                display: flex;
+                justify-content: space-between;
+                padding: 20px;
+            }
+
+        }
+
+
+        @media screen and (max-width: 768px) {
+
+            .body-wrap,
+            .page-wrap {
+                width: 100%;
+            }
+
+            .main.page-wrap {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .side-bar {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .side-bar .side-bar-wrap {
+                flex-direction: column;
+            }
+
+            .photo .image-wrap {
+                width: 50%;
+                margin: 0 auto;
+                padding-top: 10%;
+            }
+
+            .icon-calendar {
+                display: none;
+            }
+
+            .education p {
+                font-size: 1rem;
+            }
+
+            .education-item-duration {
+                flex-basis: 52%;
+            }
+
+            .skill-name {
+                min-width: 100px;
+            }
+        }
     </style>
 </head>
 
 <body>
     <div class="body-wrap">
-        <div class="page-wrap">
+        <div class="page-wrap main">
             <section class="side-bar">
                 <div class="photo">
                     <div class="image-wrap">
@@ -382,7 +483,8 @@
                         </div>
                         <div class="exp-item-link"><a href="https://www.drivenadvantage.com" target="_blank"
                                 rel="noreferrer noopener">https://drivenadvantage.com</a></div>
-                        <div class="exp-item-skills"></div>
+                        <div class="exp-item-skills">Skills: Front-End Development · JS · HTML · CSS(LESS) · RWD · REST
+                            API · JAVA (SAP Hybris) · Google Analytics · Figma · Jira</div>
                     </div>
                     <div class="exp-item">
                         <div class="exp-item-head">
@@ -396,7 +498,8 @@
                         </div>
                         <div class="exp-item-link"><a href="https://petspatrol.com.ua" target="_blank"
                                 rel="noreferrer noopener">https://petspatrol.com.ua</a></div>
-                        <div class="exp-item-skills"></div>
+                        <div class="exp-item-skills">Skills: Front-End Development · JS · HTML · CSS(SASS) · RWD · Git ·
+                            Figma · Jira</div>
                     </div>
                     <div class="exp-item">
                         <div class="exp-item-head">
@@ -409,9 +512,8 @@
                             <p class="icon icon-location"></p>Helsinki, Uusimaa, Finland
                         </div>
                         <div class="exp-item-link"></div>
-                        <div class="exp-item-skills">Skills: HTML · CSS · Adobe Photoshop · Quality Assurance · Content
-                            Management
-                        </div>
+                        <div class="exp-item-skills">Skills: JS · HTML5 · CSS(LESS) · Adobe Photoshop · Quality
+                            Assurance · Content Management</div>
                     </div>
                     <div class="exp-item">
                         <div class="exp-item-head">
@@ -650,8 +752,154 @@
                 </div>
             </section>
         </div>
-    </div>
 
+
+        <div class="page-wrap summary">
+            <section class="content">
+                <div class="experience">
+                    <h2>Summary of qualifications</h2>
+                    <div class="exp-item exp-item-sumarry">
+                        <div class="exp-item-head">
+                            <div class="exp-item-company"><b>Tech Mates Group</b></div>
+                            <div class="exp-item-duration">
+                                <p>Jul 2022 - Aprl 2024</p>
+                                <p class="icon icon-calendar"></p>
+                            </div>
+                        </div>
+                        <div class="exp-item-skills exp-item-skills-sumarry">
+                            <p>
+                                During my work on the large-scale business project driven by JAVA (SAP Hybris) called
+                                <a href="https://www.drivenadvantage.com" target="_blank"
+                                    rel="noreferrer noopener">drivenadvantage</a>,
+                                I was involved in a wide range of tasks covering various aspects of web application
+                                development and optimization.
+                            </p>
+                            <p>
+                                My experience included developing new functionality using technologies such as
+                                JavaScript, HTML, and CSS (LESS). Additionally, I conducted code refactoring, optimizing
+                                and, when necessary, fully replacing outdated project code.
+                            </p>
+                            <p>
+                                One of my key tasks was implementing Google Analytics tracking to monitor user behavior
+                                on the website. This involved configuring tracking methods and ensuring proper
+                                integration with existing functionality.
+                            </p>
+                            <p>
+                                My responsibilities also included implementing and testing bug fixes, as well as
+                                developing and deploying new functionality to improve website performance.
+                            </p>
+                            <ul>
+                                <p>This includes:</p>
+                                <li>Working with data caching from REST APIs and integrating with Google Analytics into
+                                    local storage.</li>
+                                <li>Frontend modifications for coupon and discount systems.</li>
+                                <li>Unique animations using JS and CSS for the project's landing page.</li>
+                                <li>Form validation and interactive error notifications.</li>
+                                <li>Implementing JS carousels, sliders, and banners.</li>
+                            </ul>
+                            <p>
+                                Additionally, communication and collaboration with various teams within the large
+                                project were part of my duties. This involved daily work planning in daily stand-up
+                                meetings, sprint planning, and task discussions in grooming and retrospectives.
+                                Moreover, I actively communicated with the backend team, QA team, designers, and
+                                client's top management to coordinate and ensure the successful implementation of the
+                                project
+                            </p>
+                        </div>
+                    </div>
+                    <div class="exp-item exp-item-sumarry">
+                        <div class="exp-item-head">
+                            <div class="exp-item-company"><b>UNi-OPS</b></div>
+                            <div class="exp-item-duration">May - Jul 2022<span class="icon icon-calendar"></span></div>
+                        </div>
+                
+                        <div class="exp-item-skills exp-item-skills-sumarry">
+                            <p> While working on the petspatrol project, I was the head of Frontend development in a
+                                team of 7 people. For a website using PHP (UI2 framework), jQuery, HTML and SASS, I was
+                                responsible for managing and executing a series of key tasks.
+                            </p>
+                            <p>
+                                My primary responsibility involved developing the frontend portion of the website,
+                                which includes creating a user-friendly and aesthetically pleasing interface while
+                                ensuring its responsiveness across various devices and screen sizes.
+                            </p>
+                            <p>
+                                Additionally, I actively collaborated with various project stakeholders, including
+                                clients, project managers, technical leads, backend developers, and designers, to
+                                facilitate effective communication and team collaboration to achieve set goals.
+                            </p>
+
+                        </div>
+                    </div>
+                    <div class="exp-item exp-item-sumarry">
+                        <div class="exp-item-head">
+                            <div class="exp-item-company"><b>Lumi Polar</b></div>
+                            <div class="exp-item-duration">Jan 2021 - Jan 2022<span class="icon icon-calendar"></span>
+                            </div>
+                        </div>
+                       
+
+                        <div class="exp-item-skills exp-item-skills-sumarry">
+                            <p>
+                                In my role as one of the frontend developers on the team of 7, I participated in the
+                                website
+                                migration process and the development of new functionality to optimize its performance
+                                and meet user needs. As part of these tasks, I also contributed to the implementation of
+                                localization in seven languages, which expanded the audience reach and improved
+                                usability for users in different regions
+                            </p>
+                            <p>
+                                Following the successful implementation of these tasks, I continued to contribute to the
+                                project's maintenance, including functional testing and the development of new
+                                components such as sliders and carousels, aiming to enhance user experience and align
+                                with modern web design trends.
+                            </p>
+                            <p>
+                                My responsibilities also involved working with data, graphics, and databases. I actively
+                                engaged with clients and project managers, ensuring clear communication and compliance
+                                with requirements.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="exp-item exp-item-sumarry">
+                        <div class="exp-item-head"> 
+                            <div class="exp-item-company"><b>Outlier</b></div>
+                            <div class="exp-item-duration">Jan 2014 - Jan 2021<span class="icon icon-calendar"></span>
+                            </div>
+                        </div>
+                    
+
+                        <div class="exp-item-skills exp-item-skills-sumarry">
+                            <p>
+                                While working in a team of 15 team members, I've had successful experience in developing
+                                over 50 websites
+                                for different clients in the small and medium business sector. My skills span the use of
+                                various technologies, including JavaScript, HTML, CSS(SCSS, SASS), and PHP, aimed at
+                                creating
+                                user-friendly and aesthetically pleasing interfaces (UI/UX).
+                            </p>
+                            <p>
+                                One of my key tasks was developing responsive design for websites to ensure their proper
+                                display on various devices and screen sizes.
+                                Additionally, I actively participated in migration processes, development of new
+                                features, and support of existing projects.
+                            </p>
+                            <p>
+                                My work within the developer team included conducting meetings with clients, designers,
+                                and other project businass ovners for effective communication and ensuring high-quality
+                                results. Moreover, I have experience working with Git for version control and SQL
+                                databases for storing and processing information.
+                            </p>
+                            <p>
+                                Furthermore, my skills in using graphic editors such as Adobe Photoshop, Illustrator,
+                                and Figma allowed me to collaborate effectively with designers and maintain a high level
+                                of visual quality in projects.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
 </body>
 
 </html>
