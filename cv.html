@@ -76,7 +76,7 @@
 
         .page-wrap {
             width: 940px;
-            margin: 40px auto;
+            margin: 50px auto;
             display: flex;
             background: #f7f7f9;
             box-shadow: 0 0 10px rgba(0, 0, 0, .5)
@@ -151,7 +151,7 @@
         }
 
         .content {
-            padding: 50px
+            padding: 50px 50px 70px
         }
 
         .exp-item {
@@ -183,7 +183,8 @@
 
         .exp-item-company {
             color: #839313;
-            font-size: 1.1rem
+            font-size: 1.1rem;
+            font-weight: 700;
         }
 
         .exp-item-city {
@@ -206,32 +207,51 @@
             margin-bottom: 10px;
         }
 
-        .summary .content{
+        .summary .content {
             padding: 25px 50px;
         }
 
-        .summary p, ul{
-           font-size: 14px;
-           margin-bottom: 5px;
+        .summary p,
+        ul {
+            font-size: 14px;
+            margin-bottom: 5px;
         }
 
-      
-
-        .summary .exp-item-company {
-            margin-bottom: 10px;
-            color: #2E3330;
-
+        .summary .exp-item-position {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px
         }
 
         .education-item {
             display: flex;
+            justify-content: space-between;
             margin-bottom: 10px
+        }
+
+        .education-item-inst {
+            color: #839313;
+            font-weight: 700;
+            font-size: 1rem
         }
 
         .education-item-duration {
             text-align: right;
             color: #a4a4a4;
-            flex-basis: 28%
+            flex-basis: 28%;
+            font-weight: 700;
+        }
+
+        .summary .exp-item-company {
+            font-size: 1rem;
+            color: #2E3330;
+
+        }
+
+        .summary h2{
+            font-size: 1.2rem;
+            line-height: 1.4rem;
+            margin-bottom: 10px;
         }
 
         .diploma {
@@ -274,6 +294,7 @@
         .icon-calendar {
             background-image: url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 12h4v4h-4zM16 12h4v4h-4zM22 12h4v4h-4zM4 24h4v4h-4zM10 24h4v4h-4zM16 24h4v4h-4zM10 18h4v4h-4zM16 18h4v4h-4zM22 18h4v4h-4zM4 18h4v4h-4zM26 0v2h-4v-2h-14v2h-4v-2h-4v32h30v-32h-4zM28 30h-26v-22h26v22z' fill='%23a4a4a4'/%3E%3C/svg%3E%0A")
         }
+
 
         .skills-list {
             width: 100%;
@@ -812,7 +833,7 @@
                             <div class="exp-item-company"><b>UNi-OPS</b></div>
                             <div class="exp-item-duration">May - Jul 2022<span class="icon icon-calendar"></span></div>
                         </div>
-                
+
                         <div class="exp-item-skills exp-item-skills-sumarry">
                             <p> While working on the petspatrol project, I was the head of Frontend development in a
                                 team of 7 people. For a website using PHP (UI2 framework), jQuery, HTML and SASS, I was
@@ -837,7 +858,7 @@
                             <div class="exp-item-duration">Jan 2021 - Jan 2022<span class="icon icon-calendar"></span>
                             </div>
                         </div>
-                       
+
 
                         <div class="exp-item-skills exp-item-skills-sumarry">
                             <p>
@@ -862,12 +883,12 @@
                         </div>
                     </div>
                     <div class="exp-item exp-item-sumarry">
-                        <div class="exp-item-head"> 
+                        <div class="exp-item-head">
                             <div class="exp-item-company"><b>Outlier</b></div>
                             <div class="exp-item-duration">Jan 2014 - Jan 2021<span class="icon icon-calendar"></span>
                             </div>
                         </div>
-                    
+
 
                         <div class="exp-item-skills exp-item-skills-sumarry">
                             <p>
